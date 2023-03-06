@@ -26,7 +26,7 @@ int main()
         keep_window_open();
         return 1;
     }
-    catch (...) //catches unchecked exceptions
+    catch (...) // catches unchecked exceptions
     {
         cerr << "Oops: unknown exception!" << endl;
         cout << "Enter an key to exit: ";
