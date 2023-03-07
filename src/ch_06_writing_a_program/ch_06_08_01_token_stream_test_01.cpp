@@ -1,3 +1,6 @@
+// first implementation of a Token_stream object to process Tokens as input for
+// a calculator program
+
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.h" // project header containing helper functions
@@ -25,27 +28,32 @@ using namespace std;  // add names from std namespace to global namespace
  */
 
 // Token: <kind, value>
+// represents a unit in a calculator's grammar
 class Token {
-    public:
-        char kind;      // what kind of token
-        double value;   // for numbers: a value
+public:
+    char kind;      // what kind of token
+    double value;   // for numbers: a value
 
-        Token(char ch)  // make a Token from a char
-            : kind(ch), value(0) {  }
+    // constructor for operators and non-numeric values
+    Token(char ch)  // make a Token from a char
+        : kind(ch), value(0) {  }
 
-        Token(char ch, double val)  // make a Token from a char and a double
-            : kind(ch), value(val) {  }
+    // constructor for numeric values
+    Token(char ch, double val)  // make a Token from a char and a double
+        : kind(ch), value(val) {  }
 };
 
+// A Token_stream object reads characters from stdin and presents the program
+// with the next token when it asks for it
 class Token_stream {
-    public:
-        Token_stream(); // default constructor
-        Token get();    // get a Token <kind, val>
-        void putback(Token t);  // put a Token <kind, val> back
+public:
+    Token_stream(); // default constructor
+    Token get();    // get a Token <kind, val>
+    void putback(Token t);  // put a Token <kind, val> back
 
-    // private:
-        bool full;      // is there a Token in the buffer?
-        Token buffer;   // stores a Token put back (returned) from putback()
+// private:
+    bool full;      // is there a Token in the buffer?
+    Token buffer;   // stores a Token put back (returned) from putback()
 };
 
 // construct a Token_stream that indicates that the buffer is empty

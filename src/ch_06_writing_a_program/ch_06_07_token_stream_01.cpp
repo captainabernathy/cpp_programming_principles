@@ -1,3 +1,8 @@
+// An ad-hoc calculator program that uses a Token_stream object to process the
+// Tokens it receives
+//
+// NOTE: This program and ch_06_09_token_stream_02 are the same
+
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.h" // project header containing helper functions
@@ -25,72 +30,77 @@ using namespace std;  // add names from std namespace to global namespace
  */
 
 // Token: <kind, value>
+// represents a unit in a calculator's grammar
 class Token {
-    public:
-        char kind;          // what kind of token
-        double value;       // for numbers: a value
+public:
+    char kind;          // what kind of token
+    double value;       // for numbers: a value
 
-        Token(char ch)      // make a Token from a char
-            : kind(ch), value(0) {  }
+    // constructor for operators and non-numeric values
+    Token(char ch)      // make a Token from a char
+        : kind(ch), value(0) { }
 
-        Token(char ch, double val)  // make a Token from a char and a double
-            : kind(ch), value(val) {  }
+    // constructor for numeric values
+    Token(char ch, double val) // make a Token from a char and a double
+        : kind(ch), value(val) { }
 };
 
+// A Token_stream object reads characters from stdin and presents the program
+// with the next token when it asks for it
 class Token_stream {
-    public:
-        Token_stream();         // defalt constructor
-        Token get();            // get a Token <kind, val>
-        void putback(Token t);  // put a Token <kind, val> back
+public:
+    Token_stream(); // make a Token_stream that reads from cin
+    Token get(); // get a Token <kind, value>
+    void putback(Token t); // put a Token <kind, value> back
 
-    private:
-        bool full;          // is there a Token in the buffer?
-        Token buffer;       // stores a Token put back (returned) from putback()
+private:
+    bool full; // is there a Token in the buffer?
+    Token buffer; // stores a Token put back (returned) from putback()
 };
 
-// construct a Token_stream that indicates that the buffer is empty
+// constructor initializes a Token_stream to full to indicate the buffer is empty
 Token_stream::Token_stream()
-    : full(false), buffer(0) {  }
+    : full(false), buffer(0) { }
 
-// putback() member function puts its argument back into Token_stream's buffer
+// putback() member function puts its argument back into a Token_stream's buffer
 void Token_stream::putback(Token t)
 {
-    if (full)  // we can't put a token back into a full Token_stream
+    if (full) // we can't put a token back into a full Token_stream
         error("putback() into a full buffer");
-    buffer = t; // write t <kind, val> to Token_stream's buffer
+    buffer = t; // write t <kind, value> to Token_stream's buffer
     full = true; // indicate Token_stream is full
 }
 
-// get() returns a Token <kind, val> from a Token_stream
+// get() returns a Token <kind, value> from a Token_stream
 Token Token_stream::get()
 {
-    if (full)    // do we already have a Token ready?
+    if (full) // do we already have a Token ready?
     {
-        full = false; // indicate buffer is empty
-        return buffer;  // return  Token_stream's buffer (Token<kind, value>)
+        full = false; // indicate buffer is not full
+        return buffer; // return  Token_stream's buffer (Token<kind, value>)
     }
 
     char ch;
-    cin >> ch; // read character
+    cin >> ch; // cin skips whitespace (' ', '\t', '\n', etc)
 
     // evaluate character
     switch (ch)
     {
         // let each of these characters represent itself
-        case ';': // for "print"
-        case 'q': // for "quit"
+        case ';': // for print
+        case 'q': // for quit
         case '(': case ')': case '+': case '-': case '*': case '/':
             return Token(ch); // return new Token<ch, 0>
         // numeric characters
         case '.': case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
             {
-                // put numeric Token<ch, val>  back into input stream
+                // put numeric Token<ch, val> back into input stream
                 cin.putback(ch);
                 double val;
-                cin >> val;             // read floating-point number
+                cin >> val; // read floating-point number
                 // let '8' represent "a number"
-                return Token('8', val); // return Token<'8', val>
+                return Token('8', val); // return new Token<'8', val>
             }
         // unrecognized token
         default:
@@ -107,7 +117,7 @@ double expression(); // forward declaration so primary() can call expression()
 // In grammar...
 // Primary:
 //  Number
-//  "(" Expresion ")"
+//  "(" Expression ")"
 double primary()
 {
     // read a Token <kind, val> from Token_stream ts's buffer into t
@@ -122,10 +132,10 @@ double primary()
                 // expression() puts a ')' back into Token_stream back after
                 // reading an expression
                 double d = expression(); // evaluate expression in parentheses
-                 
+
                 // read a Token <kind, val> from Token_stream ts's buffer into t
                 t = ts.get();
-                             
+
                 // expression must end with a closed parentheses
                 if (t.kind != ')')
                     error("')' expected"); // invalid expression
@@ -148,7 +158,7 @@ double primary()
 double term()
 {
     // NOTE: primary can be either a Number or "(" Expression ")"
-    double lhs = primary();
+    double lhs = primary(); // read next token from stream <kind, val>
 
     // read a Token <kind, val> from Token_stream ts's buffer into t
     Token t = ts.get();
@@ -161,7 +171,7 @@ double term()
             case '*': // multiplication
                 // multiply lhs by rhs and store result in lhs
                 lhs *= primary();  // Number or "(" Expression ")"
-                
+
                 // read a Token <kind, val> from Token_stream ts's buffer into t
                 t = ts.get();
                 break;
@@ -190,7 +200,7 @@ double term()
     }
 }
 
-// expression() deals with +, -
+// expression() deals with + and -
 // In grammar...
 // Expression:
 //  Term
@@ -201,7 +211,7 @@ double expression()
     // NOTE: term can be either a Primary, a Term * a Primary, or
     // a Term / a Primary
     double lhs = term(); // term() returns lhs of a primary() (a double value)
-    
+
     // read a Token <kind, val> from Token_stream ts's buffer into t
     Token t = ts.get();
 
@@ -213,7 +223,7 @@ double expression()
                 // add lhs to the primary() (double) returned from term() and
                 // store result in lhs
                 lhs += term();
-                
+
                 // read a Token <kind, val> from Token_stream ts's buffer into t
                 t = ts.get();
                 break;
@@ -221,7 +231,7 @@ double expression()
                 // subtract lhs from the primary() (double) returned from term()
                 // and store result in lhs
                 lhs -= term();
-                
+
                 // read a Token <kind, val> from Token_stream ts's buffer into t
                 t = ts.get(); // read next Token <kind, val>
                 break;
@@ -240,12 +250,12 @@ int main()
 
         while (cin)
         {
-            // read a Token <kind, val> from Token_stream ts into t
+            // read a Token <kind, value> from Token_stream ts into t
             Token t = ts.get();
 
-            if (t.kind == 'q')   // 'q' for quit
+            if (t.kind == 'q') // 'q' for quit
                 return 0;
-            if (t.kind == ';')   // ';' for print
+            if (t.kind == ';') // ';' for print
                 cout << "=" << val << endl;
             else
                 // put t<kind, value> back into Token_stream ts's buffer and

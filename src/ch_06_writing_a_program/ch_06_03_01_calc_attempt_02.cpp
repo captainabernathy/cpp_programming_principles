@@ -1,3 +1,10 @@
+// second attempt at writing a calculator program.
+//
+// program can perform addition, subtraction, multiplication, and division, but
+// program cannot handle expressions that contain multiple terms (ie: 1+2+3).
+// program does not perform any input validation, and program cannot handle
+// operator precedence or parenthetical expressions.
+
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.h" // project header containing helper functions
