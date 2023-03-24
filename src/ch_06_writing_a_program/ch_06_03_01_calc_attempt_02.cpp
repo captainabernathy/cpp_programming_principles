@@ -7,7 +7,7 @@
 
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
-#include "std_lib_facilities.h" // project header containing helper functions
+#include "std_lib_facilities.hpp" // project header containing helper functions
 using namespace std;  // add names from std namespace to global namespace
 
 int main()

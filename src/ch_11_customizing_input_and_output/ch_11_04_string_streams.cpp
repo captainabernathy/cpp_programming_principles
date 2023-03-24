@@ -6,7 +6,7 @@
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <fstream> // file I/O library
 #include <sstream> // provides stream classes for operating on strings
-#include "std_lib_facilities.h" // project header containing header functions
+#include "std_lib_facilities.hpp" // project header containing header functions
 using namespace std;  // add names from std namespace to global namespace
 
 // function that converts the characters in s to a double and returns it

@@ -1,7 +1,7 @@
 // program demonstrates the use of enums to define symbolic constants
 
 #include <iostream> // I/O library header
-#include "std_lib_facilities.h" // project header containing helper functions
+#include "std_lib_facilities.hpp" // project header containing helper functions
 using namespace std;  // add names from std namespace to global namespace
 
 // enum defining symbolic constants for months

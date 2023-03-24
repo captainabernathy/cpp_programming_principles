@@ -13,7 +13,7 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <string> // string library header
-#include "std_lib_facilities.h" // project header containing helper functions
+#include "std_lib_facilities.hpp" // project header containing helper functions
 using namespace std;  // add names from std namespace to global namespace
 
 // utility function for recovering after seeing a bad/unexpected character
