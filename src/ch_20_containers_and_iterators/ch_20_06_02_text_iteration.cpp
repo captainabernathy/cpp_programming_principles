@@ -1,7 +1,11 @@
 // program implements a text iterator object to keep track of line and
 // character position within a line when reading a document
-//
-// NOTE: author does not provide an example to test program
+// program implements a data structure that represents a document as
+// a collection of lines
+// program also implements a function to find text within a document as well as
+// another function to determine if the characters between two text iterators
+// match a string
+
 #include <iostream> // I/O library header
 #include <vector>  // vector library header
 #include <string> // string library header
@@ -13,7 +17,7 @@ using Line = std::vector<char>;  // same as typdef vector<char> Line;
 
 // keeps track of line and character position within a line
 class Text_iterator {
-    // std::list<std::vector<char>>::iterator line_iterator;
+    // std::list<std::vector<char>>::iterator line_iter;
     std::list<Line>::iterator line_iter;
     // std::vector<char>::iterator position_iter;
     Line::iterator position_iter;
@@ -35,7 +39,7 @@ public:
         : line_iter{line_itr}, position_iter{pos_itr}
     {  }
 
-    // dereference operator... returns the value of the character at
+    // dereference operator... returns a reference to the character at
     // position_iter
     // char& operator*()
     reference operator*()
@@ -49,8 +53,12 @@ public:
     
     // equality operator... Text_iterators are equal when their line_iterators
     // and position_iterators are equal
-    bool operator==(Text_iterator const& rhs) const;
-    
+    bool operator==(Text_iterator const& rhs) const
+    {
+        return (line_iter == rhs.line_iter)
+                && (position_iter == rhs.position_iter);
+    }
+
     // inequality operator... true with ^^^ isn't
     bool operator!=(Text_iterator const& rhs) const
     {
@@ -76,36 +84,34 @@ Text_iterator& Text_iterator::operator++()
     return *this;
 }
 
-bool Text_iterator::operator==(Text_iterator const& rhs) const
-{
-    return (line_iter == rhs.line_iter) && (position_iter == rhs.position_iter);
-}
-
-/// data structure that represents a document as a list of lines
+// data structure that represents a document as a list of lines
 struct Document {
-    std::list<Line> line;
+    std::list<Line> lines;
 
     // constructor... adds an empty line to the list of lines
     Document()
     {
-        line.push_back(Line());
+        lines.push_back(Line());
     }
 
     // returns an Text_iterator that begins at the first character of the first
     // line
     Text_iterator begin()
     {
-        return Text_iterator(line.begin(), line.begin()->begin());
+        return Text_iterator(lines.begin(), lines.begin()->begin());
     }
 
-    // returns a Text_iterator one beyond the last character of the last line
+    // returns a Text_iterator to one beyond the last character of the last line
     Text_iterator end()
     {
-        std::list<Line>::iterator last = line.end();
+        std::list<Line>::iterator last = lines.end();
         --last; // since we know that the document isn't empty
         return Text_iterator(last, last->end());
     }
 };
+
+// overloaded input operator to read Document d from input stream is
+std::istream& operator>>(std::istream& is, Document& d);
 
 // writes the lines of text in Document d to stdout
 inline void print(Document& d)
@@ -133,9 +139,9 @@ T advance(T t, int n)
 // removes line n from Document d
 inline void erase_line(Document &d, int n)
 {
-    if (n < 0 || d.line.size() <= (size_t)n)
+    if (n < 0 || d.lines.size() <= (size_t)n)
         return;  // ignore out-of-range lines
-    d.line.erase(advance(d.line.begin(), n));
+    d.lines.erase(advance(d.lines.begin(), n));
 }
 
 // determines if the text between first and last match the string s
@@ -150,18 +156,42 @@ Text_iterator find_text(Text_iterator first, Text_iterator last,
 int main()
 {
     Document my_doc;
+    std::cout << "Enter lines of text or press CTRL-D to exit." << std::endl;
+    std::cin >> my_doc;
     Text_iterator p = find_text(my_doc.begin(), my_doc.end(),
                                 "secret\nhomestead");
+
+    std::cout << std::endl;
+
     if (p == my_doc.end())
         std::cout << "not found" << std::endl;
     else
     {
-        // do something
+        std::cout << "found: secret\nhomestead" << std::endl << std::endl;
     }
 
     print(my_doc);
-
+    std::cout << std::endl;
     return 0;
+}
+
+// overloaded input operator to read Document d from input stream is
+std::istream& operator>>(std::istream& is, Document& d)
+{
+    char ch;
+    while (is.get(ch))
+    {
+        // NOTE: back() returns a reference to the last element
+        d.lines.back().push_back(ch); // add character
+
+        if (ch == '\n')
+            d.lines.push_back(Line{}); // add another line
+    }
+
+    if (d.lines.back().size()) // add final empty line if there are characters
+        d.lines.push_back(Line{}); // in the last line
+
+    return is;
 }
 
 bool match(Text_iterator first, Text_iterator last, std::string const& s)
