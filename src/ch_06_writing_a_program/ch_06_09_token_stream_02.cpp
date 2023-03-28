@@ -161,7 +161,7 @@ Token Token_stream::get()
         case '.': case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
             {
-                // put numeric Token<ch, val> back into input stream
+                // put numeric character back into input stream
                 cin.putback(ch);
                 double val;
                 cin >> val; // read floating-point number
