@@ -4,7 +4,7 @@
 // NOTE: This program and ch_06_07_token_stream_01 are the same
 
 #include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
+#include <stdexcept> // provides classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
 using namespace std;  // add names from std namespace to global namespace
 
