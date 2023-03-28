@@ -35,7 +35,7 @@ public:
     double value;   // for numbers: a value
 
     // constructor for operators and non-numeric values
-    Token(char ch)  // make a Token from a char
+    explicit Token(char ch)  // make a Token from a char
         : kind(ch), value(0) {  }
 
     // constructor for numeric values
@@ -47,8 +47,13 @@ public:
 // with the next token when it asks for it
 class Token_stream {
 public:
-    Token_stream(); // default constructor
+    // constructor initializes a Token_stream to full to indicate the buffer is
+    // empty
+    Token_stream() // default constructor
+        : full(false), buffer(0) {  }
+    
     Token get();    // get a Token <kind, val>
+    
     void putback(Token t);  // put a Token <kind, val> back
 
 // private:
@@ -56,18 +61,6 @@ public:
     Token buffer;   // stores a Token put back (returned) from putback()
 };
 
-// construct a Token_stream that indicates that the buffer is empty
-Token_stream::Token_stream()
-    : full(false), buffer(0) {  }
-
-// putback() member function puts its argument back into Token_stream's buffer
-void Token_stream::putback(Token t)
-{
-    if (full) // we can't put a token back into a full Token_stream
-        error("putback() into a full buffer");
-    buffer = t;     // write t <kind, val> to Token_stream's buffer;
-    full = true;    // indicate Token_stream is full
-}
 
 int main()
 {
@@ -82,7 +75,7 @@ int main()
             << "full: " << ts.full << endl;
 
         // put Token <')', ascii_val> into Token_stream ts
-        ts.putback(')');
+        ts.putback(Token(')'));
         
         // kind: ASCII for ), value: ASCII for ), full: true
         cout << "kind: " << ts.buffer.kind << " "
@@ -101,4 +94,13 @@ int main()
     }
 
     return 0;
+}
+
+// putback() member function puts its argument back into Token_stream's buffer
+void Token_stream::putback(Token t)
+{
+    if (full) // we can't put a token back into a full Token_stream
+        error("putback() into a full buffer");
+    buffer = t;     // write t <kind, val> to Token_stream's buffer;
+    full = true;    // indicate Token_stream is full
 }

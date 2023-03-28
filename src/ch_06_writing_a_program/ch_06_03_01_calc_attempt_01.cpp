@@ -2,7 +2,7 @@
 //
 // program can only handle expressions of the form lval +/- rval.
 // program does not handle multiplication and division, and cannot handle
-// complex expressions (ie:1+2+3).
+// complex expressions (ie: 1+2+3).
 
 #include <iostream> // I/O library header
 using namespace std;  // add names from std namespace to global namespace

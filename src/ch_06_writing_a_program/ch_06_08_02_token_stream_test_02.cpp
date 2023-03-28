@@ -2,7 +2,7 @@
 // for a calculator program
 
 #include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
+#include <stdexcept> // provides classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
 using namespace std;  // add names from std namespace to global namespace
 
@@ -35,7 +35,7 @@ public:
     double value;       // for numbers: a value
 
     // constructor for operators and non-numeric values
-    Token(char ch)      // make a Token from a char
+    explicit Token(char ch)      // make a Token from a char
         : kind(ch), value(0){  }
 
     // constructor for numeric values
@@ -47,8 +47,12 @@ public:
 // with the next token when it asks for it
 class Token_stream {
 public:
-    Token_stream();         // make a Token_stream that reads from cin
+    // construct a Token_stream that indicates that the buffer is empty
+    Token_stream()         // make a Token_stream that reads from cin
+        : full(false), buffer(0){  }
+
     Token get();            // get a Token <kind, val>
+
     void putback(Token t);  // put a Token <kind, val> back
 
 // private:
@@ -56,9 +60,49 @@ public:
     Token buffer;       // stores a Token put back (returned) from putback()
 };
 
-// construct a Token_stream that indicates that the buffer is empty
-Token_stream::Token_stream()
-    : full(false), buffer(0){  }
+int main()
+{
+    try
+    {
+        Token_stream ts; // create a Token_stream
+       
+        // kind: 0, value: 0, full: 0
+        cout << "kind: " << ts.buffer.kind << " "
+            << "value: " << ts.buffer.value << " "
+            << "full: " << ts.full << endl;
+
+        Token t(')'); // create a token
+        ts.putback(t); // put token back into Token_stream t
+
+        // kind: ASCII for ), value: ASCII for ), full: true
+        cout << "kind: " << ts.buffer.kind << " "
+            << "value: " << ts.buffer.value << " "
+            << "full: " << ts.full << endl;
+
+        // read token from Token_stream t's Token buffer
+        Token u = ts.get();
+
+        // kind: ASCII for ), value: ASCII for ), full: false
+        cout << "kind: " << ts.buffer.kind << " "
+            << "value: " << ts.buffer.value << " "
+            << "full: " << ts.full << endl;
+
+        // test Token t and u's attributes for equality
+        // if (u.kind != t.kind || u.value != t.value)
+        if (!(u.kind == t.kind && u.value == t.value))
+            error("Error in token stream logic");
+    }
+    catch (exception& ex)
+    {
+        cerr << "error: " << ex.what() << endl;
+        return 1;
+    }
+    catch (...)
+    {
+        cerr << "Oops: unknown exception!" << endl;
+        return 2;
+    }
+}
 
 // putback() member function puts its argument back into Token_stream's buffer
 void Token_stream::putback(Token t)
@@ -103,49 +147,5 @@ Token Token_stream::get()
         // unrecognized token
         default:
             error("Bad token");
-    }
-}
-
-int main()
-{
-    try
-    {
-        Token_stream ts; // create a Token_stream
-       
-        // kind: 0, value: 0, full: 0
-        cout << "kind: " << ts.buffer.kind << " "
-            << "value: " << ts.buffer.value << " "
-            << "full: " << ts.full << endl;
-
-        Token t(')'); // create a token
-        ts.putback(t); // put token back into Token_stream t
-
-        // kind: ASCII for ), value: ASCII for ), full: true
-        cout << "kind: " << ts.buffer.kind << " "
-            << "value: " << ts.buffer.value << " "
-            << "full: " << ts.full << endl;
-
-        // read token from Token_stream t's Token buffer
-        Token u = ts.get();
-
-        // kind: ASCII for ), value: ASCII for ), full: false
-        cout << "kind: " << ts.buffer.kind << " "
-            << "value: " << ts.buffer.value << " "
-            << "full: " << ts.full << endl;
-
-        // test Token t and u's attributes for equality
-        // if (u.kind != t.kind || u.value != t.value)
-        if (!(u.kind == t.kind && u.value == t.value))
-            error("Error in token stream logic");
-    }
-    catch (exception& ex)
-    {
-        cerr << "error: " << ex.what() << endl;
-        return 1;
-    }
-    catch (...)
-    {
-        cerr << "Oops: unknown exception!" << endl;
-        return 2;
     }
 }
