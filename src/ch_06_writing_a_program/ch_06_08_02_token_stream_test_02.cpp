@@ -27,7 +27,6 @@ using namespace std;  // add names from std namespace to global namespace
  *     floating-point literal
  */
 
-// Token: <kind, value>
 // represents a unit in a calculator's grammar
 class Token {
 public:
@@ -52,15 +51,15 @@ public:
     Token_stream()         // make a Token_stream that reads from cin
         : full(false), buffer(0){  }
 
-    // get() returns a Token <kind, value> from this Token_stream
-    Token get();            // get a Token <kind, val>
+    // get() returns a Token from this Token_stream
+    Token get();            // get a Token
 
-    // putback() member function puts its argument back into this
+    // putback() member function puts a Token back into this
     // Token_stream's buffer
-    void putback(Token t);  // put a Token <kind, val> back
+    void putback(Token t);  // put a Token back
 
 // private:
-    bool full;          // is there a Token <kind, val> in the buffer?
+    bool full;          // is there a Token in the buffer?
     Token buffer;       // stores a Token put back (returned) from putback()
 };
 
@@ -108,22 +107,22 @@ int main()
     }
 }
 
-// putback() member function puts its argument back into Token_stream's buffer
+// putback() member function puts a Token back into this Token_stream's buffer
 void Token_stream::putback(Token t)
 {
     if (full) // we can't put a token back into a full Token_stream
         error("putback() into a full buffer");
-    buffer = t;     // write t <kind, val> into buffer
+    buffer = t;     // write t into buffer
     full = true;    // indicate Token_stream is full
 }
 
-// get() gets a Token <kind, val> from a Token_stream
+// get() gets a Token from this Token_stream
 Token Token_stream::get()
 {
     if (full)    // do we already have a Token ready?
     {
-        full = false; // indicate buffer is empty
-        return buffer; // return  Token_stream's buffer (Token<kind, value>)
+        full = false; // indicate this Token_stream's buffer is empty
+        return buffer; // return this Token_stream's buffer
     }
 
     char ch;
@@ -136,7 +135,7 @@ Token Token_stream::get()
         case ';':   // for "print"
         case 'q':   // for "quit"
         case '(': case ')': case '+': case '-': case '*': case '/':
-            return Token(ch);   // return new Token <ch,0>
+            return Token(ch);   // return a new Token
         // numeric characters
         case '.': case '0': case '1': case '2': case '3': case '4': case '5':
         case '6': case '7': case '8': case '9':
@@ -146,7 +145,7 @@ Token Token_stream::get()
                 double val;
                 cin >> val;     // read a floating-point number
                 // let '8' represent "a number"
-                return Token('8', val); // return Token<'8', val>
+                return Token('8', val); // return a new Token
             }
         // unrecognized token
         default:

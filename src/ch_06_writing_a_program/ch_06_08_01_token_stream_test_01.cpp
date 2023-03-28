@@ -27,7 +27,6 @@ using namespace std;  // add names from std namespace to global namespace
  *     floating-point literal
  */
 
-// Token: <kind, value>
 // represents a unit in a calculator's grammar
 class Token {
 public:
@@ -52,12 +51,12 @@ public:
     Token_stream() // default constructor
         : full(false), buffer(0) {  }
     
-    // get() returns a Token <kind, value> from this Token_stream
-    Token get();    // get a Token <kind, val>
+    // get() returns a Token from this Token_stream
+    Token get();    // get a Token
     
     // putback() member function puts its argument back into this
     // Token_stream's buffer
-    void putback(Token t);  // put a Token <kind, val> back
+    void putback(Token t);  // put a Token back
 
 // private:
     bool full;      // is there a Token in the buffer?
@@ -99,11 +98,11 @@ int main()
     return 0;
 }
 
-// putback() member function puts its argument back into Token_stream's buffer
+// putback() member function puts a Token back into this Token_stream's buffer
 void Token_stream::putback(Token t)
 {
     if (full) // we can't put a token back into a full Token_stream
         error("putback() into a full buffer");
-    buffer = t;     // write t <kind, val> to Token_stream's buffer;
-    full = true;    // indicate Token_stream is full
+    buffer = t;     // write t to this Token_stream's buffer;
+    full = true;    // indicate this Token_stream is full
 }
