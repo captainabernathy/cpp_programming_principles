@@ -49,16 +49,16 @@ public:
 // with the next token when it asks for it
 class Token_stream {
 public:
-    // constructor initializes a Token_stream to full to indicate the buffer is
-    // empty
+    // constructor initializes this Token_stream to full to indicate its
+    // buffer is empty
     Token_stream() // make a Token_stream that reads from cin
         : full(false), buffer(0) { }
    
-    // get() returns a Token <kind, value> from a Token_stream
+    // get() returns a Token <kind, value> from this Token_stream
     Token get(); // get a Token <kind, value>
     
-    // putback() member function puts its argument back into a Token_stream's
-    // buffer
+    // putback() member function puts its argument back into this
+    // Token_stream's buffer
     void putback(Token t); // put a Token <kind, value> back
 
 private:
