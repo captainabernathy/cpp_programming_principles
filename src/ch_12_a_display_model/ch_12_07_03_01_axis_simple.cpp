@@ -14,10 +14,10 @@ int main()
 
     try
     {
-        Point top_left(100, 100); // top-left corner
+        Point top_left {100, 100}; // top-left corner
 
         // build a window
-        Simple_window win(top_left, 600, 400, "Canvas");
+        Simple_window win {top_left, 600, 400, "Canvas"};
 
         
         // Axis is a shape
@@ -26,7 +26,7 @@ int main()
         // 280 pixels long
         // 10 notches
         // labeled "x axis"
-        Axis xa(Axis::x, Point(20, 300), 280, 10, "x axis");
+        Axis xa {Axis::x, {20, 300}, 280, 10, "x axis"};
         // xa.label.set_font_size(10);
 
         win.attach(xa); // attach Axis to window

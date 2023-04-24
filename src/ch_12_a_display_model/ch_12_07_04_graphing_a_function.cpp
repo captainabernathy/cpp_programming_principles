@@ -15,10 +15,10 @@ int main()
 
     try
     {
-        Point top_left(100, 100); // top left corner
+        Point top_left {100, 100}; // top left corner
 
         // build a window
-        Simple_window win(top_left, 600, 400, "Canvas");
+        Simple_window win {top_left, 600, 400, "Canvas"};
         
         // Axis is a Shape
         // Axis::x = horizontal
@@ -26,7 +26,7 @@ int main()
         // 280 pixels long
         // 10 notches
         // labeled "x axis"
-        Axis xa(Axis::x, Point(20, 300), 280, 10, "x axis");
+        Axis xa {Axis::x, {20, 300}, 280, 10, "x axis"};
 
         // attach Axis to window
         win.attach(xa);
@@ -38,13 +38,13 @@ int main()
         // 280 pixels long
         // 10 notches
         // labeled "y axis"
-        Axis ya(Axis::y, Point(20, 300), 280, 10, "y axis");
+        Axis ya {Axis::y, {20, 300}, 280, 10, "y axis"};
 
         // set y Axis color to cyan
-        ya.set_color(Color(Color::cyan));
+        ya.set_color(Color::cyan);
 
         // set y Axis label color to dark_red
-        ya.label.set_color(Color(Color::dark_red));
+        ya.label.set_color(Color::dark_red);
 
         // attach y Axis to window
         win.attach(ya);
@@ -54,7 +54,7 @@ int main()
         // using 1000 points
         // scale x values * 50
         // scale y values * 50
-        Function sine(sin, 0, 100, Point(20, 150), 1000, 50, 50);
+        Function sine {sin, 0, 100, {20, 150}, 1000, 50, 50};
 
         // attach Function to window
         win.attach(sine);

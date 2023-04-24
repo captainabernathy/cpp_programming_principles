@@ -14,10 +14,10 @@ int main()
 
     try
     {
-        Point top_left(100, 100); // top left
+        Point top_left {100, 100}; // top left
 
         // build a window
-        Simple_window win(top_left, 600, 400, "Canvas");
+        Simple_window win {top_left, 600, 400, "Canvas"};
         win.wait_for_button(); // give control to display engine
     }
     catch (exception& ex)
