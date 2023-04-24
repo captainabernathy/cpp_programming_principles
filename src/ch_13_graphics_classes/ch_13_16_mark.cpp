@@ -1,4 +1,4 @@
-// program demonstrates how to use the graphics library's Mark object
+// program demonstrates how to use the graphics library's Mark class
 
 #include "Simple_window.hpp" // provides access to our simple window library
 #include "Graph.hpp" // provides access to our graphics library
