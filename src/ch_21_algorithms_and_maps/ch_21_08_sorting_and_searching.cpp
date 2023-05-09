@@ -1,6 +1,6 @@
 // program implements a function object for performing case-insensitive
 // comparisons between strings
-// program also implements a data structure for representing fruits and 
+// program also implements a data structure for representing fruits and
 // provides a function object for performing comparisons between fruits
 // program also demonstrates the use of the standard library equal_range()
 // function, which returns a pair of iterators to the bounds of where a
@@ -11,12 +11,11 @@
 #include <string> // string library header
 #include <vector> // vector library header
 #include <utility> // provides pair class
-using namespace std;
 
 // data structure for a function object that performs a case-insensitive
 // comparison between two strings
 struct No_case {
-    bool operator()(string const& x, string const& y) const
+    bool operator()(std::string const& x, std::string const& y) const
     {
         // loop over first string
         for (size_t i = 0; i < x.length(); i++)
@@ -42,11 +41,11 @@ struct No_case {
 
 // data structure that represents a fruit by a name
 struct Fruit {
-    string name;
+    std::string name;
     
     // initializes name to n
     Fruit(const char *n)
-        : name{n}
+        : name {n}
     {  }
 };
 
@@ -61,6 +60,14 @@ struct Fruit_order {
 
 int main()
 {
+    using std::vector;
+    using std::sort;
+    using std::cout;
+    using std::sort;
+    using std::string;
+    using std::equal_range;
+    using std::pair;
+
     vector<Fruit> vf;
     vf.push_back(Fruit("Apple"));
     vf.push_back(Fruit("Banana"));
@@ -81,8 +88,8 @@ int main()
             [](Fruit const& a, Fruit const& b){ return a.name < b.name; });
 
     for (auto it : vf)
-        cout << it.name << endl;
-    cout << endl;
+        cout << it.name << '\n';
+    cout << '\n';
     
     // sort using Fruit_order function object as a basis for comparisons
     sort(vf2.begin(), vf2.end(), Fruit_order());
@@ -91,16 +98,16 @@ int main()
     for (auto it: vf2)
     {
         vs.push_back(it.name);
-        cout << it.name << endl;
+        cout << it.name << '\n';
     }
-    cout << endl;
+    cout << '\n';
 
     // sort using No_case function object as a basis for comparisons
     sort(vs.begin(), vs.end(), No_case());
 
     for (auto it: vs)
-        cout << it << endl;
-    cout << endl;
+        cout << it << '\n';
+    cout << '\n';
 
     using FI = vector<Fruit>::iterator;
     // typedef vector<Fruit>::iterator FI;
@@ -119,7 +126,7 @@ int main()
     cout << "bounds for " << ff.first->name << " begin at position "
         << (ff.first - vf.begin()) << " and end at position "
         << (ff.second - vf.begin()) << " with "
-        << ff.second->name << endl << endl;
+        << ff.second->name << "\n\n";
 
     // let the compiler determine the pair
     auto fp = equal_range(vf2.begin(), vf2.end(), "Pear", Fruit_order());
@@ -128,7 +135,7 @@ int main()
     cout << "bounds for " << fp.first->name << " begin at position "
         << (fp.first - vf2.begin()) << " and end at position "
         << (fp.second - vf2.begin()) << " with "
-        << fp.second->name << endl << endl;
+        << fp.second->name << "\n\n";
 
     auto sp = equal_range(vs.begin(), vs.end(), "Pear");
 
@@ -136,7 +143,7 @@ int main()
     cout << "bounds for " << *sp.first << " begin at position "
         << (sp.first - vs.begin()) << " and end at position "
         << (sp.second - vs.begin()) << " with "
-        << *sp.second << endl;
+        << *sp.second << '\n';
 
     return 0;
 }

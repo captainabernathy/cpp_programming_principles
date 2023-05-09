@@ -5,7 +5,6 @@
 #include <string> // string library header
 #include <vector> // vector library header
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 /*
  * Grammar
@@ -57,9 +56,9 @@ const char quit = 'q';
 const char print = ';';
 const char name = 'a';
 const char let = 'L';
-const string declkey = "let";
-const string prompt = "> ";
-const string result = "= ";
+const std::string declkey = "let";
+const std::string prompt = "> ";
+const std::string result = "= ";
 
 // represents a unit in a calculator's grammar
 class Token
@@ -67,19 +66,19 @@ class Token
 public:
     char kind; // what kind of token
     double value; // for numbers: a value
-    string name; // for declarations: a name
+    std::string name; // for declarations: a name
     
     // constructor for operators and non-numeric values
     explicit Token(char ch)
-        : kind(ch), value(0) { }
+        : kind {ch}, value {0} { }
     
     // constructor for numeric values
     Token(char ch, double val)
-        : kind(ch), value(val) { }
+        : kind {ch}, value {val} { }
 
     // constructor for declarations
-    Token(char ch, string str)
-        : kind(ch), name(str) { }
+    Token(char ch, std::string str)
+        : kind {ch}, name {str} { }
 };
 
 // A Token_stream object reads characters from stdin and presents the program
@@ -89,7 +88,7 @@ public:
     // constructor initializes a Token_stream to full to indicate the buffer
     // is empty
     Token_stream()      // make a Token_stream that reads from cin
-        : full(false), buffer(0){  }
+        : full {false}, buffer {0} {  }
 
     // get() returns a Token from a Token_stream
     Token get();        // get a Token
@@ -110,12 +109,12 @@ private:
 // class that represents a variable as string and a double
 class Variable {
     public:
-        string name;
+        std::string name;
         double value;
         
         // construct a variable with name n and value v
-        Variable(string n, double v)
-            : name(n), value(v){ }
+        Variable(std::string n, double v)
+            : name {n}, value {v} { }
 };
 
 // statement()
@@ -162,23 +161,23 @@ double primary();
 Token_stream ts;
 
 // table of variables
-vector<Variable> var_table;
+std::vector<Variable> var_table;
 
 // returns the value of a Variable named var in var_table or calls error() if
 // var is not defined in var_table
-double get_value(string var);
+double get_value(std::string var);
 
 // set the value of a Variable named var in var_table to val or calls error if
 // var is not defined in var_table
-void set_value(string var, double val);
+void set_value(std::string var, double val);
 
 // returns true when a Variable named var is already in var_table, false
 // otherwise
-bool is_declared(string var);
+bool is_declared(std::string var);
 
 // add a Variable named var with value val in var_table and returns val or
 // calls error() if a variable named var already exists in var_table
-double define_name(string var, double val);
+double define_name(std::string var, double val);
 
 // performs the calculation loop
 void calculate();
@@ -191,6 +190,9 @@ inline void clean_up_mess()
 
 int main()
 {
+    using std::runtime_error;
+    using std::cerr;
+
     try
     {
         calculate();
@@ -199,7 +201,7 @@ int main()
     }
     catch (runtime_error& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         keep_window_open("~~");
         return 1;
     }
@@ -230,7 +232,7 @@ Token Token_stream::get()
     }
 
     char ch;
-    cin >> ch; // cin skips whitespace (' ', '\t', '\n', etc)
+    std::cin >> ch; // cin skips whitespace (' ', '\t', '\n', etc)
 
     // evaluate character
     switch (ch)
@@ -244,23 +246,23 @@ Token Token_stream::get()
         case '6': case '7': case '8': case '9':
             {
                 // put character back into input stream
-                cin.putback(ch);
+                std::cin.putback(ch);
                 double val;
-                cin >> val; // read floating-point number
+                std::cin >> val; // read floating-point number
                 return Token(number, val);
             }
         default:
             if (isalpha(ch)) // check if ch is a letter
             {
-                string s;
+                std::string s;
                 s += ch; // concatenate the first letter to s
 
                 // read subsequent letters and/or numbers in the declaration
-                while (cin.get(ch) && (isalpha(ch) || isdigit(ch)))
+                while (std::cin.get(ch) && (isalpha(ch) || isdigit(ch)))
                     s += ch; // build up
                 
                 // put character back into input stream
-                cin.putback(ch);
+                std::cin.putback(ch);
 
                 // check if s was a declaration "let"
                 if (s == declkey)
@@ -287,7 +289,7 @@ void Token_stream::ignore(char ch)
     full = false; // indicate buffer is not full
 
     char c = 0;
-    while (cin >> c) // search input until we find ch
+    while (std::cin >> c) // search input until we find ch
         if (c == ch)
             return;
 }
@@ -326,7 +328,7 @@ double declaration()
     if (t.kind != name) // t.kind != 'a'
         error("name expected in declaration");
 
-    string var_name = t.name; // set variable's name
+    std::string var_name = t.name; // set variable's name
 
     // read a Token from Token_stream ts's buffer into eq
     Token eq = ts.get();
@@ -499,7 +501,7 @@ double primary()
 
 // returns the value of a Variable named var in var_table or calls error() if
 // var is not defined in var_table
-double get_value(string var)
+double get_value(std::string var)
 {
     // loop over the Variables in var_table
     for (size_t i = 0; i < var_table.size(); i++)
@@ -513,7 +515,7 @@ double get_value(string var)
 
 // set the value of a Variable named var in var_table to val or calls error if
 // var is not defined in var_table
-void set_value(string var, double val)
+void set_value(std::string var, double val)
 {
     // loop over the Variables in var_table
     for (size_t i = 0; i < var_table.size(); i++)
@@ -530,7 +532,7 @@ void set_value(string var, double val)
 
 // returns true when a Variable named var is already in var_table, false
 // otherwise
-bool is_declared(string var)
+bool is_declared(std::string var)
 {
     // look for a Variable in var_table with a name that is the same as var
     for (size_t i = 0; i < var_table.size(); i++)
@@ -542,7 +544,7 @@ bool is_declared(string var)
 
 // add a Variable named var with value val in var_table and returns val or
 // calls error() if a variable named var already exists in var_table
-double define_name(string var, double val)
+double define_name(std::string var, double val)
 {
     if (is_declared(var)) // search for var in var_table
         error(var, " declared twice");
@@ -554,10 +556,10 @@ double define_name(string var, double val)
 // performs the calculation loop
 void calculate()
 {
-    while (cin)
+    while (std::cin)
         try
         {
-            cout << prompt; // output prompt
+            std::cout << prompt; // output prompt
             Token t = ts.get(); // get a token
 
             while (t.kind == print)
@@ -569,11 +571,11 @@ void calculate()
             // put t back into Token_stream ts's buffer and
             // indicate that buffer is full
             ts.putback(t);
-            cout << result << statement() << endl;
+            std::cout << result << statement() << '\n';
         }
-        catch (exception& ex)
+        catch (std::exception& ex)
         {
-            cerr << ex.what() << endl;
+            std::cerr << ex.what() << '\n';
             clean_up_mess();
         }
 }

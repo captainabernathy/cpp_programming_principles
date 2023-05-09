@@ -6,15 +6,14 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std;  // add names from std namespace to global namespace
 
 // a class used to build an ad-hoc doubly linked list of strings
 class Link {
 public:
-    string value;
+    std::string value;
 
-    Link(const string& v, Link *p = nullptr, Link *n = nullptr)
-        : value(v), prev(p), next(n) {  }
+    Link(std::string const& v, Link *p = nullptr, Link *n = nullptr)
+        : value {v}, prev {p}, next {n} {  }
 
     // insert Link n before this object and return a pointer to it
     Link *insert(Link *n);
@@ -23,10 +22,10 @@ public:
     Link *erase();
     
     // find Link whose value s in and return a pointer to it
-    Link *find(const string& s);
+    Link *find(std::string const& s);
    
     // finds s in list starting from this object and return a pointer to it
-    const Link *find(const string& s) const;
+    const Link *find(std::string const& s) const;
    
     // move this object n positions in list... +n moves, -n moves backwards
     Link *advance(int n) const;
@@ -86,7 +85,7 @@ Link *Link::erase()
 }
 
 // find s in list
-Link *Link::find(const string& s)
+Link *Link::find(std::string const& s)
 {
     Link *p = this; // start from this object
 
@@ -104,18 +103,20 @@ Link *Link::find(const string& s)
 void print_all(Link *p)
 {
     // walk Links starting from p and write each value to stdout
-    cout << "{";
+    std::cout << "{";
     while (p != nullptr)
     {
-        cout << p->value;
+        std::cout << p->value;
         if ((p = p->get_next()) != nullptr)
-            cout << ", ";
+            std::cout << ", ";
     }
-    cout << "}";
+    std::cout << "}";
 }
 
 int main()
 {
+    using std::cout;
+
     // create a Link
     Link *norse_gods = new Link("Thor");
     
@@ -135,9 +136,10 @@ int main()
 
     // display both lists
     print_all(norse_gods);
-    cout << endl << endl;
+    cout << "\n\n";
+
     print_all(greek_gods);
-    cout << endl << endl;
+    cout << "\n\n";
 
     // the Greek god of war is Ares.. not Mars, so update the Link containing
     // the value of Mars to be Ares
@@ -162,9 +164,10 @@ int main()
 
     // display updated lists
     print_all(norse_gods);
-    cout << endl << endl;
+    cout << "\n\n";
+
     print_all(greek_gods);
-    cout << endl << endl;
+    cout << "\n\n";
 
     return 0;
 }

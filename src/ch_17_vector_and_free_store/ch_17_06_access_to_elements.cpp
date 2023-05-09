@@ -2,7 +2,6 @@
 // a vector of doubles and demonstrates its usage
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // simple class to represent vector of doubles
 // provides a constructor, destructor, get(), set(), and size() methods
@@ -14,8 +13,8 @@ class vector {
     public:
         // constructor
         // create a new vector of s elements
-        vector(int s)
-            : sz(s), elem(new double[s]) {  }
+        explicit vector(int s)
+            : sz {s}, elem {new double[s]} {  }
 
         // destructor
         ~vector()
@@ -52,7 +51,7 @@ int main()
     {
         v.set(i, 1.1 + i); // populate elements of v
         // write value of each element in v to stdout
-        cout << "v[" << i << "]: " << v.get(i) << endl;
+        std::cout << "v[" << i << "]: " << v.get(i) << '\n';
     }
 
     return 0;

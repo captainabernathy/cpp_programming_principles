@@ -4,7 +4,6 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 class Bad_area{}; // empty class for throwing
 
@@ -18,6 +17,9 @@ int area(int length, int width);
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
         // call will pass pre-conditions, but fail post-condition due to integer
@@ -26,12 +28,12 @@ int main()
     }
     catch (exception& ex) // catches checked exceptions
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...) // catches unchecked exceptions
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 }

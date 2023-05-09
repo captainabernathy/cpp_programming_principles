@@ -7,10 +7,19 @@
 #include <iterator> // iterator library header
 #include <string> // string library header
 #include <set> // set library header
-using namespace std;
 
 int main()
 {
+    using std::string;
+    using std::cout;
+    using std::cin;
+    using std::ifstream;
+    using std::ofstream;
+    using std::istream_iterator;
+    using std::ostream_iterator;
+    using std::set;
+    using std::copy;
+
     string from;
     string to;
     cout << "Enter file to copy: ";

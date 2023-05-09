@@ -6,16 +6,23 @@
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <vector> // vector library header
 #include <fstream> // file I/O library
-using namespace std;  // add names from std namespace to global namespace
 
 // reads integers from input stream ist into integer vector v until reaching
 // eof() or terminator
-void fill_vector(istream& ist, vector<int>& v, char terminator);
+void fill_vector(std::istream& ist, std::vector<int>& v, char terminator);
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cin;
+        using std::ios_base;
+        using std::vector;
+        using std::cout;
+
         // make cin throw if it goes bad anytime it goes bad
         cin.exceptions(cin.exceptions()|ios_base::badbit);
 
@@ -27,21 +34,23 @@ int main()
         // write each integer in v to stdout
         for (auto it : v)
             cout << it << ' ';
-        cout << endl;
+        cout << '\n';
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
+
+    return 0;
 }
 
-void fill_vector(istream& ist, vector<int>& v, char terminator)
+void fill_vector(std::istream& ist, std::vector<int>& v, char terminator)
 {
     int i = 0; // variable to read from ist into
     while (ist >> i)
@@ -59,6 +68,6 @@ void fill_vector(istream& ist, vector<int>& v, char terminator)
     if (c != terminator) // not the terminator, so fail
     {
         ist.unget(); // put charcter back into ist
-        ist.clear(ios_base::failbit); // set state to fail()
+        ist.clear(std::ios_base::failbit); // set state to fail()
     }
 }

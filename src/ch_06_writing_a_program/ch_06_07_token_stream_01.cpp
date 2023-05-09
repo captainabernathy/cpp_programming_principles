@@ -6,7 +6,7 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
+// using namespace std;  // add names from std namespace to global namespace
 
 /*
  * Grammar
@@ -37,11 +37,11 @@ public:
 
     // constructor for operators and non-numeric values
     explicit Token(char ch)      // make a Token from a char
-        : kind(ch), value(0) { }
+        : kind {ch}, value {0} { }
 
     // constructor for numeric values
     Token(char ch, double val) // make a Token from a char and a double
-        : kind(ch), value(val) { }
+        : kind {ch}, value {val} { }
 };
 
 // A Token_stream object reads characters from stdin and presents the program
@@ -51,7 +51,7 @@ public:
     // constructor initializes this Token_stream to full to indicate its
     // buffer is empty
     Token_stream() // make a Token_stream that reads from cin
-        : full(false), buffer(0) { }
+        : full {false}, buffer {0} { }
    
     // get() returns a Token from this Token_stream
     Token get(); // get a Token
@@ -93,8 +93,14 @@ Token_stream ts;
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cin;
+        using std::cout;
+
         double val = 0;
 
         while (cin)
@@ -105,7 +111,7 @@ int main()
             if (t.kind == 'q') // 'q' for quit
                 return 0;
             if (t.kind == ';') // ';' for print
-                cout << "=" << val << endl;
+                cout << "=" << val << '\n';
             else
                 // put t back into Token_stream ts's buffer and
                 // indicate that buffer is full
@@ -115,12 +121,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 
@@ -146,7 +152,7 @@ Token Token_stream::get()
     }
 
     char ch;
-    cin >> ch; // cin skips whitespace (' ', '\t', '\n', etc)
+    std::cin >> ch; // cin skips whitespace (' ', '\t', '\n', etc)
 
     // evaluate character
     switch (ch)
@@ -161,9 +167,9 @@ Token Token_stream::get()
         case '5': case '6': case '7': case '8': case '9':
             {
                 // put numeric character back into input stream
-                cin.putback(ch);
+                std::cin.putback(ch);
                 double val;
-                cin >> val; // read floating-point number
+                std::cin >> val; // read floating-point number
                 // let '8' represent "a number"
                 return Token('8', val); // return a new Token
             }

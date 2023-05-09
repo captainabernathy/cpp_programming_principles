@@ -5,11 +5,15 @@
 #include <fstream> // file stream library header
 #include <string> // string library header
 
-using namespace std;
-
 int main()
 {
-    ifstream ifs("chapter.23.5.in"); // initialize ifs to file
+    using std::ifstream;
+    using std::cerr;
+    using std::endl;
+    using std::string;
+    using std::cout;
+
+    ifstream ifs {"chapter.23.5.in"}; // initialize ifs to file
     if (!ifs)
     {
         cerr << "failed to open chapter.23.5.in" << endl;

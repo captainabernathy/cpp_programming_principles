@@ -2,18 +2,19 @@
 // assignment, and a numerical expression
 
 #include <iostream> // I/O library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+
     int a = 0;
-    cout << a << endl; // 0
+    cout << a << '\n'; // 0
     ++a; // pre-increment operator
-    cout << a << endl; // 1
+    cout << a << '\n'; // 1
     a += 1; // compound assignment
-    cout << a << endl; // 2
+    cout << a << '\n'; // 2
     a = a + 1; // addition
-    cout << a << endl; // 3
+    cout << a << '\n'; // 3
 
     return 0;
 }

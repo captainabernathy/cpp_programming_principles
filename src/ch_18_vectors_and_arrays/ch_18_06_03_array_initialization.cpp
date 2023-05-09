@@ -1,7 +1,6 @@
 // program demonstrates various techniques for initializing an array
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // simple string length function that returns the number of characters in its
 // input
@@ -9,6 +8,8 @@ size_t strlen(const char *p);
 
 int main()
 {
+    using std::cout;
+
     char ac[] = "Beron"; // array of 6 chars... includes \0
     
     // NOTE: this may issue a warning since ISO C++ forbids converting a string
@@ -26,22 +27,22 @@ int main()
     // array of 6 characters
     char c2[] = {'a', 'a', 'r', 'o', 'n', '\0' };
 
-    cout << ac << " " << strlen(ac) << endl; // 5
-    cout << pc << " " << strlen(pc) << endl; // 5
-    cout << c2 << " " << strlen(c2) << endl; // 5
-    cout << endl;
+    cout << ac << " " << strlen(ac) << '\n'; // 5
+    cout << pc << " " << strlen(pc) << '\n'; // 5
+    cout << c2 << " " << strlen(c2) << '\n'; // 5
+    cout << '\n';
 
     for (int i = 0; i < 3; i++)
         cout << chars[i] << ' ';
-    cout << endl;
+    cout << '\n';
 
     for (int i = 0; i < 6; i++)
         cout << ai[i] << ' ';
-    cout << endl;
+    cout << '\n';
 
     for (int i = 0; i < 10; i++)
         cout << ai2[i] << ' ';
-    cout << endl;
+    cout << '\n';
 
     return 0;
 }

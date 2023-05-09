@@ -3,10 +3,15 @@
 
 #include <fstream> // file I/O library
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 int main()
 {
+    using std::ofstream;
+    using std::ifstream;
+    using std::fstream;
+    using std::cerr;
+    using std::ios_base;
+
     // NOTE: when an attempt is made to open a previously non-existent file
     // for reading, the operating system will crate an empty file with the
     // specified name... HOWEVER, when an attempt to read from a non-existent
@@ -31,7 +36,7 @@ int main()
     if (!fs) // stream in bad state
     {
         // couldn't open file
-        cerr << "could not open file" << endl;
+        cerr << "could not open file" << '\n';
     }
 
     // open file for reading
@@ -39,7 +44,7 @@ int main()
     if (!ifs) // stream in bad state
     {
         // couldn't open "readings" for reading
-        cerr << "failed to open file: \"readings\" for reading" << endl;
+        cerr << "failed to open file: \"readings\" for reading" << '\n';
     }
 
     {
@@ -48,7 +53,7 @@ int main()
 
         if (!ifs)
             cerr << "failed to open file: \"no-file-of-this-name\" for reading"
-                << endl;
+                << '\n';
     }
 
     return 0;

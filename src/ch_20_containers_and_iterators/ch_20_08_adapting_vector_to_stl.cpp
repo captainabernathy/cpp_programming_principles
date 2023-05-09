@@ -29,14 +29,14 @@ public:
     // default constructor
     // constructs an empty vector
     vector()
-        : sz{0}, cap{0}, elems{nullptr}
+        : sz {0}, cap {0}, elems {nullptr}
     {  }
 
     // single argument constructor
     // constructs a vector of type T with size n, capacity n, and initializes
     // each of the vector's n elements to T()
     explicit vector(size_type n)
-        : sz{n}, cap{n}, elems{alloc.allocate(n)}
+        : sz {n}, cap {n}, elems {alloc.allocate(n)}
     {
         for (size_type i = 0; i < sz; i++)
             alloc.construct(&elems[i], T());
@@ -48,7 +48,7 @@ public:
     // the vector's size and capacity will be the same as the size of the list..
     // the vector's elements will contain the same values as those of the list
     vector(std::initializer_list<T> lst)
-        : sz{lst.size()}, cap{sz}, elems{alloc.allocate(sz)}
+        : sz {lst.size()}, cap {sz}, elems {alloc.allocate(sz)}
     {
         std::copy(lst.begin(), lst.end(), elems);
     }
@@ -57,7 +57,7 @@ public:
     // constructs a vector whose elements are copied from the vector received
     // and whose size and capacity are equal to the number of elements copied
     vector(vector const& v)
-        : sz{v.sz}, cap{sz}, elems{alloc.allocate(sz)}
+        : sz {v.sz}, cap {sz}, elems {alloc.allocate(sz)}
     {
         for (size_type i = 0; i < sz; i++)
             alloc.construct(&elems[i], v.elems[i]);
@@ -70,7 +70,7 @@ public:
     // the received vector is subsequently left in such a state that its size
     // and capacity are 0 and its elements are NULL
     vector(vector&& v)
-        : sz{v.sz}, cap{v.cap}, elems{v.elems}
+        : sz {v.sz}, cap {v.cap}, elems {v.elems}
     {
         v.sz = v.cap = 0;
         v.elems = nullptr;
@@ -363,68 +363,67 @@ typename vector<T,A>::iterator vector<T,A>::erase(iterator p)
     return p;
 }
 
-using std::cout;
-using std::endl;
-
 int main()
 {
+    using std::cout;
+
     vector<int> v1{1, 2, 3, 4};
     v1.insert(v1.end(), 99);
     v1.erase(v1.end() - 2);
     for (auto v : v1)
         cout << v << ' ';
-    cout << endl;
-    cout << v1.size() << " " << v1.capacity() << endl << endl;
+    cout << '\n';
+    cout << v1.size() << " " << v1.capacity() << "\n\n";
 
     vector<int> v2(v1);
     for (auto v : v2)
         cout << v << ' ';
-    cout << endl;
-    cout << v2.size() << " " << v2.capacity() << endl << endl;
+    cout << '\n';
+    cout << v2.size() << " " << v2.capacity() << "\n\n";
 
     vector<int> v3 = v2;
     for (auto v : v3)
         cout << v << ' ';
-    cout << endl;
-    cout << v3.size() << " " << v3.capacity() << endl << endl;
+    cout << '\n';
+    cout << v3.size() << " " << v3.capacity() << "\n\n";
 
     vector<int> v4;
     v4 = v3;
     for (auto v : v4)
         cout << v << ' ';
-    cout << endl;
-    cout << v4.size() << " " << v4.capacity() << endl << endl;
+    cout << '\n';
+    cout << v4.size() << " " << v4.capacity() << "\n\n";
 
     vector<int> v5(std::move(v1));
     for (auto v : v5)
         cout << v << ' ';
-    cout << endl;
-    cout << v5.size() << " " << v5.capacity() << endl << endl;
+    cout << '\n';
+    cout << v5.size() << " " << v5.capacity() << "\n\n";
 
     v5.push_back(18);
     for (auto v : v5)
         cout << v << ' ';
-    cout << endl;
-    cout << v5.size() << " " << v5.capacity() << endl << endl;
+    cout << '\n';
+    cout << v5.size() << " " << v5.capacity() << "\n\n";
     
     vector<int> v6 = std::move(v5);
     for (auto v : v6)
         cout << v << ' ';
-    cout << endl;
-    cout << v6.size() << " " << v6.capacity() << endl << endl;
+    cout << '\n';
+    cout << v6.size() << " " << v6.capacity() << "\n\n";
 
     vector<int> v7;
     v7 = std::move(v6);
     for (auto v : v7)
         cout << v << ' ';
-    cout << endl;
-    cout << v7.size() << " " << v7.capacity() << endl << endl;
+    cout << '\n';
+    cout << v7.size() << " " << v7.capacity() << "\n\n";
 
     v7 = v4;
     for (auto v : v7)
         cout << v << ' ';
-    cout << endl;
-    cout << v7.size() << " " << v7.capacity() << endl << endl;
+    cout << '\n';
+    cout << v7.size() << " " << v7.capacity() << "\n\n";
 
     vector<int>::iterator i = v7.begin();
     ++i;
@@ -433,14 +432,14 @@ int main()
     vector<int>::iterator j = i;
     ++j;
 
-    cout << *i << " " << v7[2] << " " << *j << endl << endl;
+    cout << *i << " " << v7[2] << " " << *j << "\n\n";
 
     i = v7.erase(i);
     for (auto v : v7)
         cout << v << ' ';
-    cout << endl;
-    cout << v7.size() << " " << v7.capacity() << endl;
-    cout << *i << endl << endl;
+    cout << '\n';
+    cout << v7.size() << " " << v7.capacity() << '\n';
+    cout << *i << "\n\n";
 
     vector<int>::iterator k = v7.begin();
     ++k;
@@ -448,26 +447,27 @@ int main()
     k = v7.insert(k, 13);
     for (auto v : v7)
         cout << v << ' ';
-    cout << endl;
-    cout << v7.size() << " " << v7.capacity() << endl;
-    cout << *k << endl << endl;
+    cout << '\n';
+    cout << v7.size() << " " << v7.capacity() << '\n';
+    cout << *k << "\n\n";
 
     v7[2] = v2[3];
     for (auto v : v7)
         cout << v << ' ';
-    cout << endl;
-    cout << v7.size() << " " << v7.capacity() << endl << endl;
+    cout << '\n';
+    cout << v7.size() << " " << v7.capacity() << "\n\n";
 
     const vector<int> v8(v7);
 
     for (size_t i = 0; i < v8.size(); i++)
         cout << v8[i] << ' ';
-    cout << endl;
-    cout << v8.size() << " " << v8.capacity() << endl << endl;
+    cout << '\n';
+    cout << v8.size() << " " << v8.capacity() << "\n\n";
 
     const int ci = v8[2];
     const int &cr  = v8[3];
     const int *p = &v8[0];
-    cout << ci << " " << cr << " " << *p << endl;
+    cout << ci << " " << cr << " " << *p << '\n';
+
     return 0;
 }

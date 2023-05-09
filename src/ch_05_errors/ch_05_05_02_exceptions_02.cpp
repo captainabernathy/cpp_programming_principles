@@ -4,7 +4,6 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 // function that calclates the area from its inputs and returns the result if
 // inputs are greater than zero... otherwise it calls error()
@@ -16,33 +15,38 @@ int framed_area(int x, int y);
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try // calls to area() and framed_area() may throw
     {
+        using std::cout;
+
         int x = -1;
         int y = 2;
         int z = 4;
 
         int area1 = area(x, y); // function validates input
-        cout << area1 << endl;
+        cout << area1 << '\n';
 
         int area2 = framed_area(1, z); // function validates input
-        cout << area2 << endl;
+        cout << area2 << '\n';
 
         int area3 = framed_area(y, z); // function validates input
-        cout << area3 << endl;
+        cout << area3 << '\n';
 
         // potential division by zero w/o check
         double ratio = double(area1) / area3;
-        cout << ratio << endl;
+        cout << ratio << '\n';
     }
     catch (exception& ex) // catches checked exceptions
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...) // catches unchecked exceptions
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 

@@ -7,7 +7,6 @@
 
 #include <iostream> // I/O library header
 #include <vector> // vector library header
-using namespace std;  // add names from std namespace to global namespace
 
 // simple test class
 struct X {
@@ -15,9 +14,9 @@ struct X {
 
     // function prints the address of this object along with the name of the
     // function that calls it, which it receives as the string s
-    void out(string const& s)
+    void out(std::string const& s)
     {
-        cerr << this << "->" << s << ": " << val << endl;
+        std::cerr << this << "->" << s << ": " << val << '\n';
     }
 
     // defalut/no-argument constructor
@@ -78,6 +77,8 @@ struct XX {
 
 int main()
 {
+    using std::vector;
+
     // create some objects... follow the various constructor, assignemt, and
     // destructor calls
     X loc(4);

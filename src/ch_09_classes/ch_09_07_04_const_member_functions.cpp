@@ -13,7 +13,7 @@ public:
     
     // constructor... initializes a Date's private data members from input
     Date(int yy, Month mm, int dd)
-        : y(yy), m(mm), d(dd) {  }
+        : y {yy}, m {mm}, d {dd} {  }
 
     // NOTE: const member functions do not modify the object
     int day() const;
@@ -38,6 +38,7 @@ int main()
     Date d(2000, Date::jan, 20); // build a date
     const Date cd(2001, Date::feb, 21); // cd is a read-only Date object
 
-    cout << d.day() << " - " << cd.day() << endl;
+    std::cout << d.day() << " - " << cd.day() << '\n';
+
     return 0;
 }

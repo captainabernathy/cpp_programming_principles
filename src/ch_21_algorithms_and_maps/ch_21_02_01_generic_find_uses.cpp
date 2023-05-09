@@ -152,25 +152,25 @@ void f(std::vector<int>& v, int x)
 {
     std::vector<int>::iterator p = std::find(v.begin(), v.end(), x);
     if (p != v.end())
-        std::cout << "Found: " << *p << std::endl;
+        std::cout << "Found: " << *p << '\n';
     else
-        std::cout << "Did not find: " << x << std::endl;
+        std::cout << "Did not find: " << x << '\n';
 }
 
 void f(std::list<std::string>& v, std::string x)
 {
     std::list<std::string>::iterator p = std::find(v.begin(), v.end(), x);
     if (p != v.end())
-        std::cout << "Found: " << *p << std::endl;
+        std::cout << "Found: " << *p << '\n';
     else
-        std::cout << "Did not find: " << x << std::endl;
+        std::cout << "Did not find: " << x << '\n';
 }
 
 void f(Document& v, char x)
 {
     Text_iterator p = std::find(v.begin(), v.end(), x);
     if (p != v.end())
-        std::cout << "Found: " << *p << std::endl;
+        std::cout << "Found: " << *p << '\n';
     else
-        std::cout << "Did not find: " << x << std::endl;
+        std::cout << "Did not find: " << x << '\n';
 }

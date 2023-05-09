@@ -5,12 +5,18 @@
 #include <fstream> // file I/O library
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing header functions
-using namespace std;  // add names from std namespace to global namespace
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::string;
+        using std::fstream;
+        using std::cout;
+
         string name = "positioning.txt";
         // NOTE: an fstream's ios_base::openmode argument is set by default to
         // ios_base::in|ios_base::out
@@ -26,11 +32,11 @@ int main()
         char ch;
         fs >> ch; // read charcter in fs into ch
 
-        cout << "character 6 is " << ch << '(' << int(ch) << ')' << endl;
+        cout << "character 6 is " << ch << '(' << int(ch) << ')' << '\n';
 
         fs.seekg(1); // set position in input sequence
         fs >> ch; // read from fs into ch
-        cout << "character 2 is " << ch << '(' << int(ch) << ')' << endl;
+        cout << "character 2 is " << ch << '(' << int(ch) << ')' << '\n';
 
         // move writing position... 'p' for put in seekp()
         fs.seekp(1);
@@ -41,7 +47,7 @@ int main()
         char c;
         fs.seekg(1); // set position in input sequqnce
         fs >> c ;
-        cout << "character 2 is now " << c << '(' << int(c) << ')' << endl;
+        cout << "character 2 is now " << c << '(' << int(c) << ')' << '\n';
 
         fs.seekp(1); // set position in output sequence
         fs << ch; // write ch to fs
@@ -50,12 +56,12 @@ int main()
     }
     catch (exception &ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "error: unknown" << endl;
+        cerr << "error: unknown" << '\n';
         return 2;
     }
 }

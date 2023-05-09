@@ -2,7 +2,6 @@
 // public and private attributes and functions
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // user-defined type
 class X {
@@ -26,6 +25,7 @@ int main()
 {
     X x; // construct an instance of x
     int y = x.f(2); // call x's public function
-    cout << y << endl; // 2
+    std::cout << y << '\n'; // 2
+
     return 0;
 }

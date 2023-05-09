@@ -2,9 +2,6 @@
 // allocated result and leaves the responsibility of deallocating it to the
 // caller
 
-#include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
-
 // function that returns a dynamically allocated result... user must remember to
 // deallocate when done and be careful to avoid double frees and improper access
 double *calc(int res_size, int max);

@@ -12,7 +12,6 @@
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <string> // string library header
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 // utility function for recovering after seeing a bad/unexpected character
 void skip_to_int();
@@ -25,22 +24,29 @@ int get_int(int low, int high);
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
+
         int n = get_int(1, 10);
-        cout << "n: " << n << endl;
+
+        cout << "n: " << n << '\n';
 
         int m = get_int(2, 300);
-        cout << "m: " << m << endl;
+
+        cout << "m: " << m << '\n';
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 
@@ -49,8 +55,8 @@ int main()
 
 int get_int(int low, int high)
 {
-    cout << "Please enter an integer in the range " << low << " to " << high
-        << " (inclusive): ";
+    std::cout << "Please enter an integer in the range " << low << " to "
+        << high << " (inclusive): ";
 
     while (true)
     {
@@ -59,8 +65,8 @@ int get_int(int low, int high)
         if (low <= n && n <= high) // return integer if it is within range
             return n;
 
-        cout << "Sorry " << n << " is not in the [" << low << ":" << high
-            << "] range. Please try again" << endl;
+        std::cout << "Sorry " << n << " is not in the [" << low << ":" << high
+            << "] range. Please try again" << '\n';
     }
 }
 
@@ -70,26 +76,26 @@ int get_int()
     while (true)
     {
         // read an integer and return it, or attempt to recover otherwise
-        if (cin >> n)
+        if (std::cin >> n)
             return n;
-        cout << "Sorry, that was not a number. Please try again" << endl;
+        std::cout << "Sorry, that was not a number. Please try again" << '\n';
         skip_to_int(); // recover
     }
 }
 
 void skip_to_int()
 {
-    if (cin.fail()) // found something that was not an integer
+    if (std::cin.fail()) // found something that was not an integer
     {
-        cin.clear(); // clear stream state so that we can look at it
+        std::cin.clear(); // clear stream state so that we can look at it
 
         char ch;
-        while (cin >> ch) // read input
+        while (std::cin >> ch) // read input
         {
             if (isdigit(ch) || ch == '-')
             {
                 // put digit back in input stream so that it can be read again
-                cin.unget();
+                std::cin.unget();
                 return;
             }
         }

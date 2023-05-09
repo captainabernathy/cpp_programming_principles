@@ -1,7 +1,6 @@
 // program implements a class whose constructor that validates its input
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // user-defined Year type
 class Year {
@@ -42,7 +41,7 @@ public:
     // public member functions
     // constructor... initializes private data members from input
     Date(Year yy, Month mm, int dd)
-        : y(yy), m(mm), d(dd) {  }
+        : y {yy}, m {mm}, d {dd} {  }
 
 private:
     // private attributes
@@ -53,6 +52,8 @@ private:
 
 int main()
 {
+    using std::cerr;
+
     try
     {
         // build some Dates
@@ -61,12 +62,12 @@ int main()
     }
     catch (Year::Invalid&)
     {
-        cerr << "error: Invalid year" << endl;
+        cerr << "error: Invalid year" << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

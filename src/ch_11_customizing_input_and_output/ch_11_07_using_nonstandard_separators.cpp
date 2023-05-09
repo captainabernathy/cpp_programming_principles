@@ -7,19 +7,18 @@
 #include <sstream> // provides stream classes for operating on strings
 #include <vector> // vector library header
 #include <algorithm> // algorithm library header
-using namespace std;  // add names from std namespace to global namespace
 
 // Punct_stream is a user-defined type that is similar to istream but allows
 // the user to define what characters should be considered whitespace
 class Punct_stream {
 public:
     // constructor sets character source and case-sensitivity
-    Punct_stream(istream& src)
-        : source(src), sensitive(true) {  }
+    Punct_stream(std::istream& src)
+        : source {src}, sensitive {true} {  }
 
     // function sets a Punct_stream's whitespace characters to the string
     // received as input
-    void set_whitespace(const string& s) { whitespace = s; }
+    void set_whitespace(std::string const& s) { whitespace = s; }
 
     // function adds the character it receives to a Punct_strem's set of
     // whitespace characters
@@ -36,19 +35,19 @@ public:
     bool is_case_sensitive() { return sensitive; }
 
     // overloaded input operator
-    Punct_stream& operator>>(string& s);
+    Punct_stream& operator>>(std::string& s);
     
     // overloaded boolean operator
     operator bool();
 
 private:
-    istream& source;        // character source
-    istringstream buffer;   // buffer does our formatting
-    string whitespace;      // whitespace characters
+    std::istream& source;        // character source
+    std::istringstream buffer;   // buffer does our formatting
+    std::string whitespace;      // whitespace characters
     bool sensitive;         // is stream case sensitive?
 };
 
-Punct_stream& Punct_stream::operator>>(string& s)
+Punct_stream& Punct_stream::operator>>(std::string& s)
 {
     // try to read from a Punct_stream's buffer into s
     // NOTE: when a Punct_stream's buffer fails, we must replenish the buffer
@@ -61,7 +60,7 @@ Punct_stream& Punct_stream::operator>>(string& s)
         buffer.clear(); // clear Punct_stream's buffer's error flags
 
         // replenish buffer
-        string line;
+        std::string line;
         
         // read line from Punct_stream's source string into the string line
         getline(source, line);
@@ -108,6 +107,12 @@ Punct_stream::operator bool()
 // punctuation and case differences... and eliminate duplicates from output
 int main()
 {
+    using std::cin;
+    using std::vector;
+    using std::string;
+    using std::cout;
+    using std::sort;
+
     // initialize a Punct_stream object with cn
     Punct_stream ps(cin);
     
@@ -121,7 +126,7 @@ int main()
     string word;
 
     // read words from ps into word and save result in vs
-    cout << "enter some words (or CTRL-D to quit): " << endl;
+    cout << "enter some words (or CTRL-D to quit): " << '\n';
     while (ps >> word)
         vs.push_back(word);
 
@@ -130,7 +135,7 @@ int main()
     // write sorted list of unique words in vs to stdout
     for (size_t i = 0; i < vs.size(); i++)
         if (i == 0 || vs[i] != vs[i - 1])
-            cout << vs[i] << endl;
+            cout << vs[i] << '\n';
 
     return 0;
 }

@@ -7,21 +7,26 @@
 #include <string> // string library header
 #include <sstream> // provides stream classes for operating on strings
 #include <vector> // vector library header
-using namespace std;  // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::string;
+    using std::cin;
+    using std::stringstream;
+    using std::vector;
+    
     cout << "Enter your first and last name: ";
     string name;
     cin >> name; // will read to first whitespace/terminating character
-    cout << name << endl;
+    cout << name << '\n';
 
     string tmp;
     // read whatever's left in the input stream up to newline into tmp
     getline(cin, tmp);
-    cout << tmp << endl;
+    cout << tmp << '\n';
     name += tmp; // re-form the entire line
-    cout << name << endl << endl;
+    cout << name << "\n\n";
 
     string first;
     string second;
@@ -30,7 +35,7 @@ int main()
     ss >> first; // read first word of ss into first string
     ss >> second; // read second word of ss into second string
 
-    cout << first << " " << second << endl << endl;
+    cout << first << " " << second << "\n\n";
 
     {
         cout << "Enter a line of text: ";
@@ -48,12 +53,12 @@ int main()
         while (ss >> s)
             words.push_back(s);
 
-        cout << endl;
+        cout << '\n';
         // write each word in words separted by a space to stdout
         for (auto word : words)
             cout << word << " ";
 
-        cout << endl;
+        cout << '\n';
     }
 
     return 0;

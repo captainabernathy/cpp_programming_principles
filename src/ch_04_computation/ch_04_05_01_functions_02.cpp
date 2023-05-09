@@ -2,10 +2,9 @@
 // function
 
 #include <iostream> // I/O library header
-using namespace std; // add names from std namespace to global namespace
 
 // simple function that writes the square of its input to stdout
-inline void print_square(int v){ cout << v << '\t' << v * v << endl; }
+inline void print_square(int v){ std::cout << v << '\t' << v * v << '\n'; }
 
 int main()
 {

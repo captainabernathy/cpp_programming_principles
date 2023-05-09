@@ -36,7 +36,7 @@ public:
 
     // start iterator at line line_itr's character position pos_itr
     Text_iterator(std::list<Line>::iterator line_itr, Line::iterator pos_itr)
-        : line_iter{line_itr}, position_iter{pos_itr}
+        : line_iter {line_itr}, position_iter {pos_itr}
     {  }
 
     // dereference operator... returns a reference to the character at
@@ -98,7 +98,7 @@ struct Document {
     // line
     Text_iterator begin()
     {
-        return Text_iterator(lines.begin(), lines.begin()->begin());
+        return Text_iterator {lines.begin(), lines.begin()->begin()};
     }
 
     // returns a Text_iterator to one beyond the last character of the last line
@@ -106,7 +106,7 @@ struct Document {
     {
         std::list<Line>::iterator last = lines.end();
         --last; // since we know that the document isn't empty
-        return Text_iterator(last, last->end());
+        return Text_iterator {last, last->end()};
     }
 };
 
@@ -171,7 +171,7 @@ int main()
     }
 
     print(my_doc);
-    std::cout << std::endl;
+    std::cout << '\n';
     return 0;
 }
 
@@ -224,5 +224,4 @@ Text_iterator find_text(Text_iterator first, Text_iterator last,
 
         first = ++pos; // loot at next character in pos
     }
-
 }

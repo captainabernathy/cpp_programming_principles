@@ -2,10 +2,12 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::string;
+    using std::cout;
+
     int a = 7;
     int b = 9;
     int c = 'a';
@@ -13,12 +15,12 @@ int main()
     string s1 = "Hello, world";
     string s2 = "1.2";
 
-    cout << a << endl  // 7
-        << b << endl   // 9
-        << c << endl   // 97
-        << x << endl   // 1.2
-        << s1 << endl  // Hello, world
-        << s2 << endl; // 1.2
+    cout << a << '\n'  // 7
+        << b << '\n'   // 9
+        << c << '\n'   // 97
+        << x << '\n'   // 1.2
+        << s1 << '\n'  // Hello, world
+        << s2 << '\n'; // 1.2
 
     return 0;
 }

@@ -4,7 +4,6 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 /*
  * Grammar
@@ -35,11 +34,11 @@ public:
 
     // constructor for operators and non-numeric values
     explicit Token(char ch)  // make a Token from a char
-        : kind(ch), value(0) {  }
+        : kind {ch}, value {0} {  }
 
     // constructor for numeric values
     Token(char ch, double val)  // make a Token from a char and a double
-        : kind(ch), value(val) {  }
+        : kind {ch}, value {val} {  }
 };
 
 // A Token_stream object reads characters from stdin and presents the program
@@ -49,7 +48,7 @@ public:
     // constructor initializes this Token_stream to full to indicate its
     // buffer is empty
     Token_stream() // default constructor
-        : full(false), buffer(0) {  }
+        : full {false}, buffer {0} {  }
     
     // get() returns a Token from this Token_stream
     Token get();    // get a Token
@@ -66,15 +65,20 @@ public:
 
 int main()
 {
+    using std::cerr;
+    using std::exception;
+
     try
     {
+        using std::cout;
+
         // create a Token_stream
         Token_stream ts;    // calls default constructor
         
         // kind: 0, value: 0, full: 0
         cout << "kind: " << ts.buffer.kind << " "
             << "value: " << ts.buffer.value << " "
-            << "full: " << ts.full << endl;
+            << "full: " << ts.full << '\n';
 
         // put Token <')', ascii_val> into Token_stream ts
         ts.putback(Token(')'));
@@ -82,16 +86,16 @@ int main()
         // kind: ASCII for ), value: ASCII for ), full: true
         cout << "kind: " << ts.buffer.kind << " "
             << "value: " << ts.buffer.value << " "
-            << "full: " << ts.full << endl;
+            << "full: " << ts.full << '\n';
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 

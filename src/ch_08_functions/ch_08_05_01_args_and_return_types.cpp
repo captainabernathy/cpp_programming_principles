@@ -3,7 +3,6 @@
 #include <iostream> // I/O library header
 #include <vector> // vector library header
 #include <string> // string library header
-using namespace std;  // add names from std namespace to global namespace
 
 // function declaration
 double fct(int a, double d);
@@ -21,12 +20,12 @@ void increase_power(int level);
 // same function declared twice...
 // NOTE: You can declare... but NOT define... the same function twice in a
 // single translation unit
-int my_find(vector<string> vs, string s, size_t hint);
-int my_find(vector<string>, string, size_t);
+int my_find(std::vector<std::string> vs, std::string s, size_t hint);
+int my_find(std::vector<std::string>, std::string, size_t);
 
 // function searches for s in vs and uses hint as a potential starting index
 // function returns index of s in vs if found or -1 if not
-int my_find(vector<string> vs, string s, size_t hint)
+int my_find(std::vector<std::string> vs, std::string s, size_t hint)
 {
     // set hint to zero if it isn't within the bounds of vx
     if (hint < 0 || vs.size() <= hint)
@@ -52,7 +51,7 @@ namespace different
     // definition of my_find() in namespace different
     // function searches for s in vs and hint is omitted bc it is not used
     // function returns index of s in vs if found or -1 if not
-    int my_find(vector<string> vs, string s, size_t)
+    int my_find(std::vector<std::string> vs, std::string s, size_t)
     {
         // search for s in v
         for (size_t i = 0; i < vs.size(); i++)
@@ -64,7 +63,11 @@ namespace different
 
 int main()
 {
-    cout << fct(1, 3.7) << endl << endl;
+    using std::cout;
+    using std::vector;
+    using std::string;
+
+    cout << fct(1, 3.7) << "\n\n";
 
     const int N = 4;
     
@@ -75,18 +78,18 @@ int main()
     // in cities
     vector<string> v(cities, cities + N);
 
-    cout << "N = " << N << endl; // 4
+    cout << "N = " << N << '\n'; // 4
 
     // write cities to stdout
     for (auto it : cities)
-        cout << it << endl;
-    cout << endl;
+        cout << it << '\n';
+    cout << '\n';
 
     // search for Dublin in v using my_find()
-    cout << my_find(v, "Dublin", 2) << endl; // 3
+    cout << my_find(v, "Dublin", 2) << '\n'; // 3
 
     // search for Dublin in v using different::my_find()
-    cout << different::my_find(v, "Dublin", 2) << endl; // 3
+    cout << different::my_find(v, "Dublin", 2) << '\n'; // 3
 
     return 0;
 }

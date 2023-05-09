@@ -8,12 +8,17 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cerr;
+    using std::exception;
+
     try
     {
+        using std::cout;
+        using std::cin;
+
         cout << "Please enter an expression (we can handle +, -, *, and /). "
             << "Then press 'x' when done: ";
 
@@ -52,7 +57,7 @@ int main()
                     break;
                 default:
                     // write result to stdout
-                    cout << "Result: " << lval << endl;
+                    cout << "Result: " << lval << '\n';
                     keep_window_open();
                     return 0;
             }
@@ -67,7 +72,7 @@ int main()
     }
     catch (...) // catches unchecked expressions
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 

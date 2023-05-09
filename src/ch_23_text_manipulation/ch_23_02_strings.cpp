@@ -19,22 +19,12 @@ using Unicode = long;
 
 std::basic_string<Unicode> a_unicode_string;
 
-using std::string;
-using std::stringstream;
-using std::ostringstream;
-using std::istringstream;
-using std::ws;
-using std::cout;
-using std::cerr;
-using std::endl;
-using std::exception;
-
 // template function takes an object of any type that has an operator << and
 // returns that object as a string
 template<typename T>
-string to_string(T const& t)
+std::string to_string(T const& t)
 {
-    ostringstream os;
+    std::ostringstream os;
     os << t;  // write t into os
     return os.str();
 }
@@ -53,9 +43,9 @@ struct bad_from_string : std::bad_cast {
 // NOTE: if s cannot be read as a type T, then the function throws a
 // bad_from_string() exception
 template<typename T>
-T from_string(string const& s)
+T from_string(std::string const& s)
 {
-    istringstream is(s); // initialize input string stream with s
+    std::istringstream is {s}; // initialize input string stream with s
     T t; // target type
     if (!(is >> t)) // read t from stream
         throw bad_from_string();
@@ -78,12 +68,15 @@ struct bad_lexical_cast : std::bad_cast {
 template<typename Dest, typename Src>
 Dest lexical_cast(Src src)
 {
-    stringstream interpreter;
+    std::stringstream interpreter;
     Dest dest;
 
-    if (!(interpreter << src)  // write src into stream
-        || !(interpreter >> dest) // read result from stream into dest
-        || !(interpreter >> ws).eof()) // read remaining through eof into ws
+    // write src into stream
+    // read result from stream into dest
+    // read remaining through eof into ws
+    if (!(interpreter << src)
+        || !(interpreter >> dest)
+        || !(interpreter >> std::ws).eof())
         throw bad_lexical_cast();
 
     return dest;
@@ -91,34 +84,39 @@ Dest lexical_cast(Src src)
 
 int main()
 {
+    using std::cout;
+    using std::exception;
+    using std::cerr;
+    using std::string;
+
     string s1 = to_string(12.333);
-    cout << "s1: " << s1 << endl;  // 12.333
+    cout << "s1: " << s1 << '\n';  // 12.333
 
     string s2 = to_string(1 + 5 * 6 - 99 / 7); // 17
-    cout << "s2: " << s2 << endl;
+    cout << "s2: " << s2 << '\n';
 
     string s3 = to_string((1 + 5 * 6 - 99 / 7.0)); // 16.8571
-    cout << "s3: " << s3 << endl;
+    cout << "s3: " << s3 << '\n';
 
     float f1 = 2 * lexical_cast<float, string>(s3);  // 33.1742
-    cout << "f1: " << f1 << endl;
+    cout << "f1: " << f1 << '\n';
 
     string s4 = lexical_cast<string, float>(f1);  // 33.7142
-    cout << "s4: " << s4 << endl;
+    cout << "s4: " << s4 << '\n';
 
     try
     {
         int i1 = lexical_cast<int, string>("Mary had a little lamb");
-        cout << "i1: " << i1 << endl;
+        cout << "i1: " << i1 << '\n';
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

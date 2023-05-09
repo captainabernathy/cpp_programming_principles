@@ -3,50 +3,52 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::string;
+
     //names restricted to scope of {  }
     {
         int a = 3; // initialize a to 3
-        cout << a << endl; // 3
+        cout << a << '\n'; // 3
 
         a = 4; // assign 4 to a
-        cout << a << endl; // 4
+        cout << a << '\n'; // 4
 
         int b = a; // initialize b with value in a
-        cout << b << endl; // 4
+        cout << b << '\n'; // 4
     }
 
     {
         string a = "alpha";
-        cout << a << endl; // alpha
+        cout << a << '\n'; // alpha
 
         string b = a; // initialize b with value in a
-        cout << b << endl; // alpha
+        cout << b << '\n'; // alpha
 
         b = a + "gamma"; // assign result of concatenating a and "gamma" to b
-        cout << b << endl; // alphagamma
+        cout << b << '\n'; // alphagamma
 
         a = a + "delta"; // assign result of concatenating a and "delta" to a
-        cout << a << endl;
+        cout << a << '\n';
     }
 
     {
         int y = 8; // initialize y to 8
-        cout << y << endl; // 8
+        cout << y << '\n'; // 8
 
         int x; // declare x
         x = 9; // assign 9 to x
-        cout << x << endl; // 9
+        cout << x << '\n'; // 9
 
         string t = "howdy"; // initialize t to "howdy"
-        cout << t << endl; // howdy
+        cout << t << '\n'; // howdy
 
         string s; // declare s
         s = "G'day"; // assign "G'day" to s
-        cout << s << endl; // G'day
+        cout << s << '\n'; // G'day
     }
 
     return 0;

@@ -28,7 +28,7 @@ public:
     // default constructor, sets a vector's size and capacity to 0 and the
     // pointer to its elements to null
     vector()
-        : sz{0}, elem{nullptr}, cap{0}
+        : sz {0}, elem {nullptr}, cap {0}
     {  }
 
     // explicit, one-argument constructor
@@ -36,7 +36,7 @@ public:
     // default value provided by the type's default constructor, and sets its
     // size and capacity to n
     explicit vector(size_t n)
-        : sz{n}, elem{alloc.allocate(n)}, cap{n}
+        : sz {n}, elem {alloc.allocate(n)}, cap {n}
     {
         for (size_t i = 0; i < sz; i++)
             alloc.construct(&elem[i], T());
@@ -47,7 +47,7 @@ public:
     // in the initializer list and copies the values of the elements in the
     // initializer list to its elements
     vector(std::initializer_list<T> lst)
-        : sz{lst.size()}, elem{alloc.allocate(sz)}, cap{sz}
+        : sz {lst.size()}, elem {alloc.allocate(sz)}, cap {sz}
     {
         std::copy(lst.begin(), lst.end(), elem);
     }
@@ -58,7 +58,7 @@ public:
     // the input vector and copies the values of the input vectors elements
     // to this vector's elements
     vector(vector const& v)
-        : sz{v.sz}, elem{alloc.allocate(sz)}, cap{sz}
+        : sz {v.sz}, elem {alloc.allocate(sz)}, cap {sz}
     {
         for (size_t i = 0; i < sz; i++)
             alloc.construct(&elem[i], v.elem[i]);
@@ -71,7 +71,7 @@ public:
     // move operations NEVER take const arguments as they modify thier input and
     // make it 'empty'
     vector(vector&& v)
-        : sz{v.sz}, elem{v.elem}, cap{sz}
+        : sz {v.sz}, elem {v.elem}, cap {sz}
     {
         v.sz = v.cap = 0;
         v.elem = nullptr;
@@ -246,48 +246,48 @@ template<typename T>
 void print(T const& t, std::string const& s)
 {
     for (size_t i = 0; i < t.size(); i++)
-        std::cout << s << "[" << i << "]: " << t[i] << std::endl;
+        std::cout << s << "[" << i << "]: " << t[i] << '\n';
 }
-
-using std::cout;
-using std::endl;
 
 int main()
 {
-    vector<int> v1{1, 2, 3, 4}; // initializer list
-    cout << "v1.size(): " << v1.size() << endl; // 4
-    cout << "v1.capacity(): " << v1.capacity() << endl; // 4
+    using std::cout;
+
+    vector<int> v1 {1, 2, 3, 4}; // initializer list
+
+    cout << "v1.size(): " << v1.size() << '\n'; // 4
+    cout << "v1.capacity(): " << v1.capacity() << '\n'; // 4
     print(v1, "v1"); // output v1
-    cout << endl;
+    cout << '\n';
 
     vector<int> v2(v1); // copy constructor
-    cout << "v2.size(): " << v2.size() << endl; // 4
-    cout << "v2.capacity(): " << v2.capacity() << endl; // 4
+    cout << "v2.size(): " << v2.size() << '\n'; // 4
+    cout << "v2.capacity(): " << v2.capacity() << '\n'; // 4
     print(v2, "v2"); // output v2
-    cout << endl;
+    cout << '\n';
 
     vector<int> v3; // default constructor
     v3 = v2; // copy assignment
-    cout << "v3.size(): " << v3.size() << endl; // 4
-    cout << "v3.capacity(): " << v3.capacity() << endl; // 4
+    cout << "v3.size(): " << v3.size() << '\n'; // 4
+    cout << "v3.capacity(): " << v3.capacity() << '\n'; // 4
     print(v3, "v3"); // output v3
-    cout << endl;
+    cout << '\n';
 
     vector<int> vm1(v3); // copy constructor
     // NOTE: vm1 is 'emptied' by the move operation
     vector<int> v4(std::move(vm1)); // move constructor
-    cout << "v4.size(): " << v4.size() << endl; // 4
-    cout << "v4.capacity(): " << v4.capacity() << endl; // 4
+    cout << "v4.size(): " << v4.size() << '\n'; // 4
+    cout << "v4.capacity(): " << v4.capacity() << '\n'; // 4
     print(v4, "v4"); // output v4
-    cout << endl;
+    cout << '\n';
 
     vector<int> v5; // default constructor
     vm1 = v4; // copy assignment
     v5 = std::move(vm1); // move assignment
-    cout << "v5.size(): " << v5.size() << endl; // 4
-    cout << "v5.capacity(): " << v5.capacity() << endl; // 4
+    cout << "v5.size(): " << v5.size() << '\n'; // 4
+    cout << "v5.capacity(): " << v5.capacity() << '\n'; // 4
     print(v5, "v5"); // output v5
-    cout << endl;
+    cout << '\n';
 
     vector<int> v6; // default constructor
     // fill v6 using push_back()
@@ -300,21 +300,23 @@ int main()
         v6.push_back(v5[i] * (i + 4));
     }
 
-    cout << "v6.size(): " << v6.size() << endl; // 20
-    cout << "v6.capacity(): " << v6.capacity() << endl; // 32
+    cout << "v6.size(): " << v6.size() << '\n'; // 20
+    cout << "v6.capacity(): " << v6.capacity() << '\n'; // 32
     print(v6, "v6"); // output v6
-    cout << endl;
+    cout << '\n';
 
     const vector<int> v7(v5); // copy constructor
-    cout << "v7.size(): " << v7.size() << endl; // 4
-    cout << "v7.capacity(): " << v7.capacity() << endl; // 4
+
+    cout << "v7.size(): " << v7.size() << '\n'; // 4
+    cout << "v7.capacity(): " << v7.capacity() << '\n'; // 4
     print(v7, "v7"); // output v7
-    cout << endl;
+    cout << '\n';
     
     int i = v7[3];
     const int j = v7[3];
-    cout << "i: " << i << endl;
-    cout << "j: " << j << endl;
+
+    cout << "i: " << i << '\n';
+    cout << "j: " << j << '\n';
 
     return 0;
 }

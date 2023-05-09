@@ -9,10 +9,15 @@
 #include <string> // string library header
 #include <vector> // vector library header
 #include <algorithm> // algorithm library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::vector;
+    using std::string;
+    using std::cout;
+    using std::cin;
+    using std::sort;
+
     vector<string> words; // empty vector of strings
     string temp; // placeholder variable to fill vector
 
@@ -24,7 +29,7 @@ int main()
     }
    
     // NOTE: the size() method returns the number of elements in a container
-    cout << "Number of words: " << words.size() << endl;
+    cout << "Number of words: " << words.size() << '\n';
 
     // default sort... provied by algorithm library
     // requires iterator to first and last elements in the range of the
@@ -33,7 +38,7 @@ int main()
 
     for (unsigned int i = 0; i < words.size(); i++)
         if (i == 0 || words[i - 1] != words[i]) // is this a new word?
-            cout << words[i] << endl;
+            cout << words[i] << '\n';
 
     return 0;
 }

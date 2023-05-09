@@ -5,6 +5,8 @@ using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+
     int a = 20000; // initialize a to a large value
 
     // conversion of int to char is implementation defined
@@ -12,9 +14,9 @@ int main()
     int b = c; // not 20000
 
     if (a != b)
-        cout << "oops!: " << a << " != " << b << endl;
+        cout << "oops!: " << a << " != " << b << '\n';
     else
-        cout << "Wow! We have large characters" << endl;
+        cout << "Wow! We have large characters" << '\n';
 
     return 0;
 }

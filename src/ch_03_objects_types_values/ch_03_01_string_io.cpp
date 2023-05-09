@@ -5,10 +5,13 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::string;
+    using std::cin;
+
     cout << "First name: "; // prompt user
 
     // don't declare variables until needed
@@ -19,7 +22,7 @@ int main()
 
     // write results to stdout
     cout << "Hello " << name << "!\n";
-    cout << "name" << " is " << name << endl;
+    cout << "name" << " is " << name << '\n';
 
     return 0;
 }

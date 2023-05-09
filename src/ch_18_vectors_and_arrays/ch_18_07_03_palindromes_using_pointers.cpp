@@ -3,7 +3,6 @@
 
 #include <iostream> // I/O library header
 #include <cstring> // provides string.h to manipulate C strings and arrays
-using namespace std;  // add names from std namespace to global namespace
 
 // given a pointer to the first and last characters in a string, function
 // returns whether or not the string is a palindrome
@@ -11,10 +10,13 @@ bool is_palindrome(const char *first, const char *last);
 
 // function reads at most max-1 characters from is into buffer, which will be
 // null-terminated
-istream& read_word(istream& is, char *buffer, int max);
+std::istream& read_word(std::istream& is, char *buffer, int max);
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+
     constexpr int max = 128; // buffer size
     char s[max]; // buffer
 
@@ -24,7 +26,7 @@ int main()
         cout << s << " is";
         if (!is_palindrome(&s[0], &s[strlen(s) - 1])) // test input
             cout << " not";
-        cout << " a palindrome" << endl << endl;
+        cout << " a palindrome" << "\n\n";
 
         cout << "Enter a string (or CTRL-D to exit): "; // prompt user
     }
@@ -32,7 +34,7 @@ int main()
     return 0;
 }
 
-istream& read_word(istream& is, char *buffer, int max)
+std::istream& read_word(std::istream& is, char *buffer, int max)
 {
     is.width(max); // read at most max-1 characters in the next input operation
     is >> buffer; // read whitespace-terminated word, and add \0 after the last

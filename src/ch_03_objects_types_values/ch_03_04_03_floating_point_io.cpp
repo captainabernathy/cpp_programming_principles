@@ -5,10 +5,12 @@
 // output statements
 #include <iostream> // I/O library header
 #include <cmath> // math library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+
     cout << "Enter a floating-point value: "; // prompt user
     
     // declare varaible
@@ -18,13 +20,13 @@ int main()
     cin >> n;
 
     // display results of performing various arithmetic operations on n
-    cout << "n == " << n << endl
-        << "n + 1 == " << n + 1 << endl // addition with constant
-        << "three times n == " << 3 * n << endl // multiplication with constant
-        << "twice n == " << n + n << endl // addition with variable
-        << "n squared == " << n * n << endl // multiplication with variable
-        << "half of n == " << n / 2 << endl // division with constant
-        << "square root of n == " << sqrt(n) << endl; // function result
+    cout << "n == " << n << '\n'
+        << "n + 1 == " << n + 1 << '\n' // addition with constant
+        << "three times n == " << 3 * n << '\n' // multiplication with constant
+        << "twice n == " << n + n << '\n' // addition with variable
+        << "n squared == " << n * n << '\n' // multiplication with variable
+        << "half of n == " << n / 2 << '\n' // division with constant
+        << "square root of n == " << sqrt(n) << '\n'; // function result
 
     return 0;
 }

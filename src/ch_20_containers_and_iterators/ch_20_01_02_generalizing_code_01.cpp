@@ -8,7 +8,6 @@
 
 #include <iostream> // I/O library header
 #include <vector>  // vector library header
-using namespace std;
 
 // jack fills a dynamically allocated array of doubles and returns it. the
 // number of elements contained in the array will be returned through the
@@ -20,7 +19,7 @@ double *get_from_jack(int *count);
 // jill fills a vector and returns a pointer to it
 // NOTE: function returns a dynamically allocated pointer to a vector of
 // doubles, so remember to delete it when done
-vector<double> *get_from_jill();
+std::vector<double> *get_from_jill();
 
 // tests get_from_jack() and get_from_jill()
 void fct();
@@ -49,12 +48,12 @@ double *get_from_jack(int *count)
     return arr; // return array
 }
 
-vector<double>* get_from_jill()
+std::vector<double>* get_from_jill()
 {
     const int n = 10;
 
     // allocate pointer to vector of 10 doubles
-    vector<double>* arr = new vector<double>(n);
+    std::vector<double>* arr = new std::vector<double>(n);
 
     if (arr) // fill vector if allocation was successful
     {
@@ -76,7 +75,7 @@ void fct()
     double *jack_data = get_from_jack(&jack_count);
 
     // jill will receive a pointer to a dynamically allocated vector of doubles
-    vector<double> *jill_data = get_from_jill();
+    std::vector<double> *jill_data = get_from_jill();
     double h = -1;
     double *jack_high;
     double *jill_high;
@@ -89,7 +88,7 @@ void fct()
         }
 
     h = -1;
-    vector<double>& v = *jill_data; // instead of accessing jill_data directly
+    std::vector<double>& v = *jill_data; // instead of accessing jill_data directly
     for (size_t i = 0; i < v.size(); i++)
         if (h < v[i])
         {
@@ -98,8 +97,8 @@ void fct()
             jill_high = &v[i];
             h = v[i];
         }
-    cout << "Jill's max: " << *jill_high << endl;
-    cout << "Jack's max: " << *jack_high << endl;
+    std::cout << "Jill's max: " << *jill_high << '\n';
+    std::cout << "Jack's max: " << *jack_high << '\n';
 
     delete[] jack_data; // return memory allocated for jack
     delete jill_data; // return memory allocated for jill

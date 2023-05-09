@@ -25,7 +25,7 @@ std::istream& operator>>(std::istream& is, Document& d);
 int main()
 {
     Document d;
-    std::cout << "Enter lines of text or press CTRL-D to exit." << std::endl;
+    std::cout << "Enter lines of text or press CTRL-D to exit." << '\n';
     std::cin >> d;
 }
 
@@ -39,11 +39,11 @@ std::istream& operator>>(std::istream& is, Document& d)
         d.lines.back().push_back(ch); // add character
 
         if (ch == '\n')
-            d.lines.push_back(Line{}); // add another line
+            d.lines.push_back(Line { }); // add another line
     }
 
     if (d.lines.back().size()) // add final empty line if there are characters
-        d.lines.push_back(Line{}); // in the last line
+        d.lines.push_back(Line { }); // in the last line
 
     return is;
 }

@@ -7,18 +7,24 @@
 #include <fstream> // file I/O library
 #include <sstream> // provides stream classes for operating on strings
 #include "std_lib_facilities.hpp" // project header containing header functions
-using namespace std;  // add names from std namespace to global namespace
 
 // function that converts the characters in s to a double and returns it
-double str_to_double(string s);
+double str_to_double(std::string s);
 
 // testing function for str_to_double()
 void test();
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::ostringstream;
+        using std::cout;
+        using std::ofstream;
+
         test(); // test str_to_double()
 
         // ostringstream stores characters written to it in a string
@@ -27,28 +33,28 @@ int main()
         
         // ostringsream's str() member function returns the string that was
         // composed by the output operations on it
-        cout << name.str() << endl; // myfile17
+        cout << name.str() << '\n'; // myfile17
 
         // create file myfile17
         ofstream logfile {name.str()};
 
-        logfile << "this is some stuff" << endl; // write to logfile
+        logfile << "this is some stuff" << '\n'; // write to logfile
     }
     catch (exception &ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "error: unknown" << endl;
+        cerr << "error: unknown" << '\n';
         return 2;
     }
 }
 
-double str_to_double(string s)
+double str_to_double(std::string s)
 {
-    istringstream is {s}; // create a string stream to read from s
+    std::istringstream is {s}; // create a string stream to read from s
     double d;
     is >> d; // read contents of s into d
 
@@ -67,14 +73,14 @@ void test()
         double d2 = str_to_double("1.34e-3");
         // double d3 = str_to_double("twelve point three"); // error
         // write results of test to stdout
-        cout << d1 << " " << d2 << endl;
+        std::cout << d1 << " " << d2 << '\n';
     }
-    catch (exception &ex)
+    catch (std::exception &ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        std::cerr << "error: " << ex.what() << '\n';
     }
     catch (...)
     {
-        cerr << "error: unknown" << endl;
+        std::cerr << "error: unknown" << '\n';
     }
 }

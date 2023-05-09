@@ -5,10 +5,12 @@
 // complex expressions (ie: 1+2+3).
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+
     cout << "Enter an expression (we can handle + and -): ";
     
     int lval = 0; // left operand
@@ -31,7 +33,7 @@ int main()
         res = lval - rval;
 
     // write result to stdout
-    cout << "Result: " << res << endl;
+    cout << "Result: " << res << '\n';
 
     return 0;
 }

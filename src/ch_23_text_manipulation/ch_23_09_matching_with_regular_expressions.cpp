@@ -8,19 +8,17 @@
 #include <sstream> // string stream library header
 #include <string> // string library header
 
-using namespace std;
-
 // outputs the string passed to msg to stderr and throws a runtime_error()
 // with msg as its argument
-inline void error(string const& msg)
+inline void error(std::string const& msg)
 {
-    cerr << msg << endl;
-    throw runtime_error(msg);
+    std::cerr << msg << std::endl;
+    throw std::runtime_error(msg);
 }
 
 // concatenates both of the strings into a an error message that forms the
 // message of a runtime_error()
-inline void error(string s1, string s2)
+inline void error(std::string s1, std::string s2)
 {
     error(s1 + s2);
 }
@@ -28,9 +26,9 @@ inline void error(string s1, string s2)
 // function that reads integer passed to n into a string and forms an error
 // message that concatenates the string passed to s1 with n, which subsequently
 // forms the message of a runtime_error()
-inline void error(string s1, int n)
+inline void error(std::string s1, int n)
 {
-    ostringstream oss;
+    std::ostringstream oss;
     oss << n;
     error(s1, oss.str());
 }
@@ -48,9 +46,9 @@ struct bad_from_string : std::bad_cast {
 // NOTE: if s cannot be read as a type T, then the function throws a
 // bad_from_string() exception
 template<typename T>
-T from_string(string const& s)
+T from_string(std::string const& s)
 {
-    istringstream is(s); // initialize input string stream with s
+    std::istringstream is {s}; // initialize input string stream with s
     T t; // target type
     if (!(is >> t)) // read t from stream
         throw bad_from_string();
@@ -59,9 +57,19 @@ T from_string(string const& s)
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
-        ifstream ifs("table.txt");
+        using std::ifstream;
+        using std::regex;
+        using std::smatch;
+        using std::cout;
+        using std::regex_search;
+        using std::string;
+
+        ifstream ifs {"table.txt"};
         if (!ifs)
             error("could not open table.txt");
 
@@ -116,7 +124,7 @@ int main()
             // update totals
             boys += curr_boy;
             girls += curr_girl;
-            cout << "boys: " << boys << "\tgirls: " << girls << endl;
+            cout << "boys: " << boys << "\tgirls: " << girls << '\n';
         }
 
         if (2 * curr_boy != boys)
@@ -126,12 +134,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exeption" << endl;
+        cerr << "unknown exeption" << '\n';
         return 2;
     }
 

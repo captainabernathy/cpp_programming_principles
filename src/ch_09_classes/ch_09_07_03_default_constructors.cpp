@@ -3,7 +3,6 @@
 
 #include <iostream> // I/O library header
 #include <vector> // vector library header
-using namespace std;  // add names from std namespace to global namespace
 
 // user-defined Date type
 class Date {
@@ -58,16 +57,19 @@ const Date& default_date()
 
 // default constructor definition
 Date::Date()
-    : y(default_date().year()),
-    m(default_date().month()),
-    d(default_date().day()) {  }
+    : y {default_date().year()},
+      m {default_date().month()},
+      d {default_date().day()} {  }
 
 // constructor that initializes a date from its input
 Date::Date(int yy, Month mm, int dd)
-    : y(yy), m(mm), d(dd) {  }
+    : y {yy}, m {mm}, d {dd} {  }
 
 int main()
 {
+    using std::vector;
+    using std::cout;
+
     // construct a 10 element vector of Dates, each initialized using
     // default_date()
     vector<Date> birthdays(10, default_date());
@@ -77,8 +79,8 @@ int main()
    
     // write birthdays to stdout
     for (auto it : birthdays)
-        cout << it.month() << ' ' << it.day() << ' ' << it.year() << endl;
-    cout << endl;
+        cout << it.month() << ' ' << it.day() << ' ' << it.year() << '\n';
+    cout << '\n';
 
     return 0;
 }

@@ -4,7 +4,6 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 // simple function that calculates area from its inputs and returns the result
 inline int area(int len, int width)
@@ -24,6 +23,9 @@ inline int framed_area(int x, int y)
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     int x = -1;
     int y = 2;
     int z = 4;
@@ -32,6 +34,8 @@ int main()
     // runtime errors
     try // code that may call error()
     {
+        using std::cout;
+
         {
             // call error if either x or y is not positive
             if (x <= 0)
@@ -40,7 +44,7 @@ int main()
                 error("non-positive y");
 
             int area1 = area(x, y); // computed only if inputs are valid
-            cout << area1 << endl;
+            cout << area1 << '\n';
         }
         {
             if (x <= 0 || y <= 0) // more compact check for invalid x or y values
@@ -50,7 +54,7 @@ int main()
 
             // nonsensical result bc input to framed area should be >= 2
             int area2 = framed_area(1, z);
-            cout << area2 << endl; // no error checking lead to invalid result
+            cout << area2 << '\n'; // no error checking lead to invalid result
 
             // inputs to framed area should be > 2
             if (y <= 2 || z <= 2)
@@ -58,11 +62,11 @@ int main()
                     "framed_area()");
 
             int area3 = framed_area(y, z); // computed only if inputs are valid
-            cout << area3 << endl;
+            cout << area3 << '\n';
 
             // potential division by zero w/o check
             double ratio = double(area1) / area3; // convert to double
-            cout << ratio << endl;
+            cout << ratio << '\n';
         }
         {
             //  tests exposes implementation detail of framed_area(), which is
@@ -72,7 +76,7 @@ int main()
                         "by framed_area()");
 
             int area2 = framed_area(1, z); // computed only if inputs are valid
-            cout << area2 << endl;
+            cout << area2 << '\n';
 
             // another brittle test that depends on evaluation against a magic
             // constant
@@ -81,17 +85,17 @@ int main()
                         "by framed_area()");
 
             int area3 = framed_area(y, z); // computed only if inputs are valid
-            cout << area3 << endl;
+            cout << area3 << '\n';
         }
     }
     catch (exception& e) // catches exceptions from error()
     {
-        cerr << "error: " << e.what() << endl;
+        cerr << "error: " << e.what() << '\n';
         return 1;
     }
     catch (...) // catches unexpected exceptions
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 

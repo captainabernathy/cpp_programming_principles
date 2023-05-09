@@ -2,10 +2,12 @@
 // preventing potential logic errors
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+
     double temp; // placeholder variable for reading input
     double sum = 0; // accumulates the sum of inputs
     double high_temp = -1000; // initialize to impossibly low
@@ -25,9 +27,9 @@ int main()
     }
 
     // write high, low, and average temperatures to stdout
-    cout << "High temperature: " << high_temp << endl;
-    cout << "Low temperature: " << low_temp << endl;
-    cout << "Average temperature: " << sum/num_temps << endl;
+    cout << "High temperature: " << high_temp << '\n';
+    cout << "Low temperature: " << low_temp << '\n';
+    cout << "Average temperature: " << sum/num_temps << '\n';
 
     return 0;
 }

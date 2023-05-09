@@ -5,7 +5,6 @@
 
 #include <vector> // vector library header
 #include <iostream> // I/O library header
-using namespace std;
 
 // template function that copies the elements between the iterators first
 // and last in one collection (range [first,last)) to another collection
@@ -51,10 +50,13 @@ public:
 
 int main()
 {
-    vector<int> v1{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    using std::vector;
+    using std::cout;
+
+    vector<int> v1 {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     vector<int> v2(v1.size());
-    auto it = copy_if(v1.begin(), v1.end(), v2.begin(), Larger_than<int>(6));
+    auto it = copy_if(v1.begin(), v1.end(), v2.begin(), Larger_than<int> {6});
 
     for (auto i = v2.begin(); i != it; i++)
-        cout << *i << endl;
+        cout << *i << '\n';
 }

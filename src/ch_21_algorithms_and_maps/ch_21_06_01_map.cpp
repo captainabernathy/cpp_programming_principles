@@ -6,16 +6,19 @@
 #include <map>  // map library header
 #include <string> // string library header
 
-using namespace std;
-
 int main()
 {
+    using std::map;
+    using std::string;
+    using std::cout;
+    using std::cin;
+
     // NOTE: a map is an ordered sequence of key-value pairs in which you can
     // look up a value based on a key
     map<string, int> words;  // keep (word, frequency) pairs
 
     string s;
-    cout << "Enter lines of text or press CTRL-D to exit." << endl;
+    cout << "Enter lines of text or press CTRL-D to exit." << '\n';
     while (cin >> s)
         ++words[s];
 
@@ -25,14 +28,14 @@ int main()
     // the iterator's second member
     for (map<string, int>::const_iterator i = words.begin(); i != words.end();
             ++i)
-        cout << i->first << ": " << i->second << endl;
-    cout << endl;
+        cout << i->first << ": " << i->second << '\n';
+    cout << '\n';
     
     // NOTE: since a map is an ordered collection, it provides direct access
     // via the [] operator such that providing a key to [] returns a value
     for (map<string, int>::const_iterator i = words.begin(); i != words.end();
             i++)
-        cout << i->first << ": " << words[i->first] << endl;
+        cout << i->first << ": " << words[i->first] << '\n';
 
     return 0;
 }

@@ -9,15 +9,20 @@
 #include <string> // string library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 // utility function for recovering after seeing a bad/unexpected character
 void skip_to_int();
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
+        using std::cin;
+
         cout << "Please enter an integer in the range of 1 to 10 (inclusive): ";
 
         int n = 0;
@@ -31,44 +36,44 @@ int main()
                     break;
 
                 cout << "Sorry " << n << " is not in the [1:10] range. Please "
-                    << "try again" << endl;
+                    << "try again" << '\n';
             }
             else // non-integer was read
             {
                 cout << "Sorry, that was not a number. Please try again"
-                    << endl;
+                    << '\n';
                 skip_to_int(); // call recover function
             }
         }
 
-        cout << n << endl;
+        cout << n << '\n';
         return 0;
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 }
 
 void skip_to_int()
 {
-    if (cin.fail()) // if we found something that was not an integer
+    if (std::cin.fail()) // if we found something that was not an integer
     {
-        cin.clear(); // clear stream state so that we can look at it
+        std::cin.clear(); // clear stream state so that we can look at it
         char ch;
 
-        while (cin >> ch) // read input
+        while (std::cin >> ch) // read input
         {
             if (isdigit(ch) || ch == '-')
             {
                 // put digit back in input stream so that it can be read again
-                cin.unget();
+                std::cin.unget();
                 return;
             }
         }

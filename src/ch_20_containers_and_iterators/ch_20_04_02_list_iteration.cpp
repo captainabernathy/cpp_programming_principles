@@ -6,7 +6,6 @@
 // does it account for dynamically allocated memory
 
 #include <iostream> // I/O library header
-using namespace std;
 
 // template for a link in a doubly linked list of type T
 template<typename T>
@@ -18,7 +17,7 @@ struct Link {
     // constructor... initializes val to t, prev to p, and next to n when
     // provided... otherwise initializes them to default values
     Link(T const& t = T(), Link *p = nullptr, Link *n = nullptr)
-        : val(t), prev(p), next(n) {  }
+        : val {t}, prev {p}, next {n} {  }
 };
 
 // template for a doubly linked list of type T
@@ -32,7 +31,7 @@ public:
     // default constructor... allocates a pointer to a new link for first, and
     // initializes the pointer to the last link to the first one
     list()
-        : first(new Link<T>()), last(first) { }
+        : first {new Link<T>()}, last {first} { }
 
     // iterator to first element
     iterator begin();
@@ -73,7 +72,7 @@ class list<T>::iterator {
     public:
         // constructor initializes pointer to current node to p
         iterator(Link<T> *p)
-            : curr(p) {  }
+            : curr {p} {  }
 
         // forward incrementation... advances the pointer to the current node to
         // the next node and returns a reference to this iterator
@@ -117,14 +116,14 @@ class list<T>::iterator {
 template<typename T>
 typename list<T>::iterator list<T>::begin()
 {
-    return iterator(first);
+    return iterator {first};
 }
 
 // returns an iterator to one beyond the last element in a list of type T
 template<typename T>
 typename list<T>::iterator list<T>::end()
 {
-    return iterator(last);
+    return iterator {last};
 }
 
 // inserts t at the front of a list of type T
@@ -134,7 +133,7 @@ void list<T>::push_front(T const& t)
     // update pointer to first link in this list...
     // set its value to t, its prev pointer to nullptr, and its next pointer to
     // the link currently first
-    first = new Link<T>(t, nullptr, first);
+    first = new Link<T> {t, nullptr, first};
 }
 
 // template function that returns an iterator to the element in a collection
@@ -167,12 +166,12 @@ void f()
         lst.push_front(10 - i);
 
     list<int>::iterator q = high(lst.begin(), lst.end());
-    cout << "highest value: " << *q << endl << endl;
+    std::cout << "highest value: " << *q << "\n\n";
 
     list<int>::iterator p = high(lst.begin(), lst.end());
 
     if (p == lst.end()) // only true when list is empty
-        cout << "list is empty";
+        std::cout << "list is empty";
     else
-        cout << "highest value: " << *p << endl;
+        std::cout << "highest value: " << *p << '\n';
 }

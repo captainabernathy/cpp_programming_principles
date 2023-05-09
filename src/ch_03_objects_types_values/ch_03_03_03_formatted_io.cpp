@@ -6,10 +6,13 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::string;
+    using std::cin;
+
     cout << "Enter first and last name: "; // prompt user
 
     // variable declarations
@@ -20,6 +23,7 @@ int main()
     cin >> first >> last;
 
     // write results to stdout
-    cout << "Hello, " << first << " " << last << endl;
+    cout << "Hello, " << first << " " << last << '\n';
+
     return 0;
 }

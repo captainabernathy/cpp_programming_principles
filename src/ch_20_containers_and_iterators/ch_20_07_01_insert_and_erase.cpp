@@ -4,10 +4,13 @@
 #include <iostream> // I/O library header
 #include <list> // list library header
 #include <vector>  // vector library header
-using namespace std;
 
 int main()
 {
+    using std::vector;
+    using std::cout;
+    using std::list;
+
     int initializer[7] = {1, 2, 3, 4, 5, 6, 7};
     int *first = initializer;
     int *last = initializer + 7;
@@ -17,17 +20,17 @@ int main()
         vector<int> v(first, last);
         for (auto it : v)
             cout << it << ' ';
-        cout << endl << endl;
+        cout << "\n\n";
 
         vector<int>::iterator p = v.begin(); // iterator to start of v
-        cout << *p << endl; // 1
+        cout << *p << '\n'; // 1
         p++; // increment iterator
         p += 2; // advance iterator by 2 (more) positions
-        cout << *p << endl; // 4
+        cout << *p << '\n'; // 4
         
         vector<int>::iterator q = p; // copy assignment
         q++; // does not advance p
-        cout << *p << ' ' << *q << endl << endl; // 4 5
+        cout << *p << ' ' << *q << "\n\n"; // 4 5
 
         for (size_t i = 0; i < v.size(); i++)
         {
@@ -38,9 +41,9 @@ int main()
                 << "&v[i] == &*p " << (&v[i] == &*p) << '\t'
                 << "*q " << *q << '\t'
                 << "&*q " << &*q << '\t'
-                << "&v[i] == &*q " << (&v[i] == &*q) << endl;
+                << "&v[i] == &*q " << (&v[i] == &*q) << '\n';
         }
-        cout << endl;
+        cout << '\n';
 
         // NOTE: the insert() method inserts an element with the value
         // specified by its second argument before the element specified by
@@ -69,9 +72,9 @@ int main()
                 << "&v[i] == &*p " << (&v[i] == &*p) << '\t'
                 << "*q " << *q << '\t' // UNSAFE: can't be sure what's in here
                 << "&*q " << &*q << '\t'
-                << "&v[i] == &*q " << (&v[i] == &*q) << endl;
+                << "&v[i] == &*q " << (&v[i] == &*q) << '\n';
         }
-        cout << endl;
+        cout << '\n';
 
                 
         
@@ -97,9 +100,9 @@ int main()
                 << "&v[i] == &*p " << (&v[i] == &*p) << '\t'
                 << "*q " << *q << '\t' // UNSAFE: can't be sure what's in here
                 << "&*q " << &*q << '\t'
-                << "&v[i] == &*q " << (&v[i] == &*q) << endl;
+                << "&v[i] == &*q " << (&v[i] == &*q) << '\n';
         }
-        cout << endl;
+        cout << '\n';
     }
 
     {
@@ -108,20 +111,20 @@ int main()
         // NOTE: the [] operator is not defined for lists
         for (auto it : l)
             cout << it << ' ';
-        cout << endl << endl;
+        cout << '\n' << '\n';
 
         list<int>::iterator p = l.begin(); // iterator to the start of l
 
-        cout << *p << endl;  // 1
+        cout << *p << '\n';  // 1
 
         // NOTE: the += operator is not defined for lists iterators
         p++;
         p++;
         p++;
-        cout << *p << endl; // 4
+        cout << *p << '\n'; // 4
         list<int>::iterator q = p;
         q++; // does not advance p
-        cout << *p << " " << *q << endl << endl; // 4 5
+        cout << *p << " " << *q << '\n' << '\n'; // 4 5
 
         for (auto it = l.begin(); it != l.end(); ++it)
         {
@@ -132,9 +135,9 @@ int main()
                 << "&*it == &*p " << (&*it == &*p) << '\t'
                 << "*q " << *q << '\t'
                 << "&*q " << &*q << '\t'
-                << "(&*it == &*q) " << (&*it == &*q) << endl;
+                << "(&*it == &*q) " << (&*it == &*q) << '\n';
         }
-        cout << endl;
+        cout << '\n';
 
         // NOTE: inserting and erasing will not invalidate q because a list
         // will not be reallocated... so q will always point to the same place
@@ -148,9 +151,9 @@ int main()
                 << "&*it == &*p " << (&*it == &*p) << '\t'
                 << "*q " << *q << '\t'
                 << "&*q " << &*q << '\t'
-                << "(&*it == &*q) " << (&*it == &*q) << endl;
+                << "(&*it == &*q) " << (&*it == &*q) << '\n';
         }
-        cout << endl;
+        cout << '\n';
 
         p = l.erase(p);
 
@@ -163,7 +166,7 @@ int main()
                 << "&*it == &*p " << (&*it == &*p) << '\t'
                 << "*q " << *q << '\t'
                 << "&*q " << &*q << '\t'
-                << "(&*it == &*q) " << (&*it == &*q) << endl;
+                << "(&*it == &*q) " << (&*it == &*q) << '\n';
         }
     }
 

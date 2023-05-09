@@ -2,7 +2,6 @@
 // how to implement size() and capacity() methods
 
 #include <iostream> // I/O library header
-using namespace std;
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -18,7 +17,7 @@ public:
     // default constructor, sets a vector's size and capacity to 0 and the
     // pointer to its elements to null
     vector()
-        : sz{0}, elem{nullptr}, cap{0} {  }
+        : sz {0}, elem {nullptr}, cap {0} {  }
 
     // deallocates a vector's dynamically allocated resources
     ~vector() { delete[] elem; }
@@ -32,9 +31,11 @@ public:
 
 int main()
 {
+    using std::cout;
+
     vector v;
-    cout << "v.size(): " << v.size() << endl; // 0
-    cout << "v.capacity(): " << v.capacity() << endl; // 0
+    cout << "v.size(): " << v.size() << '\n'; // 0
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 0
 
     return 0;
 }

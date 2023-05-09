@@ -4,11 +4,6 @@
 #include <iostream> // I/O library header
 #include <algorithm> // algorithm library header
 #include <initializer_list> // provides initializer_list class template
-#include <string> // string library header
-
-using std::cout;
-using std::endl;
-using std::string;
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -27,7 +22,7 @@ public:
     // NOTE: explicit constructors define a conversion from its argument type to
     // its class
     explicit vector(size_t s)
-        : sz{s}, elem{new double[sz]}
+        : sz {s}, elem {new double[sz]}
     {
         std::fill(elem, elem + sz, 0.0);
     }
@@ -37,7 +32,7 @@ public:
     // initializer list and copies the values of the elements in the
     // initializer list to its elements
     vector(std::initializer_list<double> lst)
-        : sz{lst.size()}, elem{new double[sz]}
+        : sz {lst.size()}, elem {new double[sz]}
     {
         std::copy(lst.begin(), lst.end(), elem);
     }
@@ -47,9 +42,9 @@ public:
     // it sets this vector's size to the input vector's size and copies the
     // the values of the input vector's elements to this vector's elements
     vector(vector const& v)
-        : sz{v.sz}, elem{new double[sz]}
+        : sz {v.sz}, elem {new double[sz]}
     {
-        cout << "copy constructor" << endl;
+        std::cout << "copy constructor" << '\n';
         std::copy(v.elem, v.elem + sz, elem);
     }
 
@@ -63,10 +58,11 @@ public:
     // move operations NEVER take const arguments as they modify their input and
     // make it 'empty'
     vector(vector&& a)
-        : sz{a.sz}, elem{a.elem} // copies a's elements and size to this vector
-                                 // NOTE: new not used
+        : sz {a.sz}, elem {a.elem} // copies a's elements and size to this
+                                   // vector
+                                   // NOTE: new not used!!!
     {
-        cout << "move constructor" << endl;
+        std::cout << "move constructor" << '\n';
         // make the input vector empty
         a.sz = 0;
         a.elem = nullptr;
@@ -116,7 +112,7 @@ public:
 // copy assignment
 vector& vector::operator=(vector const& rhs)
 {
-    cout << "copy assignment" << endl;
+    std::cout << "copy assignment" << '\n';
     double *p = new double[rhs.sz]; // allocate new space
     
     // copy elements from rhs into p
@@ -132,7 +128,7 @@ vector& vector::operator=(vector const& rhs)
 // move assignment
 vector& vector::operator=(vector&& a)
 {
-    cout << "move assignment" << endl;
+    std::cout << "move assignment" << '\n';
     delete[] elem; // deallocate space allocated for this vector's elements
 
     elem = a.elem; // copy a's elements to this vector's element

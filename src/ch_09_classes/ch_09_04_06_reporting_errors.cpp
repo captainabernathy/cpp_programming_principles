@@ -3,7 +3,6 @@
 
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
-using namespace std;  // add names from std namespace to global namespace
 
 // user-defined date type
 class Date {
@@ -34,7 +33,7 @@ private:
 // constructor definition... uses input to initialize a Date's private
 // attributes and validates the result
 Date::Date(int yy, int mm, int dd)
-    : y(yy), m(mm), d(dd)
+    : y {yy}, m {mm}, d {dd}
 {
     if (!check()) // throw exception if date invalid
         throw Invalid();
@@ -50,7 +49,7 @@ bool Date::check()
 }
 
 // overloaded definition of an output operator for Date objects (y, m, d)
-ostream& operator<<(ostream& os, Date& d)
+std::ostream& operator<<(std::ostream& os, Date& d)
 {
     return os << '(' << d.year() << ',' << d.month() << ',' << d.day() << ')';
 }
@@ -58,7 +57,7 @@ ostream& operator<<(ostream& os, Date& d)
 // function outputs error message passed to msg
 void error(const char *msg)
 {
-    cerr << msg << endl;
+    std::cerr << msg << std::endl;
 }
 
 // testing function that builds and prints a Date object
@@ -67,7 +66,7 @@ void f(int x, int y)
     try
     {
         Date dxy(2004, x, y); // build a Date object
-        cout << dxy << endl; // output Date object
+        std::cout << dxy << '\n'; // output Date object
     }
     catch (Date::Invalid &)
     {
@@ -78,6 +77,9 @@ void f(int x, int y)
 
 int main()
 {
+    using std::cerr;
+    using std::exception;
+
     try
     {
         f(1, 29);
@@ -92,12 +94,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

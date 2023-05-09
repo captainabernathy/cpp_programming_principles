@@ -3,7 +3,6 @@
 // input and output streams
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 class Date {
 public:
@@ -12,11 +11,11 @@ public:
     };
 
     // default constructor
-    Date(){  }
+    Date() {  }
     
     // constructor... initializes a Date's private data members from input
     Date(int yy, Month mm, int dd)
-        : y(yy), m(mm), d(dd){  }
+        : y {yy}, m {mm}, d {dd} {  }
 
     // return a Date's day
     Month month() const
@@ -46,24 +45,30 @@ private:
 // overloaded input operator for Dates
 // reads Date dd into input stream is
 // NOTE: Date dd should be formatted as "(year,month,day)"
-istream& operator>>(istream& is, Date& dd);
+std::istream& operator>>(std::istream& is, Date& dd);
 
 // overloaded output operator for Dates
 // writes and formats Date d to output steream os
-ostream& operator<<(ostream& os, const Date& d);
+std::ostream& operator<<(std::ostream& os, const Date& d);
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+  
     // read a date from stdin and write it to stdout
     Date d;
     cout << "Enter date: ";
     cin >> d;
-    cout << endl;
-    cout << "d is " << d << endl;
+
+    cout << '\n';
+
+    cout << "d is " << d << '\n';
+
     return 0;
 }
 
-istream& operator>>(istream& is, Date& dd)
+std::istream& operator>>(std::istream& is, Date& dd)
 {
     int y;
     int m;
@@ -84,15 +89,15 @@ istream& operator>>(istream& is, Date& dd)
     if (ch1 != '(' || ch2 != ',' || ch3 != ',' || ch4 != ')')
     {
         // set stream error state to failed... format error
-        is.clear(ios_base::failbit);
+        is.clear(std::ios_base::failbit);
         return is;
     }
 
-    dd = Date(y, Date::Month(m), d); // update dd
+    dd = Date {y, Date::Month(m), d}; // update dd
     return is;
 }
 
-ostream& operator<<(ostream& os, const Date& d)
+std::ostream& operator<<(std::ostream& os, const Date& d)
 {
     return os << '(' << d.year() << "," << d.month() << "," << d.day() << ")";
 }

@@ -4,10 +4,12 @@
 // program demonsrates the use of a switch statement
 
 #include <iostream> // I/O library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+
     constexpr double cm_per_in = 2.54; // constant expression
     int len = 1; // default length
     char unit ='a'; // default unit
@@ -24,10 +26,10 @@ int main()
     switch (unit)
     {
         case 'i':
-            cout << len << "in == " << cm_per_in * len << "cm" << endl;
+            cout << len << "in == " << cm_per_in * len << "cm" << '\n';
             break;
         case 'c':
-            cout << len << "cm == " << len / cm_per_in << "in" << endl;
+            cout << len << "cm == " << len / cm_per_in << "in" << '\n';
             break;
         default:
             cout << "Sorry, I don't know a unit called '" << unit << "'\n";

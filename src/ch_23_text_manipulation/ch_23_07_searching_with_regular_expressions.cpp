@@ -7,24 +7,24 @@
 #include <string> // string library header
 #include <fstream> // file stream library header
 
-using std::ifstream;
-using std::regex;
-using std::string;
-using std::smatch;
-using std::regex_search;
-using std::exception;
-using std::cout;
-using std::cerr;
-using std::endl;
-
 int main()
 {
+    using std::cerr;
+    using std::exception;
+
     try
     {
-        ifstream ifs("file.txt"); // initialize ifs to file
+        using std::ifstream;
+        using std::regex;
+        using std::string;
+        using std::smatch;
+        using std::regex_search;
+        using std::cout;
+
+        ifstream ifs {"file.txt"}; // initialize ifs to file
         if (!ifs)
         {
-            cerr << "could not open file.txt" << endl;
+            cerr << "could not open file.txt" << '\n';
             exit(EXIT_FAILURE);
         }
 
@@ -43,20 +43,20 @@ int main()
             smatch matches; // matched strings go here
             if (regex_search(line, matches, pat))
             {
-                cout << lineno << ": " << matches[0] << endl;
+                cout << lineno << ": " << matches[0] << '\n';
                 if (1 < matches.size() && matches[1].matched)
-                    cout << "\t: " << matches[1] << endl; // sub-match
+                    cout << "\t: " << matches[1] << '\n'; // sub-match
             }
         }
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

@@ -2,7 +2,6 @@
 // initialize an object's private attributes
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // user-defined date type
 class Date {
@@ -31,11 +30,14 @@ Date::Date(int y, int m, int d)
 
 int main()
 {
+    using std::cout;
+
     Date birthday(1970, 12, 30); // construct a date
+
     // call birthday's public functions...
-    cout << birthday.month() << endl; // 12
-    cout << birthday.year() << endl; // 1970
-    cout << birthday.day() << endl; // 30
+    cout << birthday.month() << '\n'; // 12
+    cout << birthday.year() << '\n'; // 1970
+    cout << birthday.day() << '\n'; // 30
 
     return 0;
 }

@@ -2,8 +2,6 @@
 // how to implement an explicit/one-argument constructor
 
 #include <iostream> // I/O library header
-using std::cout;
-using std::endl;
 
 // ad-hoc class meant to represent a starting point for building up a
 // user-defined vector type
@@ -19,7 +17,7 @@ public:
     // NOTE: explicit constructors define a conversion from its argument type to
     // its class
     explicit vector(size_t s)
-        : sz(s), elem(new double[s]) {  }
+        : sz {s}, elem {new double[s]} {  }
 
     // destructor deallocates dynamically allocated memory
     ~vector() { delete[] elem; }
@@ -44,6 +42,8 @@ void f(int n);
 
 int main()
 {
+    using std::cout;
+
     // build a few vectors
     vector v(3);
     vector v2(3);
@@ -53,7 +53,7 @@ int main()
     v2.set(0, 88);
 
     // read from each of the vectors
-    cout << "v.get(1): " << v.get(1) << " v2.get(0): " << v2.get(0) << endl;
+    cout << "v.get(1): " << v.get(1) << " v2.get(0): " << v2.get(0) << '\n';
 
     // f(2);  // causes double free
 
@@ -73,7 +73,8 @@ void f(int n)
     vector v(3); // vector of 3 elements
     v.set(2, 2.2); // set last element of v to 2.2
     vector v2 = v;  // shallow assignment.. since vector has no copy constructor
-    cout << "in f(int n)..." << endl;
-    cout << "v2.get(2): " << v2.get(2) << " v.get(2): " << v.get(2) << endl;
+    std::cout << "in f(int n)..." << '\n';
+    std::cout << "v2.get(2): " << v2.get(2) << " v.get(2): " << v.get(2)
+        << '\n';
     // double free when function goes out of scope
 }

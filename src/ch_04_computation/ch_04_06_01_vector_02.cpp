@@ -3,10 +3,12 @@
 
 #include <iostream> // I/O library header
 #include <vector> // vector library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::vector;
+    using std::cout;
+
     // declare a vector of doubles
     vector<double> v;
 
@@ -17,7 +19,7 @@ int main()
 
     // iterate over the vector and display the results
     for (size_t i = 0; i < v.size(); i++)
-        cout << "v[" << i << "] == " << v[i] << endl;
+        cout << "v[" << i << "] == " << v[i] << '\n';
 
     return 0;
 }

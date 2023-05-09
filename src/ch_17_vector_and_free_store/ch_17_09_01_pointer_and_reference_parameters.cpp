@@ -4,12 +4,11 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <string> // string library header
-using namespace std;  // add names from std namespace to global namespace
 
 // simple error function that throws a runtime_error with the proivded message
-inline void error(const string& msg)
+inline void error(std::string const& msg)
 {
-    throw runtime_error(msg);
+    throw std::runtime_error(msg);
 }
 
 // compute a new value and return it
@@ -29,24 +28,29 @@ void incr_p(char *p);
 
 int main()
 {
+    using std::cerr;
+    using std::exception;
+
     try
     {
+        using std::cout;
+
         {
             int x = 2;
-            cout << "x: " << x << endl; // 2
+            cout << "x: " << x << '\n'; // 2
             x = incr_v(x);
-            cout << "x: " << x << endl << endl; // 3
+            cout << "x: " << x << "\n\n"; // 3
         }
 
         {
             int x = 7;
-            cout << "x: " << x << endl; // 7
+            cout << "x: " << x << '\n'; // 7
 
             incr_p(&x); // pass pointer
-            cout << "x: " << x << endl; // 8
+            cout << "x: " << x << '\n'; // 8
 
             incr_r(x); // pass reference... address of operator not needed
-            cout << "x: " << x << endl; // 9
+            cout << "x: " << x << '\n'; // 9
         }
 
         {
@@ -56,12 +60,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 

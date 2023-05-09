@@ -6,7 +6,6 @@
 #include <iostream> // I/O library header
 #include <list> // list library header
 #include <vector> // vector library header
-using namespace std;
 
 // template function that returns the first element in a collection between
 // the iterators first and last (range [first,last)) that satisfies the
@@ -28,7 +27,7 @@ class Larger_than {
     T v;
 public:
     Larger_than(T val)
-        : v{val} {  }
+        : v {val} {  }
     
     // NOTE: to create a function object, overload the function call operator
     bool operator()(T x)
@@ -39,38 +38,38 @@ public:
 
 // function that tests the template function and function object template
 // implemented above
-void f(list<double>&, double);
+void f(std::list<double>&, double);
 
 int main()
 {
     double arr[7] = {11.1, 22.2, 33.3, 44.4, 55.5, 66.6, 77.7};
     double *first = arr;
     double *last = arr + 7;
-    list<double> v(first, last);
+    std::list<double> v(first, last);
     f(v, 55.6);
 
     // lambda expression becomes the the function object passed to pred
-    cout << *(find_if(v.begin(), v.end(),
-                [](double a){return a > 72.3;})) << endl;
+    std::cout << *(find_if(v.begin(), v.end(),
+                   [](double a){return a > 72.3;})) << '\n';
 
     return 0;
 }
 
-void f(list<double>& v, double d)
+void f(std::list<double>& v, double d)
 {
-    list<double>::iterator p = find_if(v.begin(), v.end(),
-                                        Larger_than<double>(31.2));
+    std::list<double>::iterator p = find_if(v.begin(), v.end(),
+                                            Larger_than<double> {31.2});
 
     if (p != v.end())
-        cout << *p << " is larger than " << 31.2 << endl;
+        std::cout << *p << " is larger than " << 31.2 << '\n';
     else
-        cout << "Did not find a value larger than 31.2" << endl;
+        std::cout << "Did not find a value larger than 31.2" << '\n';
 
-    list<double>::iterator q = find_if(v.begin(), v.end(),
-                                        Larger_than<double>(d));
+    std::list<double>::iterator q = find_if(v.begin(), v.end(),
+                                            Larger_than<double> {d});
 
     if (q != v.end())
-        cout << *q << " is larger than " << d << endl;
+        std::cout << *q << " is larger than " << d << '\n';
     else
-        cout << "Did not find a value larger than " << d << endl;
+        std::cout << "Did not find a value larger than " << d << '\n';
 }

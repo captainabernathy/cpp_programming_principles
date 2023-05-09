@@ -3,7 +3,6 @@
 
 #include <iostream> // I/O library header
 #include <algorithm> // algorithm library header
-using namespace std;
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -20,7 +19,7 @@ public:
     // default constructor, sets a vector's size and capacity to 0 and the
     // pointer to its elements to null
     vector()
-        : sz{0}, elem{nullptr}, cap{0} {  }
+        : sz {0}, elem {nullptr}, cap {0} {  }
 
     // deallocates a vector's dynamically allocated resources
     ~vector() { delete[] elem; }
@@ -76,23 +75,25 @@ void vector::resize(size_t new_size)
 
 int main()
 {
+    using std::cout;
+
     vector v; // build a vector
 
-    cout << " before reserve()" << endl;
-    cout << "v.size(): " << v.size() << endl; // 0
-    cout << "v.capacity(): " << v.capacity() << endl; // 0
-    cout << endl;
+    cout << " before reserve()" << '\n';
+    cout << "v.size(): " << v.size() << '\n'; // 0
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 0
+    cout << '\n';
 
     v.reserve(10); // reserve space for 10 elements in vector v
-    cout << "after v.reserve(10)" << endl;
-    cout << "v.size(): " << v.size() << endl; // 0
-    cout << "v.capacity(): " << v.capacity() << endl; // 10
-    cout << endl;
+    cout << "after v.reserve(10)" << '\n';
+    cout << "v.size(): " << v.size() << '\n'; // 0
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 10
+    cout << '\n';
 
     v.resize(4); // resizie vector v to 4
-    cout << "after v.resize(4)" << endl;
-    cout << "v.size(): " << v.size() << endl; // 4
-    cout << "v.capacity(): " << v.capacity() << endl; // 10
+    cout << "after v.resize(4)" << '\n';
+    cout << "v.size(): " << v.size() << '\n'; // 4
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 10
 
     return 0;
 }

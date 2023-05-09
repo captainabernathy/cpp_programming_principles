@@ -4,9 +4,8 @@
 #include <iostream> // I/O library header
 #include <string> // string library header
 #include <vector> // vector library header
-using namespace std;  // add names from std namespace to global namespace
 
-vector<string> v; // global vector of strings
+std::vector<std::string> v; // global vector of strings
 void f(); // function declaration
 
 
@@ -17,7 +16,7 @@ int main()
 
     // write elements of v to stdout
     for (auto it : v)
-        cout << it << endl;
+        std::cout << it << '\n';
 
     return 0;
 }
@@ -26,16 +25,16 @@ int main()
 // from it, and accumulates the results in the global vector v
 void f()
 {
-    string s; // holds input
-    cout << "Enter text or type \"quit\" to exit: ";
+    std::string s; // holds input
+    std::cout << "Enter text or type \"quit\" to exit: ";
 
     // read from stdin into s
-    while (cin >> s && s != "quit")
+    while (std::cin >> s && s != "quit")
     {
         // intermediate varaibles used for processing contents of s...
         // recreated each pass through the loop
-        string stripped;
-        string not_letters;
+        std::string stripped;
+        std::string not_letters;
 
         // loop over each character in s
         for (size_t i = 0; i < s.size(); i++)
@@ -47,7 +46,7 @@ void f()
 
         // add word containing only alphabetic characters into global vector v
         v.push_back(stripped);
-        cout << "Enter text or type \"quit\" to exit: ";
+        std::cout << "Enter text or type \"quit\" to exit: ";
     }
 }
 

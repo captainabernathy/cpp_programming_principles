@@ -1,7 +1,6 @@
 // program demonstrates how to overload operators
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // enum defining symbolic constants for months
 enum Month {
@@ -16,7 +15,7 @@ Month operator++(Month& m)
 }
 
 // overloaded output operator for Month
-ostream& operator<<(ostream& os, Month m)
+std::ostream& operator<<(std::ostream& os, Month m)
 {
     // lookup month lookup table
     static const char *month_tbl[12] = { "January", "February", "March",
@@ -41,13 +40,15 @@ Vector operator+=(const Vector&, int);
 
 int main()
 {
+    using std::cout;
+
     // initialize a Month and test pre-incrementation operator
     Month m = sep;
-    cout << m << endl; // September
-    cout << ++m << endl; // October
-    cout << ++m << endl; // November
-    cout << ++m << endl; // December
+    cout << m << '\n'; // September
+    cout << ++m << '\n'; // October
+    cout << ++m << '\n'; // November
+    cout << ++m << '\n'; // December
     ++m;
-    cout << m << endl; // wraps to... January
+    cout << m << '\n'; // wraps to... January
     return 0;
 }

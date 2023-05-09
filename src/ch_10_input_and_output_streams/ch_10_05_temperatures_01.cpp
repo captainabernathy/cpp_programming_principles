@@ -8,27 +8,36 @@
 #include <vector> // vector library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing header functions
-using namespace std;  // add names from std namespace to global namespace
 
 // structure representing a temperature reading
 struct Reading {
     int hour;
     double temperature;
     Reading(int h, double t)
-        : hour(h), temperature(t){}
+        : hour {h}, temperature {t} { }
 };
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
+        using std::string;
+        using std::cin;
+        using std::ifstream;
+        using std::ofstream;
+        using std::vector;
+
         cout << "Please enter input file name: ";
 
         string name;
         cin >> name; // read file name
 
         // create an input file stream object to read the file
-        ifstream ist(name.c_str());
+        ifstream ist {name.c_str()};
 
         // test if file was opened successfully
         if (!ist)
@@ -38,7 +47,7 @@ int main()
         cin >> name;
 
         // create an output file stream object to write to the file
-        ofstream ost(name.c_str());
+        ofstream ost {name.c_str()};
 
         // test if file was opended successfully
         if (!ost)
@@ -62,16 +71,16 @@ int main()
         // write each reading in temps vector to output file
         for (size_t i = 0; i < temps.size(); i++)
             ost << '(' << temps[i].hour << ',' << temps[i].temperature << ')'
-                << endl;
+                << '\n';
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 }

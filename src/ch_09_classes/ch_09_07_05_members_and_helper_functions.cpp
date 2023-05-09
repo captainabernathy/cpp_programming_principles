@@ -2,7 +2,6 @@
 // for working with object created from a class
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // user-defined Date type
 class Date {
@@ -13,7 +12,7 @@ public:
 
     // constructor... initializes a Date's private data members from input
     Date(int yy, Month mm, int dd)
-        : y(yy), m(mm), d(dd) {  }
+        : y {yy}, m {mm}, d {dd} {  }
 
     // return a Date's day
     int day() const { return d; }
@@ -61,13 +60,15 @@ namespace Chrono {
 
 int main()
 {
+    using std::cout;
+
     Date d(2008, Date::feb, 23); // construct a Date object
     
     // call Date's member functions
-    cout << d.month() << ' ' << d.day() << ' ' << d.year() << endl;
+    cout << d.month() << ' ' << d.day() << ' ' << d.year() << '\n';
     
     // test Date's inequality operator
-    cout << (next_sunday(d) != next_weekday(d)) << endl;
+    cout << (next_sunday(d) != next_weekday(d)) << '\n';
 
     return 0;
 }

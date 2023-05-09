@@ -8,9 +8,6 @@
 #include <algorithm> // algorithm library header
 #include <initializer_list> // provides initializer_list class template
 
-using std::cout;
-using std::endl;
-
 // ad-hoc class for a vector of doubles
 class vector {
     // private attributes
@@ -24,7 +21,7 @@ public:
     // NOTE: explicit constructors define a conversion from its argument type to
     // its class
     explicit vector(size_t s)
-        : sz{s}, elem{new double[sz]}
+        : sz {s}, elem {new double[sz]}
     {
         std::fill(elem, elem + sz, 0.0);
     }
@@ -34,7 +31,7 @@ public:
     // initializer list and copies the values of the elements in the
     // initializer list to its elements
     vector(std::initializer_list<double> lst)
-        : sz{lst.size()}, elem{new double[sz]}
+        : sz {lst.size()}, elem {new double[sz]}
     {
         std::copy(lst.begin(), lst.end(), elem);
     }
@@ -44,7 +41,7 @@ public:
     // it sets this vector's size to the input vector's size and copies the
     // the values of the input vector's elements to this vector's elements
     vector(vector const& v)
-        : sz{v.sz}, elem{new double[sz]}
+        : sz {v.sz}, elem {new double[sz]}
     {
         std::copy(v.elem, v.elem + sz, elem);
     }
@@ -96,7 +93,7 @@ int main()
     for (size_t i = 0; i < v.size(); i++)
     {
         v[i] = ((1.1 * i) + 1.1); // assign value to vector element
-        cout << v[i] << endl; // write result to stdout
+        std::cout << v[i] << '\n'; // write result to stdout
     }
 
     return 0;

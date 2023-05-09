@@ -3,10 +3,13 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::string;
+    using std::cin;
+
     cout << "Enter two words: "; // prompt user
                                  
     // variable declarations
@@ -21,11 +24,11 @@ int main()
     // > tests if one string comes after another
     // NOTE: < and > are case sensitive... so "Apple" is less than "apple"
     if (first == second)
-        cout << "that's the same word twice" << endl;
+        cout << "that's the same word twice" << '\n';
     if (first < second)
-        cout << first << " is alphabetically before " << second << endl;
+        cout << first << " is alphabetically before " << second << '\n';
     if (first > second)
-        cout << first << " is alphabetically after " << second << endl;
+        cout << first << " is alphabetically after " << second << '\n';
 
     return 0;
 }

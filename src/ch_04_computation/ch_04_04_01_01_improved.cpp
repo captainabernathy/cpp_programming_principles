@@ -4,10 +4,12 @@
 // program demonsrates the use of an if/else if/else statement
 
 #include <iostream> // I/O library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+
     constexpr double cm_per_in = 2.54; // constant expression
     int len = 1; // default length
     char unit = ' '; // default  unit
@@ -19,11 +21,11 @@ int main()
     // convert from inches to centimeters or centimeter to inches based on
     // given unit
     if (unit == 'i')
-        cout << len << "in == " << cm_per_in * len << "cm" << endl;
+        cout << len << "in == " << cm_per_in * len << "cm" << '\n';
     else if (unit == 'c')
-        cout << len << "cm == " << len / cm_per_in << "in" << endl;
+        cout << len << "cm == " << len / cm_per_in << "in" << '\n';
     else
-        cout << "Sorry, I don't know a unit called '" << unit << "'" << endl;
+        cout << "Sorry, I don't know a unit called '" << unit << "'" << '\n';
 
     return 0;
 }

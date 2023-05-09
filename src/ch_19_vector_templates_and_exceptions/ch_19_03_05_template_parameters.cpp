@@ -58,31 +58,35 @@ template<typename T>
 void print(T const& t, std::string const& s)
 {
     for (size_t i = 0; i < t.size(); i++)
-        std::cout << s << "[" << i << "]: " << t[i] << std::endl;
+        std::cout << s << "[" << i << "]: " << t[i] << '\n';
 }
 
-using std::cout;
-using std::endl;
-using std::vector;
 
 int main()
 {
-    array<int, 5> ai = {1, 2, 3, 4, 5}; // 5 element array of integers
+    using std::vector;
+    using std::cout;
+
+    array<int, 5> ai {1, 2, 3, 4, 5}; // 5 element array of integers
+
     print(ai, "ai"); // output ai
-    cout << endl;
+    cout << '\n';
 
     int *ap = ai.data(); // get pointer to ai's elements
     // print(ap, "ap"); // ap has no size() function
 
     ap[3] = 3 * 3; // changes ai
+
     print(ai, "ai"); // output ai
-    cout << endl;
+    cout << '\n';
 
     ai[3] += 3; // change ai directly
-    print(ai, "ai"); // output ai
-    cout << endl;
 
-    vector<int> vi{6, 7, 8, 9, 10}; // vector of 5 integers
+    print(ai, "ai"); // output ai
+    cout << '\n';
+
+    vector<int> vi {6, 7, 8, 9, 10}; // vector of 5 integers
+
     print(vi, "vi"); // works... vi has a size() method
 
     return 0;

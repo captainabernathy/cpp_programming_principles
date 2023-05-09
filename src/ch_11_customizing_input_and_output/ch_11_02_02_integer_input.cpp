@@ -2,10 +2,15 @@
 // hexadecimal bases
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+    using std::hex;
+    using std::oct;
+    using std::ios;
+
     int a;
     int b;
     int c;
@@ -16,7 +21,7 @@ int main()
 
     // input: 1234 4d2 2322 2322
     cin >> a >> hex >> b >> oct >> c >> d; // both c and d read octal integers
-    cout << a << '\t' << b << '\t' << c << '\t' << d << endl; // all 1234
+    cout << a << '\t' << b << '\t' << c << '\t' << d << '\n'; // all 1234
 
     // unset defaults to get >> to accept and correctly interpret 0 and 0x
     // prefixes
@@ -29,7 +34,7 @@ int main()
 
     // input: 1234 0x4d2 02322 02322
     cin >> a >> b >> c >> d;
-    cout << a << '\t' << b << '\t' << c << '\t' << d << endl; // all 1234
+    cout << a << '\t' << b << '\t' << c << '\t' << d << '\n'; // all 1234
 
     return 0;
 }

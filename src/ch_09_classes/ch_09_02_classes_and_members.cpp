@@ -2,7 +2,6 @@
 // from it
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // user-defined type
 class X {
@@ -21,12 +20,19 @@ public:
 
 int main()
 {
+    using std::cout;
+
     X var; // construct an instance of X
     // use the dot '.' operator to access member functions and variables
+
     var.m = 7; // assignment to an object's public attribute
-    cout << var.m << endl; // 7
+
+    cout << var.m << '\n'; // 7
+
     int x = var.mf(9); // call to an object's public member function
-    cout << x << endl; // 7
-    cout << var.m << endl; // 9
+
+    cout << x << '\n'; // 7
+    cout << var.m << '\n'; // 9
+
     return 0;
 }

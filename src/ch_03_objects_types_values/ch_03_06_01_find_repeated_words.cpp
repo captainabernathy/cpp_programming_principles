@@ -3,10 +3,13 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::string;
+    using std::cin;
+
     int words = 0; // initialize word counter
    
     // string to hold the previous word read from stdin
@@ -23,7 +26,7 @@ int main()
         // test if the current and previously entered words are the same and
         // write result to stdout when they are
         if (prev == cur)
-            cout << "word number " << words << " repeated: " << cur << endl;
+            cout << "word number " << words << " repeated: " << cur << '\n';
         
         prev = cur; // set cur to prev... then read into cur in the loop test
         cout << "Enter text or CTRL-D to exit: ";

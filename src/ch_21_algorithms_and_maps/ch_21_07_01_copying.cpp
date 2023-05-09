@@ -8,15 +8,6 @@
 #include <stdexcept> // exception library header
 #include <vector> // vector library header
 
-using std::list;
-using std::vector;
-using std::string;
-using std::exception;
-using std::runtime_error;
-using std::cout;
-using std::cerr;
-using std::endl;
-
 namespace our {
     // template function that copies the elements between the iterators first
     // and last in one collection (range [first,last)) to another collection
@@ -42,7 +33,7 @@ namespace our {
     {
         while (start != stop)
         {
-            cout << *start << endl;
+            std::cout << *start << '\n';
             start++; // advance to next position in collection
         }
     }
@@ -50,16 +41,16 @@ namespace our {
 
 // error function that throws a runtime_error() with the message specified by
 // msg
-inline void error(string const& msg)
+inline void error(std::string const& msg)
 {
-    throw runtime_error(msg);
+    throw std::runtime_error(msg);
 }
 
 // function that tests the template function our::copy() by copying the
 // elements contained in src to the list specified by dest
 // NOTE: if the list dest does not have enough room to contain the elements
 // in dest, function throws a runtime_error()
-inline void f(list<int>& dest, vector<int>& src)
+inline void f(std::list<int>& dest, std::vector<int>& src)
 {
     if (dest.size() < src.size())
         error("target container too small");
@@ -68,23 +59,34 @@ inline void f(list<int>& dest, vector<int>& src)
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
-        vector<int> v{1, 2, 3, 4};
+        using std::vector;
+        using std::list;
+        using std::cout;
+
+        vector<int> v {1, 2, 3, 4};
         list<int> l(4);
+
         f(l, v);
+
         our::print(v.begin(), v.end());
-        cout << endl;
+
+        cout << '\n';
+
         our::print(l.begin(), l.end());
     }
     catch(exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

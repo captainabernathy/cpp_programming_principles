@@ -9,7 +9,6 @@
 #include <vector> // vector library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 // template function that gets the address of the first byte of an object's
 // representation
@@ -24,8 +23,19 @@ char *as_bytes(T& i) // treat T as a sequence of bytes
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
+        using std::string;
+        using std::cin;
+        using std::ifstream;
+        using std::ios_base;
+        using std::ofstream;
+        using std::vector;
+
         // open istream for binary input from a file
         cout << "Please enter input file name: ";
         string name;
@@ -63,12 +73,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 }

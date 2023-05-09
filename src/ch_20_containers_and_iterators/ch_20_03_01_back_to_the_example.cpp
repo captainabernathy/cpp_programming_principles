@@ -9,7 +9,6 @@
 
 #include <iostream> // I/O library header
 #include <vector>  // vector library header
-using namespace std;
 
 // template function that returns an iterator to the element in a collection
 // between first and last... [first, last)... that has the highest value
@@ -34,7 +33,7 @@ double *get_from_jack(int *count);
 // jill fills a vector and returns a pointer to it
 // NOTE: function returns a dynamically allocated pointer to a vector of
 // doubles, so remember to delete it when done
-vector<double>* get_from_jill();
+std::vector<double>* get_from_jill();
 
 // tests get_from_jack(), get_from_jill(), and high()
 void fct();
@@ -64,12 +63,12 @@ double *get_from_jack(int *count)
     return arr; // return array
 }
 
-vector<double> *get_from_jill()
+std::vector<double> *get_from_jill()
 {
     const int n = 10;
 
     // allocate pointer to vector of 10 doubles
-    vector<double> *arr = new vector<double>(n);
+    std::vector<double> *arr = new std::vector<double>(n);
 
     if (arr) // fill vector if allocation was successful
     {
@@ -85,19 +84,19 @@ void fct()
 {
     int jack_count = 0;
     double *jack_data = get_from_jack(&jack_count);
-    vector<double> *jill_data = get_from_jill();
+    std::vector<double> *jill_data = get_from_jill();
 
     // NOTE: jack_data = pointer to first element returned from get_from_jack()
     // jack_data + jack_count = pointer to last element returned from
     // get_from_jack()
     double *jack_high = high(jack_data, jack_data + jack_count);
 
-    vector<double> &v = *jill_data; // reference to jill's data
+    std::vector<double> &v = *jill_data; // reference to jill's data
 
     double *jill_high = high(&v[0], &v[0] + v.size());
 
-    cout << "Jill's high: " << *jill_high << endl;
-    cout << "Jack's high: " << *jack_high << endl;
+    std::cout << "Jill's high: " << *jill_high << '\n';
+    std::cout << "Jack's high: " << *jack_high << '\n';
 
     delete[] jack_data; // return memory allocated for jack
     delete jill_data; // return memory allocated for jill

@@ -58,7 +58,7 @@ template<typename T>
 void print(T const& t, std::string const& s)
 {
     for (size_t i = 0; i < t.size(); i++)
-        std::cout << s << "[" << i << "]: " << t[i] << std::endl;
+        std::cout << s << "[" << i << "]: " << t[i] << '\n';
 }
 
 // template for a function that prints the first n elements of an index-able
@@ -68,32 +68,34 @@ template<typename T>
 void print(T const& t, size_t n, std::string const& s)
 {
     for (size_t i = 0; i < n; i++)
-        std::cout << s << "[" << i << "]: " << t[i] << std::endl;
+        std::cout << s << "[" << i << "]: " << t[i] << '\n';
 }
-
-using std::cout;
-using std::endl;
-using std::vector;
 
 int main()
 {
-    array<int, 5> ai1 = {1, 2, 3, 4, 5}; // 5 element array of integers
+    using std::cout;
+    using std::vector;
+
+    array<int, 5> ai1 {1, 2, 3, 4, 5}; // 5 element array of integers
+
     print(ai1, "ai1"); // output ai1
-    cout << endl;
+    cout << '\n';
 
     int *ap1 = ai1.data(); // get pointer to ai1's elements
+
     print(ap1, ai1.size(), "ap1"); // output ap1
-    cout << endl;
+    cout << '\n';
 
     array<int, 5> ai2; // 5 element array of integers
     fill(ai2, 75); // fill ai2's elements with 75
 
     print(ai2, "ai2"); // output ai2
-    cout << endl;
+    cout << '\n';
 
     fill(ai1, 33); // fill ai1's elements with 33
+
     print(ai1, "ai1"); // output ai1
-    cout << endl;
+    cout << '\n';
 
     print(ap1, ai1.size(), "ap1"); // output ap1... will be 33
 

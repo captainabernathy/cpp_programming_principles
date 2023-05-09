@@ -11,7 +11,6 @@
 #include <map> // map library header
 #include <string> // string library header
 #include <utility> // provides pair class
-using namespace std;
 
 // template function that returns the inner product of two collections using
 // start as the starting point for accumulating the result
@@ -43,14 +42,20 @@ T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start, BinOp1 op1,
 // and can be accessed via its public first and second members
 //
 // function returns the the product of the second members of a and b
-double weighted_value(pair<string, double> const& a,
-                      pair<string, double> const& b)
+double weighted_value(std::pair<std::string, double> const& a,
+                      std::pair<std::string, double> const& b)
 {
     return a.second * b.second;
 }
 
 int main()
 {
+    using std::map;
+    using std::string;
+    using std::make_pair;
+    using std::plus;
+    using std::cout;
+
     // (symbol, price) map
     map<string, double> dow_price;
     
@@ -79,19 +84,19 @@ int main()
     // get values from map via direct access by key
     double alcoa_price = dow_price["AA"];
     double altria_price = dow_price["MO"];
-    cout << "alcoa_price: " << alcoa_price << endl;
-    cout << "altria_price: " << altria_price << endl << endl;
+    cout << "alcoa_price: " << alcoa_price << '\n';
+    cout << "altria_price: " << altria_price << "\n\n";
 
     // NOTE: a map object's find() method returns an iterator to an element
     // in a map that corresponds to the key provided
     // find entry in a map
     if (dow_price.find("INTC") != dow_price.end())
-        cout << "Intel is in the Dow" << endl;
+        cout << "Intel is in the Dow" << '\n';
 
     if (dow_price.find("MMM") != dow_price.end())
-        cout << "MMM is in the Dow" << endl;
+        cout << "MMM is in the Dow" << '\n';
 
-    cout << endl;
+    cout << '\n';
 
     // iterate over map
     for (map<string, double>::const_iterator it = dow_price.begin();
@@ -99,16 +104,16 @@ int main()
     {
         string const& symbol = it->first;
         cout << symbol << "\t" << it->second << "\t" << dow_name[symbol]
-            << endl;
+            << '\n';
     }
-    cout << endl;
+    cout << '\n';
 
     // compute inner product from dow prices and weight using the plus function
     // for accumulation and the weighted_value for multiplication
     double dji_index = inner_product(dow_price.begin(), dow_price.end(),
             dow_weight.begin(), 0.0, plus<double>(), weighted_value);
 
-    cout << "DJI value: " << dji_index << endl;
+    cout << "DJI value: " << dji_index << '\n';
 
     return 0;
 }

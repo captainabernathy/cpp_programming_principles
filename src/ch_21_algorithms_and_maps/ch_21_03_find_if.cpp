@@ -5,7 +5,6 @@
 #include <list> // list library header
 #include <iostream> // I/O library header
 #include <vector>  // vector library header
-using namespace std;
 
 // template function that returns the first element in a collection between
 // the iterators first and last (range [first,last)) that satisfies the
@@ -34,11 +33,11 @@ inline bool larger_than_42(double x)
 
 // function that tests the find_if() function on a vector of integers to find
 // the first odd number in the vector
-void f(vector<int>&);
+void f(std::vector<int>&);
 
 // function that tests the find_if() function on a list of doubles to find
 // the first element in the list greater than 42
-void f(list<double>&);
+void f(std::list<double>&);
 
 double v; // global double
 
@@ -50,7 +49,7 @@ inline bool larger_than_v(double x)
 
 // function that tests the find_if() function on a list of doubles to find
 // the first double greater than x
-void f(list<double>&, double x);
+void f(std::list<double>&, double x);
 
 int main()
 {
@@ -58,7 +57,7 @@ int main()
         int arr[7] = {10, 20, 30, 41, 50, 60, 70};
         int *first = arr;
         int *last = arr + 7;
-        vector<int> v(first, last);
+        std::vector<int> v(first, last);
         f(v);
     }
 
@@ -66,7 +65,7 @@ int main()
         double arr[7] = {1.1, 2.2, 3.3, 4.4, 55, 6.6, 7.7};
         double *first = arr;
         double *last = arr + 7;
-        list<double> l(first, last);
+        std::list<double> l(first, last);
         f(l);
         f(l, 4);
     }
@@ -74,38 +73,38 @@ int main()
     return 0;
 }
 
-void f(vector<int>& v)
+void f(std::vector<int>& v)
 {
-    vector<int>::iterator p = find_if(v.begin(), v.end(), odd);
+    std::vector<int>::iterator p = find_if(v.begin(), v.end(), odd);
     if (p != v.end())
-        cout << "Found odd number: " << *p << endl;
+        std::cout << "Found odd number: " << *p << '\n';
     else
-        cout << "Did not find an odd number" << endl;
+        std::cout << "Did not find an odd number" << '\n';
 }
 
-void f(list<double>& v)
+void f(std::list<double>& v)
 {
-    list<double>::iterator p = find_if(v.begin(), v.end(), larger_than_42);
+    std::list<double>::iterator p = find_if(v.begin(), v.end(), larger_than_42);
     if (p != v.end())
-        cout << *p << " is larger than 42" << endl;
+        std::cout << *p << " is larger than 42" << '\n';
     else
-        cout << "Did not find a number larger than 42" << endl;
+        std::cout << "Did not find a number larger than 42" << '\n';
 }
 
-void f(list<double>& v, double x)
+void f(std::list<double>& v, double x)
 {
     ::v = 3.1; // set global v to 31
-    list<double>::iterator p = find_if(v.begin(), v.end(), larger_than_v);
+    std::list<double>::iterator p = find_if(v.begin(), v.end(), larger_than_v);
     if (p != v.end())
-        cout << *p << " is larger than " << ::v << endl;
+        std::cout << *p << " is larger than " << ::v << '\n';
     else
-        cout << "Did not find a number larger than " << ::v << endl;
+        std::cout << "Did not find a number larger than " << ::v << '\n';
 
     ::v = x;
-    list<double>::iterator q = find_if(v.begin(), v.end(), larger_than_v);
+    std::list<double>::iterator q = find_if(v.begin(), v.end(), larger_than_v);
     if (q != v.end())
-        cout << *q << " is larger than " << ::v << endl;
+        std::cout << *q << " is larger than " << ::v << '\n';
     else
-        cout << "Did not find a number larger than " << ::v << endl;
+        std::cout << "Did not find a number larger than " << ::v << '\n';
 
 }

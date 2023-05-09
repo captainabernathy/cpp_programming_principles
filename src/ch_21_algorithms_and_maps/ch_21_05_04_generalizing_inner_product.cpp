@@ -7,7 +7,6 @@
 #include <vector> // vector library header
 #include <list> // list library header
 #include <functional> // function object library header
-using namespace std;
 
 // template function that returns the inner product of two collections using
 // start as the starting point for accumulating the result
@@ -37,10 +36,16 @@ T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start, BinOp1 op1,
 
 int main()
 {
+    using std::vector;
+    using std::list;
+    using std::plus;
+    using std::multiplies;
+    using std::cout;
+
     vector<int> v1 = {1, 2, 3, 4};
     vector<int> v2(v1);
     cout << inner_product(v1.begin(), v1.end(), v2.begin(), 0, plus<int>(),
-                          multiplies<int>()) << endl;
+                          multiplies<int>()) << '\n';
 
     vector<double> dow_price;
     dow_price.push_back(81.86);
@@ -55,7 +60,7 @@ int main()
     double dji_index = inner_product(
             dow_price.begin(), dow_price.end(), dow_weight.begin(), 0.0,
             plus<double>(), multiplies<double>());
-    cout << "DJI value: " << dji_index << endl;
+    cout << "DJI value: " << dji_index << '\n';
 
     return 0;
 }

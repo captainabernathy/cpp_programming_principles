@@ -2,17 +2,21 @@
 
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
-using namespace std;  // add names from std namespace to global namespace
 
 inline void keep_window_open()
 {
-    cin.get();
+    std::cin.get();
 }
 
 int main()
 {
+    using std::cout;
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
         // test code here...
 
         cout << "Enter an key to exit: ";
@@ -21,14 +25,14 @@ int main()
     }
     catch (exception& ex) // catches checked exceptions
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         cout << "Enter an key to exit: ";
         keep_window_open();
         return 1;
     }
     catch (...) // catches unchecked exceptions
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         cout << "Enter an key to exit: ";
         keep_window_open();
         return 2;

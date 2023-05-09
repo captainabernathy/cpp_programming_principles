@@ -7,10 +7,14 @@
 #include <iostream> // I/O library header
 #include <algorithm> // algorithm library header
 #include <vector> // vector library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::vector;
+    using std::cout;
+    using std::cin;
+    using std::sort;
+
     // empty vector of doubles
     vector<double> temps;
     double temp; // variable used to fill store values added to vector
@@ -28,7 +32,7 @@ int main()
         sum += temps[i];
 
     // write average vector value to stdout
-    cout << "Average temperature: " << sum / temps.size() << endl;
+    cout << "Average temperature: " << sum / temps.size() << '\n';
 
     // compute median temperature...
     // default sort... provied by algorithm library
@@ -37,7 +41,7 @@ int main()
     sort(temps.begin(), temps.end());
 
     // write median vector value to stdout
-    cout << "Median temperature: " << temps[temps.size() / 2] << endl;
+    cout << "Median temperature: " << temps[temps.size() / 2] << '\n';
 
     return 0;
 }

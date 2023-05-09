@@ -6,10 +6,6 @@
 #include <initializer_list> // provides initializer_list class template
 #include <string> // string library header
 
-using std::string;
-using std::cout;
-using std::endl;
-
 // ad-hoc class for a vector of doubles
 class vector {
     // private attributes
@@ -30,7 +26,7 @@ public:
     // NOTE: explicit constructors define a conversion from its argument type to
     // its class
     explicit vector(size_t s)
-        : sz{s}, elem{new double[sz]}
+        : sz {s}, elem {new double[sz]}
     {
         for (size_t i = 0; i < sz; i++)
             elem[i] = 0.;
@@ -41,7 +37,7 @@ public:
     // initializer list and copies the values of the elements in the
     // initializer list to its elements
     vector(std::initializer_list<double> lst)
-        : sz{lst.size()}, elem{new double[sz]}
+        : sz {lst.size()}, elem {new double[sz]}
     {
         std::copy(lst.begin(), lst.end(), elem);
     }
@@ -51,7 +47,7 @@ public:
     // it sets this vector's size to the input vector's size and copies the
     // the values of the input vector's elements to this vector's elements
     vector(vector const& v)
-        : sz{v.sz}, elem{new double[sz]}
+        : sz {v.sz}, elem {new double[sz]}
     {
         std::copy(v.elem, v.elem + sz, elem);
     }
@@ -97,30 +93,36 @@ vector& vector::operator=(vector const& rhs)
 
 // outputs the contents of the vector it receives and prepends each
 // with the string it receives
-void print_vector(vector const& v, string const& s);
+void print_vector(vector const& v, std::string const& s);
 
 int main()
 {
+    using std::cout;
+
     // build a vector from an initializer list
     vector v1 {1.1, 2.2, 3.3};
+
     // build a vector via copy construction
     vector v2(v1);
+
     // build a vector via copy assignment
     vector v3 = v2;
 
     // output contents of each vector
     print_vector(v1, "v1");
-    cout << endl;
+    cout << '\n';
+
     print_vector(v2, "v2");
-    cout << endl;
+    cout << '\n';
+
     print_vector(v3, "v3");
 
     return 0;
 }
 
-void print_vector(vector const& v, string const& s)
+void print_vector(vector const& v, std::string const& s)
 {
     // loop over each vector and output each element prepended by s
     for (size_t i = 0; i < v.size(); i++)
-        cout << s << ": " << v.get(i) << endl;
+        std::cout << s << ": " << v.get(i) << '\n';
 }

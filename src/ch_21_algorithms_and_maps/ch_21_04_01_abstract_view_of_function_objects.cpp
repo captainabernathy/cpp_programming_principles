@@ -2,7 +2,6 @@
 // function object
 
 #include <iostream> // I/O library header
-using namespace std;
 
 using S = int;
 // typedef int S;
@@ -41,7 +40,7 @@ int main()
 {
     S s = 3;
     F f(s); // create F
-    cout << f(s) << endl; // 9... apply f
+    std::cout << f(s) << '\n'; // 9... apply f
 
     return 0;
 }

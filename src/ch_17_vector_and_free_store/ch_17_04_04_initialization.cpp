@@ -2,7 +2,6 @@
 // and arrays of objects using defalt/no-argument constructors and initializer
 // lists
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // simple class that provides a default/no argument-constructor
 class X {
@@ -19,6 +18,8 @@ class Y {
 
 int main()
 {
+    using std::cout;
+
     double *p1 = new double; // dynamically allocate a double
 
     // dynamically allocate and initialize a double
@@ -30,17 +31,17 @@ int main()
     for (int i = 0; i < 5; i++) // assign values to dynamically allocated array
         p3[i] = 1.1 + i;        // of doubles
 
-    cout << "*p1: " << *p1 << endl; // 3.3
-    cout << "*p2: " << *p2 << endl; // 5.5
+    cout << "*p1: " << *p1 << '\n'; // 3.3
+    cout << "*p2: " << *p2 << '\n'; // 5.5
     for (int i = 0; i < 5; i++)
-        cout << "p3[" << i << "]: " << p3[i] << endl; // 1.1 2.1 3.1 4.1 5.1
+        cout << "p3[" << i << "]: " << p3[i] << '\n'; // 1.1 2.1 3.1 4.1 5.1
 
     // alternatively... dynamically initialize an array of doubles using
     // an initializer list
     double *p4 = new double[]{1.1, 2.1, 3.1, 4.1, 5.1};
     
     for (int i = 0; i < 5; i++)
-        cout << "p4[" << i << "]: " << p4[i] << endl;
+        cout << "p4[" << i << "]: " << p4[i] << '\n';
 
     // dynamically allocate one default initialized X
     X* px1 = new X;

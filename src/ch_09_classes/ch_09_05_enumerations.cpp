@@ -2,7 +2,6 @@
 
 #include <iostream> // I/O library header
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 // enum defining symbolic constants for months
 enum Month {
@@ -27,28 +26,33 @@ Month int_to_month(int x)
 void f(int m)
 {
     Month mm = int_to_month(m);
-    cout << mm << endl;
+    std::cout << mm << '\n';
 }
 
 int main()
 {
+    using std::cerr;
+    using std::exception;
+
     try
     {
+        using std::cout;
+
         Month m = feb; // create a Month
-        cout << m << endl; // 2
+        cout << m << '\n'; // 2
         // m = 7; // cannot assign int to enum type
 
         int n = m; // Month can be written and converted to int
-        cout << n << endl; // 2
+        cout << n << '\n'; // 2
         
         // Month bad = 9999; // can't assign int to enum Month
        
         // accessing Enum members
-        cout << Month::feb << endl; // 2
-        cout << feb << endl; // 2
+        cout << Month::feb << '\n'; // 2
+        cout << feb << '\n'; // 2
        
         Month a = m; // can initialize enum type from enum of the same type
-        cout << a << endl; // 2
+        cout << a << '\n'; // 2
         
         // feb = apr;  // cannot write to enum members
         
@@ -57,12 +61,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

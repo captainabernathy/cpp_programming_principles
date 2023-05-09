@@ -1,7 +1,6 @@
 // program implements a template class for an array of any type
 
 #include <iostream> // I/O library header
-using namespace std;
 
 template<typename T, size_t N>
 struct array {
@@ -93,7 +92,7 @@ void f()
 {
     array<double, 6> a = {0.0, 1.1, 2.2, 99.9, 4.4, 5.5};
     array<double, 6>::iterator p = high(a.begin(), a.end());
-    cout << "the highest value was " << *p << endl;
+    std::cout << "the highest value was " << *p << '\n';
 }
 
 int main()

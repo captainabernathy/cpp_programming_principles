@@ -4,10 +4,12 @@
 // and writing the results to stdout
 
 #include <iostream> // I/O library header
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+
     // dont do any of this stuff
     double d = 0.;
     
@@ -19,26 +21,26 @@ int main()
         char c = i; // conversion of int to char is implementatoin defined
         int i2 = c; // char promoted to int, but who knows what's in c?
 
-        cout << "d == " << d << endl
-            << "i == " << i << endl
-            << "i2 == " << i2 << endl
-            << " char (" << c << ")" << endl;
+        cout << "d == " << d << '\n'
+            << "i == " << i << '\n'
+            << "i2 == " << i2 << '\n'
+            << " char (" << c << ")\n";
 
         cout << "Enter a double or CTRL-D to exit:"; // prompt user
     }
 
     double x = 2.7; // initialize x to 2.7
-    cout << x << endl;
+    cout << x << '\n';
 
     int y = x; // y is initialized to the truncated value of x
-    cout << y << endl; // 2
+    cout << y << '\n'; // 2
 
     int a = 1000; // initialize a to 1000
-    cout << a << endl;
+    cout << a << '\n';
 
     // assignment of a to b overflows b... result is implementation defined
     char b = a;
-    cout << b << endl; // who knows?
+    cout << b << '\n'; // who knows?
 
     return 0;
 }

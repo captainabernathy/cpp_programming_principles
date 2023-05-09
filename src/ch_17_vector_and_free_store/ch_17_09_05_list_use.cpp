@@ -6,18 +6,17 @@
 
 #include <iostream> // I/O library header
 #include <string> // string library header
-using namespace std;  // add names from std namespace to global namespace
 
 // a struct used to build an ad-hoc doubly linked list of strings
 struct Link {
-    string value; // value at this Link
+    std::string value; // value at this Link
     Link *prev; // pointer to previous Link
     Link *next; // pointer to next Link
 
     // constructor sets this Link's value to v and its previous and next Links
     // to nullptr by default if they are not supplied by the caller
-    Link(const string& v, Link *p = nullptr, Link *n = nullptr)
-        : value(v), prev(p), next(n) {  }
+    Link(std::string const& v, Link *p = nullptr, Link *n = nullptr)
+        : value {v}, prev {p}, next {n} {  }
 };
 
 // insert Link n before Link p and return Link n
@@ -31,7 +30,7 @@ Link *erase(Link *p);
 
 // find String s in list Link(-ed list) p... return it if found, or nullptr if
 // not
-Link *find(Link *p, const string& s);
+Link *find(Link *p, std::string const& s);
 
 // move Link p, n positions in list... +n moves forward, -n moves backwards
 Link* advance(Link *p, int n);
@@ -41,6 +40,8 @@ void print_all(Link *p);
 
 int main()
 {
+    using std::cout;
+
     // create a Link... for a list of Norse gods
     Link *norse_gods = new Link("Thor");
 
@@ -61,20 +62,21 @@ int main()
 
     // display both lists
     print_all(norse_gods);
-    cout << endl << endl;
+    cout << "\n\n";
+
     print_all(greek_gods);
-    cout << endl << endl;
+    cout << "\n\n";
 
     // the Greek god of war is Ares.. not Mars, so update the Link containing
     // the value of Mars to be Ares
     Link *p = find(greek_gods, "Mars"); // find Link whose value is Mars
     if (p != nullptr)
     {
-        cout << p->value << endl;
+        cout << p->value << '\n';
         p->value = "Ares"; // change value of Link to Ares
-        cout << p->value << endl;
+        cout << p->value << '\n';
     }
-    cout << endl;
+    cout << '\n';
 
     // the deletion below does not properly account for the removal of a
     // Link at the head of the list
@@ -104,9 +106,9 @@ int main()
 
     // display updated lists
     print_all(norse_gods);
-    cout << endl << endl;
+    cout << "\n\n";
     print_all(greek_gods);
-    cout << endl << endl;
+    cout << "\n\n";
 
 
     Link *Thor = new Link("Thor");
@@ -128,19 +130,19 @@ int main()
     gg_bottom = add(gg_bottom, new Link("Poseidon"));
 
     print_all(norse_gods1);
-    cout << endl << endl;
+    cout << "\n\n";
     print_all(greek_gods1);
-    cout << endl << endl;
+    cout << "\n\n";
 
     {
         Link *p = find(greek_gods1, "Mars");
         if (p != nullptr)
         {
-            cout << p->value << endl;
+            cout << p->value << '\n';
             p->value = "Ares";
-            cout << p->value << endl;
+            cout << p->value << '\n';
         }
-        cout << endl;
+        cout << '\n';
     }
     
     {
@@ -156,9 +158,10 @@ int main()
     }
 
     print_all(norse_gods1);
-    cout << endl << endl;
+    cout << "\n\n";
+
     print_all(greek_gods1);
-    cout << endl << endl;
+    cout << "\n\n";
 
     return 0;
 }
@@ -227,7 +230,7 @@ Link *erase(Link *p)
 
 // find String s in list Link(-ed list) p... return it if found, or nullptr if
 // not
-Link *find(Link *p, const string& s)
+Link *find(Link *p, std::string const& s)
 {
     while (p != nullptr)
     {
@@ -276,13 +279,13 @@ Link* advance(Link *p, int n)
 void print_all(Link *p)
 {
     // walk Links starting from p and write each value to stdout
-    cout << "{ ";
+    std::cout << "{ ";
     while (p != nullptr)
     {
-        cout << p->value;
+        std::cout << p->value;
         if ((p = p->next) != nullptr)
-            cout << ", ";
+            std::cout << ", ";
     }
 
-    cout << " }";
+    std::cout << " }";
 }

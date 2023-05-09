@@ -4,7 +4,6 @@
 #include <iostream> // I/O library header
 #include <algorithm> // algorithm library header
 #include <initializer_list> // provides initializer_list class template
-using namespace std;
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -21,13 +20,13 @@ public:
     // default constructor, sets a vector's size and capacity to 0 and the
     // pointer to its elements to null
     vector()
-        : sz{0}, elem{nullptr}, cap{0} {  }
+        : sz {0}, elem {nullptr}, cap {0} {  }
 
     // explicit, one-argument constructor
     // allocates memory for a vector of n doubles and sets its size and capacity
     // to n
     explicit vector(size_t n)
-        : sz{n}, elem{new double[sz]}, cap{sz}
+        : sz {n}, elem {new double[sz]}, cap {sz}
     {
         std::fill(elem, elem + sz, 0.0);
     }
@@ -37,7 +36,7 @@ public:
     // in the initializer list and copies the values of the elements in the
     // initializer list to its elements
     vector(std::initializer_list<double> lst)
-        : sz{lst.size()}, elem{new double[sz]}, cap{sz}
+        : sz {lst.size()}, elem {new double[sz]}, cap {sz}
     {
         std::copy(lst.begin(), lst.end(), elem);
     }
@@ -48,7 +47,7 @@ public:
     // the input vector and copies the values of the input vectors elements
     // to this vector's elements
     vector(vector const& v)
-        : sz{v.sz}, elem{new double[sz]}, cap{v.cap}
+        : sz {v.sz}, elem {new double[sz]}, cap {v.cap}
     {
         std::copy(v.elem, v.elem + sz, elem);
     }
@@ -60,7 +59,7 @@ public:
     // move operations NEVER take const arguments as they modify thier input and
     // make it 'empty'
     vector(vector&& v)
-        : sz{v.sz}, elem{v.elem}, cap{v.cap} // NOTE: new not used
+        : sz {v.sz}, elem {v.elem}, cap {v.cap} // NOTE: new not used
     {
         // make input vector empty
         v.sz = v.cap = 0;
@@ -212,29 +211,31 @@ void vector::push_back(double d)
 
 int main()
 {
+    using std::cout;
+
     vector v; // build a vector
-    cout << "before reserve()..." << endl;
-    cout << "v.size(): " << v.size() << endl; // 0
-    cout << "v.capacity(): " << v.capacity() << endl; // 0
-    cout << endl;
+    cout << "before reserve()..." << '\n';
+    cout << "v.size(): " << v.size() << '\n'; // 0
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 0
+    cout << '\n';
 
     v.push_back(7); // add an element to v
-    cout << "after v.push_back(7)..." << endl;
-    cout << "v.size(): " << v.size() << endl; // 1
-    cout << "v.capacity(): " << v.capacity() << endl; // 8
-    cout << "v[0]: " << v[0] << endl; // 7
-    cout << endl;
+    cout << "after v.push_back(7)..." << '\n';
+    cout << "v.size(): " << v.size() << '\n'; // 1
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 8
+    cout << "v[0]: " << v[0] << '\n'; // 7
+    cout << '\n';
 
     v.reserve(10); // reserve space for 10 elements in v
-    cout << "after v.reserve(10)..." << endl;
-    cout << "v.size(): " << v.size() << endl; // 1
-    cout << "v.capacity(): " << v.capacity() << endl; // 10
-    cout << endl;
+    cout << "after v.reserve(10)..." << '\n';
+    cout << "v.size(): " << v.size() << '\n'; // 1
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 10
+    cout << '\n';
 
     v.resize(4); // resize v
-    cout << "after v.resize(4)..." << endl;
-    cout << "v.size(): " << v.size() << endl; // 4
-    cout << "v.capacity(): " << v.capacity() << endl; // 10
+    cout << "after v.resize(4)..." << '\n';
+    cout << "v.size(): " << v.size() << '\n'; // 4
+    cout << "v.capacity(): " << v.capacity() << '\n'; // 10
 
     return 0;
 }

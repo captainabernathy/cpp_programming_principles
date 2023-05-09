@@ -4,7 +4,6 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 class Bad_area{}; // empty class for throwing
 
@@ -18,37 +17,42 @@ int framed_area(int x, int y);
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
+
         int x = -1;
         int y = 2;
         int z = 4;
 
         int area1 = area(x, y); // throws Bad_area if inputs are invalid
-        cout << area1 << endl;
+        cout << area1 << '\n';
 
         int area2 = framed_area(1, z); // function validates input
-        cout << area2 << endl;
+        cout << area2 << '\n';
 
         int area3 = framed_area(y, z); // function validates input
-        cout << area3 << endl;
+        cout << area3 << '\n';
 
         // potential division by zero w/o check
         double ratio = double(area1) / area3;
-        cout << ratio << endl;
+        cout << ratio << '\n';
     }
     catch (Bad_area) // catches Bad_area
     {
-        cout << "Oops! bad arguments to area()" << endl;
+        cerr << "Oops! bad arguments to area()" << '\n';
     }
     catch (exception& ex) // catches checked exceptions
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...) // catches unchecked exceptions
     {
-        cerr << "Oops: unknown exception!" << endl;
+        cerr << "Oops: unknown exception!" << '\n';
         return 2;
     }
 

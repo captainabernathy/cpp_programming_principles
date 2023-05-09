@@ -3,10 +3,11 @@
 
 #include <iostream> // I/O library header
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std; // add names from std namespace to global namespace
 
 int main()
 {
+    using std::cout;
+
     char c = 'x';
     int i1 = c; // char promoted to int... safe conversion
     int i2 = 'x'; // ok bc sizeof(int) guaranteed to be >= sizeof(char)
@@ -18,7 +19,7 @@ int main()
     cout << c << ' '    // x
         << i1 << ' '    // 120
         << c2 << ' '    // x
-        << i2 << endl;  // 120
+        << i2 << '\n';  // 120
 
     double d1 = 2.3;
     double d2 = d1 + 2;
@@ -27,7 +28,7 @@ int main()
         error("d1 is negative"); // project defined error function
 
     cout << d1 << ' '  // 2.3
-        << d2 << endl; // 4.3
+        << d2 << '\n'; // 4.3
 
     return 0;
 }

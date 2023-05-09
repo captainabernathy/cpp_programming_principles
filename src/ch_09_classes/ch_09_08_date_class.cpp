@@ -1,7 +1,6 @@
 // program implements a class for representing dates
 
 #include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
 
 // namespace for Date-related stuff
 namespace Chrono {
@@ -44,8 +43,8 @@ bool is_date(int y, Date::Month m, int d);
 bool leapyear(int y);
 bool operator==(const Date& a, const Date& b);
 bool operator!=(const Date& a, const Date& b);
-ostream& operator<<(ostream& os, const Date& d);
-istream& operator>>(istream& is, Date& dd);
+std::ostream& operator<<(std::ostream& os, const Date& d);
+std::istream& operator>>(std::istream& is, Date& dd);
 }
 
 // continuing namespace
@@ -53,7 +52,7 @@ namespace Chrono {
 
 // constructor that initializes a date from its input
 Date::Date(int yy, Month mm, int dd)
-    : y(yy), m(mm), d(dd)
+    : y {yy}, m {mm}, d {dd}
 {
     if (!is_date(yy, mm, dd))
         throw Invalid();
@@ -69,8 +68,9 @@ inline const Date& default_date()
 
 // default constructor
 Date::Date()
-    : y(default_date().year()), m(default_date().month()),
-    d(default_date().day()) {  }
+    : y {default_date().year()},
+      m {default_date().month()},
+      d {default_date().day()} {  }
 
 
 // function updates a Date's year by n
@@ -91,7 +91,7 @@ bool is_date(int y, Date::Month m, int d)
     if (d <= 0) // day must be > 0
         return false;
 
-    int days_in_month = 31; // max days in a month
+    int days_in_month; // max days in a month
 
     // update days_in_month for months that do not have 31 days
     switch (m)
@@ -102,6 +102,8 @@ bool is_date(int y, Date::Month m, int d)
         case Date::apr: case Date::jun: case Date::sep: case Date::nov:
             days_in_month = 30;
             break;
+        default:
+            days_in_month = 31;
     }
 
     if (days_in_month < d) // day cannot exceed days_in_month
@@ -130,7 +132,7 @@ inline bool operator!=(const Date& a, const Date& b)
 
 // overloaded output operator for Dates
 // writes and formats Date d to output steream os
-ostream& operator<<(ostream& os, const Date& d)
+std::ostream& operator<<(std::ostream& os, const Date& d)
 {
     return os << '(' << d.year() << ',' << d.month() << ',' << d.day()
         << ')';
@@ -138,7 +140,7 @@ ostream& operator<<(ostream& os, const Date& d)
 
 // overloaded input operator for Dates
 // reads Date dd into input stream is
-istream& operator>>(istream& is, Date& dd)
+std::istream& operator>>(std::istream& is, Date& dd)
 {
     int y;
     int m;
@@ -159,7 +161,7 @@ istream& operator>>(istream& is, Date& dd)
     if (ch1 != '(' || ch2 != ',' || ch3 != ',' || ch4 != ')')
     {
         // set stream error state to failed... format error
-        is.clear(ios_base::failbit);
+        is.clear(std::ios_base::failbit);
         return is;
     }
 
@@ -194,35 +196,39 @@ inline Date next_weekday(const Date& d)
 
 int main()
 {
+    using std::cerr;
+
     try
     {
+        using std::cout;
+
         // build a Date
         Chrono::Date holiday(1978, Chrono::Date::jul, 4);
-        cout << holiday << endl;
+        cout << holiday << '\n';
 
         // initialize Date via function call
         Chrono::Date d2 = Chrono::next_sunday(holiday);
-        cout << d2 << endl; // 0
+        cout << d2 << '\n'; // 0
 
         // initialize Date via function call
         Chrono::Day d = day_of_week(d2);
-        cout << d << endl; // 0
+        cout << d << '\n'; // 0
 
         // output Dates
-        cout << "holiday is " << holiday << " d2 is " << d2 << endl;
+        cout << "holiday is " << holiday << " d2 is " << d2 << '\n';
         
         // test Date inequality operator
-        cout << (holiday != d2) << endl; // 0... false
+        cout << (holiday != d2) << '\n'; // 0... false
         return 0;
     }
     catch (Chrono::Date::Invalid&)
     {
-        cerr << "error: Invalid date" << endl;
+        cerr << "error: Invalid date" << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

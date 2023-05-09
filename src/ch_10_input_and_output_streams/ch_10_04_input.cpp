@@ -7,7 +7,6 @@
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <vector> // vector library header
 #include "std_lib_facilities.hpp" // project header containing helper functions
-using namespace std;  // add names from std namespace to global namespace
 
 // user-define Point type
 struct Point {
@@ -16,7 +15,7 @@ struct Point {
 
     // overloaded input operator for a Point
     // function reads a formated Point "(x,y)" into an input stream
-    friend istream& operator>>(istream& ist, Point& p)
+    friend std::istream& operator>>(std::istream& ist, Point& p)
     {
         char a; // '('
         char b; // ','
@@ -24,34 +23,43 @@ struct Point {
 
         if ((ist >> a >> p.x >> b >> p.y >> c)
             && !(a == '(' && b == ',' && c == ')'))
-            throw runtime_error("Invalid format");
+            throw std::runtime_error("Invalid format");
 
         return ist;
     }
 
     // overloaded output operator for a Point
     // function formats and writes a Point "(x,y)" to an output stream
-    friend ostream& operator<<(ostream& ost, const Point& p)
+    friend std::ostream& operator<<(std::ostream& ost, const Point& p)
     {
-        return ost << '(' << p.x << ',' << p.y << ')' << endl;
+        return ost << '(' << p.x << ',' << p.y << ')';
     }
 };
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
+        using std::string;
+        using std::cin;
+        using std::ifstream;
+        using std::vector;
+
         cout << "Please enter input file name: ";
         string name;
         cin >> name; // read file name
 
         // create an input file stream object to read the file
-        ifstream ist(name.c_str());
+        ifstream ist {name.c_str()};
 
         if (!ist) // test if file was opened
             error("can't open input file ", name);
 
-        vector<Point> points; // to store data from file
+        std::vector<Point> points; // to store data from file
         Point p; // to read a each point in the file
 
         // read each point in the file and write it to the vector points
@@ -60,16 +68,16 @@ int main()
 
         // write each point read from the file to stdout
         for (auto it: points)
-            cout << it;
+            cout << it << '\n';
     }
     catch (exception& ex)
     {
-        cerr << "error: " << ex.what() << endl;
+        cerr << "error: " << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 
