@@ -2,8 +2,8 @@
 // library by showing how to build a complex polygon with a Closed_polyline
 // object
 
-#include "Simple_window.hpp" // provides access to our simple window library
-#include "Graph.hpp" // provides access to our graphics library
+#include <GUI/Simple_window.hpp> // provides access to our simple window library
+#include <GUI/Graph.hpp> // provides access to our graphics library
 #include <iostream> // I/O library header
 #include <stdexcept> // provides classes for logic and runtime errors
 

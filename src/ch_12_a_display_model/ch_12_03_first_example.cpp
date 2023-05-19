@@ -1,7 +1,7 @@
 // program creates a window and draws a triangle in it
 
-#include "Simple_window.hpp" // provides access to our simple window library
-#include "Graph.hpp" // provides access to our graphics library
+#include <GUI/Simple_window.hpp> // provides access to our simple window library
+#include <GUI/Graph.hpp> // provides access to our graphics library
 
 int main()
 {

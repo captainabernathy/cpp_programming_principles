@@ -1,8 +1,8 @@
 // program demonstrates how to use the graphics library's Axis object to change
 // the color of the axes in a window that contains labeled Functions
 
-#include "Simple_window.hpp" // provides access to our simple window library
-#include "Graph.hpp" // provides access to our graphics library
+#include <GUI/Simple_window.hpp> // provides access to our simple window library
+#include <GUI/Graph.hpp> // provides access to our graphics library
 #include <iostream> // I/O library header
 #include <stdexcept> // provides classes for logic and runtime errors
 

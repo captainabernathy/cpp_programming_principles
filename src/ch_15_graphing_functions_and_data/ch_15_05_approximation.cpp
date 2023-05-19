@@ -2,8 +2,8 @@
 // approximate the results of a mathematical function that takes a double and
 // returns a double
 
-#include "Simple_window.hpp" // provides access to our simple window library
-#include "Graph.hpp" // provides access to our graphics library
+#include <GUI/Simple_window.hpp> // provides access to our simple window library
+#include <GUI/Graph.hpp> // provides access to our graphics library
 #include <iostream> // I/O library header
 #include <stdexcept> // provides classes for logic and runtime errors
 #include <cmath> // for exp(), pow()

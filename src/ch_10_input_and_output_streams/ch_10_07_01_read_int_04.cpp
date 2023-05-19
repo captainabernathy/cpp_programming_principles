@@ -11,7 +11,7 @@
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <string> // string library header
-#include "std_lib_facilities.hpp" // project header containing helper functions
+#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
 
 // utility function for recovering after seeing a bad/unexpected character
 void skip_to_int();

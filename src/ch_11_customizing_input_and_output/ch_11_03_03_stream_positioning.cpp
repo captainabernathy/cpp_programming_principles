@@ -4,7 +4,7 @@
 #include <string> // string library header
 #include <fstream> // file I/O library
 #include <stdexcept> // provides convenience classes for logic and runtime errors
-#include "std_lib_facilities.hpp" // project header containing header functions
+#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
 
 int main()
 {

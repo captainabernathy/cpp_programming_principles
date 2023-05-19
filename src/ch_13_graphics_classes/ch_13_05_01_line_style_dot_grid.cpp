@@ -1,8 +1,8 @@
 // program uses a Lines object to display a red grid of dotted lines in a
 // Simple_window
 
-#include "Simple_window.hpp" // provides access to our simple window library
-#include "Graph.hpp" // provides access to our graphics library
+#include <GUI/Simple_window.hpp> // provides access to our simple window library
+#include <GUI/Graph.hpp> // provides access to our graphics library
 #include <iostream> // I/O library header
 #include <stdexcept> // provides classes for logic and runtime errors
 

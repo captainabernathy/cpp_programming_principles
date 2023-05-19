@@ -6,7 +6,7 @@
 #include <stdexcept> // provides convenience classes for logic and runtime errors
 #include <fstream> // file I/O library
 #include <sstream> // provides stream classes for operating on strings
-#include "std_lib_facilities.hpp" // project header containing header functions
+#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
 
 // function that converts the characters in s to a double and returns it
 double str_to_double(std::string s);

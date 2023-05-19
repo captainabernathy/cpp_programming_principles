@@ -3,7 +3,7 @@
 
 #include <iostream> // I/O library header
 #include <stdexcept> // provides convenience classes for logic and runtime errors
-#include "std_lib_facilities.hpp" // project header containing helper functions
+#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
 
 /*
  * Grammar
