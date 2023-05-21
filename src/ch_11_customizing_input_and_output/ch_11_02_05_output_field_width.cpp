@@ -1,7 +1,7 @@
 // program demonstrates how to manipulate the field width of integer output
 
-#include <iostream> // I/O library header
-#include <iomanip> // provides parametric manipulators for streams
+#include <iostream> // for cout
+#include <iomanip> // for setw
 
 int main()
 {

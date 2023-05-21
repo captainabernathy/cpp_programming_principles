@@ -1,7 +1,7 @@
 // program demonstrates the implementation and usage of a class that contains
-// public and private attributes and functions
+// public and private data and functions members
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // user-defined type
 class X {

@@ -1,11 +1,8 @@
-// program prompts user for first and last names, reads results into string
-// variables, and writes them to stdout
-//
 // program demonstrates how to read multiple strings with a single input
 // statement
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <string> // for string
 
 int main()
 {
@@ -19,7 +16,7 @@ int main()
     string first;
     string last;
 
-    // read two string from stdin into first and last
+    // read two string from stdin into the variables first and last
     cin >> first >> last;
 
     // write results to stdout

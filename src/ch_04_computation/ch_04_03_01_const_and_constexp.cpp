@@ -1,6 +1,6 @@
 // program demonstrates the use of constexpr and const (read-only) variables
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

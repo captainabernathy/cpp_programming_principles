@@ -1,6 +1,6 @@
 // program demonstrates various integer expressions and operations
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

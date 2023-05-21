@@ -1,7 +1,7 @@
 // program demonstrates the implementation of helper functions that are used
 // for working with object created from a class
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // user-defined Date type
 class Date {

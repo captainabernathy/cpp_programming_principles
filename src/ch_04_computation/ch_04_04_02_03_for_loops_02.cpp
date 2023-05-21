@@ -1,7 +1,7 @@
 // program demonstrates the use of a for loop to write each even integer from
 // 0 to 100 along with its square to stdout
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // simple function that squares its input and returns the result
 inline int square(int x) { return x * x; }

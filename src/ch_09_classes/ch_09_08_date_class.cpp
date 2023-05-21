@@ -1,6 +1,6 @@
 // program implements a class for representing dates
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout, cerr, ostream
 
 // namespace for Date-related stuff
 namespace Chrono {

@@ -1,9 +1,9 @@
-// program implements a template for a structure that can be used to create
+// program implements a template for a class that can be used to create
 // N element arrays of any type
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <vector> // for vector
+#include <string> // for string
 
 // template for an N element array of type T
 template<typename T, size_t N>

@@ -1,8 +1,8 @@
-// program prompts users for two strings and demonstrates how the ==, <, and >
-// operators can be used to compare strings
+// program demonstrates how the ==, <, and > operators can be used to compare
+// strings
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <string> // for string
 
 int main()
 {

@@ -1,7 +1,7 @@
-// program demonstrates updating a variable via pre-incrementation, compound
-// assignment, and a numerical expression
+// program demonstrates updating a integer variable via pre-incrementation,
+// compound assignment, and a numerical expression
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

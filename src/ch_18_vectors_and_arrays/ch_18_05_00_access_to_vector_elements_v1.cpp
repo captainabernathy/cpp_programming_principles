@@ -2,9 +2,9 @@
 // a member access operator that only provides read access to an element, but
 // does not support assignment to an element
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
+#include <iostream> // for cout
+#include <algorithm> // for fill(), copy()
+#include <initializer_list> // for initializer_list<>
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -59,7 +59,7 @@ public:
     // it DOES NOTE support assignment, so expressions of the form...
     // v[i] = val;
     // fail bc v[i] is not an lvalue
-    double operator[](int n) { return elem[n]; }
+    double operator[](size_t n) { return elem[n]; }
 
     // destructor deallocates dynamically allocated memory
     ~vector() { delete[] elem; }
@@ -95,7 +95,7 @@ int main()
     std::cout << x << '\n';
     
     // write from variable to vector element
-    // v[3] = x; // ERROR... v[3] is not an lvalue
+    // v[2] = x; // ERROR... v[2] is not an lvalue
 
     return 0;
 }

@@ -1,7 +1,8 @@
 // program demonstrates the use of enums to define symbolic constants
 
-#include <iostream> // I/O library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // enum defining symbolic constants for months
 enum Month {

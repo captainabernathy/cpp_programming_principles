@@ -3,7 +3,7 @@
 // writing the int variable to a char variable, writing the char back to an int,
 // and writing the results to stdout
 
-#include <iostream> // I/O library header
+#include <iostream> // for cin, cout
 
 int main()
 {

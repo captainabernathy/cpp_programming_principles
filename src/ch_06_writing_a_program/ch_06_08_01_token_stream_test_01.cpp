@@ -1,9 +1,9 @@
 // first implementation of a Token_stream object to process Tokens as input for
 // a calculator program
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 /*
  * Grammar

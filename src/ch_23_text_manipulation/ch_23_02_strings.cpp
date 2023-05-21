@@ -1,25 +1,27 @@
-// program implements a template functon that converts an object of any type
+// program implements a functon template that converts an object of any type
 // that has defined an input operator into a string
-// program implements a template function that converts an object that read in
-// as a string into an object of a user specified type
-// program also implements a template function that converts object from a
+//
+// additionally, program implements a function template that converts an object
+// read in as a string into an object of a user specified type
+//
+// program also implements a function template that converts an object of a
 // user specified source type to a user specified destination type
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout, cerr
 #include <istream> // for ws
-#include <string> // string library header
-#include <sstream> // for ostringstream
-#include <exception> // for bad_cast
+#include <string> // for string, basic_string
+#include <sstream> // for istringstream, ostringstream
+#include <typeinfo> // for bad_cast
+#include <exception> // for exception
 
-using Unicode = long;
 // typedef long Unicode;
+using Unicode = long;
 
 // NOTE: the standard string is simply a basic_string of type char...
 // ie: using string = std::basic_string<char>;
-
 std::basic_string<Unicode> a_unicode_string;
 
-// template function takes an object of any type that has an operator << and
+// function template takes an object of any type that has an operator << and
 // returns that object as a string
 template<typename T>
 std::string to_string(T const& t)
@@ -38,8 +40,8 @@ struct bad_from_string : std::bad_cast {
     }
 };
 
-// template function that attempts to read an object of the type specified from
-// the string passed to s.
+// function template that attempts to read an object of the type specified from
+// the string passed to s
 // NOTE: if s cannot be read as a type T, then the function throws a
 // bad_from_string() exception
 template<typename T>
@@ -61,7 +63,7 @@ struct bad_lexical_cast : std::bad_cast {
     }
 };
 
-// template function that attempts to interpret the object provided to src
+// function template that attempts to interpret the object provided to src
 // as an object of the type provided to Dest and returns the result
 // NOTE: if the object provided to src, cannot be interpreted as the type
 // provided to Dest, then the function throws a bad_lexical_cast() exception

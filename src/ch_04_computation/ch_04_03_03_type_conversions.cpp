@@ -1,7 +1,7 @@
 // program demonstrates various type conversions that occur when evaluating
 // numeric expressions
 
-#include <iostream> // I/O library header
+#include <iostream> // for cin, cout
 
 int main()
 {

@@ -1,9 +1,9 @@
-// program demonstrates how to throw, try and catch a unique type to indicate a
-// specific error
+// program demonstrates how to throw, try, and catch a unique exception type to
+// indicate a specific error
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cerr, cout
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 class Bad_area{}; // empty class for throwing
 

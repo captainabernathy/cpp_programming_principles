@@ -1,7 +1,7 @@
 // program illustrates the implementation of a class with a friend method that
 // is able to access private members
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout, ostream
 
 // user-defined Date type
 class Date {
@@ -17,9 +17,6 @@ public:
 
     // friend declaration grants operator<< access to private members
     friend std::ostream& operator<<(std::ostream& os, const Date& d);
-    // {
-        // return os << '(' << d.y << ',' << d.m << ',' << d.d << ')';
-    // }
 
 private:
     // private attributes

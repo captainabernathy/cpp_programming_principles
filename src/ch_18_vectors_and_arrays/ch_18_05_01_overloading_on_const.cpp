@@ -1,12 +1,13 @@
 // program implements an ad-hoc class for a vector of doubles that implements
 // a member access operator that provides read and write access to an element.
+//
 // it also provides an overloaded implementation of the member access operator
 // that facilitates read access to an element of a constant vector.
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <string> // string library header
-#include <initializer_list> // provides initializer_list class template
+#include <iostream> // for cout
+#include <algorithm> // for fill(), copy()
+#include <string> // for string
+#include <initializer_list> // for initializer_list<>
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -61,7 +62,7 @@ public:
     // operations for vectors
     // HOWEVER: certain indexing operations will fail for constant vectors since
     // reading from a constant is supported but writing to a constant is illegal
-    double& operator[](int idx) { return elem[idx]; }
+    double& operator[](size_t idx) { return elem[idx]; }
 
     // member access operator for constant vectors
     // provides read access to a vector by returning the value of the
@@ -69,7 +70,7 @@ public:
     // NOTE: function does not provide any range checking
     // MORE IMPORTANTLY: this function is allowed because it returns a value, as
     // opposed to a reference
-    double operator[](int idx) const { return elem[idx]; }
+    double operator[](size_t idx) const { return elem[idx]; }
 
     // destructor deallocates dynamically allocated memory
     ~vector() { delete[] elem; }
@@ -136,7 +137,7 @@ void f(vector const& cv, vector& v)
 
 void print_vector(vector const& v, std::string const& s)
 {
-    // loop over each vector and output each element prepended by s
+    // loop over the vector and output each element prepended by s
     for (size_t i = 0; i < v.size(); i++)
         std::cout << s << ": " << v[i] << '\n';
 }

@@ -1,12 +1,8 @@
 // program provides scaffolding for testing code
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-
-inline void keep_window_open()
-{
-    std::cin.get();
-}
+#include <iostream> //  for cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open()
 
 int main()
 {

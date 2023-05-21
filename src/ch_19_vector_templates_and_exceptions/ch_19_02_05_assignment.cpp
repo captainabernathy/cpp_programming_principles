@@ -2,10 +2,11 @@
 // how to implement copy and move constructors as well as copy and move
 // assignment operators
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
-#include <string> // string library header
+#include <iostream> // for cout
+#include <algorithm> // for fill(), copy()
+#include <initializer_list> // for initializer_list<>
+#include <utility> // for move()
+#include <string> // for string
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -28,7 +29,7 @@ public:
     // allocates memory for a vector of n doubles and sets its size and capacity
     // to n
     explicit vector(size_t n)
-        : sz{n}, elem{new double[sz]}, cap{sz}
+        : sz {n}, elem {new double[sz]}, cap {sz}
     {
         std::fill(elem, elem + sz, 0.0);
     }
@@ -88,13 +89,13 @@ public:
     // provides read and write access to a vector by returning a reference to
     // the element at index n
     // NOTE: function does not provide any range checking
-    double& operator[](int idx) { return elem[idx]; }
+    double& operator[](size_t idx) { return elem[idx]; }
 
     // member access operator for constant vectors
     // provides read access to a vector by returning the value of the
     // element at index n
     // NOTE: function does not provide any range checking
-    double operator[](int idx) const { return elem[idx]; }
+    double operator[](size_t idx) const { return elem[idx]; }
 
     // returns the number of elements in a vector
     size_t size() const { return sz; }

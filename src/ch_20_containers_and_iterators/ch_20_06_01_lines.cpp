@@ -2,9 +2,9 @@
 // of lines (where each line consists of a vector of characters) and provides
 // an overloaded input operator to read a document from an input stream
 
-#include <iostream> // I/O library header
-#include <vector>  // vector library header
-#include <list> // list library header
+#include <iostream> // cin, cout, istream
+#include <vector>  // for vector
+#include <list> // for list
 
 using Line = std::vector<char>; // same as typedef vector<char> Line;
 

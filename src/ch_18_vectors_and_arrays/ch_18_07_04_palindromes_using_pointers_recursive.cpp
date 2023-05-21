@@ -1,9 +1,9 @@
 // program implements a function that receives pointers to the first and last
-// characters of a c-strings and recursively determines whether or not it is a
+// characters of a C-string and recursively determines whether or not it is a
 // palindrome
 
-#include <iostream> // I/O library header
-#include <cstring> // provides string.h to manipulate C strings and arrays
+#include <iostream> // for cout, cin, istream
+#include <cstring> // for strlen()
 
 // given a pointer to the first and last characters in a string, function
 // returns whether or not the string is a palindrome

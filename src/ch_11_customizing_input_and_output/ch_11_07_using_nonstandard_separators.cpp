@@ -2,11 +2,12 @@
 // an input stream that allows users to specify what characters should be
 // considered whitespace
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <sstream> // provides stream classes for operating on strings
-#include <vector> // vector library header
-#include <algorithm> // algorithm library header
+#include <iostream> // for istream, cout, cin
+#include <string> // for string, getline()
+#include <sstream> // for istringstream
+#include <cctype> // for tolower()
+#include <vector> // for vector
+#include <algorithm> // for sort()
 
 // Punct_stream is a user-defined type that is similar to istream but allows
 // the user to define what characters should be considered whitespace

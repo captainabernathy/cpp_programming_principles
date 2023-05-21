@@ -1,13 +1,13 @@
-// program defines a structure for representing hourly temperature readings.
-// then it reads temperature readings from an input file and writes them to an
+// program defines a class for representing hourly temperature readings, and
+// then reads temperature readings from an input file and writes them to an
 // output file
 
-#include <iostream> // I/O library header
-#include <fstream> // file I/O library
-#include <string> // string library header
-#include <vector> // vector library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <fstream> // for ifstream, ofstream
+#include <string> // for string
+#include <vector> // for vector
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // structure representing a temperature reading
 struct Reading {

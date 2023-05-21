@@ -1,7 +1,7 @@
 // program demonstrates how to access elements through poiners using the
 // dereference operator
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

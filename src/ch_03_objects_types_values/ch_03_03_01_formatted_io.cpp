@@ -1,8 +1,7 @@
-// program prompts user for name and age, reads results into string and integer
-// variables, and writes the results to stdout
+// program demonstrates basic I/O with cin and cout
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <string> // for string
 
 int main()
 {

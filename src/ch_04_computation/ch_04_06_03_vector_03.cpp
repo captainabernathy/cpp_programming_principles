@@ -1,14 +1,11 @@
-// program prompts the user to fill a vector of strings, then it writes the
-// number of words it contains to stdout, sorts it, and writes any repeated
-// words to stdout
-//
 // program demonstrates various common vector operations as well as the usage of
-// c++'s standard sorting algorithm
+// C++'s standard sorting algorithm as it determines the uniqe strings
+// contained in a vector of strings
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <vector> // vector library header
-#include <algorithm> // algorithm library header
+#include <iostream> // for cin, cout
+#include <string> // for string
+#include <vector> // for vector
+#include <algorithm> // for sort()
 
 int main()
 {

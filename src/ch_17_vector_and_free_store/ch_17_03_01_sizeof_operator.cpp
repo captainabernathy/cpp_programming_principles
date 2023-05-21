@@ -1,7 +1,7 @@
 // program demonstrates use of the sizeof() operator
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <vector> // for vector
 
 int main()
 {

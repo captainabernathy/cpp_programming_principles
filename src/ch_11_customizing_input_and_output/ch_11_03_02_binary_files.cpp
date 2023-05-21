@@ -1,16 +1,16 @@
 // program demonstrates how to use input and output stream object to read from
 // and write to binary files
-// program also implements a template function to get the address of the
+// program also implements a function template to get the address of the
 // the first byte of an object's representation
 
-#include <iostream> // I/O library header
-#include <fstream> // file I/O library
-#include <string> // string library header
-#include <vector> // vector library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr, ios_base
+#include <fstream> // for ifstream, ofstream
+#include <string> // for string
+#include <vector> // for vector
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
-// template function that gets the address of the first byte of an object's
+// function template that gets the address of the first byte of an object's
 // representation
 template<typename T>
 char *as_bytes(T& i) // treat T as a sequence of bytes

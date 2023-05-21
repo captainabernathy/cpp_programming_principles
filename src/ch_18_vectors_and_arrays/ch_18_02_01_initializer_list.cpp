@@ -1,10 +1,10 @@
 // program implements an ad-hoc class for a vector of doubles and demonstrates
 // how to implement a constructor that takes an initializer list
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
-#include <string> // string library header
+#include <iostream> // for cout
+#include <algorithm> // for copy()
+#include <initializer_list> // for initializer_list<>
+#include <string> // for string
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -39,18 +39,18 @@ public:
     // destructor deallocates dynamically allocated memory
     ~vector() { delete[] elem; }
 
-    // returns the size of a vector
+    // returns the size of this vector
     size_t size() const { return sz; }
 
-    // provides read access to a vector by returning the value
+    // provides read access to this vector by returning the value
     // of the element at index n
     // NOTE: function does not provide any range checking
-    double get(int n) const { return elem[n]; }
+    double get(size_t n) const { return elem[n]; }
 
-    // provides write access to a vector by assign double v to
-    // index n
+    // provides write access to this vector by assigning double v to the
+    // element at index n
     // NOTE: function does not provide any range checking
-    void set(int n, double v) { elem[n] = v; }
+    void set(size_t n, double v) { elem[n] = v; }
 };
 
 // outputs the contents of the vector it receives and prepends each

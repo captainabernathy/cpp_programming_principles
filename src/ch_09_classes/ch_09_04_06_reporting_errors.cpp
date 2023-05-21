@@ -1,8 +1,10 @@
-// program implements a class that contains a nested class that is used for
-// throwing when exceptions are detected
+// program implements a Date class that contains a nested class that is used
+// for throwing upon the detection of an invalid Date
+//
+// program also demonstrates how to overload the output operator
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
+#include <iostream> // for cout, cerr, ostream
+#include <exception> // for exception
 
 // user-defined date type
 class Date {

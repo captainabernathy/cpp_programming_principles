@@ -1,8 +1,8 @@
-// program displays initialization of variables of type int, double, char,
-// string, and bool, and writes results to stdout
+// program displays how to initialize variables of type int, double, char,
+// string, and bool
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <string> // for string
 
 int main()
 {

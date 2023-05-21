@@ -1,10 +1,8 @@
-// program prompts user for a double and writes the results of using it in
-// various arithmetic expressions to stdout
-//
 // program demonstrates the results of performing arithmetic operations in
 // output statements
-#include <iostream> // I/O library header
-#include <cmath> // math library header
+
+#include <iostream> // for cin, cout
+#include <cmath> // for sqrt()
 
 int main()
 {

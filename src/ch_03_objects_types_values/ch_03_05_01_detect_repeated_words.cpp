@@ -1,8 +1,8 @@
 // program prompts user to enter text and reports when the user enters the same
 // word twice in succession
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <string> // for string
 
 int main()
 {

@@ -1,7 +1,7 @@
-// program provides several examples of valid code producing unwanted results
-// due to the lack of error checking
+// program provides several examples of valid code that produces unwanted
+// results due to the lack of error checking
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // simple function that calculates area from its inputs and returns the result
 inline int area(int len, int width)

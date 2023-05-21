@@ -1,17 +1,21 @@
-// program implements a template class for an array of any type
+// program implements a class template for an array of any type and a function
+// template that returns the largest element between two iterators
 
-#include <iostream> // I/O library header
+#include <iostream> // cout
 
 template<typename T, size_t N>
 struct array {
-    using size_type = size_t;
     // typedef size_t size_type;
-    using value_type = T;
+    using size_type = size_t;
+
     // typedef T value_type;
-    using iterator = T*;
+    using value_type = T;
+
     // typedef T* iterator;
-    using const_iterator = T const*;
+    using iterator = T*;
+
     // typedef const T* const_iterator;
+    using const_iterator = T const*;
 
     T elems[N]; // no explicit construct/copy/destroy needed
 
@@ -38,14 +42,14 @@ struct array {
 
     // member access operator invoked by non-const objects
     // returns reference to the element of this array at index n
-    T& operator[](ssize_t n)
+    T& operator[](size_t n)
     {
         return elems[n];
     }
 
     // member access operator invoked by const objects
     // returns a constant reference to the element of this array at index n
-    const T& operator[](ssize_t n) const
+    const T& operator[](size_t n) const
     {
         return elems[n];
     }
@@ -53,12 +57,12 @@ struct array {
     // provides range-checked access to this array
     // invoked by const objects
     // returns a constant reference to the element of this array at index n
-    const T& at(ssize_t n) const;  // NOT IMPLEMENTED
+    const T& at(size_t n) const;  // NOT IMPLEMENTED
    
     // provides range-checked access to this array
     // invoked by non-const objects
     // returns a reference to the element of this array at index n
-    T& at(ssize_t n); // NOT IMPLEMENTED
+    T& at(size_t n); // NOT IMPLEMENTED
 
     // returns a pointer to the first element of this array
     // invoked by non-const objects
@@ -75,7 +79,7 @@ struct array {
     }
 };
 
-// template function that takes an iterator to a range of elements in a
+// function template that takes an iterator to a range of elements in a
 // collection... [first,last)... and returns an iterator that points to the
 // largest element in the range
 template<typename T>

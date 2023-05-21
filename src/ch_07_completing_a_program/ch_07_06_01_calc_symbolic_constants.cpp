@@ -1,10 +1,11 @@
 // program reduces the number of hard-coded values in the calculator by
 // introducing symbolic constants
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <string> // string library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <string> // for string
+#include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open(),
+                                                 // narrow_cast<>, error()
 
 /*
  *  Grammar

@@ -1,9 +1,9 @@
-// program demonstrates error checking where it is the responsiblitiy of the
-// function being called to validate its inputs
+// program demonstrates error checking and exception handling where it is the
+// responsiblitiy of the function being called to validate its inputs
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cerr, cout
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // function that calclates the area from its inputs and returns the result if
 // inputs are greater than zero... otherwise it calls error()

@@ -1,11 +1,8 @@
-// program prompts user for name and age, reads results into string and integer
-// variables, and writes the results to stdout
-//
-// program initializes variables to default values prior to reading new values
-// into them
+// program demonstrates how to initialize variables to default values prior
+// to using them in I/O operations
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <string> // for string
 
 int main()
 {

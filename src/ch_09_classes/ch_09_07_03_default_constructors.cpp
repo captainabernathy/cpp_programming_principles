@@ -1,8 +1,8 @@
 // program demonstrates how to implement a default/no-argument constructor for
 // a class
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <vector> // for vector
 
 // user-defined Date type
 class Date {
@@ -43,9 +43,9 @@ private:
     int d;
 };
 
-// NOTE: Return a constant reference yields and r-value... an expression that
-// can appear on the right side of assignment only... and cannot have a value
-// assigned to it
+// NOTE: returning a constant reference yields and r-value... an expression
+// that can appear on the right side of assignment only... and cannot have a
+// value assigned to it
 // so... Date d = default_date() is ok, but
 // Date d = default_date() = default_date() is not
 const Date& default_date()

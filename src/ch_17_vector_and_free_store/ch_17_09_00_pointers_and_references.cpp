@@ -1,7 +1,7 @@
 // program demonstrates how to use references and the difference between
 // references and pointers
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

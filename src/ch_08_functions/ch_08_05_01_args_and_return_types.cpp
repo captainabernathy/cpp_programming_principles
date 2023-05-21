@@ -1,8 +1,8 @@
 // program demonstrates the use of function return values
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <vector> // for vector
+#include <string> // for string
 
 // function declaration
 double fct(int a, double d);

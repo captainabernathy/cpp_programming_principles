@@ -1,8 +1,8 @@
 // program writes "Hello, World!" to stdout and waits for the user to
 // enter a character before terminating
 
-#include <iostream> // I/O library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cout
+#include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open()
 
 int main()
 {

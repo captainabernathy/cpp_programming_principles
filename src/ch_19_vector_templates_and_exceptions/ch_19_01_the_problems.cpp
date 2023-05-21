@@ -1,16 +1,11 @@
 // program uses a vector to illustrate the concepts of size and capacity and
-// the type of discrepancies that can occur b/t the two when managing the
+// the type of discrepancies that can occur b/t the two when managing a
 // vector's allocation directly with pointers as opposed to relying on its
 // built-in features
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
-#include <algorithm> // algorithm library header
-
-// using std::vector; // add name vector to file's scope
-// using std::cin; // add name cin to file's scope
-// using std::std::cout; // add name std::cout to file's scope
-// using std::'\n'; // add name '\n' to file's scope
+#include <iostream> // for cout
+#include <vector> // for vector
+#include <algorithm> // for copy()
 
 // function fills a vector using push_back(), changes the size of vector
 // using resize(), and displays the vector's size and capacity along the way

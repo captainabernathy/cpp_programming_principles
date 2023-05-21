@@ -1,7 +1,6 @@
 // program demonstrates the unsafe effect of implicitly converting int to char
 
-#include <iostream> // I/O library header
-using namespace std; // add names from std namespace to global namespace
+#include <iostream> // for cout
 
 int main()
 {

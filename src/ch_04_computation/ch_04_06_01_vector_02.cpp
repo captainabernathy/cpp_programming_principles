@@ -1,8 +1,7 @@
-// program demonstrates the declaration of a vector and the usage of its
-// push_back() method to fill it
+// program demonstrates how to fill a vector using its push_back() method
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <vector> // for vector
 
 int main()
 {

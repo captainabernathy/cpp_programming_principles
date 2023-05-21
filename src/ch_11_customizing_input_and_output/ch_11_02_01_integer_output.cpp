@@ -1,7 +1,7 @@
 // program demonstrates how to output integers using decimal, octal, and
 // hexadecimal bases
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout, hex, oct, dec, showbase
 
 int main()
 {

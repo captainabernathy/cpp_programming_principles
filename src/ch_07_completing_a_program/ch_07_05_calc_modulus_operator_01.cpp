@@ -1,8 +1,9 @@
 // program adds the ability to use the modulus operator in the calculator
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open(),
+                                                 // error()
 
 /*
  *  Grammar

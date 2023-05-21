@@ -1,9 +1,9 @@
 // program implements an ad-hoc class for a vector of doubles and demonstrates
 // how to implement a push_back() method
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
+#include <iostream> // for cout
+#include <algorithm> // for fill(), copy()
+#include <initializer_list> // initializer_list<>
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -87,13 +87,13 @@ public:
     // provides read and write access to a vector by returning a reference to
     // the element at index n
     // NOTE: function does not provide any range checking
-    double& operator[](int idx) { return elem[idx]; }
+    double& operator[](size_t idx) { return elem[idx]; }
 
     // member access operator for constant vectors
     // provides read access to a vector by returning the value of the
     // element at index n
     // NOTE: function does not provide any range checking
-    double operator[](int idx) const { return elem[idx]; }
+    double operator[](size_t idx) const { return elem[idx]; }
 
     // deallocates a vector's dynamically allocated resources
     ~vector() { delete[] elem; }

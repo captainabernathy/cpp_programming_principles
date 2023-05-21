@@ -1,7 +1,7 @@
 // program demonstrates how to process integer input in decimal, octal, and
 // hexadecimal bases
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout, cin, hex, oct, ios
 
 int main()
 {

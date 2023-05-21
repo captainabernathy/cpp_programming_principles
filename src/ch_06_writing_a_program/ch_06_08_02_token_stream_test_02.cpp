@@ -1,9 +1,9 @@
 // second implementation of a Token_stream object to process Tokens as input
 // for a calculator program
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 /*
  * Grammar
@@ -29,8 +29,8 @@
 // represents a unit in a calculator's grammar
 class Token {
 public:
-    char kind;        // what kind of token
-    double value;       // for numbers: a value
+    char kind;      // what kind of token
+    double value;   // for numbers: a value
 
     // constructor for operators and non-numeric values
     explicit Token(char ch)      // make a Token from a char

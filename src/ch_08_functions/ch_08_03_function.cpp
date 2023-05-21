@@ -1,6 +1,6 @@
-// program demonstrates function implementaion
+// program demonstrates how to declare and implement a function
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int f(int); // function delcaration
 

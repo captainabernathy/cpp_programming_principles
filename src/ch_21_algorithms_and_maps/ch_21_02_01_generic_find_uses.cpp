@@ -1,17 +1,19 @@
 // program demonstrates how to use standard library algorithm find() to locate
 // an element in a collection
-// program also implements a data structure to represent a document and a
-// text iterator object to keep track of line and character positions within a
-// document
-// program use a text iterator object to search for a character in a document
+//
+// program also implements a Document class to represents a document and a
+// Text_iterator class to keep track of line and character positions within a
+// Document
+//
+// program use a Text_iterator object to search for a character in a document
 // using find()
 
-#include <iostream> // I/O library header
-#include <list> // list library header
-#include <iterator> // iterator library header
-#include <vector> // vector library header
-#include <string> // string library header
-#include <algorithm> // algorithm library header
+#include <iostream> // for cout
+#include <list> // for list 
+#include <iterator> // for forward_iterator_tag
+#include <vector> // for vector 
+#include <string> // for string 
+#include <algorithm> // for find()
 
 using Line = std::vector<char>; // same as typedef std::vector<char> Line;
 
@@ -19,20 +21,25 @@ using Line = std::vector<char>; // same as typedef std::vector<char> Line;
 class Text_iterator {
     // std::list<std::vector<char>>::iterator line_iter;
     std::list<Line>::iterator line_iter;
+
     // std::vector<char>::iterator position_iter;
     Line::iterator position_iter;
 
 public:
-    using iterator_category = std::forward_iterator_tag;
     // typedef std::forward_iterator_tag iterator_category;
-    using value_type = char;
+    using iterator_category = std::forward_iterator_tag;
+
     // typedef char value_type;
-    using difference_type = std::size_t;
+    using value_type = char;
+
     // typedef size_t difference_type;
-    using pointer = char *;
+    using difference_type = std::size_t;
+
     // typedef char* pointer;
-    using reference = char &;
+    using pointer = char *;
+
     // typedef char& reference;
+    using reference = char &;
 
     // start iterator at line line_itr's character position pos_itr
     Text_iterator(std::list<Line>::iterator line_iter, Line::iterator pos_iter)
@@ -60,7 +67,7 @@ public:
                 && (position_iter == rhs.position_iter);
     }
 
-    // inequality operator... true with ^^^ isn't
+    // inequality operator... true when ^^^ isn't
     bool operator!=(Text_iterator const& rhs) const
     {
         return !(*this == rhs);

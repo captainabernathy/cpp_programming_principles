@@ -1,13 +1,13 @@
-// program implements a template function that computes the inner product of
+// program implements a function template that computes the inner product of
 // two collections using a specified value as the starting point of the
 // computation
 
-#include <iostream> // I/O library header
-#include <list> // list library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <list> // for list 
+#include <vector> // for vector 
 
-// template function that returns the inner product of two collections using start
-// as the starting point for accumulating the result
+// function template that returns the inner product of two collections using 
+// start as the starting point for accumulating the result
 // the first collection consists of the range of elements between the iterators
 // first1 and last1 (range [first1,last1)), and the second collection begins
 // at the iterator first2

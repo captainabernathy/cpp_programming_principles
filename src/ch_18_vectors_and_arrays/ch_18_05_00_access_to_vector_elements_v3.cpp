@@ -1,12 +1,13 @@
 // program implements an ad-hoc class for a vector of doubles that implements
 // a member access operator that provides read and write access to an element.
-// it does so by returning a reference to an element, which means that certain
-// access operations will fail for constant vectors since reading from a
-// constant is ok, but writing to a constat is illegal
+//
+// it does so by returning a reference to an element... which means that
+// certain access operations will fail for constant vectors since reading from
+// a constant is ok, but writing to a constat is illegal
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
+#include <iostream> // for cout
+#include <algorithm> // for fill(), for copy()
+#include <initializer_list> // for initializer_list<>
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -61,7 +62,7 @@ public:
     // operations for vectors
     // HOWEVER: certain indexing operations will fail for constant vectors since
     // reading from a constant is supported but writing to a constant is illegal
-    double& operator[](int idx) { return elem[idx]; }
+    double& operator[](size_t idx) { return elem[idx]; }
 
     // destructor deallocates dynamically allocated memory
     ~vector() { delete[] elem; }

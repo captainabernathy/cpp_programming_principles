@@ -1,13 +1,14 @@
-// program demonsrates how to implement a class that can in turn be used as a
+// program demonsrates how to implement a class that overloads the function
+// call operator so that objects derived from the class can be used as a
 // function object
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
-using S = int;
 // typedef int S;
+using S = int;
 
-using T = double;
 // typedef double T;
+using T = double;
 
 class F {
     S s; // state

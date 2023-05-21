@@ -1,10 +1,8 @@
-// program prompts user to enter first name and writes results to stdout
-//
-// program demonstrates basic I/O with cout and cin and the use of a string
+// program demonstrates basic I/O with cin and cout and the use of a string
 // variable
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cout, cin
+#include <string> // for string
 
 int main()
 {

@@ -1,8 +1,8 @@
 // program demonstrates various integral type conversions that do not result
 // in the loss of precision
 
-#include <iostream> // I/O library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cout
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 int main()
 {

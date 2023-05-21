@@ -1,14 +1,14 @@
-// program implements a template function that computes the inner product of
+// program implements a function template that computes the inner product of
 // two collections using a specified value as the starting point of the
-// computation, one specified binary operation to perfom the pairwise operation
+// computation, one specifies binary operation to perfom the pairwise operation
 // between the two collections, and another to accumulate the results
 
-#include <iostream>  // I/O library header
-#include <vector> // vector library header
-#include <list> // list library header
-#include <functional> // function object library header
+#include <iostream>  // cout
+#include <vector> // for vector 
+#include <list> // for list 
+#include <functional> // for plus<>, multiplies<>
 
-// template function that returns the inner product of two collections using
+// function template that returns the inner product of two collections using
 // start as the starting point for accumulating the result
 // the first collection consists of the range of elements between the iterators
 // first1 and last1 (range [first1,last1)), and the second

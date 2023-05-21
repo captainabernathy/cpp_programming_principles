@@ -1,10 +1,12 @@
 // program loads predefined values for e and pi into the calculator
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <string> // string library header
-#include <vector> // vector library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <cctype> // for isalpha(), isdigit()
+#include <string> // for string
+#include <vector> // for vector
+#include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open(),
+                                                 // narrow_cast<>, error()
 
 /*
  *  Grammar

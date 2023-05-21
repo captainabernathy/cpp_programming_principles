@@ -1,11 +1,10 @@
-// program implements a template class for a vector of any type
+// program implements a class template for a vector of any type
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
-#include <memory> // provides utilities for managing dynamic memory
-#include <string> // string library header
-// #include <iterator> // iterator library header
+#include <iostream> // for cout
+#include <algorithm> // for copy()
+#include <initializer_list> // for initializer_list<>
+#include <memory> // for allocator
+#include <utility> // for move()
 
 template<typename T, typename A = std::allocator<T>>
 class vector {
@@ -15,16 +14,20 @@ class vector {
     T *elems;
 
 public:
-    using size_type = std::size_t;
     // typedef size_t size_type;
-    using ssize_type = ssize_t;
+    using size_type = std::size_t;
+
     // typedef ssize_t ssize_type;
-    using value_type = T;
+    // using ssize_type = ssize_t;
+
     // typedef T value_type;
-    using iterator = T*;
+    using value_type = T;
+
     // typedef T* iterator;
-    using const_iterator = T const*;
+    using iterator = T*;
+
     // typedef const T* const_iterator;
+    using const_iterator = T const*;
 
     // default constructor
     // constructs an empty vector
@@ -105,16 +108,16 @@ public:
     // elements will be NULL
     vector& operator=(vector&& rhs);
 
-    // member access operator invoked by non-const objects
+    // member access operator invoked by non-const vectors
     // returns reference to the element of this vector at index idx
-    T& operator[](ssize_type idx)
+    T& operator[](size_type idx)
     {
         return elems[idx];
     }
 
-    // member access operator invoked by const objects
+    // member access operator invoked by const vectors
     // returns a constant reference to the element of this vector at index idx
-    T const& operator[](ssize_type idx) const
+    T const& operator[](size_type idx) const
     {
         return elems[idx];
     }
@@ -136,11 +139,11 @@ public:
     // less than or equal to this vector's current capacity
     void reserve(size_type rsvp);
 
-    // resizes this vector to new_size and initializes new elements to val provided
-    // that new_size is greater than this vector's current size
+    // resizes this vector to new_size and initializes new elements to val
+    // provided that new_size is greater than this vector's current size
     // new elements are added to the end of this vector
-    // when new_size is less than this vector's current size the existing elements
-    // in this vector that exceed new_size are invalidated
+    // when new_size is less than this vector's current size the existing 
+    // elements in this vector that exceed new_size are invalidated
     void resize(size_type new_size, T val = T());
 
     void push_back(T const& t);
@@ -176,12 +179,12 @@ public:
         return elems[sz - 1];
     }
 
-    // inserts val before the element at p in this vector and returns an iterator
-    // to the newly inserted element
+    // inserts val before the element at p in this vector and returns an
+    // iterator to the newly inserted element
     iterator insert(iterator p, T const& val);
     
-    // removes the element at position p in this vector and returns a pointer to
-    // the element after p
+    // removes the element at position p in this vector and returns a pointer
+    // to the element after p
     iterator erase(iterator p);
 };
 
@@ -465,8 +468,8 @@ int main()
     cout << v8.size() << " " << v8.capacity() << "\n\n";
 
     const int ci = v8[2];
-    const int &cr  = v8[3];
-    const int *p = &v8[0];
+    int const& cr  = v8[3];
+    int const* p = &v8[0];
     cout << ci << " " << cr << " " << *p << '\n';
 
     return 0;

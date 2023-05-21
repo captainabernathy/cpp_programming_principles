@@ -1,10 +1,11 @@
-// program implements a template class that can be used to create a vector
+// program implements a class template that can be used to create a vector
 // that contains elements of any type
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
-#include <string> // string library header
+#include <iostream> // for cout
+#include <algorithm> // for fill(), copy()
+#include <initializer_list> // initializer_list<>
+#include <utility> // for move()
+#include <string> // for string
 
 // template for a vector parameterized by type T... a vector of type T elements
 template<typename T>

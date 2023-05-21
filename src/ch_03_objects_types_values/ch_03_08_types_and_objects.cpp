@@ -1,7 +1,7 @@
 // program demonstrates the initialization and output of various variable types
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <string> // for string
 
 int main()
 {
@@ -10,7 +10,7 @@ int main()
 
     int a = 7;
     int b = 9;
-    int c = 'a';
+    int c = 'a'; // evalutes to numerical value of 'a' in the character set
     double x = 1.2;
     string s1 = "Hello, world";
     string s2 = "1.2";

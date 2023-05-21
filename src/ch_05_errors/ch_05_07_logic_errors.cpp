@@ -1,7 +1,7 @@
 // program demonstrates the importance of proper variable initializations in
 // preventing potential logic errors
 
-#include <iostream> // I/O library header
+#include <iostream> // for cin, cout
 
 int main()
 {

@@ -1,10 +1,10 @@
 // program demonstrates how to read and write to various positions in a file
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <fstream> // file I/O library
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cout, cerr
+#include <string> // for string
+#include <fstream> // for fstream
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 int main()
 {

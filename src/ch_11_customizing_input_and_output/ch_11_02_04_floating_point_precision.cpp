@@ -1,8 +1,8 @@
 // program demonstrates how to specify the precision of floating point output
 // for the defalt, fixed, and scientific formats
 
-#include <iostream> // I/O library header
-#include <iomanip> // provides parametric manipulators for streams
+#include <iostream> // for cout, fixed, scientific, defaultfloat
+#include <iomanip> // for setprecision
 
 int main()
 {

@@ -1,7 +1,7 @@
 // program provides an introduction to dynamic memory allocation and
 // deallocatoin using the new and delete operators, respectively
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

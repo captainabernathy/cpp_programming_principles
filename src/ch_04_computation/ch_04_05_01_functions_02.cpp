@@ -1,7 +1,7 @@
 // another program that demonstrates the implementation of a simple inline
 // function
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // simple function that writes the square of its input to stdout
 inline void print_square(int v){ std::cout << v << '\t' << v * v << '\n'; }

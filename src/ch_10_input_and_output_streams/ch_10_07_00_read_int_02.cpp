@@ -4,8 +4,7 @@
 // NOTE: program only performs minimal input validation and fails to detect all
 // forms of invalid input
 
-
-#include <iostream> // I/O library header
+#include <iostream> // for cin, cout
 
 int main()
 {

@@ -1,15 +1,16 @@
-// program implements and tests a template function that returns the first
+// program implements and tests a function template that returns the first
 // element in a collection between two iterators that satisfies a predicate
-// program also implements a template class for a function object that can be
-// used a predicate with the template function
+//
+// program also implements a class template for a function object that can be
+// used a predicate with a function template
 
-#include <iostream> // I/O library header
-#include <list> // list library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <list> // for list
+#include <vector> // for vector
 
-// template function that returns the first element in a collection between
+// function template that returns the first element in a collection between
 // the iterators first and last (range [first,last)) that satisfies the
-// predicate function pred and returns an iterator to it
+// predicate function pred and returns an iterator to it...
 // if no element satisfies the predicate function the iterator returned will be
 // equal to last
 template<typename Iter, typename Pred>
@@ -20,8 +21,8 @@ Iter find_if(Iter first, Iter last, Pred pred)
     return first;
 }
 
-// template class for a function object that returns true when the object
-// passed to it is larger than the object used to instantiate it
+// class template that provides a function object that returns true when the
+// object passed to it is larger than the object used to instantiate it
 template<typename T>
 class Larger_than {
     T v;
@@ -36,8 +37,8 @@ public:
     }
 };
 
-// function that tests the template function and function object template
-// implemented above
+// function that tests the find_if function template and the Larger_than
+// function object template
 void f(std::list<double>&, double);
 
 int main()

@@ -1,12 +1,12 @@
-// program implements and tests a template function that returns the first
+// program implements and tests a function template that returns the first
 // element in a collection between two iterators that satisfies a predicate
 // function
 
-#include <list> // list library header
-#include <iostream> // I/O library header
-#include <vector>  // vector library header
+#include <list> // for list 
+#include <iostream> // for cout
+#include <vector>  // for vector 
 
-// template function that returns the first element in a collection between
+// function template that returns the first element in a collection between
 // the iterators first and last (range [first,last)) that satisfies the
 // predicate function pred and returns an iterator to it
 // if no element satisfies the predicate function the iterator returned will be

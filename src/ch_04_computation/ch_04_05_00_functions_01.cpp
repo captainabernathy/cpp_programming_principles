@@ -1,6 +1,6 @@
 // program demonstrates the implementation of few simple inline functions
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // simple function that squares its input and returns the result
 inline int square(int x) { return x * x; }

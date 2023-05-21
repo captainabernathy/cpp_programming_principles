@@ -1,17 +1,19 @@
-// program implements a text iterator object to keep track of line and
-// character position within a line when reading a document
-// program implements a data structure that represents a document as
-// a collection of lines
+// program implements a Text_iterator class that can be used to keep track of
+// the line and character position within a line when reading a document
+//
+// additionally, program implements a class that represents a document as a
+// collection of lines
+//
 // program also implements a function to find text within a document as well as
 // another function to determine if the characters between two text iterators
-// match a string
+// match a given string
 
-#include <iostream> // I/O library header
-#include <vector>  // vector library header
-#include <string> // string library header
-#include <list> // list library header
-#include <iterator> // iterator library header
-#include <algorithm> // algorithm library header
+#include <iostream> // for istream, cin, cout
+#include <vector>  // for vector
+#include <string> // for string
+#include <list> //  for list
+#include <iterator> // for forward_iterator_tag
+#include <algorithm> // for find()
 
 using Line = std::vector<char>;  // same as typdef vector<char> Line;
 
@@ -23,16 +25,20 @@ class Text_iterator {
     Line::iterator position_iter;
 
 public:
-    using iterator_category = std::forward_iterator_tag;
     // typedef std::forward_iterator_tag iterator_category;
-    using value_type = char;
+    using iterator_category = std::forward_iterator_tag;
+
     // typedef char value_type;
-    using difference_type = std::size_t;
+    using value_type = char;
+
     // typedef size_t difference_type;
-    using pointer = char *;
+    using difference_type = std::size_t;
+
     // typedef char *pointer;
-    using reference = char &;
+    using pointer = char *;
+
     // typedef char& reference;
+    using reference = char &;
 
     // start iterator at line line_itr's character position pos_itr
     Text_iterator(std::list<Line>::iterator line_itr, Line::iterator pos_itr)
@@ -59,7 +65,7 @@ public:
                 && (position_iter == rhs.position_iter);
     }
 
-    // inequality operator... true with ^^^ isn't
+    // inequality operator... true when ^^^ isn't
     bool operator!=(Text_iterator const& rhs) const
     {
         return !(*this == rhs);
@@ -147,8 +153,8 @@ inline void erase_line(Document &d, int n)
 // determines if the text between first and last match the string s
 bool match(Text_iterator first, Text_iterator last, std::string const& s);
 
-// if string s exists between first and last, return a Text_iterator to the
-// first character... or an iterator to the end of the sequence when it does
+// returns a Text_iterator to the first character if string s exists between
+// first and last... or an iterator to the end of the sequence when it does
 // not
 Text_iterator find_text(Text_iterator first, Text_iterator last,
     std::string const& s);
@@ -156,18 +162,18 @@ Text_iterator find_text(Text_iterator first, Text_iterator last,
 int main()
 {
     Document my_doc;
-    std::cout << "Enter lines of text or press CTRL-D to exit." << std::endl;
+    std::cout << "Enter lines of text or press CTRL-D to exit." << '\n';
     std::cin >> my_doc;
     Text_iterator p = find_text(my_doc.begin(), my_doc.end(),
                                 "secret\nhomestead");
 
-    std::cout << std::endl;
+    std::cout << '\n';
 
     if (p == my_doc.end())
-        std::cout << "not found" << std::endl;
+        std::cout << "not found" << '\n';
     else
     {
-        std::cout << "found: secret\nhomestead" << std::endl << std::endl;
+        std::cout << "found: secret\nhomestead" << "\n\n";
     }
 
     print(my_doc);

@@ -1,11 +1,12 @@
 // program extends the standard library template for a vector of any type to
 // include range checking
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <stdexcept> // convenience classes for logic and runtime errors
-#include <vector> // vector library header
-#include <sstream> // provides stream classes for operating on strings
+#include <iostream> // for cout, cerr
+#include <string> // for string
+#include <stdexcept> // for out_of_range, exception
+#include <vector> // for vector
+#include <sstream> // for ostringstream
+#include <utility> // for move()
 
 // template for a function that converts an object of type T to a string and
 // returns it
@@ -27,8 +28,8 @@ std::string to_string(T const& t)
 // not necessary
 // enhanced vector range error reporting
 // struct Range_error : std::out_of_range {
-//     ssize_t index;
-//     Range_error(ssize_t i)
+//     size_t index;
+//     Range_error(size_t i)
 //         : out_of_range{"Range error at index " + to_string(i)}, index{i}
 //     {  }
 // };
@@ -47,7 +48,7 @@ struct Vector : std::vector<T> {
     T& operator[](size_type i)
     {
         if (i < 0 || this->size() <= i)
-            // throw Range_error{(ssize_t)i};
+            // throw Range_error{(size_t)i};
             throw std::out_of_range("Range error at index " + to_string(i));
         return std::vector<T>::operator[](i);
     }
@@ -55,7 +56,7 @@ struct Vector : std::vector<T> {
     T const& operator[](size_type i) const
     {
         if (i < 0 || this->size() <= i)
-            // throw Range_error{(ssize_t)i};
+            // throw Range_error{(size_t)i};
             throw std::out_of_range("Range error at index " + to_string(i));
         return std::vector<T>::operator[](i);
     }

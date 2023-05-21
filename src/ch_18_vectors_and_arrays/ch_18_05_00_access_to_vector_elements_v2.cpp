@@ -3,9 +3,9 @@
 // but it does so by returning a pointer to the element, which means that
 // access operations require dereferencing the pointer.
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
+#include <iostream> // for cout
+#include <algorithm> // for fill(), copy()
+#include <initializer_list> // for initializer_list<>
 
 // ad-hoc class for a vector of doubles
 class vector {
@@ -61,7 +61,7 @@ public:
     // cout << *v[i] << endl;
     // *v[i] = val;
     // while this works, it is clunky and error-prone
-    double *operator[](int n) { return &elem[n]; }
+    double *operator[](size_t n) { return &elem[n]; }
 
     // destructor deallocates dynamically allocated memory
     ~vector() { delete[] elem; }

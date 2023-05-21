@@ -1,12 +1,12 @@
 // program demonstrates how to use stream iterators to copy from input streams
 // to output streams
 
-#include <algorithm> // algorithm library header
-#include <fstream> // file stream library header
-#include <iostream> // I/O library header
-#include <iterator> // iterator library header
-#include <string> // string library header
-#include <vector> // vector library header
+#include <algorithm> // for sort(), copy()
+#include <fstream> // for ifstream, ofstream
+#include <iostream> // for cin, cout
+#include <iterator> // for istream_iterator, ostream_iterator
+#include <string> // for string 
+#include <vector> // for vector 
 
 // function demonstrates how to use ostream and istream iterators to do basic
 // I/O
@@ -17,7 +17,6 @@ int main()
     using std::string;
     using std::cout;
     using std::cin;
-    using std::endl;
     using std::ifstream;
     using std::ofstream;
     using std::istream_iterator;
@@ -31,11 +30,11 @@ int main()
 
     cout << "Enter file to copy: ";
     cin >> from; // get source file name
-    cout << endl; // flushes stream
+    cout << '\n'; // flushes stream
 
     cout << "Enter results destination: ";
     cin >> to; // get target file name
-    cout << endl; // flushes stream
+    cout << '\n'; // flushes stream
 
     ifstream is {from.c_str()}; // open input stream
     ofstream os {to.c_str()}; // open output stream

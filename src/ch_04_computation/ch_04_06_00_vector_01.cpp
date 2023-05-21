@@ -1,9 +1,9 @@
 // program demonstrates vector declaration, initialization, and iteration
 // techniques
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <string> // for string
+#include <vector> // for vector
 
 int main()
 {
@@ -39,6 +39,7 @@ int main()
 
     // construct a vector with storage for 4 string elements
     vector<string> philosopher(4);
+
     // initialize each element individually
     philosopher[0] = "Kant";
     philosopher[1] = "Plato";

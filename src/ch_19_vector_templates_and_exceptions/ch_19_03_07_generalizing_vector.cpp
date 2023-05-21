@@ -1,15 +1,16 @@
-// program expands the implementation of a template class that can be used to
+// program expands the implementation of a class template that can be used to
 // create a vector that contains elements of any type to include a parameter
 // for the allocator used to manage its resources.
 //
 // by default, vectors derived from the template will use the allocator that
 // the standard library uses for the type of elements they contain
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <initializer_list> // provides initializer_list class template
-#include <memory> // provides utilities to manage dynamic memory
-#include <string> // string library header
+#include <iostream> // for cout
+#include <algorithm> // for copy()
+#include <initializer_list> // for initializer_list<>
+#include <utility> // for move()
+#include <memory> // for allocator
+#include <string> // for string
 
 // template for a vector of type T that uses the allocator provided the standard
 // library for type T by default
@@ -163,13 +164,13 @@ public:
     // provides read and write access to a vector by returning a reference to
     // the element at index n
     // NOTE: function does not provide any range checking
-    T& operator[](ssize_t idx) { return elem[idx]; }
+    T& operator[](size_t idx) { return elem[idx]; }
 
     // member access operator for constant vectors
     // provides read access to a vector by returning a constant reference to the
     // element at index n
     // NOTE: function does not provide any range checking
-    T const& operator[](ssize_t idx) const { return elem[idx]; }
+    T const& operator[](size_t idx) const { return elem[idx]; }
 
     // returns the number of elements in a vector
     size_t size() const { return sz; }

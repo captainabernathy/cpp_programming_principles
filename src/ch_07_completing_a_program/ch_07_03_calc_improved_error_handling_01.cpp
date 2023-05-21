@@ -1,8 +1,9 @@
 // program improves error handling in the calculator
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // keep_window_open(),
+                                                 // error()
 
 /*
  *  Grammar

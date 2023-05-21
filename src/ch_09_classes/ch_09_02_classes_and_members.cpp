@@ -1,7 +1,7 @@
-// program implements a simple class and demonstrates usage of objects created
-// from it
+// program implements a simple class and demonstrates how to use objects
+// created from it
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // user-defined type
 class X {

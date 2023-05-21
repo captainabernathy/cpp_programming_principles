@@ -1,18 +1,20 @@
 // program demonstrates how to use C++'s regex library to process complicated
 // patterns typical of what one would find in a table
 
-#include <iostream> // I/O library header
-#include <fstream> // file stream library header
-#include <regex> // regex library header
-#include <stdexcept> // exception library header
-#include <sstream> // string stream library header
-#include <string> // string library header
+#include <iostream> // for cerr, cout
+#include <fstream> // for ifstream
+#include <regex> // for regex, smatch, regex_search
+#include <exception> // for exception
+#include <stdexcept> // for runtime_error
+#include <sstream> // for ostringstream, istringstream
+#include <typeinfo> // for badcast
+#include <string> // for string, getline()
 
 // outputs the string passed to msg to stderr and throws a runtime_error()
 // with msg as its argument
 inline void error(std::string const& msg)
 {
-    std::cerr << msg << std::endl;
+    std::cerr << msg << '\n';
     throw std::runtime_error(msg);
 }
 

@@ -1,7 +1,7 @@
 // program implements an ad-hoc class for a vector of doubles and demonstrates
 // how to implement an explicit/one-argument constructor
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // ad-hoc class meant to represent a starting point for building up a
 // user-defined vector type
@@ -22,23 +22,23 @@ public:
     // destructor deallocates dynamically allocated memory
     ~vector() { delete[] elem; }
 
-    // returns size of a vector
+    // returns the size of this vector
     size_t size() const { return sz; }
 
-    // provides read access to a vector by returning the value
+    // provides read access to this vector by returning the value
     // of the element at index n
     // NOTE: function does not provide any range checking
-    double get(int n) const { return elem[n]; }
+    double get(size_t n) const { return elem[n]; }
 
-    // provides write access to a vector by assign double v to
-    // index n
+    // provides write access to this vector by assigning double v to the
+    // element at index n
     // NOTE: function does not provide any range checking
-    void set(int n, double v) { elem[n] = v; }
+    void set(size_t n, double v) { elem[n] = v; }
 };
 
 // a tester function for the the user-defined vector type...
 // n has no significance at this point
-void f(int n);
+void f(size_t n);
 
 int main()
 {
@@ -68,7 +68,7 @@ int main()
 // SO the destruction of one's elements results in the destruction of the
 // other's, which results in an attempt by the second object's destructor to
 // free already freed memory
-void f(int n)
+void f(size_t n)
 {
     vector v(3); // vector of 3 elements
     v.set(2, 2.2); // set last element of v to 2.2

@@ -1,15 +1,15 @@
 // program demonstrates the use of block scope as well as various variable
 // initialization and assignment statements
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <string> // for string
 
 int main()
 {
     using std::cout;
     using std::string;
 
-    //names restricted to scope of {  }
+    // names declared in {  } are restricted to that scope
     {
         int a = 3; // initialize a to 3
         cout << a << '\n'; // 3

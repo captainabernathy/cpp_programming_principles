@@ -1,7 +1,7 @@
 // first attempt at defining a Token class to represent the elements of a
 // calculator's grammar
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // represents a unit in a calculator's grammar
 class Token

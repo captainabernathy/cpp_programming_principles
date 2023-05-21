@@ -1,18 +1,19 @@
-// program implements a template function that computes the inner product of
+// program implements a function template that computes the inner product of
 // two collections using a specified value as the starting point of the
 // computation, one specified binary operation to perfom the pairwise operation
 // between the two collections, and another to accumulate the results
 //
 // program implements a function to extract the product from two
-// <string,double> pairs, and uses it with the inner product template function
+// <string,double> pairs, and uses it with the inner product function template
 // to compute the inner product of two map objects that contain the same keys
 
 #include <iostream> // I/O library header
-#include <map> // map library header
-#include <string> // string library header
-#include <utility> // provides pair class
+#include <map> // for map
+#include <string> // for string 
+#include <utility> // for pair, make_pair
+#include <functional> // for plus<>
 
-// template function that returns the inner product of two collections using
+// function template that returns the inner product of two collections using
 // start as the starting point for accumulating the result
 // the first collection consists of the range of elements between the iterators
 // first1 and last1 (range [first1,last1)), and the second
@@ -38,7 +39,7 @@ T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start, BinOp1 op1,
     return start;
 }
 
-// NOTE: a pair object collects of two values that may be of different types
+// NOTE: a pair object collects two values that may be of different types
 // and can be accessed via its public first and second members
 //
 // function returns the the product of the second members of a and b

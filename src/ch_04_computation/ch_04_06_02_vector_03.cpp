@@ -1,12 +1,10 @@
-// program prompts user to fill a vector of doubles then iterates over it,
-// computes its average and mean, and writes the results to stdout
-//
 // program demonstrates various common vector operations as well as the usage of
-// c++'s standard sorting algorithm
+// C++'s standard sorting algorithm as it computes the mean and median of a
+// vector of doubles
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
-#include <vector> // vector library header
+#include <iostream> // for cin, cout
+#include <algorithm> // for sort()
+#include <vector> // for vector
 
 int main()
 {

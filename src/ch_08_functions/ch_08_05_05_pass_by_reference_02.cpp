@@ -1,12 +1,12 @@
 // program demonstrates the meaning of passing arguments by reference
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // function declarations
 int g(int& x);
 int f(int& x);
 
-// function receives x by receference, increments, and returns it
+// function receives x by reference, increments, and returns it
 // NOTE: x retains update since it was passed by reference
 int f(int& x)
 {
@@ -31,7 +31,7 @@ int main()
     return 0;
 }
 
-// function receives x by receference, increments, and returns it
+// function receives x by reference, increments, and returns it
 // NOTE: x retains update since it was passed by reference
 int g(int& x)
 {

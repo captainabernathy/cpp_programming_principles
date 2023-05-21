@@ -1,9 +1,10 @@
 // program implements a function that strips non-alpha-numeric characters from
 // text entered by the user
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <vector> // vector library header
+#include <iostream> // for cin, cout
+#include <cctype> // for isalpha()
+#include <string> // for string
+#include <vector> // for vector
 
 std::vector<std::string> v; // global vector of strings
 void f(); // function declaration

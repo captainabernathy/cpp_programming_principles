@@ -1,12 +1,13 @@
-// program implements a Point structure with overloaded input and output
-// operators. then it reads points from a file and writes them to stdout
+// program implements a Point class with overloaded input and output
+// operators... then reads points from a file and writes them to stdout
 
-#include <iostream> // I/O library header
-#include <fstream> // file I/O library
-#include <string> // string library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <vector> // vector library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for istream, ostream, cin, cout, cerr
+#include <fstream> // for ifstream
+#include <string> // for string
+#include <exception> // for exception
+#include <stdexcept> // for runtime_error
+#include <vector> // for vector
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // user-define Point type
 struct Point {

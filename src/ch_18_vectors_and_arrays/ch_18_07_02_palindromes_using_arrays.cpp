@@ -1,8 +1,8 @@
-// program implements a function that receives a c-string as an array of
+// program implements a function that receives a C-string as an array of
 // characters and determines whether or not it is a palindrome
 
-#include <iostream> // I/O library header
-#include <cstring> // provides string.h to manipulate C strings and arrays
+#include <iostream> // for istream, cin, cout
+#include <cstring> // for strlen()
 
 // given a c-string and its length, function returns whether or not it is a
 // palindrome

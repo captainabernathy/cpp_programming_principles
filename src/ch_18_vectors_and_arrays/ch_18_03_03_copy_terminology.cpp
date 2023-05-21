@@ -1,6 +1,6 @@
 // program illustrates the difference between a shallow and a deep copy
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

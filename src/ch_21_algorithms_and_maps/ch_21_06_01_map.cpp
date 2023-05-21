@@ -2,9 +2,9 @@
 // to work with an object that contains an ordered sequence of key-value pairs
 // such that each key in a map object provides access to a corresponding value
 
-#include <iostream> // I/O library header
-#include <map>  // map library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <map>  // for map
+#include <string> // for string 
 
 int main()
 {

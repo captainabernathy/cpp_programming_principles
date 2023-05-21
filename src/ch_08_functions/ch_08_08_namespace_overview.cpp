@@ -1,26 +1,25 @@
 // program provides an overview of the rules regarding namespaces and scope
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 using std::cout; // add cout to file scope
-using std::endl; // add endl to file scope
 
 // NOTE: namespaces create their own scopes
 namespace X
 {
     int var = 0;
-    inline void print() { cout << var << endl; }
+    inline void print() { cout << var << '\n'; }
 }
 
 namespace Y
 {
     int var = 0;
-    inline void print() { cout << var << endl; }
+    inline void print() { cout << var << '\n'; }
 }
 
 namespace Z
 {
     int var = 0;
-    inline void print() { cout << var << endl; }
+    inline void print() { cout << var << '\n'; }
 }
 
 int main()

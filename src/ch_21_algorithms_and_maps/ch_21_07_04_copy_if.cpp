@@ -1,12 +1,13 @@
 // program implements a function template that copies elements from one
 // collection to another collection based on the results of a predicate
-// program also implements a template class for a function object that can be
-// used a predicate with the template function
+//
+// program also implements a class template for a function object that can be
+// used as predicate with the function template 
 
-#include <vector> // vector library header
-#include <iostream> // I/O library header
+#include <vector> // for vector 
+#include <iostream> // for cout
 
-// template function that copies the elements between the iterators first
+// function template that copies the elements between the iterators first
 // and last in one collection (range [first,last)) to another collection
 // based on the predicated pred and starting from the position of the iterator
 // res
@@ -28,7 +29,7 @@ Out copy_if(In first, In last, Out res, Pred p)
     return res;
 }
 
-// template class for a function object that returns true when the object
+// class template for a function object that returns true when the object
 // passed to it is larger than the object used to instantiate it
 template<typename T>
 class Larger_than {

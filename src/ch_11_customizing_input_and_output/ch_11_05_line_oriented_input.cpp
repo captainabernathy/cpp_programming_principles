@@ -3,10 +3,10 @@
 // stringstream object to extract to the words contained in that variable into
 // a vector of strings
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <sstream> // provides stream classes for operating on strings
-#include <vector> // vector library header
+#include <iostream> // for cout, cin
+#include <string> // for string, getline()
+#include <sstream> // for stringstream
+#include <vector> // for vector
 
 int main()
 {

@@ -7,10 +7,10 @@
 // colletion and returns a pointer (iterator) to the largest element in the
 // collection
 
-#include <iostream> // I/O library header
-#include <vector>  // vector library header
+#include <iostream> // for cout
+#include <vector>  // for vector
 
-// template function that returns an iterator to the element in a collection
+// function template that returns an iterator to the element in a collection
 // between first and last... [first, last)... that has the highest value
 template<typename Iterator>
 Iterator high(Iterator first, Iterator last)
@@ -28,7 +28,7 @@ Iterator high(Iterator first, Iterator last)
 // pointer it receives
 // NOTE: function returns a dynamically allocated pointer to *count doubles, so
 // remember to delete it when done
-double *get_from_jack(int *count);
+double *get_from_jack(size_t *count);
 
 // jill fills a vector and returns a pointer to it
 // NOTE: function returns a dynamically allocated pointer to a vector of
@@ -45,18 +45,18 @@ int main()
     return 0;
 }
 
-double *get_from_jack(int *count)
+double *get_from_jack(size_t *count)
 {
     if (!count) // return 0 if count is NULL
         return 0;
 
-    const int n = 10;
+    const size_t n = 10;
     double *arr = new double[n]; // allocate array of 10 doubles
 
     if (arr) // fill array if allocation was successful
     {
         *count = n; // update count
-        for (int i = 0; i < n; i++) // fill array
+        for (size_t i = 0; i < n; i++) // fill array
             arr[i] = i * 1.1;
     }
 
@@ -65,7 +65,7 @@ double *get_from_jack(int *count)
 
 std::vector<double> *get_from_jill()
 {
-    const int n = 10;
+    const size_t n = 10;
 
     // allocate pointer to vector of 10 doubles
     std::vector<double> *arr = new std::vector<double>(n);
@@ -82,7 +82,7 @@ std::vector<double> *get_from_jill()
 
 void fct()
 {
-    int jack_count = 0;
+    size_t jack_count = 0;
     double *jack_data = get_from_jack(&jack_count);
     std::vector<double> *jill_data = get_from_jill();
 

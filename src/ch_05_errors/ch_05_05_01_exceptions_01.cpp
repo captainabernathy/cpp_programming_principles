@@ -1,9 +1,9 @@
-// program demonstrates error checking where it is the caller's responsiblitiy
-// to validate the inputs to a function
+// program demonstrates error checking and exception handling where it is the
+// caller's responsiblitiy to validate the inputs to a function
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // simple function that calculates area from its inputs and returns the result
 inline int area(int len, int width)
@@ -47,7 +47,8 @@ int main()
             cout << area1 << '\n';
         }
         {
-            if (x <= 0 || y <= 0) // more compact check for invalid x or y values
+            // more compact check for invalid x or y values
+            if (x <= 0 || y <= 0)
                 error("non-positive argument in call to area()");
 
             int area1 = area(x, y);  // computed only if inputs are valid

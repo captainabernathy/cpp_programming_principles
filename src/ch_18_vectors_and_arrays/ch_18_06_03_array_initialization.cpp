@@ -1,9 +1,9 @@
 // program demonstrates various techniques for initializing an array
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
-// simple string length function that returns the number of characters in its
-// input
+// simple string length function that returns the number of characters in the
+// C string it receives
 size_t strlen(const char *p);
 
 int main()
@@ -12,9 +12,7 @@ int main()
 
     char ac[] = "Beron"; // array of 6 chars... includes \0
     
-    // NOTE: this may issue a warning since ISO C++ forbids converting a string
-    // const to a char *
-    char *pc = "Howdy"; // pointier to an array of 6 chars... includes \0
+    const char *pc = "Howdy"; // pointier to an array of 6 chars... includes \0
     
     int ai[] = {1, 2, 3, 4, 5, 6}; // array of 6 ints
     

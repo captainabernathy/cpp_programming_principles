@@ -1,8 +1,8 @@
 // program demonstrates how to use input, output, and file stream objects to
 // open files for reading and writing
 
-#include <fstream> // file I/O library
-#include <iostream> // I/O library header
+#include <fstream> // for ofstream, ifstream, fstream
+#include <iostream> // for cerr, ios_base
 
 int main()
 {

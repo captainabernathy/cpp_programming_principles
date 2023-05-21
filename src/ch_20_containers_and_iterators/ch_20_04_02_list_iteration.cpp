@@ -5,14 +5,14 @@
 // NOTE: program does NOT provide a full list or template implementation nor
 // does it account for dynamically allocated memory
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
-// template for a link in a doubly linked list of type T
+// template for a Link in a doubly linked list of type T
 template<typename T>
 struct Link {
     T val;
-    Link *prev; // pointer to previous link
-    Link *next; // pointer to next link
+    Link *prev; // pointer to the Link before this Link
+    Link *next; // pointer to the Link after this Link
     
     // constructor... initializes val to t, prev to p, and next to n when
     // provided... otherwise initializes them to default values
@@ -23,120 +23,120 @@ struct Link {
 // template for a doubly linked list of type T
 template<typename T>
 class list {
-    Link<T> *first; // pointer to the first link in this list
-    Link<T> *last; // pointer to the last link in this list
+    Link<T> *first; // pointer to the first Link in this list
+    Link<T> *last; // pointer to the last Link in this list
 public:
-    class iterator;
+    class iterator; // nested class
 
-    // default constructor... allocates a pointer to a new link for first, and
-    // initializes the pointer to the last link to the first one
+    // default constructor... allocates a pointer to a new Link for first, and
+    // initializes the pointer to the last Link to the first one
     list()
         : first {new Link<T>()}, last {first} { }
 
-    // iterator to first element
+    // returns an iterator to the first element
     iterator begin();
 
-    // iterator to one beyond last element
+    // returns an iterator to one beyond last element
     iterator end();
 
-    // insert v into list after p
+    // inserts v into this list after p
     iterator insert(iterator p, T const& v); // NOT IMPLEMENTED
     
-    // remove p from list
+    // removes p from this list
     iterator erase(iterator p); // NOT IMPLEMENTED
 
-    // insert v at the end of this list
+    // inserts v at the end of this list
     void push_back(T const& v); // NOT IMPLEMENTED
 
-    // insert v at the front of this list
+    // inserts v at the front of this list
     void push_front(T const& v);
 
-    // remove the first element in this list
+    // removes the first element in this list
     void pop_front(); // NOT IMPLEMENTED
     
-    // remove the last element in this list
+    // removes the last element in this list
     void pop_back(); // NOT IMPLEMENTED
 
-    // return the first element
+    // returns a reference to the first element in this list
     T& front(); // NOT IMPLEMENTED
 
-    // return the last element
+    // returns a reference to the last element in this list
     T& back(); // NOT IMPLEMENTED
 
 };
 
 template<typename T>
 class list<T>::iterator {
-    Link<T> *curr; // pointer to the current node
+Link<T> *curr; // pointer to the current node
 
-    public:
-        // constructor initializes pointer to current node to p
-        iterator(Link<T> *p)
-            : curr {p} {  }
+public:
+    // constructor initializes the pointer to the current node to p
+    iterator(Link<T> *p)
+        : curr {p} {  }
 
-        // forward incrementation... advances the pointer to the current node to
-        // the next node and returns a reference to this iterator
-        iterator& operator++()
-        {
-            curr = curr->next;
-            return *this;
-        }
+    // forward/incrementation... advances the pointer to the current node
+    // to the next node and returns a reference to this iterator
+    iterator& operator++()
+    {
+        curr = curr->next;
+        return *this;
+    }
 
-        // backwards decrementation... sets the pointer to the current node to
-        // the previous node and returns a reference to this iterator
-        iterator& operator--()
-        {
-            curr = curr->prev;
-            return *this;
-        }
+    // backwards/decrementation... sets the pointer to the current node to
+    // the previous node and returns a reference to this iterator
+    iterator& operator--()
+    {
+        curr = curr->prev;
+        return *this;
+    }
 
-        // dereference operator... returns the value of the element at the
-        // current node
-        T& operator*()
-        {
-            return curr->val;
-        }
+    // dereference operator... returns the value of the element at the
+    // current node
+    T& operator*()
+    {
+        return curr->val;
+    }
 
-        // equality operator... two iterators are equal if the pointers to
-        // their current nodes are the same
-        friend bool operator==(iterator const& lhs, iterator const& rhs)
-        {
-            return lhs.curr == rhs.curr;
-        }
- 
-        // inequality operator... two iterators are not equal if the pointers to
-        // their current nodes are not the same
-        friend bool operator!=(iterator const& lhs, iterator const& rhs)
-        {
-            return lhs.curr != rhs.curr;
-        }
+    // equality operator... two iterators are equal if the pointers to
+    // their current nodes are the same
+    friend bool operator==(iterator const& lhs, iterator const& rhs)
+    {
+        return lhs.curr == rhs.curr;
+    }
+
+    // inequality operator... two iterators are not equal if the pointers
+    // to their current nodes are not the same
+    friend bool operator!=(iterator const& lhs, iterator const& rhs)
+    {
+        return lhs.curr != rhs.curr;
+    }
 };
 
-// returns an iterator to the first element in a list of type T
+// returns an iterator to the first element in this list of type T
 template<typename T>
 typename list<T>::iterator list<T>::begin()
 {
     return iterator {first};
 }
 
-// returns an iterator to one beyond the last element in a list of type T
+// returns an iterator to one beyond the last element in this list of type T
 template<typename T>
 typename list<T>::iterator list<T>::end()
 {
     return iterator {last};
 }
 
-// inserts t at the front of a list of type T
+// inserts t at the front of this list of type T
 template<typename T>
 void list<T>::push_front(T const& t)
 {
-    // update pointer to first link in this list...
+    // update pointer to first Link in this list...
     // set its value to t, its prev pointer to nullptr, and its next pointer to
-    // the link currently first
+    // the Link currently first
     first = new Link<T> {t, nullptr, first};
 }
 
-// template function that returns an iterator to the element in a collection
+// function template that returns an iterator to the element in a collection
 // between first and last... [first, last)... that has the highest value
 template<typename T>
 T high(T first, T last)

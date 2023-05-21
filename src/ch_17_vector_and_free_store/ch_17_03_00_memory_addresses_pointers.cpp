@@ -1,6 +1,7 @@
 // program provides an introduction to pointers, pointer initialization and
 // dereferencing
-#include <iostream> // I/O library header
+
+#include <iostream> // for cout
 
 int main()
 {

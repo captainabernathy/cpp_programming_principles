@@ -1,10 +1,11 @@
-// program demonstrates the use of a template class to evaluate type conversions
-// that may result in loss of data
+// program demonstrates the use of a template class to evaluate type
+// conversions that may result in loss of data
+// NOTE: implementation of narrow_cast<> template located in
+// std_lib_facilities header
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <vector> // vector library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cerr, cout
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for narrow_cast<>
 
 int main()
 {

@@ -1,9 +1,6 @@
-// program prompts user for two integers, determines which one is larger using
-// an if (selection) section statement, and writes the result result to stdout
-//
 // program demonstrates the use of an if/else statement
 
-#include <iostream> // I/O library header
+#include <iostream> // for cin, cout
 
 int main()
 {

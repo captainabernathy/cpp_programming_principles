@@ -1,6 +1,6 @@
-// program demonstrates how to overload operators
+// program demonstrates how to overload various operators
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout, ostream
 
 // enum defining symbolic constants for months
 enum Month {

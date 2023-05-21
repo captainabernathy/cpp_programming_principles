@@ -2,8 +2,8 @@
 // binary and unary numerical expressions as well as the use of the + operator
 // to perform string concatenation
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <string> // for string
 
 int main()
 {
@@ -11,11 +11,13 @@ int main()
     using std::cin;
     using std::string;
 
+    // read an integer from stdin and write it to stdout
     int count;
     cout << "Enter an integer: ";
     cin >> count;
     cout << count << '\n';
 
+    // read a string from stdin and write it to stdout
     cout << "Enter first name: ";
     string name;
     cin >> name;

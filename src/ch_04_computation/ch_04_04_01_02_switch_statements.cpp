@@ -1,7 +1,5 @@
-// program prompts user to enter an integer and a unit and converts inches to
-// centimeters or centimeters to inches based on the result
-//
-// program demonsrates the use of a switch statement
+// program demonsrates the use of a switch statement to convert inches to
+// centimeters or centimeters to inches based user input
 
 #include <iostream> // I/O library header
 

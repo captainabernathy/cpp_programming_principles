@@ -1,7 +1,7 @@
 // program demonstrates how to output floating point numbers using the default,
 // fixed-point, and scientific notation formats
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout, fixed, scientific, defaultfloat
 
 int main()
 {

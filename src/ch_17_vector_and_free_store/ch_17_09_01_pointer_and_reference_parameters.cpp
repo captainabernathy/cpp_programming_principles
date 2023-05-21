@@ -1,9 +1,10 @@
-// program demonstrates how to implement and call function that have pointer
+// program demonstrates how to implement and call functions that have pointer
 // and reference parameters
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <string> // string library header
+#include <iostream> // for cout, cerr
+#include <exception> // for exception
+#include <stdexcept> // for runtime_error
+#include <string> // for string
 
 // simple error function that throws a runtime_error with the proivded message
 inline void error(std::string const& msg)
@@ -11,19 +12,19 @@ inline void error(std::string const& msg)
     throw std::runtime_error(msg);
 }
 
-// compute a new value and return it
+// computes a new value and returns it
 int incr_v(int x);
 
-// pass a pointer
-// function dereference the pointer it receives and increments its value
+// receives a pointer
+// function dereferences the pointer it receives and increments its value
 void incr_p(int *p);
 
-// pass a reference
+// receives a reference
 // funciton increments the value of the reference it receives
 void incr_r(int& r);
 
-// function derefernece the value p points to and increments it...
-// calls error() if p is NULL
+// function dereferneces the value p points to and increments it... or calls
+// error() if p is NULL
 void incr_p(char *p);
 
 int main()

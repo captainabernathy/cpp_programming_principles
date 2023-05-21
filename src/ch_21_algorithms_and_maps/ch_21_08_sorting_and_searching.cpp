@@ -1,18 +1,20 @@
 // program implements a function object for performing case-insensitive
 // comparisons between strings
-// program also implements a data structure for representing fruits and
-// provides a function object for performing comparisons between fruits
+//
+// additionally program implements a class for representing fruits and provides a
+// function object for performing comparisons between fruits
+//
 // program also demonstrates the use of the standard library equal_range()
 // function, which returns a pair of iterators to the bounds of where a
 // specified element is found in a collection
 
 #include <algorithm> // algorithm library header
 #include <iostream> // I/O library header
-#include <string> // string library header
-#include <vector> // vector library header
+#include <string> // for string
+#include <vector> // for vector
 #include <utility> // provides pair class
 
-// data structure for a function object that performs a case-insensitive
+// class for a function object that performs a case-insensitive
 // comparison between two strings
 struct No_case {
     bool operator()(std::string const& x, std::string const& y) const
@@ -39,7 +41,7 @@ struct No_case {
     }
 };
 
-// data structure that represents a fruit by a name
+// class that represents a fruit by a name
 struct Fruit {
     std::string name;
     
@@ -49,7 +51,7 @@ struct Fruit {
     {  }
 };
 
-// data structure for a function object that can be used to compare Fruit
+// class for a function object that can be used to compare Fruit
 // objects
 struct Fruit_order {
     bool operator()(Fruit const& a, Fruit const& b) const

@@ -1,10 +1,10 @@
-// program implements a template function to find an integer between a pair
+// program implements a function template to find an integer between a pair
 // of iterators to a collection
 
-#include <iostream> // I/O library header
-#include <vector>  // vector library header
+#include <iostream> // for cout
+#include <vector>  // for vector
 
-// template function that finds the first element between the iterators
+// function template that finds the first element between the iterators
 // first and last (range [first,last)) that is equal to val and returns and
 // returns an iterator to it...
 // if val is not found the iterator returned will be equal to last
@@ -19,7 +19,7 @@ Iter find(Iter first, Iter last, const T& val)
     return last;
 }
 
-// function tests the the template function find() by using it to determine
+// function tests the the function template find() by using it to determine
 // if the integer x exists within the vector v references
 void f(std::vector<int>& v, int x);
 

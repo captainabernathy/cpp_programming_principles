@@ -1,7 +1,8 @@
 // program demonstrates how to dynamically initialize pointers to objects
 // and arrays of objects using defalt/no-argument constructors and initializer
 // lists
-#include <iostream> // I/O library header
+
+#include <iostream> // for cout
 
 // simple class that provides a default/no argument-constructor
 class X {
@@ -9,7 +10,7 @@ class X {
         X() {  } // default constructor
 };
 
-// simple class that provides a constructor that takes a single element...
+// simple class that provides a constructor that takes a single integer...
 // it does not provide a default/no-argument constructor
 class Y {
     public:

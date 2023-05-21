@@ -1,11 +1,12 @@
 // program demonstrates how to use C++'s regex library to search for patterns
 // within strings
 
-#include <regex> // regular expression library header
-#include <iostream> // I/O library header
-#include <stdexcept> // exception library header
-#include <string> // string library header
-#include <fstream> // file stream library header
+#include <regex> // for regex, smatch, regex_search
+#include <iostream> // for cout, cerr
+#include <exception> // for exception 
+#include <string> // for string 
+#include <fstream> // for ifstream
+#include <cstdlib> // for exit(), EXIT_FAILURE
 
 int main()
 {

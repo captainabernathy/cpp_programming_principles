@@ -1,7 +1,7 @@
 // program demonstrates implementation of a constructor that is used to
 // initialize an object's private attributes
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // user-defined date type
 class Date {

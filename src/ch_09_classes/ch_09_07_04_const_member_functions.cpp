@@ -1,7 +1,6 @@
 // program demonstrates how to implement a class with constant member functions
 
-#include <iostream> // I/O library header
-using namespace std;  // add names from std namespace to global namespace
+#include <iostream> // for cout
 
 // user-defined Date type
 class Date {

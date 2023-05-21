@@ -1,11 +1,10 @@
 // program implements a function that reads integers from an input stream into
 // a vector
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <vector> // vector library header
-#include <fstream> // file I/O library
+#include <iostream> // for istream, ios_base, cin, cout, cerr
+#include <string> // for string
+#include <exception> // for exception
+#include <vector> // for vector
 
 // reads integers from input stream ist into integer vector v until reaching
 // eof() or terminator

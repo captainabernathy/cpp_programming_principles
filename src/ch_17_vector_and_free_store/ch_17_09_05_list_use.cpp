@@ -1,17 +1,17 @@
-// program implements a Link struct that can be used to build up a doubly
+// program implements a Link class that can be used to build up a doubly
 // linked list of strings.
 // it also implements several functions for manipulating such a list.
 //
 // NOTE: implementation does NOT deallocate dynamically allocated resources
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <string> // for string
 
-// a struct used to build an ad-hoc doubly linked list of strings
+// class used to build an ad-hoc doubly linked list of strings
 struct Link {
     std::string value; // value at this Link
-    Link *prev; // pointer to previous Link
-    Link *next; // pointer to next Link
+    Link *prev; // pointer to Link before this Link
+    Link *next; // pointer to Link after this Link
 
     // constructor sets this Link's value to v and its previous and next Links
     // to nullptr by default if they are not supplied by the caller
@@ -19,23 +19,22 @@ struct Link {
         : value {v}, prev {p}, next {n} {  }
 };
 
-// insert Link n before Link p and return Link n
+// inserts Link n before Link p and returns Link n
 Link *insert(Link *p, Link *n);
 
-// insert Link n after Link p and return Link n
+// inserts Link n after Link p and returns Link n
 Link *add(Link *p, Link *n);
 
-// remove Link p from a list and return p->prev
+// removes Link p from a list and returns a pointer to the Link before it
 Link *erase(Link *p);
 
-// find String s in list Link(-ed list) p... return it if found, or nullptr if
-// not
+// finds String s in Link(-ed list) p... returns it if found, or nullptr if not
 Link *find(Link *p, std::string const& s);
 
-// move Link p, n positions in list... +n moves forward, -n moves backwards
+// moves Link p, n positions in a list... +n moves forward, -n moves backwards
 Link* advance(Link *p, int n);
 
-// display contents of list starting from Link p
+// displays contents of list starting from Link p
 void print_all(Link *p);
 
 int main()
@@ -166,7 +165,7 @@ int main()
     return 0;
 }
 
-// insert Link n before Link p and return Link n
+// inserts Link n before Link p and returns Link n
 Link *insert(Link *p, Link *n)
 {
     if (n == nullptr)
@@ -188,7 +187,7 @@ Link *insert(Link *p, Link *n)
     return n;
 }
 
-// insert Link n after Link p and return Link n
+// inserts Link n after Link p and returns Link n
 Link *add(Link *p, Link *n)
 {
     if (n == nullptr)
@@ -209,7 +208,7 @@ Link *add(Link *p, Link *n)
     return n;
 }
 
-// remove Link p from a list and return p->next
+// removes Link p from a list and return the link that follows it
 Link *erase(Link *p)
 {
     if (p == nullptr)
@@ -228,8 +227,7 @@ Link *erase(Link *p)
     return p->next;
 }
 
-// find String s in list Link(-ed list) p... return it if found, or nullptr if
-// not
+// finds String s in Link(-ed list) p... returns it if found, or nullptr if not
 Link *find(Link *p, std::string const& s)
 {
     while (p != nullptr)
@@ -242,7 +240,7 @@ Link *find(Link *p, std::string const& s)
     return nullptr;
 }
 
-// move Link p, n positions in list... +n moves forward, -n moves backwards
+// moves Link p, n positions in list... +n moves forward, -n moves backwards
 Link* advance(Link *p, int n)
 {
     if (p == nullptr)
@@ -275,7 +273,7 @@ Link* advance(Link *p, int n)
     return p;
 }
 
-// display contents of list starting from Link p
+// displays contents of list starting from Link p
 void print_all(Link *p)
 {
     // walk Links starting from p and write each value to stdout

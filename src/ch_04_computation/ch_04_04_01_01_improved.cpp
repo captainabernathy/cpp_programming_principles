@@ -1,9 +1,8 @@
-// program prompts user to enter an integer and a unit and converts inches to
-// centimeters or centimeters to inches based on the result
-//
-// program demonsrates the use of an if/else if/else statement
+// program demonsrates the use of an if/else if/else statement construct by
+// converting inches to centimeters or centimeters to inches based on user
+// input
 
-#include <iostream> // I/O library header
+#include <iostream> // for cin, cout
 
 int main()
 {

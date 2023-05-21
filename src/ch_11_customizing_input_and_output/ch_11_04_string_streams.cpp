@@ -1,12 +1,12 @@
 // program demonstrates to use string streams to read from and write to input
 // and output streams
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <fstream> // file I/O library
-#include <sstream> // provides stream classes for operating on strings
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cout, cerr
+#include <string> // for string
+#include <exception> // for exception
+#include <fstream> // for ofstream
+#include <sstream> // for ostringstream, istringstream
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // function that converts the characters in s to a double and returns it
 double str_to_double(std::string s);

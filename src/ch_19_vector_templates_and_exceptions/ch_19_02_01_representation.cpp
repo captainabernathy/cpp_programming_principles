@@ -1,7 +1,7 @@
 // program implements an ad-hoc class for a vector of doubles and demonstrates
 // how to implement size() and capacity() methods
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // ad-hoc class for a vector of doubles
 class vector {

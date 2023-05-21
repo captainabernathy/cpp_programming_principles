@@ -1,6 +1,6 @@
 // program writes "Hello, World!" to stdout
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 int main()
 {

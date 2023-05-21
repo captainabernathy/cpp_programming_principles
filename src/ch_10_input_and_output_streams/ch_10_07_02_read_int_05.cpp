@@ -10,10 +10,11 @@
 // program also implements the function skip_to_int() which enables the stream
 // to recover upon the detection of non-integer input
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <string> // string library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <cctype> // for isdigit()
+#include <string> // for string
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // utility function for recovering after seeing a bad/unexpected character
 void skip_to_int();

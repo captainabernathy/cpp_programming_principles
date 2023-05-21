@@ -1,8 +1,8 @@
 // program implements an ad-hoc class for a vector of doubles and demonstrates
 // how to implement a reserve() method
 
-#include <iostream> // I/O library header
-#include <algorithm> // algorithm library header
+#include <iostream> // for cout
+#include <algorithm> // for copy()
 
 // ad-hoc class for a vector of doubles
 class vector {

@@ -1,8 +1,8 @@
 // program implements a function that determines whether or not a string is a
 // palindrome
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cin, cout
+#include <string> // for string
 
 // given a string, function returns whether or not it is a palindrome
 bool is_palindrome(std::string const&);

@@ -1,17 +1,19 @@
 // program implements a class that defines a message as a pair of iterators
 // to the first and last lines in a vector of strings
-// program also implements a data structure that represents a mail file as
-// a file name that contains a vector of lines and a vector of messages
+//
+// program also implements a class that represents a mail file as a file name
+// that contains a vector of lines and a vector of messages
+//
 // program then demonstrates how to use a multimap to process the contents
 // of a mail file
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <vector> // vector library header
-#include <utility> // provides access to pair
-#include <map> // map library header
-// #include <iterator>
-#include <fstream> // provides access to file stream classes
+#include <iostream> // for cout, cerr
+#include <string> // for string, getline()
+#include <vector> // for vector
+#include <utility> // for pair
+#include <map> // for multimap
+#include <fstream> // for ifstream
+#include <cstdlib> // for exit(), EXIT_FAILURE
 
 using Line_iter = std::vector<std::string>::const_iterator;
 
@@ -43,7 +45,7 @@ public:
 
 using Msg_iter = std::vector<Message>::const_iterator;
 
-// Mail_file is a struct that holds lines of text and messages, specifically...
+// Mail_file is a class that holds lines of text and messages, specifically...
 // it holds all the lines of a file, and simplifies access to messages
 struct Mail_file {
 

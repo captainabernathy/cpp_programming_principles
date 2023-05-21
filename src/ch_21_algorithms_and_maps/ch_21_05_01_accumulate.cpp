@@ -1,10 +1,10 @@
-// program implements a template function that accumulates the sum of the
+// program implements a function template that accumulates the sum of the
 // elements in a collection between two iterators and uses a specified value
 // as the starting point for the accumulation
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
-// template function that accumulates and returns the sum of the elements in a
+// function template that accumulates and returns the sum of the elements in a
 // collection between the iterators first and last (range [first,last)) using
 // the value passed to start as the starting point for the accumulation
 template<typename Iter, typename T>

@@ -1,9 +1,10 @@
 // program adds a function to perfrom the calculator's computation loop
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <string> // string library header
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cin, cout, cerr
+#include <stdexcept> // for runtime_error
+#include <string> // for string
+#include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open(),
+                                                 // narrow_cast<>, error()
 
 /*
  *  Grammar

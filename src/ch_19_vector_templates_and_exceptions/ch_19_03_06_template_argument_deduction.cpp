@@ -1,14 +1,14 @@
-// program implements a template for a structure that can be used to create
+// program implements a template for a class that can be used to create
 // N element arrays of any type
 //
-// program also implements a template funtion to print the elements of any
-// index-able collection that has a size() function as well as an overloaded
-// implementation that prints the first n element of any index-able collection
+// program also implements a funtion template to print the elements of any
+// index-able collection that has a size() function, as well as an overloaded
+// implementation that prints the first n elements of any index-able collection
 // that provides a size() function
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <vector> // for vector
+#include <string> // for string
 
 // template for an N element array of type T
 template<typename T, size_t N>
@@ -21,13 +21,13 @@ struct array {
     // provides read and write access to an array  by returning a reference to
     // the element at index n
     // NOTE: function does not provide any range checking
-    T& operator[](ssize_t n) { return elem[n]; }
+    T& operator[](size_t n) { return elem[n]; }
 
     // member access operator for constant arrays
     // provides read access to an array by returning a constant reference to the
     // element at index n
     // NOTE: function does not provide any range checking
-    T const& operator[](ssize_t n) const { return elem[n]; }
+    T const& operator[](size_t n) const { return elem[n]; }
 
     // conversion to T*
     // returns a pointer to an array's elements

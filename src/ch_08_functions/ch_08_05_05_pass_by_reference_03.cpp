@@ -1,6 +1,6 @@
 // program implements a function that swaps two doubles using pass by reference
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // function receives two doubles by references and swaps their values
 inline void swap(double& d1, double& d2)

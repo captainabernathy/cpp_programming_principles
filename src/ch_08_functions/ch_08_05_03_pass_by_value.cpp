@@ -1,6 +1,6 @@
 // program illustrates the meaning of passing function arguments by value
 
-#include <iostream> // I/O library header
+#include <iostream> // for cout
 
 // function increments its input by one and returns the result
 inline int f(int x)

@@ -1,15 +1,16 @@
-// program creates a namespace and implements a function to copy the elements
-// from one collection to another in it as well as a function to print the
-// elements in a collection
+// program creates a namespace and implements a function template to copy the
+// elements from one collection to another in it as well as a function template
+// to print the elements in a collection
 
-#include <iostream> // I/O library header
-#include <list> // list library header
-#include <string> // string library header
-#include <stdexcept> // exception library header
-#include <vector> // vector library header
+#include <iostream> // for cout, cerr
+#include <list> // for list
+#include <string> // for string
+#include <exception> // for exception
+#include <stdexcept> // for runtime_error
+#include <vector> // for vector
 
 namespace our {
-    // template function that copies the elements between the iterators first
+    // function template that copies the elements between the iterators first
     // and last in one collection (range [first,last)) to another collection
     // starting from the position of the iterator res and returns an iterator
     // to the last element copied into the second collection
@@ -26,7 +27,7 @@ namespace our {
         return res;
     }
 
-    // template function that prints the elements in a collection between the
+    // function template that prints the elements in a collection between the
     // iterators start and stop (range [start,stop))
     template<typename Iter>
     void print(Iter start, Iter stop)
@@ -46,7 +47,7 @@ inline void error(std::string const& msg)
     throw std::runtime_error(msg);
 }
 
-// function that tests the template function our::copy() by copying the
+// function that tests the function template our::copy() by copying the
 // elements contained in src to the list specified by dest
 // NOTE: if the list dest does not have enough room to contain the elements
 // in dest, function throws a runtime_error()

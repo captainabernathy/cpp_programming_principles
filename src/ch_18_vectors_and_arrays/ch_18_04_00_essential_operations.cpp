@@ -10,9 +10,9 @@
 // 6) Move assignment
 // 7) Destructor
 
-#include <iostream> // I/O library header
-#include <string> // string library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <string> // for string
+#include <vector> // for vector
 
 int main()
 {

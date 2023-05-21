@@ -1,7 +1,7 @@
 // program implements a class for representing dates as well as an overloaded
 // output operator for writing dates to an output stream
 
-#include <iostream> // I/O library header
+#include <iostream> // for ostream, cout
 
 // user-defined Date type
 class Date {

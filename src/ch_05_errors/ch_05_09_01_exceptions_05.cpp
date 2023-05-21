@@ -1,9 +1,9 @@
 // program demonstrates the use of pre- and post-conditions in validating
 // function input and output
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides convenience classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
+#include <iostream> // for cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 class Bad_area{}; // empty class for throwing
 

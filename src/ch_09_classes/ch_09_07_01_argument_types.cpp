@@ -1,6 +1,6 @@
 // program implements a class whose constructor that validates its input
 
-#include <iostream> // I/O library header
+#include <iostream> // for cerr
 
 // user-defined Year type
 class Year {

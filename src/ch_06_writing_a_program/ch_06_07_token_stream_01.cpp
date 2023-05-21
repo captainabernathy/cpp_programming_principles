@@ -3,10 +3,9 @@
 //
 // NOTE: This program and ch_06_09_token_stream_02 are the same
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <cpp_facilities/std_lib_facilities.hpp> // project helper functions
-// using namespace std;  // add names from std namespace to global namespace
+#include <iostream> // for cin, cout, cerr
+#include <exception> // for exception
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 /*
  * Grammar

@@ -1,12 +1,13 @@
-// program implements a struct that provides a default/no-argument constructor,
+// program implements a class that provides a default/no-argument constructor,
 // an explicit/one-argument constructor, a copy assignment operator, and a
 // destructor.
 //
 // whenever any of these methods is called within the program, an output
 // message associated with each is printed to the screen
 
-#include <iostream> // I/O library header
-#include <vector> // vector library header
+#include <iostream> // for cout
+#include <string> // for string
+#include <vector> // for vector
 
 // simple test class
 struct X {
@@ -16,7 +17,7 @@ struct X {
     // function that calls it, which it receives as the string s
     void out(std::string const& s)
     {
-        std::cerr << this << "->" << s << ": " << val << '\n';
+        std::cout << this << "->" << s << ": " << val << '\n';
     }
 
     // defalut/no-argument constructor
@@ -52,7 +53,7 @@ struct X {
     ~X() { out("destructor ~X()"); }
 };
 
-X glob(2); // global instance of an X
+X glob(2); // global instance of an X... explicit constructor
 
 inline X copy(X x) { return x; }
 
@@ -62,14 +63,18 @@ inline X copy2(X x)
     return xx;
 }
 
+// returns a reference to the reference it receives... for initializing a
+// reference to an X from an X
 inline X& ref_to(X& x) { return x; }
 
+// returns a new X constructed from i
 inline X* make(int i)
 {
     X x(i);
     return new X(x);
 }
 
+// class that contains two Xs
 struct XX {
     X a;
     X b;
@@ -78,25 +83,72 @@ struct XX {
 int main()
 {
     using std::vector;
+    using std::cout;
+
+    cout << '\n';
 
     // create some objects... follow the various constructor, assignemt, and
     // destructor calls
-    X loc(4);
-    X loc2 = loc;
-    loc = X(5);
+    X loc(4); // explicit constructor
+    cout << '\n';
+
+    X loc2 = loc; // copy constructor
+    cout << '\n';
+
+    loc = X(5); // explicit constructor, copy assignment, destructor
+    cout << '\n';
+
+    // copy constructor, copy constructor, copy assignment, destructor,
+    // destructor
     loc2 = copy(loc);
+    cout << '\n';
+
+    // copy constructor, copy constructor, copy assignment, destructor,
+    // destructor
     loc2 = copy2(loc);
-    X loc3(6);
+    cout << '\n';
+
+    X loc3(6); // explicit constructor
+    cout << '\n';
+
     X& r = ref_to(loc3);
+
+    // explicit constructor, copy constructor, destructor, destructor
     delete make(7);
+    cout << '\n';
+
+    // explicit constructor, copy constructor, destructor, destructor
     delete make(8);
+    cout << '\n';
 
+    // default constructor, default constructor, default constructor,
+    // default constructor
     vector<X> v(4);
-    XX loc4;
-    X* p = new X(9); // an X on the free store
-    delete p; // release dynamically allocated resources
+    cout << '\n';
 
+    // default constructor, default constructor
+    XX loc4;
+    cout << '\n';
+
+    // explicit constructor
+    X* p = new X(9); // an X on the free store
+    cout << '\n';
+
+    // destructor
+    delete p; // release dynamically allocated resources
+    cout << '\n';
+
+
+    // default constructor, default constructor, default constructor,
+    // default constructor, default constructor
     X* pp = new X[5]; // an array of Xs on the free store
+    cout << '\n';
+
+    // destructor, destructor, destructor, destructor, destructor
     delete[] pp; // release dynamically allocated resources
+    cout << '\n';
+
+    // the rest of the destructors run
+
     return 0;
 }

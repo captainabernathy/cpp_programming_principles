@@ -2,46 +2,51 @@
 // linked list of strings.
 // the Link class also provides several methods for manipulating such a list.
 //
-// NOTE: implementation does not deallocate dynamically allocated objects
+// NOTE: implementation does not deallocate dynamically allocated Links
 
-#include <iostream> // I/O library header
-#include <string> // string library header
+#include <iostream> // for cout
+#include <string> // for string
 
-// a class used to build an ad-hoc doubly linked list of strings
+// class used to build an ad-hoc doubly linked list of strings
 class Link {
 public:
     std::string value;
 
+    // constructor
     Link(std::string const& v, Link *p = nullptr, Link *n = nullptr)
         : value {v}, prev {p}, next {n} {  }
 
-    // insert Link n before this object and return a pointer to it
+    // inserts Link n before this Link and returns a pointer to it
     Link *insert(Link *n);
     
-    // remove this object from a list and return this->next
+    // removes this Link from a list and returns the Link that follows it
     Link *erase();
     
-    // find Link whose value s in and return a pointer to it
+    // finds the string s in a list starting from this Link and returns a
+    // pointer to it if found... or nullptr if not
     Link *find(std::string const& s);
    
-    // finds s in list starting from this object and return a pointer to it
-    const Link *find(std::string const& s) const;
+    // NOT IMPLEMENTED:
+    // finds the string s in a list starting from this Link and returns a
+    // pointer to it if found... or nullptr if not
+    // const Link *find(std::string const& s) const;
    
-    // move this object n positions in list... +n moves, -n moves backwards
-    Link *advance(int n) const;
+    // NOT IMPLEMENTED:
+    // moves this Link n positions in list... +n moves, -n moves backwards
+    // Link *advance(int n) const;
 
-    // return pointer to this object's next Link
+    // returns a pointer to the Link after this Link
     Link *get_next() const { return next; }
 
-    // return pointer to this object's previous Link
+    // returns a pointer to Link before this Link
     Link *get_prev() const { return prev; }
 
 private:
-    Link *prev; // pointer to previous Link
-    Link *next; // pointer to next Link
+    Link *prev; // pointer to Link before this Link
+    Link *next; // pointer to Link after this Link
 };
 
-// insert Link n before this object and return a pointer to it
+// inserts Link n before this Link and returns a pointer to it
 Link *Link::insert(Link *n)
 {
     if (n == nullptr) // return this pointer if n is NULL
@@ -50,44 +55,45 @@ Link *Link::insert(Link *n)
     if (this == nullptr) // return n if this pointer is NULL
         return n;
 
-    n->next = this; // set Link n's next pointer to this
+    n->next = this; // set Link n's next pointer to this Link
 
     if (prev != nullptr)
-        // set the next pointer of this object's prev pointer to Link n
+        // set the next pointer of this Link's prev pointer to Link n
         prev->next = n;
 
-    // set Link n's prev pointer to this object's prev pointer
+    // set Link n's prev pointer to this Link's prev pointer
     n->prev = prev;
     
-    // set this object's prev pointer to Link n
+    // set this Link's prev pointer to Link n
     prev = n;
 
     return n;
 }
 
-// remove this object from the list and return this->next
+// removes this Link from a list and returns the Link that follows it
 Link *Link::erase()
 {
     if (this == nullptr)
         return nullptr;
 
-    if (next != nullptr) // this object has Link after it
-        // set the prev pointer of this object next pointer to this object's
+    if (next != nullptr) // this Link has Link after it
+        // set the prev pointer of this Link's next pointer to this Link's
         // prev pointer
         next->prev = prev;
 
-    if (prev != nullptr) // this object has a Link before it
-        // set the next pointer of this object prev pointer to this object's
+    if (prev != nullptr) // this Link has a Link before it
+        // set the next pointer of this Link's prev pointer to this Link's
         // next pointer
         prev->next = next;
 
     return next;
 }
 
-// find s in list
+// finds the string s in a list starting from this Link and returns a
+// pointer to it if found... or nullptr if not
 Link *Link::find(std::string const& s)
 {
-    Link *p = this; // start from this object
+    Link *p = this; // start from this Link
 
     while (p != nullptr)
     {
