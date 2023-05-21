@@ -1,19 +1,25 @@
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
+// program continues to demonstrate how to use the features of the graphics
+// library by decorating an Image with Circle, Ellipse, Mark, and Text objects
+
+#include <iostream> // for cerr
 #include <sstream> // string stream library header
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <cmath> // for sin()
+#include <exception> // for exception
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Axis, Color, Function, Polygon,
+                            // Line_style, Rectangle, Closed_polyline,
+                            // Text, Font, Image, Circle, Ellipse, Mark,
 
 int main()
 {
-    using namespace Graph_lib;
     using std::cerr;
-    using std::endl;
-    using std::ostringstream;
     using std::exception;
 
     try
     {
+        using std::ostringstream;
+        using namespace Graphics_lib;
+
         Point top_left {100, 100}; // top left corner
 
         // build a window
@@ -108,7 +114,7 @@ int main()
         win.attach(t);
 
         // set Text object's font to times_bold
-        t.set_font(Graph_lib::Font::times_bold);
+        t.set_font(Graphics_lib::Font::times_bold);
 
         // set Text object's font size to 20
         t.set_font_size(20);
@@ -172,12 +178,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "Unknown exception" << endl;
+        cerr << "Unknown exception" << '\n';
         return 2;
     }
 

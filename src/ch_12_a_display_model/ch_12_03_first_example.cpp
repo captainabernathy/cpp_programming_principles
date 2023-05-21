@@ -1,11 +1,11 @@
 // program creates a window and draws a triangle in it
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Polygon, Color
 
 int main()
 {
-    using namespace Graph_lib; // easy access to Graph_lib
+    using namespace Graphics_lib; // easy access to Graphics_lib
 
     Point top_left {100, 100}; // top left corner of window
 

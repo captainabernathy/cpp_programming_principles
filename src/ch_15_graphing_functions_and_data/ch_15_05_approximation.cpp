@@ -2,12 +2,12 @@
 // approximate the results of a mathematical function that takes a double and
 // returns a double
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <iostream> // for cerr
+#include <exception> // for exception
 #include <cmath> // for exp(), pow()
-#include <sstream> // provides stream classes for operating on strings
+#include <sstream> // for ostringstream
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Axis, Color, Function
 
 // computes the nth factorial and returns the result
 double factorial(int n);
@@ -27,15 +27,14 @@ double expN_num_terms = 10;
 int main(void)
 {
     using std::cerr;
-    using std::endl;
     using std::exception;
-    using std::pow;
-    using std::exp;
-    using std::ostringstream;
 
     try
     {
-        using namespace Graph_lib;
+        using std::pow;
+        using std::exp;
+        using std::ostringstream;
+        using namespace Graphics_lib;
 
         // window size
         constexpr int x_max = 600;
@@ -118,12 +117,12 @@ int main(void)
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

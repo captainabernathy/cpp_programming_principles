@@ -1,10 +1,10 @@
 // program demonstrates how to use the graphic library's Function class to
 // graph functions
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <iostream> // for cerr
+#include <exception> // for exception
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Function
 
 // functions to plot
 // function that maps its input to 1... f(x) = 1
@@ -19,12 +19,11 @@ inline double square(double x) { return x * x; } // parabola
 int main()
 {
     using std::cerr;
-    using std::endl;
     using std::exception;
 
     try
     {
-        using namespace Graph_lib;
+        using namespace Graphics_lib;
 
         // window size
         constexpr int x_max = 600;
@@ -72,12 +71,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

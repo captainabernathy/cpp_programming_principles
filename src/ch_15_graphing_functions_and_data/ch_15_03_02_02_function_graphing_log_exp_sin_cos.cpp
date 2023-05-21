@@ -2,11 +2,11 @@
 // graphics library's Function class, which is also compatible with functions
 // from the standard library that take a double and return a double
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <iostream> // for cerr
+#include <exception> // for exception
 #include <cmath> // for cos(), sin(), log(), exp()
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Function, Text, Axis, Color
 
 // functions to plot
 // function that maps its input to 1... f(x) = 1
@@ -24,16 +24,15 @@ inline double sloping_cos(double x) { return std::cos(x) + slope(x); }
 int main()
 {
     using std::cerr;
-    using std::endl;
     using std::exception;
-    using std::cos;
-    using std::sin;
-    using std::log;
-    using std::exp;
 
     try
     {
-        using namespace Graph_lib;
+        using std::cos;
+        using std::sin;
+        using std::log;
+        using std::exp;
+        using namespace Graphics_lib;
 
         // window size
         constexpr int x_max = 600;
@@ -178,12 +177,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

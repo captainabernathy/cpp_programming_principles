@@ -1,21 +1,13 @@
 // program demonstrates how to use various classes from the graphics library
 // to plot data read from a file
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-#include <fstream>
-#include <string>
-
-using std::cerr;
-using std::endl;
-using std::exception;
-using std::runtime_error;
-using std::string;
-using std::istream;
-using std::ios_base;
-using std::ifstream;
+#include <iostream> // for cerr, istream, ios_base
+#include <exception> // for exception
+#include <fstream> // for ifstream
+#include <string> // for string
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Open_polyline, Axis, Point, Line,
+                            // Line_style, Text, Color
 
 // class that contains an attribute for each field contained in a line of the
 // file japanese-age.data.txt
@@ -32,7 +24,7 @@ class Scale {
     int val_base;   // base of values
     double scale;   // scale factor
 
-    public:
+public:
     // builds a Scale object with coord_base b, val_base vb, and scale s
     Scale(int b, int vb, double s)
         : coord_base {b}, val_base {vb}, scale {s} {  }
@@ -45,23 +37,19 @@ class Scale {
     }
 };
 
-// static inline void error(const string& msg)
-// {
-//     throw runtime_error(msg);
-// }
-
-// static inline void error(string s1, string s2)
-// {
-//     error(s1 + s2);
-// }
-
-istream& operator>>(istream& is, Distribution& d);
+std::istream& operator>>(std::istream& is, Distribution& d);
 
 int main()
 {
+    using std::cerr;
+    using std::exception;
+
     try
     {
-        using namespace Graph_lib;
+        using std::string;
+        using std::ifstream;
+
+        using namespace Graphics_lib;
 
         // window size
         constexpr int x_max = 600;
@@ -205,18 +193,18 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 }
 
 // assume format: ( year : young middle old )
-istream& operator>>(istream& is, Distribution& d)
+std::istream& operator>>(std::istream& is, Distribution& d)
 {
     char ch1 = 0;
     char ch2 = ch1;
@@ -229,7 +217,7 @@ istream& operator>>(istream& is, Distribution& d)
     {
         if (ch1 != '(' || ch2 != ':' || ch3 != ')')
         {
-            is.clear(ios_base::failbit);
+            is.clear(std::ios_base::failbit);
             return is;
         }
     }

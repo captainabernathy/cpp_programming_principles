@@ -1,19 +1,18 @@
 // program uses a Lines object to display a red grid in a Simple_window
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <iostream> // for cerr
+#include <exception> // for exception
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Lines, Color
 
 int main()
 {
     using std::cerr;
-    using std::endl;
     using std::exception;
 
     try
     {
-        using namespace Graph_lib;
+        using namespace Graphics_lib;
 
         // create a 600 by 400 window with an upper left corner at (100, 100)
         Simple_window win3 {{100, 100}, 600, 400, "grid"};
@@ -41,12 +40,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

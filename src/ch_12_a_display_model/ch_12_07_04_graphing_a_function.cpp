@@ -1,20 +1,21 @@
 // program creates a window that contains a horizontal and vertical axis and
 // demonstrates how to plot a function
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <iostream> // for cerr
+#include <cmath> // for sin()
+#include <exception> // for exception
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Axis, Color, Function
 
 int main()
 {
-    using namespace Graph_lib;
     using std::cerr;
-    using std::endl;
     using std::exception;
 
     try
     {
+        using namespace Graphics_lib;
+
         Point top_left {100, 100}; // top left corner
 
         // build a window
@@ -65,12 +66,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "Unknown exception" << endl;
+        cerr << "Unknown exception" << '\n';
         return 2;
     }
 

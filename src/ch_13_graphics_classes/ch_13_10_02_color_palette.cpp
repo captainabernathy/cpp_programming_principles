@@ -1,27 +1,26 @@
 // program uses the graphics library's Vector_ref class to create and display
 // 16 by 16 grid that contains a 256 color, color palette
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <iostream> // for cerr
+#include <exception> // for exception
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point, Rectangle
 
 int main()
 {
     using std::cerr;
-    using std::endl;
     using std::exception;
 
     try
     {
-        using namespace Graph_lib;
+        using namespace Graphics_lib;
 
         // create a 600 by 400 window with an upper left corner at (100, 100)
         Simple_window win {{100, 100}, 600, 400, "16 * 16 color matrix"};
         Vector_ref<Rectangle> vr; // to hold unnamed Rectangles
 
         // fill vr with 256 unnamed Rectangles displayed in win as a 16 by 16
-        // grid of of 20 by 20 pixel Rectangles 
+        // grid of of 20 by 20 pixel Rectangles
         for (int i = 0; i < 16; i++) // row offset
             for (int j = 0; j < 16; j++) // column offset
             {
@@ -39,12 +38,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception" << '\n';
         return 2;
     }
 

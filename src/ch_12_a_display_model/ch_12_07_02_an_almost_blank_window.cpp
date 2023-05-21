@@ -1,19 +1,19 @@
 // program creates an empty window
 
-#include <GUI/Simple_window.hpp> // provides access to our simple window library
-#include <GUI/Graph.hpp> // provides access to our graphics library
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
+#include <iostream> // for cerr
+#include <exception> // for exception
+#include <GUI/Simple_window.hpp> // for Simple_window
+#include <GUI/Graphics.hpp> // for Point
 
 int main()
 {
-    using namespace Graph_lib;
     using std::cerr;
-    using std::endl;
     using std::exception;
 
     try
     {
+        using namespace Graphics_lib;
+
         Point top_left {100, 100}; // top left
 
         // build a window
@@ -22,12 +22,12 @@ int main()
     }
     catch (exception& ex)
     {
-        cerr << ex.what() << endl;
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "undefined exception" << endl;
+        cerr << "undefined exception" << '\n';
         return 2;
     }
 
