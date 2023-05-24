@@ -2,6 +2,7 @@
 
 #include <iostream> // for cin, cout, cerr
 #include <exception> // for exception
+#include <cassert> // for assert()
 #include <cpp_facilities/std_lib_facilities.hpp> // keep_window_open(),
                                                  // error()
 
@@ -187,6 +188,8 @@ Token Token_stream::get()
         default:
             error("Bad token");
     }
+
+    assert(0); // should never get here
 }
 
 // expression() deals with + and -
@@ -315,4 +318,6 @@ double primary()
         default:
             error("primary expected");
     }
+
+    assert(0); // should never get here
 }

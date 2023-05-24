@@ -4,6 +4,7 @@
 #include <exception> // for exception
 #include <stdexcept> // for runtime_error
 #include <string> // for string
+#include <cassert> // for assert()
 #include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open(),
                                                  // narrow_cast<>, error()
 
@@ -190,6 +191,8 @@ Token Token_stream::get()
         default:
             error("Bad token");
     }
+
+    assert(0); // should never get here
 }
 
 // discard characters up to and including ch in this Token_stream
@@ -363,6 +366,8 @@ double primary()
         default:
             error("primary expected");
     }
+
+    assert(0); // should never get here
 }
 
 // performs the calculation loop

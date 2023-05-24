@@ -6,6 +6,7 @@
 #include <cctype> // for isalpha()
 #include <string> // for string
 #include <vector> // for vector
+#include <cassert> // for assert
 #include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open(),
                                                  // narrow_cast<>, error()
 
@@ -267,6 +268,8 @@ Token Token_stream::get()
             // unrecognized token
             error("Bad token");
     }
+
+    assert(0); // should never get here
 }
 
 // discard characters up to and including ch in this Token_stream
@@ -491,6 +494,8 @@ double primary()
         default:
             error("primary expected");
     }
+
+    assert(0); // should never get here
 }
 
 // returns the value of a Variable named var in var_table or calls error() if
@@ -505,6 +510,7 @@ double get_value(std::string var)
             return var_table[i].value;
 
     error("get: undefined variable ", var); // var isn't defined in var_table
+    assert(0); // should never get here
 }
 
 // returns true when a Variable named var is already in var_table, false
