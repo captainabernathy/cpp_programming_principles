@@ -32,7 +32,7 @@ public:
         : sz {0}, elem {nullptr}, cap {0}
     {  }
 
-    // explicit, one-argument constructor
+    // explicit constructor
     // allocates memory for a vector of n elements of type T, initialized to the
     // default value provided by the type's default constructor, and sets its
     // size and capacity to n

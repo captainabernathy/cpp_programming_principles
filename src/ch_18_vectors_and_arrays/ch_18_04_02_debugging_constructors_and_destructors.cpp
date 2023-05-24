@@ -1,5 +1,5 @@
 // program implements a class that provides a default/no-argument constructor,
-// an explicit/one-argument constructor, a copy assignment operator, and a
+// a single argument constructor, a copy assignment operator, and a
 // destructor.
 //
 // whenever any of these methods is called within the program, an output
@@ -27,11 +27,11 @@ struct X {
         out("default constructor X()");
     }
 
-    // explicit, one-argument constructor
-    explicit X(int v)
+    // single argument constructor
+    X(int v)
     {
         val = v;
-        out("explict constructor X(int)");
+        out("constructor X(int)");
     }
 
     // copy constructor
@@ -53,7 +53,7 @@ struct X {
     ~X() { out("destructor ~X()"); }
 };
 
-X glob(2); // global instance of an X... explicit constructor
+X glob(2); // global instance of an X... X(int) constructor
 
 inline X copy(X x) { return x; }
 
@@ -89,13 +89,13 @@ int main()
 
     // create some objects... follow the various constructor, assignemt, and
     // destructor calls
-    X loc(4); // explicit constructor
+    X loc(4); // X(int) constructor
     cout << '\n';
 
     X loc2 = loc; // copy constructor
     cout << '\n';
 
-    loc = X(5); // explicit constructor, copy assignment, destructor
+    loc = X(5); // X(int) constructor, copy assignment, destructor
     cout << '\n';
 
     // copy constructor, copy constructor, copy assignment, destructor,
@@ -108,16 +108,16 @@ int main()
     loc2 = copy2(loc);
     cout << '\n';
 
-    X loc3(6); // explicit constructor
+    X loc3(6); // X(int) constructor
     cout << '\n';
 
     X& r = ref_to(loc3);
 
-    // explicit constructor, copy constructor, destructor, destructor
+    // X(int) constructor, copy constructor, destructor, destructor
     delete make(7);
     cout << '\n';
 
-    // explicit constructor, copy constructor, destructor, destructor
+    // X(int) constructor, copy constructor, destructor, destructor
     delete make(8);
     cout << '\n';
 
@@ -130,7 +130,7 @@ int main()
     XX loc4;
     cout << '\n';
 
-    // explicit constructor
+    // X(int) constructor
     X* p = new X(9); // an X on the free store
     cout << '\n';
 

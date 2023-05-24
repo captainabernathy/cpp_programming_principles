@@ -35,7 +35,7 @@ public:
     double value;       // for numbers: a value
 
     // constructor for operators and non-numeric values
-    explicit Token(char ch)      // make a Token from a char
+    Token(char ch)      // make a Token from a char
         : kind {ch}, value {0} { }
 
     // constructor for numeric values

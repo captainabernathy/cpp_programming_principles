@@ -72,7 +72,7 @@ public:
     std::string name; // for declarations: a name
     
     // constructor for operators and non-numeric values
-    explicit Token(char ch)
+    Token(char ch)
         : kind {ch}, value {0} { }
     
     // constructor for numeric values

@@ -35,7 +35,7 @@ public:
         : sz {0}, cap {0}, elems {nullptr}
     {  }
 
-    // single argument constructor
+    // explicit constructor
     // constructs a vector of type T with size n, capacity n, and initializes
     // each of the vector's n elements to T()
     explicit vector(size_type n)
@@ -142,7 +142,7 @@ public:
     // resizes this vector to new_size and initializes new elements to val
     // provided that new_size is greater than this vector's current size
     // new elements are added to the end of this vector
-    // when new_size is less than this vector's current size the existing 
+    // when new_size is less than this vector's current size the existing
     // elements in this vector that exceed new_size are invalidated
     void resize(size_type new_size, T val = T());
 

@@ -22,7 +22,7 @@ public:
     vector()
         : sz {0}, elem {nullptr}, cap {0} {  }
 
-    // explicit, one-argument constructor
+    // explicit constructor
     // allocates memory for a vector of n doubles and sets its size and capacity
     // to n
     explicit vector(size_t n)

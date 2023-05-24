@@ -1,5 +1,5 @@
 // program implements an ad-hoc class for a vector of doubles and demonstrates
-// how to implement an explicit/one-argument constructor
+// how to implement an explicit constructor
 
 #include <iostream> // for cout
 
@@ -12,10 +12,8 @@ class vector {
 
 public:
     // public member functions
-    // explicit, one-argument constructor
+    // explicit constructor
     // allocates memory for a vector of s doubles
-    // NOTE: explicit constructors define a conversion from its argument type to
-    // its class
     explicit vector(size_t s)
         : sz {s}, elem {new double[s]} {  }
 

@@ -18,10 +18,8 @@ public:
         : sz {0}, elem {nullptr} {  }
 
     // public member functions
-    // explicit, one-argument constructor
+    // explicit constructor
     // allocates memory for a vector of s doubles
-    // NOTE: explicit constructors define a conversion from its argument type to
-    // its class
     explicit vector(size_t s)
         : sz {s}, elem {new double[sz]}
     {
