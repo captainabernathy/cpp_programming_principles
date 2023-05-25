@@ -27,8 +27,8 @@ int my_find(std::vector<std::string>, std::string, size_t);
 // function returns index of s in vs if found or -1 if not
 int my_find(std::vector<std::string> vs, std::string s, size_t hint)
 {
-    // set hint to zero if it isn't within the bounds of vx
-    if (hint < 0 || vs.size() <= hint)
+    // set hint to zero if it isn't within the bounds of vs
+    if (vs.size() <= hint)
         hint = 0;
 
     // search for s in vs from hint
