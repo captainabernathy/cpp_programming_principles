@@ -37,6 +37,8 @@ public:
     }
 };
 
+// overloaded input operator for a Distribution
+// assumes format: ( year : young middle old )
 std::istream& operator>>(std::istream& is, Distribution& d);
 
 int main()
@@ -203,7 +205,8 @@ int main()
     }
 }
 
-// assume format: ( year : young middle old )
+// overloaded input operator for a Distribution
+// assumes format: ( year : young middle old )
 std::istream& operator>>(std::istream& is, Distribution& d)
 {
     char ch1 = 0;
