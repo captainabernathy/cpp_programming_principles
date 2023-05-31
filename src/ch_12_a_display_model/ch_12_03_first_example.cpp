@@ -17,7 +17,7 @@ int main()
     poly.add({350, 100}); // top of triangle
     poly.add({400, 200}); // lower right of triangle
 
-    poly.set_color(Color::red); // adjust Polygon' properties
+    poly.set_color(Color::red); // adjust Polygon's properties
 
     win.attach(poly); // connect Polygon to window
     win.wait_for_button(); // give control to display engine

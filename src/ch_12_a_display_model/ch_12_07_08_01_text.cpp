@@ -20,7 +20,7 @@ int main()
         Point top_left {100, 100}; // top left corner
 
         // build a window
-        Simple_window win {top_left, 600, 400, "Canvas"};
+        Simple_window win {top_left, 600, 400, "Canvas #8"};
 
         // build a 280 pixel long horizontal Axis starting at (20,300) with
         // 10 notches labeled "x axis"

@@ -18,7 +18,7 @@ int main()
         Point top_left {100, 100}; // top-left corner
 
         // build a window
-        Simple_window win {top_left, 600, 400, "Canvas"};
+        Simple_window win {top_left, 600, 400, "Canvas #3"};
         
         // Axis is a Shape
         // Axis::x = horizontal
