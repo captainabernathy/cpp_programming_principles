@@ -28,7 +28,7 @@ int main()
                 vr.push_back(new Rectangle {{i * 20, j * 20}, 20, 20});
 
                 // set newly added Rectangle's fill_color
-                vr[vr.size() - 1].set_fill_color({i * 16 + j});
+                vr[vr.size() - 1].set_fill_color({(unsigned int)(i * 16 + j)});
 
                 // attach newly added Rectangle to win
                 win.attach(vr[vr.size() - 1]);

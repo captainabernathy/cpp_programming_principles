@@ -7,6 +7,7 @@
 * **ch_13_04_color**
 * **ch_13_05_01_line_style_dot_grid**
 * **ch_13_05_02_line_style_dash_weighted**
+* **ch_13_05_03_two_lines_colored**
 * **ch_13_06_open_polyline** 
 * **ch_13_07_closed_polyline** 
 * **ch_13_08_01_improper_polygon** 

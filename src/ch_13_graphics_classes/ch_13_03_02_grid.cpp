@@ -25,11 +25,11 @@ int main()
 
         Lines grid; // start empty
 
-        // add vertical lines in incrememts of 80 pixels to the grid
+        // add vertical Lines in incrememts of 80 pixels to the grid
         for (int x = x_grid; x < x_size; x += x_grid)
             grid.add({x, 0}, {x, y_size}); // vertical line
 
-        // add horizontal lines in increments of 40 pixels to the grid
+        // add horizontal Lines in increments of 40 pixels to the grid
         for (int y = y_grid; y < y_size; y += y_grid)
             grid.add({0, y}, {x_size, y}); // horizontal line
 

@@ -16,7 +16,7 @@ int main()
         using namespace Graphics_lib;
 
         // create a 600 by 400 window with an upper left corner at (100, 100)
-        Simple_window win {{100, 100}, 600, 400, "Rectangle"};
+        Simple_window win {{100, 100}, 600, 400, "Rectangles 4"};
 
         // build a 200 by 100 pixel Rectangle with its upper left corner at
         // (150, 100)

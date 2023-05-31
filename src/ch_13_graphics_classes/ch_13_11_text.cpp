@@ -16,7 +16,7 @@ int main()
         using namespace Graphics_lib;
 
         // create a 600 by 400 window with an upper left corner at (100, 100)
-        Simple_window win {{100, 100}, 600, 400, "Closed polyline"};
+        Simple_window win {{100, 100}, 600, 400, "Closed polyline with text"};
 
         // Closed_polyline cpl;
         // cpl.add({100, 100});

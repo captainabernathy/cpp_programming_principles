@@ -17,7 +17,6 @@ int main()
         // create a 600 by 400 window with an upper left corner at (100, 100)
         Simple_window win1 {{100, 100}, 600, 400, "lines: +"};
 
-        
         // Lines x; // a Lines object is a collection of lines
 
         // add a Line that extends from (100, 100) to (200, 100) to x
@@ -27,7 +26,8 @@ int main()
         // x.add({150, 50}, {150, 150}); // second line (vertical)
 
         Lines x {{{100, 100}, {200, 100}}, {{150, 50}, {150, 150}}};
-        win1.attach(x); // attach lines to window
+
+        win1.attach(x); // attach Lines to window
         win1.wait_for_button(); // display
     }
     catch (exception& ex)
