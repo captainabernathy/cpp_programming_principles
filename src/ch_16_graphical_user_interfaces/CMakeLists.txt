@@ -1,0 +1,6 @@
+add_executable(ch_16_05_drawing_example ch_16_05_drawing_example.cpp)
+add_executable(ch_16_07_drawing_and_menu ch_16_07_drawing_and_menu.cpp)
+
+target_link_libraries(ch_16_05_drawing_example bookgui fltk fltk_images X11)
+target_link_libraries(ch_16_07_drawing_and_menu bookgui fltk fltk_images X11)
+
