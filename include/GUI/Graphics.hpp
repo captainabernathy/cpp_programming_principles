@@ -10,7 +10,7 @@
 #include <FL/fl_draw.H> // for Fl_Color, fl_color(), Fl_Font, fl_font()
 #include <FL/Fl_Image.H> // for Fl_Image, draw_empty()
 #include <GUI/Point.hpp> // for Point
-#include <GUI/gui_facilities.hpp> // for error()
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 namespace Graphics_lib {
 

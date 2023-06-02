@@ -11,7 +11,7 @@
                         // fl_rect(), fl_arc(), fl_font(), fl_size()
 #include <FL/Fl_GIF_Image.H> // for Fl_GIF_Image
 #include <FL/Fl_JPEG_Image.H> // for Fl_JPEG_Image
-#include <GUI/gui_facilities.hpp> // for error()
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 namespace Graphics_lib {
 
