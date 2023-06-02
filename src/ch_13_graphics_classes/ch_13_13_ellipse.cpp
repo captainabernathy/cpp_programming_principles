@@ -3,7 +3,7 @@
 #include <iostream> // for cerr
 #include <exception> // for exception
 #include <GUI/Simple_window.hpp> // for Simple_window
-#include <GUI/Graphics.hpp> //  for Point, Ellipse
+#include <GUI/Graphics.hpp> // for Point, Ellipse
 
 int main()
 {
