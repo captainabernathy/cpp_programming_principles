@@ -6,20 +6,10 @@
 #include <regex> // for regex, smatch, regex_search
 #include <exception> // for exception
 #include <stdexcept> // for runtime_error
-#include <sstream> // for ostringstream, istringstream
+#include <sstream> // for istringstream
 #include <typeinfo> // for badcast
 #include <string> // for string, getline()
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
-
-// function that reads integer passed to n into a string and forms an error
-// message that concatenates the string passed to s1 with n, which subsequently
-// forms the message of a runtime_error()
-inline void error(std::string s1, int n)
-{
-    std::ostringstream oss;
-    oss << n;
-    error(s1, oss.str());
-}
 
 // class for reporting string cast errors
 struct bad_from_string : std::bad_cast {

@@ -8,6 +8,7 @@
 #include <exception> // for exception
 #include <stdexcept> // for runtime_error
 #include <vector> // for vector
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 namespace our {
     // function template that copies the elements between the iterators first
@@ -38,13 +39,6 @@ namespace our {
             start++; // advance to next position in collection
         }
     }
-}
-
-// error function that throws a runtime_error() with the message specified by
-// msg
-inline void error(std::string const& msg)
-{
-    throw std::runtime_error(msg);
 }
 
 // function that tests the function template our::copy() by copying the

@@ -5,12 +5,7 @@
 #include <exception> // for exception
 #include <stdexcept> // for runtime_error
 #include <string> // for string
-
-// simple error function that throws a runtime_error with the proivded message
-inline void error(std::string const& msg)
-{
-    throw std::runtime_error(msg);
-}
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // computes a new value and returns it
 int incr_v(int x);
