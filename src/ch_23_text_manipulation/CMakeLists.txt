@@ -6,6 +6,9 @@ add_executable(ch_23_07_searching_with_regular_expressions
 add_executable(ch_23_09_matching_with_regular_expressions
                ch_23_09_matching_with_regular_expressions.cpp)
 
+target_compile_definitions(ch_23_09_matching_with_regular_expressions
+                           PRIVATE -DERR_OUT)
+
 add_custom_command(
     TARGET ch_23_04_01_maps_and_messages POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy

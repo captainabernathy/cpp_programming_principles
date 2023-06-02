@@ -15,6 +15,10 @@ add_executable(ch_11_05_line_oriented_input ch_11_05_line_oriented_input.cpp)
 add_executable(ch_11_07_using_nonstandard_separators
                ch_11_07_using_nonstandard_separators.cpp)
 
+target_compile_definitions(ch_11_03_02_binary_files PRIVATE -DERR_OUT)
+target_compile_definitions(ch_11_03_03_stream_positioning PRIVATE -DERR_OUT)
+target_compile_definitions(ch_11_04_string_streams PRIVATE -DERR_OUT)
+
 add_custom_command(
     TARGET ch_11_03_02_binary_files POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy

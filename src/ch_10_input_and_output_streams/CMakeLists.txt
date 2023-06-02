@@ -9,6 +9,13 @@ add_executable(ch_10_07_02_read_int_05 ch_10_07_02_read_int_05.cpp)
 add_executable(ch_10_08_Date_01 ch_10_08_Date_01.cpp)
 add_executable(ch_10_09_Date_02 ch_10_09_Date_02.cpp)
 
+target_compile_definitions(ch_10_04_input PRIVATE -DERR_OUT)
+target_compile_definitions(ch_10_04_output PRIVATE -DERR_OUT)
+target_compile_definitions(ch_10_05_temperatures_01 PRIVATE -DERR_OUT)
+target_compile_definitions(ch_10_07_01_read_int_03 PRIVATE -DERR_OUT)
+target_compile_definitions(ch_10_07_01_read_int_04 PRIVATE -DERR_OUT)
+target_compile_definitions(ch_10_07_02_read_int_05 PRIVATE -DERR_OUT)
+
 add_custom_command(
     TARGET ch_10_04_input POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy

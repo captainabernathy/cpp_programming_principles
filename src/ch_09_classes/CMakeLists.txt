@@ -16,3 +16,5 @@ add_executable(ch_09_07_05_members_and_helper_functions
                ch_09_07_05_members_and_helper_functions.cpp)
 add_executable(ch_09_08_date_class ch_09_08_date_class.cpp)
 
+target_compile_definitions(ch_09_05_enumerations PRIVATE -DERR_OUT)
+

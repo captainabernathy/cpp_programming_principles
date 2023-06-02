@@ -23,4 +23,5 @@ add_executable(ch_03_09_02_01_unsafe_conversions
 add_executable(ch_03_09_02_02_unsafe_conversions
                ch_03_09_02_02_unsafe_conversions.cpp)
 
+target_compile_definitions(ch_03_09_01_safe_conversions PRIVATE -DERR_OUT)
 
