@@ -47,8 +47,8 @@ int main()
         char ch4 = 'd';
 
         // int *iptr = &ch3; // can't convert char* to int*
-        cout << "ch1: " << ch1 << " ch2: " << ch2 << " ch3: " << ch3 << " ch4: "
-            << ch4 << "\n\n";  // a b c d
+        cout << "ch1: " << ch1 << " ch2: " << ch2 << " ch3: " << ch3
+            << " ch4: " << ch4 << "\n\n";  // a b c d
 
         *pi = 12345; // changes ii... the varaible pi points to
 

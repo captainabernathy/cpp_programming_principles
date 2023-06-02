@@ -1,9 +1,11 @@
 // program demonstrates how to use various classes from the graphics library
 // to plot data read from a file
 
-#include <iostream> // for cerr, istream, ios_base
-#include <exception> // for exception
+#include <ios> // for ios_base
+#include <istream> // for istream
+#include <iostream> // for cerr
 #include <fstream> // for ifstream
+#include <exception> // for exception
 #include <string> // for string
 #include <GUI/Simple_window.hpp> // for Simple_window
 #include <GUI/Graphics.hpp> // for Open_polyline, Axis, Point, Line,
@@ -200,7 +202,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 }

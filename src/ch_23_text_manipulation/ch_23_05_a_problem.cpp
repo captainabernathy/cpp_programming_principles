@@ -13,10 +13,10 @@ int main()
     using std::string;
     using std::cout;
 
-    ifstream ifs {"chapter.23.5.in"}; // initialize ifs to file
+    ifstream ifs {"chapter_23_05_infile.txt"}; // initialize ifs to file
     if (!ifs)
     {
-        cerr << "failed to open chapter.23.5.in" << '\n';
+        cerr << "failed to open chapter_23_05_infile.txt\n";
         exit(EXIT_FAILURE);
     }
 

@@ -111,7 +111,7 @@ int main()
         // NOTE: the [] operator is not defined for lists
         for (auto it : l)
             cout << it << ' ';
-        cout << '\n' << '\n';
+        cout << "\n\n";
 
         list<int>::iterator p = l.begin(); // iterator to the start of l
 
@@ -124,7 +124,7 @@ int main()
         cout << *p << '\n'; // 4
         list<int>::iterator q = p;
         q++; // does not advance p
-        cout << *p << " " << *q << '\n' << '\n'; // 4 5
+        cout << *p << " " << *q << "\n\n"; // 4 5
 
         for (auto it = l.begin(); it != l.end(); ++it)
         {

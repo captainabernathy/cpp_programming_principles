@@ -62,12 +62,12 @@ int main()
     }
     catch (Year::Invalid&)
     {
-        cerr << "error: Invalid year" << '\n';
+        cerr << "error: Invalid year\n";
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 

@@ -10,6 +10,13 @@ add_executable(ch_10_08_Date_01 ch_10_08_Date_01.cpp)
 add_executable(ch_10_09_Date_02 ch_10_09_Date_02.cpp)
 
 add_custom_command(
+    TARGET ch_10_04_input POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+            ${CMAKE_CURRENT_SOURCE_DIR}/infile.txt
+            ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/infile.txt
+)
+
+add_custom_command(
     TARGET ch_10_05_temperatures_01 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
             ${CMAKE_CURRENT_SOURCE_DIR}/temps_infile.txt

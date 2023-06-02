@@ -64,7 +64,7 @@ void f(std::list<double>& v, double d)
     if (p != v.end())
         std::cout << *p << " is larger than " << 31.2 << '\n';
     else
-        std::cout << "Did not find a value larger than 31.2" << '\n';
+        std::cout << "Did not find a value larger than 31.2\n";
 
     std::list<double>::iterator q = find_if(v.begin(), v.end(),
                                             Larger_than<double> {d});

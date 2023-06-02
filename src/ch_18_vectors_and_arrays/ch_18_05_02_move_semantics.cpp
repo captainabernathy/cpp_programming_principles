@@ -43,7 +43,7 @@ public:
     vector(vector const& v)
         : sz {v.sz}, elem {new double[sz]}
     {
-        std::cout << "copy constructor" << '\n';
+        std::cout << "copy constructor\n";
         std::copy(v.elem, v.elem + sz, elem);
     }
 
@@ -61,7 +61,7 @@ public:
                                    // vector
                                    // NOTE: new not used!!!
     {
-        std::cout << "move constructor" << '\n';
+        std::cout << "move constructor\n";
         // make the input vector empty
         a.sz = 0;
         a.elem = nullptr;
@@ -111,7 +111,7 @@ public:
 // copy assignment
 vector& vector::operator=(vector const& rhs)
 {
-    std::cout << "copy assignment" << '\n';
+    std::cout << "copy assignment\n";
     double *p = new double[rhs.sz]; // allocate new space
     
     // copy elements from rhs into p
@@ -127,7 +127,7 @@ vector& vector::operator=(vector const& rhs)
 // move assignment
 vector& vector::operator=(vector&& a)
 {
-    std::cout << "move assignment" << '\n';
+    std::cout << "move assignment\n";
     delete[] elem; // deallocate space allocated for this vector's elements
 
     elem = a.elem; // copy a's elements to this vector's element

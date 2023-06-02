@@ -2,9 +2,10 @@
 // an input stream that allows users to specify what characters should be
 // considered whitespace
 
-#include <iostream> // for istream, cout, cin
-#include <string> // for string, getline()
+#include <istream> // for istream
+#include <iostream> // for cout, cin
 #include <sstream> // for istringstream
+#include <string> // for string, getline()
 #include <cctype> // for tolower()
 #include <vector> // for vector
 #include <algorithm> // for sort()
@@ -115,7 +116,7 @@ int main()
     using std::sort;
 
     // initialize a Punct_stream object with cn
-    Punct_stream ps(cin);
+    Punct_stream ps {cin};
     
     // set Punct_stream's whitespace characters
     ps.set_whitespace(";:,.?!()\"{}<>/&$@#%^*|~");
@@ -127,7 +128,7 @@ int main()
     string word;
 
     // read words from ps into word and save result in vs
-    cout << "enter some words (or CTRL-D to quit): " << '\n';
+    cout << "enter some words (or CTRL-D to quit):\n";
     while (ps >> word)
         vs.push_back(word);
 

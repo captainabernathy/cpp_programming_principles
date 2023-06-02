@@ -21,13 +21,13 @@ int main()
 
     v.resize(10); // v's size is 10 and capacity is 100
 
-    cout << "after v.resize(10)..." << '\n';
+    cout << "after v.resize(10)...\n";
     print_info(v, "v"); // 10, 100
     cout << '\n';
 
     v.push_back(7); // increases size by 1... v's size is 11 and capacity is 100
 
-    cout << "after v.push_back(7)..." << '\n';
+    cout << "after v.push_back(7)...\n";
     print_info(v, "v"); // 11, 100
     cout << '\n';
 
@@ -38,7 +38,7 @@ int main()
 
     v = v2; // v's size is now 7 but it's capacity is still 100
 
-    cout << "after v = v2..." << '\n';
+    cout << "after v = v2...\n";
     print_info(v, "v"); // 7, 100
 
     return 0;

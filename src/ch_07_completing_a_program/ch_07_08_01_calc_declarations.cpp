@@ -207,7 +207,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "exception " << '\n';
+        cerr << "exception \n";
         keep_window_open("~~");
         return 2;
     }

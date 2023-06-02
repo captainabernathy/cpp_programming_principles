@@ -72,7 +72,7 @@ int main()
     }
     catch (...) // catches unchecked expressions
     {
-        cerr << "Oops: unknown exception!" << '\n';
+        cerr << "Oops: unknown exception!\n";
         return 2;
     }
 

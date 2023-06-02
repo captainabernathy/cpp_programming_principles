@@ -8,7 +8,8 @@
 // another function to determine if the characters between two text iterators
 // match a given string
 
-#include <iostream> // for istream, cin, cout
+#include <istream> // for istream
+#include <iostream> // for cin, cout
 #include <vector>  // for vector
 #include <string> // for string
 #include <list> //  for list
@@ -162,7 +163,7 @@ Text_iterator find_text(Text_iterator first, Text_iterator last,
 int main()
 {
     Document my_doc;
-    std::cout << "Enter lines of text or press CTRL-D to exit." << '\n';
+    std::cout << "Enter lines of text or press CTRL-D to exit.\n";
     std::cin >> my_doc;
     Text_iterator p = find_text(my_doc.begin(), my_doc.end(),
                                 "secret\nhomestead");
@@ -170,10 +171,10 @@ int main()
     std::cout << '\n';
 
     if (p == my_doc.end())
-        std::cout << "not found" << '\n';
+        std::cout << "not found\n";
     else
     {
-        std::cout << "found: secret\nhomestead" << "\n\n";
+        std::cout << "found: secret\nhomestead\n\n";
     }
 
     print(my_doc);

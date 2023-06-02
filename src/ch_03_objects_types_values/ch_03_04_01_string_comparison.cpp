@@ -24,7 +24,7 @@ int main()
     // > tests if one string comes after another
     // NOTE: < and > are case sensitive... so "Apple" is less than "apple"
     if (first == second)
-        cout << "that's the same word twice" << '\n';
+        cout << "that's the same word twice\n";
     if (first < second)
         cout << first << " is alphabetically before " << second << '\n';
     if (first > second)

@@ -9,21 +9,7 @@
 #include <sstream> // for ostringstream, istringstream
 #include <typeinfo> // for badcast
 #include <string> // for string, getline()
-
-// outputs the string passed to msg to stderr and throws a runtime_error()
-// with msg as its argument
-inline void error(std::string const& msg)
-{
-    std::cerr << msg << '\n';
-    throw std::runtime_error(msg);
-}
-
-// concatenates both of the strings into a an error message that forms the
-// message of a runtime_error()
-inline void error(std::string s1, std::string s2)
-{
-    error(s1 + s2);
-}
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // function that reads integer passed to n into a string and forms an error
 // message that concatenates the string passed to s1 with n, which subsequently
@@ -141,7 +127,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exeption" << '\n';
+        cerr << "unknown exeption\n";
         return 2;
     }
 

@@ -47,7 +47,6 @@ void f()
 
         // add word containing only alphabetic characters into global vector v
         v.push_back(stripped);
-        std::cout << "Enter text or type \"quit\" to exit: ";
     }
 }
 

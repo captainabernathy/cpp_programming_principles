@@ -43,7 +43,7 @@ int main()
     }
     catch (Bad_area) // catches Bad_area
     {
-        cerr << "Oops! bad arguments to area()" << '\n';
+        cerr << "Oops! bad arguments to area()\n";
     }
     catch (exception& ex) // catches checked exceptions
     {
@@ -52,7 +52,7 @@ int main()
     }
     catch (...) // catches unchecked exceptions
     {
-        cerr << "Oops: unknown exception!" << '\n';
+        cerr << "Oops: unknown exception!\n";
         return 2;
     }
 

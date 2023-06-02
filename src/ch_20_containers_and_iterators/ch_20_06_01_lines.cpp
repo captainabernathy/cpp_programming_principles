@@ -2,7 +2,8 @@
 // of lines (where each line consists of a vector of characters) and provides
 // an overloaded input operator to read a document from an input stream
 
-#include <iostream> // cin, cout, istream
+#include <istream> // for istream
+#include <iostream> // for cin, cout
 #include <vector>  // for vector
 #include <list> // for list
 
@@ -25,7 +26,7 @@ std::istream& operator>>(std::istream& is, Document& d);
 int main()
 {
     Document d;
-    std::cout << "Enter lines of text or press CTRL-D to exit." << '\n';
+    std::cout << "Enter lines of text or press CTRL-D to exit.\n";
     std::cin >> d;
 }
 

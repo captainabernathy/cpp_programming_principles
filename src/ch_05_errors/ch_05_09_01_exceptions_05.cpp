@@ -33,7 +33,7 @@ int main()
     }
     catch (...) // catches unchecked exceptions
     {
-        cerr << "Oops: unknown exception!" << '\n';
+        cerr << "Oops: unknown exception!\n";
         return 2;
     }
 }

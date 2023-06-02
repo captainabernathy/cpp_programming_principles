@@ -71,7 +71,7 @@ void f(size_t n)
     vector v(3); // vector of 3 elements
     v.set(2, 2.2); // set last element of v to 2.2
     vector v2 = v;  // shallow assignment.. since vector has no copy constructor
-    std::cout << "in f(int n)..." << '\n';
+    std::cout << "in f(int n)...\n";
     std::cout << "v2.get(2): " << v2.get(2) << " v.get(2): " << v.get(2)
         << '\n';
     // double free when function goes out of scope

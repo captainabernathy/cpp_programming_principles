@@ -1,7 +1,8 @@
 // program demonstrates how to output floating point numbers using the default,
 // fixed-point, and scientific notation formats
 
-#include <iostream> // for cout, fixed, scientific, defaultfloat
+#include <ios> // for fixed, scientific, defaultfloat
+#include <iostream> // for cout
 
 int main()
 {
@@ -10,10 +11,9 @@ int main()
     using std::scientific;
     using std::defaultfloat;
 
-    cout << 1234.56789 << "\t\t(general)" << '\n' // 1234.57
-         << fixed << 1234.56789 << "\t(fixed)" << '\n' // 1234.567890
-         << scientific << 1234.56789 << "\t(scientific)" // 1.234568e+03
-         << "\n\n";
+    cout << 1234.56789 << "\t\t(general)\n" // 1234.57
+         << fixed << 1234.56789 << "\t(fixed)\n" // 1234.567890
+         << scientific << 1234.56789 << "\t(scientific)\n\n"; // 1.234568e+03
 
     // defaltfloat chooses b/t scientific and fixed formats to present the user
     // with the most accurate representation of a floating-point value within

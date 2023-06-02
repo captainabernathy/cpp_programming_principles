@@ -1,7 +1,9 @@
 // program implements a function that receives a C-string as an array of
+
 // characters and determines whether or not it is a palindrome
 
-#include <iostream> // for istream, cin, cout
+#include <istream> // for istream
+#include <iostream> // for cin, cout
 #include <cstring> // for strlen()
 
 // given a c-string and its length, function returns whether or not it is a
@@ -26,9 +28,7 @@ int main()
         cout << s << " is"; // test input
         if (!is_palindrome(s, strlen(s)))
             cout << " not";
-        cout << " a palindrome" << "\n\n";
-
-        cout << "Enter a string (or CTRL-D to exit): "; // prompt user
+        cout << " a palindrome\n";
     }
 
     return 0;

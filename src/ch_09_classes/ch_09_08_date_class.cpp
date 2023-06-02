@@ -1,5 +1,6 @@
 // program implements a class for representing dates
 
+#include <ios> // for boolalpha
 #include <iostream> // for cout, cerr, ostream
 
 // namespace for Date-related stuff
@@ -208,7 +209,7 @@ int main()
 
         // initialize Date via function call
         Chrono::Date d2 = Chrono::next_sunday(holiday);
-        cout << d2 << '\n'; // 0
+        cout << d2 << '\n';
 
         // initialize Date via function call
         Chrono::Day d = day_of_week(d2);
@@ -217,18 +218,19 @@ int main()
         // output Dates
         cout << "holiday is " << holiday << " d2 is " << d2 << '\n';
         
+        cout << std::boolalpha;
+
         // test Date inequality operator
         cout << (holiday != d2) << '\n'; // 0... false
-        return 0;
     }
     catch (Chrono::Date::Invalid&)
     {
-        cerr << "error: Invalid date" << '\n';
+        cerr << "error: Invalid date\n";
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 

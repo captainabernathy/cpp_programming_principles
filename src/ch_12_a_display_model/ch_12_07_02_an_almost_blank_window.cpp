@@ -27,7 +27,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "undefined exception" << '\n';
+        cerr << "undefined exception\n";
         return 2;
     }
 

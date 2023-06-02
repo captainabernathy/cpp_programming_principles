@@ -51,7 +51,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 

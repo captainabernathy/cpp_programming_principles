@@ -96,7 +96,7 @@ int main()
     }
     catch (...) // catches unexpected exceptions
     {
-        cerr << "Oops: unknown exception!" << '\n';
+        cerr << "Oops: unknown exception!\n";
         return 2;
     }
 

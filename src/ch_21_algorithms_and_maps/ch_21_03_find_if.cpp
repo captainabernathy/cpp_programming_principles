@@ -2,9 +2,9 @@
 // element in a collection between two iterators that satisfies a predicate
 // function
 
-#include <list> // for list 
+#include <list> // for list
 #include <iostream> // for cout
-#include <vector>  // for vector 
+#include <vector>  // for vector
 
 // function template that returns the first element in a collection between
 // the iterators first and last (range [first,last)) that satisfies the
@@ -79,16 +79,16 @@ void f(std::vector<int>& v)
     if (p != v.end())
         std::cout << "Found odd number: " << *p << '\n';
     else
-        std::cout << "Did not find an odd number" << '\n';
+        std::cout << "Did not find an odd number\n";
 }
 
 void f(std::list<double>& v)
 {
     std::list<double>::iterator p = find_if(v.begin(), v.end(), larger_than_42);
     if (p != v.end())
-        std::cout << *p << " is larger than 42" << '\n';
+        std::cout << *p << " is larger than 42\n";
     else
-        std::cout << "Did not find a number larger than 42" << '\n';
+        std::cout << "Did not find a number larger than 42\n";
 }
 
 void f(std::list<double>& v, double x)

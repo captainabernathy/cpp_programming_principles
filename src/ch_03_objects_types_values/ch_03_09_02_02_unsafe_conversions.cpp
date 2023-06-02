@@ -13,7 +13,7 @@ int main()
     // dont do any of this stuff
     double d = 0.;
     
-    cout << "Enter a double or CTRL-D to exit:"; // prompt user
+    cout << "Enter a double or CTRL-D to exit: "; // prompt user
 
     while (cin >> d)
     {
@@ -26,7 +26,6 @@ int main()
             << "i2 == " << i2 << '\n'
             << " char (" << c << ")\n";
 
-        cout << "Enter a double or CTRL-D to exit:"; // prompt user
     }
 
     double x = 2.7; // initialize x to 2.7

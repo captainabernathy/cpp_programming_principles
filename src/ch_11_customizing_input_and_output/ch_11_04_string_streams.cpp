@@ -38,7 +38,7 @@ int main()
         // create file myfile17
         ofstream logfile {name.str()};
 
-        logfile << "this is some stuff" << '\n'; // write to logfile
+        logfile << "this is some stuff\n"; // write to logfile
     }
     catch (exception &ex)
     {
@@ -47,7 +47,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "error: unknown" << '\n';
+        cerr << "error: unknown\n";
         return 2;
     }
 }
@@ -81,6 +81,6 @@ void test()
     }
     catch (...)
     {
-        std::cerr << "error: unknown" << '\n';
+        std::cerr << "error: unknown\n";
     }
 }

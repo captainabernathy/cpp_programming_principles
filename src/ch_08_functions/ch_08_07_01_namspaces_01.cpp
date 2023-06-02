@@ -1,6 +1,6 @@
 // program demonstrates how to qualify names that belong to a namespace
 
-#include <iostream> // for cin, cout
+#include <iostream> // for cin, cout, endl
 #include <string> // for string
 
 int main()

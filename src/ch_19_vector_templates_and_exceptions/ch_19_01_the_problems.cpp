@@ -42,7 +42,7 @@ void foo()
     for (size_t n = 1; n < 14; n++)
         vd.push_back((n + (0.1 * n)));
 
-    std::cout << "foo()" << '\n';
+    std::cout << "foo()\n";
     std::cout << "vd.size(): " << vd.size() << '\n'; // 13
     std::cout << "vd.capacity(): " << vd.capacity() << "\n\n"; // 16
 
@@ -51,9 +51,9 @@ void foo()
     // NOTE: size and capacity are the same whenever a vector is constructed
 
     // 100
-    std::cout << "vc.size(): " << vc.size() << " before vc.resize()" << '\n';
-    std::cout << "vc.capacity(): " << vc.capacity() << " before vc.resize()"
-        << "\n\n"; // 100
+    std::cout << "vc.size(): " << vc.size() << " before vc.resize()\n";
+    std::cout << "vc.capacity(): " << vc.capacity()
+        << " before vc.resize()\n\n"; // 100
 
     // NOTE: resize() changes a vector's size, but when the vector new size is
     // less than or equal to it's original capacity, the vector's capacity is
@@ -62,18 +62,17 @@ void foo()
     vc.resize(11);
 
     // 11
-    std::cout << "vc.size(): " << vc.size() << " after vc.resize()" << '\n';
-    std::cout << "vc.capacity(): " << vc.capacity() << " after vc.resize()"
-        << "\n\n"; // 100
+    std::cout << "vc.size(): " << vc.size() << " after vc.resize()\n";
+    std::cout << "vc.capacity(): " << vc.capacity()
+        << " after vc.resize()\n\n"; // 100
     
     // in this case, the vector's size and capacity will be equal
     vc.resize(110);
 
     // 110
-    std::cout << "vc.size(): " << vc.size() << " after vc.resize()" << '\n';
-    std::cout << "vc.capacity(): " << vc.capacity() << " after vc.resize()"
-        << '\n'; // 110
-
+    std::cout << "vc.size(): " << vc.size() << " after vc.resize()\n";
+    std::cout << "vc.capacity(): " << vc.capacity()
+        << " after vc.resize()\n"; // 110
 }
 
 void without_push_back()
@@ -99,7 +98,7 @@ void without_push_back()
         std::cout << (*p)[n - 1] << '\n';
     }
     
-    std::cout << "without_push_back()" << '\n';
+    std::cout << "without_push_back()\n";
 
     // size and capacity will be the same... but size should represent the
     // number of slots occupied by elements in the collection... while capacity
@@ -120,7 +119,7 @@ void with_push_back()
         std::cout << vd[n - 1] << '\n';
     }
 
-    std::cout << "with_push_back()" << '\n';
+    std::cout << "with_push_back()\n";
 
     // size and capactiy are different since we used push_back() to populate
     // the vector

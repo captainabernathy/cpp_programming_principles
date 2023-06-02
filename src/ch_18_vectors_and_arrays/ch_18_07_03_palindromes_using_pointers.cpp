@@ -1,7 +1,8 @@
 // program implements a function that receives pointers to the first and last
 // characters of a C-string and determines whether or not it is a palindrome
 
-#include <iostream> // for cout, cin, istream
+#include <istream> // for istream
+#include <iostream> // for cout, cin
 #include <cstring> // for strlen()
 
 // given a pointer to the first and last characters in a string, function
@@ -26,9 +27,7 @@ int main()
         cout << s << " is";
         if (!is_palindrome(&s[0], &s[strlen(s) - 1])) // test input
             cout << " not";
-        cout << " a palindrome" << "\n\n";
-
-        cout << "Enter a string (or CTRL-D to exit): "; // prompt user
+        cout << " a palindrome\n";
     }
 
     return 0;

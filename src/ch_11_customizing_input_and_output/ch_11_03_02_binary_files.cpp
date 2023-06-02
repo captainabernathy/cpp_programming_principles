@@ -3,7 +3,8 @@
 // program also implements a function template to get the address of the
 // the first byte of an object's representation
 
-#include <iostream> // for cin, cout, cerr, ios_base
+#include <ios> // for ios_base
+#include <iostream> // for cin, cout, cerr
 #include <fstream> // for ifstream, ofstream
 #include <string> // for string
 #include <vector> // for vector
@@ -78,7 +79,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "Oops: unknown exception!" << '\n';
+        cerr << "Oops: unknown exception!\n";
         return 2;
     }
 }

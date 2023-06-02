@@ -129,7 +129,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "Oops: unknown excpetion!" << '\n';
+        cerr << "Oops: unknown excpetion!\n";
         return 2;
     }
 

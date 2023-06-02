@@ -1,7 +1,8 @@
 // program demonstrates how to specify the precision of floating point output
 // for the defalt, fixed, and scientific formats
 
-#include <iostream> // for cout, fixed, scientific, defaultfloat
+#include <ios> // for fixed, scientific, defaultfloat
+#include <iostream> // for cout
 #include <iomanip> // for setprecision
 
 int main()

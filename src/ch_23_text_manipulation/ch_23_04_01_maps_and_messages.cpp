@@ -145,7 +145,7 @@ int main()
         for (Line_iter li = it->second->begin();
              li != it->second->end(); ++li)
             cout << *li << '\n';
-        cout << "end" << '\n';
+        cout << "end\n";
     }
     cout << '\n';
 

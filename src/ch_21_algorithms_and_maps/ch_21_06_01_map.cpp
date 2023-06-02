@@ -4,7 +4,7 @@
 
 #include <iostream> // for cin, cout
 #include <map>  // for map
-#include <string> // for string 
+#include <string> // for string
 
 int main()
 {
@@ -18,7 +18,7 @@ int main()
     map<string, int> words;  // keep (word, frequency) pairs
 
     string s;
-    cout << "Enter lines of text or press CTRL-D to exit." << '\n';
+    cout << "Enter lines of text or press CTRL-D to exit.\n";
     while (cin >> s)
         ++words[s];
 

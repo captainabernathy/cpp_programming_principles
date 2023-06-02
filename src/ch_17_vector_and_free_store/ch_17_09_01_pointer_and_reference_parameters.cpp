@@ -66,7 +66,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "Oops: unknown exception!" << '\n';
+        cerr << "Oops: unknown exception!\n";
         return 2;
     }
 

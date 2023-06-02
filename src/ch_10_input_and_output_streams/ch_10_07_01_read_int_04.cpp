@@ -47,7 +47,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 
@@ -67,7 +67,7 @@ int get_int(int low, int high)
             return n;
 
         std::cout << "Sorry " << n << " is not in the [" << low << ":" << high
-            << "] range. Please try again" << '\n';
+            << "] range. Please try again\n";
     }
 }
 
@@ -79,7 +79,7 @@ int get_int()
         // read an integer and return it, or attempt to recover otherwise
         if (std::cin >> n)
             return n;
-        std::cout << "Sorry, that was not a number. Please try again" << '\n';
+        std::cout << "Sorry, that was not a number. Please try again\n";
         skip_to_int(); // recover
     }
 }

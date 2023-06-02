@@ -115,7 +115,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "Unknown exception" << '\n';
+        cerr << "Unknown exception\n";
         return 2;
     }
 

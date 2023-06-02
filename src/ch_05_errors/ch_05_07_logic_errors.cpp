@@ -23,7 +23,6 @@ int main()
             high_temp = temp;   // find high
         if (temp < low_temp)
             low_temp = temp;    // find low
-        cout << "Enter a temperature or CTRL-D to exit: ";
     }
 
     // write high, low, and average temperatures to stdout

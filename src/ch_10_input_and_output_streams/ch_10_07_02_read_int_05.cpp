@@ -45,7 +45,7 @@ int main()
         int altitude = get_int(0, 50000, "please enter altitude in feet",
                                "Not in range, please try again");
 
-        cout << "altitude: " << altitude << " ft above sea level" << '\n';
+        cout << "altitude: " << altitude << " ft above sea level\n";
     }
     catch (exception& ex)
     {
@@ -54,7 +54,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 
@@ -65,7 +65,7 @@ int get_int(int low, int high, std::string const& greeting,
             std::string const& sorry)
 {
     // prompt user
-    std::cout << greeting << ": [" << low << ":" << high << "]" << '\n';
+    std::cout << greeting << ": [" << low << ":" << high << "]\n";
 
     while (true)
     {
@@ -74,7 +74,7 @@ int get_int(int low, int high, std::string const& greeting,
         if (low <= n && n <= high) // return integer if it is within range
             return n;
 
-        std::cout << sorry << ": [" << low << ":" << high << "]" << '\n';
+        std::cout << sorry << ": [" << low << ":" << high << "]\n";
     }
 }
 
@@ -88,7 +88,7 @@ int get_int()
         if (std::cin >> n)
             return n;
 
-        std::cout << "Sorry, that was not a number... Please try again" << '\n';
+        std::cout << "Sorry, that was not a number... Please try again\n";
         skip_to_int(); // recover
     }
 }

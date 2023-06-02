@@ -19,7 +19,7 @@ int main()
     cin >> age; // read int from stdin into age
 
     // write results to stdout
-    cout << "Hello, " << name << " (age " << age << ")" << '\n';
+    cout << "Hello, " << name << " (age " << age << ")\n";
 
     return 0;
 }

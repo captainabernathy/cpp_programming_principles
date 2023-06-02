@@ -2,7 +2,9 @@
 // input and output operators for reading and writing dates to and from
 // input and output streams
 
-#include <iostream> // for istream, ostream, cin, cout
+#include <istream> // for istream
+#include <ostream> // for ostream
+#include <iostream> // for cin, cout
 
 class Date {
 public:

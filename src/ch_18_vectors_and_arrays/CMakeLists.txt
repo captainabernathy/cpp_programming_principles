@@ -3,7 +3,8 @@ add_executable(ch_18_02_01_initializer_list ch_18_02_01_initializer_list.cpp)
 add_executable(ch_18_03_01_copy_constructors ch_18_03_01_copy_constructors.cpp)
 add_executable(ch_18_03_02_copy_assignments ch_18_03_02_copy_assignments.cpp)
 add_executable(ch_18_03_03_copy_terminology ch_18_03_03_copy_terminology.cpp)
-add_executable(ch_18_04_00_essential_operations ch_18_04_00_essential_operations.cpp)
+add_executable(ch_18_04_00_essential_operations
+               ch_18_04_00_essential_operations.cpp)
 add_executable(ch_18_04_02_debugging_constructors_and_destructors
                ch_18_04_02_debugging_constructors_and_destructors.cpp)
 add_executable(ch_18_05_00_access_to_vector_elements_v1

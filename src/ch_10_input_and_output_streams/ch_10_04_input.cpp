@@ -1,7 +1,9 @@
 // program implements a Point class with overloaded input and output
 // operators... then reads points from a file and writes them to stdout
 
-#include <iostream> // for istream, ostream, cin, cout, cerr
+#include <istream> // for istream
+#include <ostream> // for ostream
+#include <iostream> // for cin, cout, cerr
 #include <fstream> // for ifstream
 #include <string> // for string
 #include <exception> // for exception
@@ -78,7 +80,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 

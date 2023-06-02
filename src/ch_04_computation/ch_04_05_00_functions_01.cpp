@@ -6,7 +6,7 @@
 inline int square(int x) { return x * x; }
 
 // simple function that writes "Sorry" to stdout
-inline void write_sorry() { std::cout << "Sorry" << '\n'; }
+inline void write_sorry() { std::cout << "Sorry\n"; }
 
 int main()
 {

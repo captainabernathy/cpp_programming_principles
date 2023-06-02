@@ -61,22 +61,19 @@ int main()
     using std::cout;
 
     vector v;
-    cout << "v.size(): " << v.size() << " (before reserve())" << '\n'; // 0
-    cout << "v.cap(): " << v.capacity() << " (before reserve())" << '\n'; // 0
-    cout << '\n';
+    cout << "v.size(): " << v.size() << " (before reserve())\n"; // 0
+    cout << "v.cap(): " << v.capacity() << " (before reserve())\n\n"; // 0
 
     v.reserve(10);
-    cout << "v.size(): " << v.size() << " (after v.reserve(10))" << '\n'; // 0
+    cout << "v.size(): " << v.size() << " (after v.reserve(10))\n"; // 0
 
-    // 10
-    cout << "v.cap(): " << v.capacity() << " (after v.reserve(10))" << '\n';
-    cout << '\n';
+    cout << "v.cap(): " << v.capacity() << " (after v.reserve(10))\n\n"; // 10
 
     v.reserve(5);
-    cout << "v.size(): " << v.size() << " (after v.reserve(5))" << '\n'; // 0
+    cout << "v.size(): " << v.size() << " (after v.reserve(5))\n"; // 0
 
-    // 10... capacity does not shrink
-    cout << "v.cap(): " << v.capacity() << " (after v.reserve(5))" << '\n';
+    // NOTE: capacity does not shrink
+    cout << "v.cap(): " << v.capacity() << " (after v.reserve(5))\n"; // 10
 
     return 0;
 }

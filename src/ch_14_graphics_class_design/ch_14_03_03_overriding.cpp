@@ -2,21 +2,20 @@
 // as well as how to declare and override virtual functions within a class
 // hierarchy
 
-#include <iostream> // I/O library header
-#include <stdexcept> // provides classes for logic and runtime errors
-using namespace std;
+#include <iostream> // for cout, cerr
+#include <exception> // for exception
 
 struct B {
     // NOTE: the "virtual" keyword indicates that a function maybe be overridden
     // in a subclass
     virtual void f() const
     {
-        cout << "B::f  " << endl;
+        std::cout << "B::f  \n";
     }
 
     void g() const // not virtual
     {
-        cout << "B::g  " << endl;
+        std::cout << "B::g  \n";
     }
 };
 
@@ -27,25 +26,25 @@ struct D : B {
     // overrides a virtual function
     void f() const override // overrides B::f
     {
-        cout << "D::f  " << endl;
+        std::cout << "D::f  \n";
     }
 
     void g()
     {
-        cout << "D::g  " << endl;
+        std::cout << "D::g  \n";
     }
 };
 
 struct DD : D {
     void f() // doesn't override D::f.. not const.. declaration doesn't match
     {
-        cout << "DD::f" << endl;
+        std::cout << "DD::f  \n";
     }
 
     // DD's own g()
     void g() const
     {
-        cout << "DD::g  " << endl;
+        std::cout << "DD::g  \n";
     }
 };
 
@@ -59,58 +58,63 @@ void call(const B& b)
 
 int main()
 {
+    using std::exception;
+    using std::cerr;
+
     try
     {
+        using std::cout;
+
         B b;
         D d; // d is D is a B
         DD dd; // dd is a DD is a D is a B
 
-        cout << "call(b)" << endl;
+        cout << "call(b)\n";
         // b does B things
         call(b); // B::f B::g
-        cout << endl;
+        cout << '\n';
 
-        cout << "call(d)" << endl;
+        cout << "call(d)\n";
         // NOTE: D overrides B::f() and provides it's own g(), which does not
         // override B::g(). So, since call() accepts a B that makes a call to
         // g(), the call is made to B::g()
         call(d); // D::f B::g
-        cout << endl;
+        cout << '\n';
 
         // NOTE: DD provides its own f() and g(). It does not override D::f()
         // or D::g(). However, dd is a D, and D::f() overrides B::f().
-        cout << "call(dd)" << endl;
+        cout << "call(dd)\n";
         call(dd); // D::f B::g
-        cout << endl;
+        cout << '\n';
 
-        cout << "b.f()" << endl;
+        cout << "b.f()\n";
         b.f(); // B::f
-        cout << endl;
-        cout << "b.g()" << endl;
+        cout << '\n';
+        cout << "b.g()\n";
         b.g(); // B::g
-        cout << endl;
+        cout << '\n';
 
-        cout << "d.f()" << endl;
+        cout << "d.f()\n";
         d.f(); // D::f
-        cout << endl;
-        cout << "d.g()" << endl;
+        cout << '\n';
+        cout << "d.g()\n";
         d.g(); // D::g
-        cout << endl;
+        cout << '\n';
 
-        cout << "dd.f()" << endl;
+        cout << "dd.f()\n";
         dd.f(); // DD::f
-        cout << endl;
-        cout << "dd.g()" << endl;
+        cout << '\n';
+        cout << "dd.g()\n";
         dd.g(); // DD::g
     }
     catch (exception& ex)
     {
-        cerr << ex.what();
+        cerr << ex.what() << '\n';
         return 1;
     }
     catch (...)
     {
-        cerr << "unknown exception" << endl;
+        cerr << "unknown exception\n";
         return 2;
     }
 

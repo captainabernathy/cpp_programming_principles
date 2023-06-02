@@ -15,7 +15,7 @@ int main()
     if (a != b)
         cout << "oops!: " << a << " != " << b << '\n';
     else
-        cout << "Wow! We have large characters" << '\n';
+        cout << "Wow! We have large characters\n";
 
     return 0;
 }

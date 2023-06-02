@@ -29,7 +29,6 @@ int main()
             cout << "word number " << words << " repeated: " << cur << '\n';
         
         prev = cur; // set cur to prev... then read into cur in the loop test
-        cout << "Enter text or CTRL-D to exit: ";
     }
 
     return 0;

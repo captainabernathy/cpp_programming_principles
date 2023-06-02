@@ -16,7 +16,7 @@ int main()
     int n = 0;
     // read an integer within range of 1 and 10 from stdin
     while (cin >> n && !(1 <= n && n <= 10))
-        cout << "Sorry " << n << " is not in the [1:10] range." << '\n'
+        cout << "Sorry " << n << " is not in the [1:10] range.\n"
             << "Please try again: ";
 
     cout << n << '\n';

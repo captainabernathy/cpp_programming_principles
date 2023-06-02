@@ -70,8 +70,7 @@ int main()
 
         // write each reading in temps vector to output file
         for (size_t i = 0; i < temps.size(); i++)
-            ost << '(' << temps[i].hour << ',' << temps[i].temperature << ')'
-                << '\n';
+            ost << '(' << temps[i].hour << ',' << temps[i].temperature << ")\n";
     }
     catch (exception& ex)
     {
@@ -80,7 +79,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 }

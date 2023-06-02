@@ -9,7 +9,7 @@
 
 #include <iostream> // I/O library header
 #include <map> // for map
-#include <string> // for string 
+#include <string> // for string
 #include <utility> // for pair, make_pair
 #include <functional> // for plus<>
 
@@ -92,10 +92,10 @@ int main()
     // in a map that corresponds to the key provided
     // find entry in a map
     if (dow_price.find("INTC") != dow_price.end())
-        cout << "Intel is in the Dow" << '\n';
+        cout << "Intel is in the Dow\n";
 
     if (dow_price.find("MMM") != dow_price.end())
-        cout << "MMM is in the Dow" << '\n';
+        cout << "MMM is in the Dow\n";
 
     cout << '\n';
 
@@ -104,7 +104,7 @@ int main()
          it != dow_price.end(); ++it)
     {
         string const& symbol = it->first;
-        cout << symbol << "\t" << it->second << "\t" << dow_name[symbol]
+        cout << symbol << '\t' << it->second << '\t' << dow_name[symbol]
             << '\n';
     }
     cout << '\n';

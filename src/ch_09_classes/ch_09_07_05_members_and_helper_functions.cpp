@@ -1,6 +1,7 @@
 // program demonstrates the implementation of helper functions that are used
 // for working with object created from a class
 
+#include <ios> // for boolalpha
 #include <iostream> // for cout
 
 // user-defined Date type
@@ -67,6 +68,8 @@ int main()
     // call Date's member functions
     cout << d.month() << ' ' << d.day() << ' ' << d.year() << '\n';
     
+    cout << std::boolalpha;
+
     // test Date's inequality operator
     cout << (next_sunday(d) != next_weekday(d)) << '\n';
 

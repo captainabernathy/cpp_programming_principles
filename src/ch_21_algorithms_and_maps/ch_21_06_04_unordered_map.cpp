@@ -92,11 +92,10 @@ int main()
     // element in an unordered_map that corresponds to the key provided
     // find entry in an unorderd_map
     if (dow_price.find("INTC") != dow_price.end())
-        cout << "Intel is in the Dow" << '\n';
+        cout << "Intel is in the Dow\n";
 
     if (dow_price.find("MMM") != dow_price.end())
-        cout << "MMM is in the Dow" << '\n';
-
+        cout << "MMM is in the Dow\n";
     cout << '\n';
 
     // iterate over unordered_map
@@ -104,7 +103,7 @@ int main()
          it != dow_price.end(); ++it)
     {
         const string& symbol = it->first;
-        cout << symbol << "\t" << it->second << "\t" << dow_name[symbol]
+        cout << symbol << '\t' << it->second << '\t' << dow_name[symbol]
             << '\n';
     }
     cout << '\n';

@@ -16,8 +16,8 @@ add_custom_command(
 add_custom_command(
     TARGET ch_23_05_a_problem POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-            ${CMAKE_CURRENT_SOURCE_DIR}/chapter.23.5.in
-            ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/chapter.23.5.in
+            ${CMAKE_CURRENT_SOURCE_DIR}/chapter_23_05_infile.txt
+            ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/chapter_23_05_infile.txt
 )
 
 add_custom_command(

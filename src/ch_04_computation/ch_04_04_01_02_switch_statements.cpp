@@ -24,10 +24,10 @@ int main()
     switch (unit)
     {
         case 'i':
-            cout << len << "in == " << cm_per_in * len << "cm" << '\n';
+            cout << len << "in == " << cm_per_in * len << "cm\n";
             break;
         case 'c':
-            cout << len << "cm == " << len / cm_per_in << "in" << '\n';
+            cout << len << "cm == " << len / cm_per_in << "in\n";
             break;
         default:
             cout << "Sorry, I don't know a unit called '" << unit << "'\n";

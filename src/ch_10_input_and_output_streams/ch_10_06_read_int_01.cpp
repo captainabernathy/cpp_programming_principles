@@ -1,7 +1,9 @@
 // program implements a function that reads integers from an input stream into
 // a vector
 
-#include <iostream> // for istream, ios_base, cin, cout, cerr
+#include <ios> // for ios_base
+#include <istream> // for istream
+#include <iostream> // for cin, cout, cerr
 #include <string> // for string
 #include <exception> // for exception
 #include <vector> // for vector
@@ -42,7 +44,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 

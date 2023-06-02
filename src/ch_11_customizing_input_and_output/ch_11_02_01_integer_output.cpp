@@ -1,7 +1,8 @@
 // program demonstrates how to output integers using decimal, octal, and
 // hexadecimal bases
 
-#include <iostream> // for cout, hex, oct, dec, showbase
+#include <ios> // for hex, oct, dec, showbase
+#include <iostream> // for cout
 
 int main()
 {
@@ -13,11 +14,11 @@ int main()
 
     // NOTE: integer bases remain in effect until changed
     // decimal output is default for integers
-    cout << 1234 << "\t(decimal)" << '\n'  // 1234
+    cout << 1234 << "\t(decimal)\n"  // 1234
         // change to hex output with the hex keyword
-         << hex << 1234 << "\t(hexadecimal)" << '\n'  // 4d2
+         << hex << 1234 << "\t(hexadecimal)\n"  // 4d2
          // change to octal output with the oct keyword
-         << oct << 1234 << "\t(octal)" << "\n\n";  //2322
+         << oct << 1234 << "\t(octal)\n\n";  //2322
 
     // then change back to decimal with the dec keyword
     cout << dec << 1234 << '\t' // 1234

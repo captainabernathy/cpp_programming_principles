@@ -37,12 +37,11 @@ int main()
                     break;
 
                 cout << "Sorry " << n << " is not in the [1:10] range. Please "
-                    << "try again" << '\n';
+                    << "try again\n";
             }
             else // non-integer was read
             {
-                cout << "Sorry, that was not a number. Please try again"
-                    << '\n';
+                cout << "Sorry, that was not a number. Please try again\n";
                 skip_to_int(); // call recover function
             }
         }
@@ -57,7 +56,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 }

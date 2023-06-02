@@ -79,19 +79,17 @@ int main()
 
     vector v; // build a vector
 
-    cout << " before reserve()" << '\n';
+    cout << " before reserve()\n";
     cout << "v.size(): " << v.size() << '\n'; // 0
-    cout << "v.capacity(): " << v.capacity() << '\n'; // 0
-    cout << '\n';
+    cout << "v.capacity(): " << v.capacity() << "\n\n"; // 0
 
     v.reserve(10); // reserve space for 10 elements in vector v
-    cout << "after v.reserve(10)" << '\n';
+    cout << "after v.reserve(10)\n";
     cout << "v.size(): " << v.size() << '\n'; // 0
-    cout << "v.capacity(): " << v.capacity() << '\n'; // 10
-    cout << '\n';
+    cout << "v.capacity(): " << v.capacity() << "\n\n"; // 10
 
     v.resize(4); // resizie vector v to 4
-    cout << "after v.resize(4)" << '\n';
+    cout << "after v.resize(4)\n";
     cout << "v.size(): " << v.size() << '\n'; // 4
     cout << "v.capacity(): " << v.capacity() << '\n'; // 10
 

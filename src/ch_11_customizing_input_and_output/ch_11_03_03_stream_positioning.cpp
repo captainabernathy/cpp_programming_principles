@@ -32,11 +32,11 @@ int main()
         char ch;
         fs >> ch; // read charcter in fs into ch
 
-        cout << "character 6 is " << ch << '(' << int(ch) << ')' << '\n';
+        cout << "character 6 is " << ch << '(' << int(ch) << ")\n";
 
         fs.seekg(1); // set position in input sequence
         fs >> ch; // read from fs into ch
-        cout << "character 2 is " << ch << '(' << int(ch) << ')' << '\n';
+        cout << "character 2 is " << ch << '(' << int(ch) << ")\n";
 
         // move writing position... 'p' for put in seekp()
         fs.seekp(1);
@@ -47,7 +47,7 @@ int main()
         char c;
         fs.seekg(1); // set position in input sequqnce
         fs >> c ;
-        cout << "character 2 is now " << c << '(' << int(c) << ')' << '\n';
+        cout << "character 2 is now " << c << '(' << int(c) << ")\n";
 
         fs.seekp(1); // set position in output sequence
         fs << ch; // write ch to fs
@@ -61,7 +61,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "error: unknown" << '\n';
+        cerr << "error: unknown\n";
         return 2;
     }
 }

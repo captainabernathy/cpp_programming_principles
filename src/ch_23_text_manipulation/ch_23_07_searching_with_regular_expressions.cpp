@@ -3,8 +3,8 @@
 
 #include <regex> // for regex, smatch, regex_search
 #include <iostream> // for cout, cerr
-#include <exception> // for exception 
-#include <string> // for string 
+#include <exception> // for exception
+#include <string> // for string
 #include <fstream> // for ifstream
 #include <cstdlib> // for exit(), EXIT_FAILURE
 
@@ -25,7 +25,7 @@ int main()
         ifstream ifs {"file.txt"}; // initialize ifs to file
         if (!ifs)
         {
-            cerr << "could not open file.txt" << '\n';
+            cerr << "could not open file.txt\n";
             exit(EXIT_FAILURE);
         }
 
@@ -57,7 +57,7 @@ int main()
     }
     catch (...)
     {
-        cerr << "unknown exception" << '\n';
+        cerr << "unknown exception\n";
         return 2;
     }
 

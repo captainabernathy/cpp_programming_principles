@@ -22,9 +22,7 @@ int main()
         cout << s << " is";
         if (!is_palindrome(s)) // test input
             cout << " not";
-        cout << " a palindrome" << "\n\n";
-    
-        cout << "Enter a string (or CTRL-D to exit): "; // prompt user
+        cout << " a palindrome\n";
     }
 
     return 0;
