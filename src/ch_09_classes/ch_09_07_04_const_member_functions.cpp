@@ -8,7 +8,6 @@ public:
     enum Month {
         jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
     };
-
     
     // constructor... initializes a Date's private data members from input
     Date(int yy, Month mm, int dd)

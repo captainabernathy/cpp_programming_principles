@@ -48,7 +48,7 @@ inline bool operator!=(const Date& a, const Date& b) { return !(a == b); }
 
 // namespace tht redefines Date and helper functions
 namespace Chrono {
-    class Date {  };
+    class Date { };
 
     inline Date next_sunday(const Date& d) { return d; }
 

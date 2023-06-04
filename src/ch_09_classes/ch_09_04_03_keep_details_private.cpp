@@ -26,7 +26,7 @@ public:
 // constructor definition... uses input to initialize a Date's private
 // attributes
 Date::Date(int y, int m, int d)
-    : y(y), m(m), d(d) {  }
+    : y {y}, m {m}, d {d} {  }
 
 int main()
 {

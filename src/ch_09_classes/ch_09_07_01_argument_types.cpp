@@ -16,7 +16,7 @@ public:
     // public member functions
     // constructor
     Year(int x)
-        : y(x)
+        : y {x}
     {
         if (x < min || max < x) // input must fall within range of min and max
             throw Invalid();
@@ -57,8 +57,8 @@ int main()
     try
     {
         // build some Dates
-        Date dx3(Year(1998), Date::mar, 30);
-        Date dx5(Year(4), Date::mar, 1998); // error
+        Date dx3(1998, Date::mar, 30);
+        Date dx5(4, Date::mar, 1998); // error
     }
     catch (Year::Invalid&)
     {
