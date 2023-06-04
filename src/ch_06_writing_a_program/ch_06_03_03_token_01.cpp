@@ -1,23 +1,8 @@
-// first attempt at defining a Token class to represent the elements of a
+// first attempt at testing the Token class to represent the elements of a
 // calculator's grammar
 
 #include <iostream> // for cout
-
-// represents a unit in a calculator's grammar
-class Token
-{
-public:
-    char kind;          // what kind of token
-    double value;       // for numbers: a value
-
-    // constructor for operators and non-numeric values
-    Token(char ch)      // make a Token from a char
-        : kind {ch}, value {0} { }
-
-    // constructor for numeric values
-    Token(char ch, double val) // make a Token from a char and a double
-        : kind {ch}, value {val} { }
-};
+#include <calc/token.hpp> // for Token
 
 int main()
 {
