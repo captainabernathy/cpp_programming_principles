@@ -2,9 +2,9 @@
 // C++'s standard sorting algorithm as it computes the mean and median of a
 // vector of doubles
 
+#include <vector> // for vector
 #include <iostream> // for cin, cout
 #include <algorithm> // for sort()
-#include <vector> // for vector
 
 int main()
 {

@@ -1,9 +1,9 @@
 // program demonstrates vector declaration, initialization, and iteration
 // techniques
 
+#include <vector> // for vector
 #include <iostream> // for cout
 #include <string> // for string
-#include <vector> // for vector
 
 int main()
 {

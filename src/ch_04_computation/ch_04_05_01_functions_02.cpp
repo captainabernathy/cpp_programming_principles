@@ -4,7 +4,10 @@
 #include <iostream> // for cout
 
 // simple function that writes the square of its input to stdout
-inline void print_square(int v){ std::cout << v << '\t' << v * v << '\n'; }
+inline void print_square(int v)
+{
+    std::cout << v << '\t' << v * v << '\n';
+}
 
 int main()
 {

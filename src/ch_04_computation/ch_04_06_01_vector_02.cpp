@@ -1,7 +1,7 @@
 // program demonstrates how to fill a vector using its push_back() method
 
-#include <iostream> // for cout
 #include <vector> // for vector
+#include <iostream> // for cout
 
 int main()
 {

@@ -2,9 +2,9 @@
 // C++'s standard sorting algorithm as it determines the uniqe strings
 // contained in a vector of strings
 
-#include <iostream> // for cin, cout
-#include <string> // for string
 #include <vector> // for vector
+#include <string> // for string
+#include <iostream> // for cin, cout
 #include <algorithm> // for sort()
 
 int main()

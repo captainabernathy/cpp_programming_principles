@@ -4,7 +4,10 @@
 #include <iostream> // for cout
 
 // simple function that squares its input and returns the result
-inline int square(int x) { return x * x; }
+inline int square(int x)
+{
+    return x * x;
+}
 
 int main()
 {
