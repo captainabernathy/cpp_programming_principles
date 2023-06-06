@@ -80,5 +80,7 @@ int main()
         cerr << "Oops: unknown exception!\n";
         return 2;
     }
+
+    return 0;
 }
 
