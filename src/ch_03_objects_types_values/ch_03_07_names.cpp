@@ -1,8 +1,8 @@
 // program demonstrates that reserved words and variable names are
 // case-sensitive
 
-#include <iostream> // for cout
 #include <string> // for string
+#include <iostream> // for cout
 
 int main()
 {

@@ -1,8 +1,8 @@
 // program displays how to initialize variables of type int, double, char,
 // string, and bool
 
-#include <iostream> // for cout
 #include <string> // for string
+#include <iostream> // for cout
 
 int main()
 {
@@ -12,7 +12,7 @@ int main()
     int steps = 39; // integer
     double time = 3.5; // double-precision floating-point number
     char dp = '.'; // use single quotes for a single character
-    string name = "Aaron"; // use double quotes for a string
+    string name = "Bob"; // use double quotes for a string
     bool tap = true; // boolean... true == 1, false == 0
 
     cout << steps << '\n'   // 39

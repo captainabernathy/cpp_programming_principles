@@ -1,7 +1,7 @@
 // program demonstrates the initialization and output of various variable types
 
-#include <iostream> // for cout
 #include <string> // for string
+#include <iostream> // for cout
 
 int main()
 {
