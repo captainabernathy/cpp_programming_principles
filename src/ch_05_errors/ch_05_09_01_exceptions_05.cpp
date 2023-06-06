@@ -36,6 +36,8 @@ int main()
         cerr << "Oops: unknown exception!\n";
         return 2;
     }
+
+    return 0;
 }
 
 int area1(int length, int width)
