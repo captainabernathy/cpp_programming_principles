@@ -1,10 +1,10 @@
 // program implements a function that strips non-alpha-numeric characters from
 // text entered by the user
 
+#include <vector> // for vector
+#include <string> // for string
 #include <iostream> // for cin, cout
 #include <cctype> // for isalpha()
-#include <string> // for string
-#include <vector> // for vector
 
 std::vector<std::string> v; // global vector of strings
 void f(); // function declaration
@@ -49,4 +49,3 @@ void f()
         v.push_back(stripped);
     }
 }
-

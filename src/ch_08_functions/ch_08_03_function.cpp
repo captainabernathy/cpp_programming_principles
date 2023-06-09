@@ -10,6 +10,7 @@ inline int g(int i) { return f(i); }
 int main()
 {
     std::cout << g(2) << '\n'; // 2
+
     return 0;
 }
 

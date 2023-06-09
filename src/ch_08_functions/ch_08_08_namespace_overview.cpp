@@ -1,6 +1,7 @@
 // program provides an overview of the rules regarding namespaces and scope
 
 #include <iostream> // for cout
+
 using std::cout; // add cout to file scope
 
 // NOTE: namespaces create their own scopes

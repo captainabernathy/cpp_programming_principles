@@ -1,7 +1,7 @@
 // program demonstrates how to qualify names that belong to a namespace
 
-#include <iostream> // for cin, cout, endl
 #include <string> // for string
+#include <iostream> // for cin, cout, endl
 
 int main()
 {
@@ -11,5 +11,6 @@ int main()
     std::cout << "Please enter your first name: ";
     std::cin >> name;
     std::cout << "Hello, " << name << std::endl;
+
     return 0;
 }
