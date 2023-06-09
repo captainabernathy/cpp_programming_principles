@@ -1,10 +1,12 @@
 #include <calculator_utils/token_stream.hpp>
 
+// not defined when a Token_stream supports symbolic constants
 #ifndef NO_CONSTANTS
 // for number, quit, print, prompt, result
 #include <calculator_utils/calculator_constants.hpp>
 #endif
 
+// not defined when a Token_stream supports declarations
 #ifndef NO_DECL
 #include <cctype> // for isalpha(), isdigit()
 #include <string> // for string
@@ -40,6 +42,7 @@ Token Token_stream::get()
     switch (ch)
     {
         // let each of these characters represent itself
+// not defined when a Token_stream supports symbolic constants
 #ifndef NO_CONSTANTS
         case print:
         case quit:
@@ -48,9 +51,11 @@ Token Token_stream::get()
         case 'q': // for quit
 #endif
         case '(': case ')': case '+': case '-': case '*': case '/':
+// not defined with a Token_stream supports the modulus operation
 #ifndef NO_MOD
         case '%':
 #endif
+// not defined when a Token_stream supports declarations
 #ifndef NO_DECL
         case '=':
 #endif
@@ -63,6 +68,7 @@ Token Token_stream::get()
                 std::cin.putback(ch);
                 double val;
                 std::cin >> val; // read floating-point number
+// not defined when a Token_stream supports symbolic constants
 #ifndef NO_CONSTANTS
                 return Token(number, val); // return a new Token
 #else
@@ -71,11 +77,13 @@ Token Token_stream::get()
 #endif
             }
         default:
+// not defined when a Token_stream supports declarations
 #ifndef NO_DECL
             // check for declaration if ch is a letter
             if (isalpha(ch))
             {
                 std::string s;
+// not defined when a Token_stream supports Variables
 #ifndef NO_VARS
                 s += ch; // concatenate the first letter to s
                 // read subsequent letters and/or numbers in the declaration
@@ -102,6 +110,7 @@ Token Token_stream::get()
     assert(0); // should never get here
 }
 
+// not defined when a Token_stream supports error recovery
 #ifndef NO_IGNORE
 // discard characters up to and including ch in this Token_stream where ch
 // represents the kind of Token

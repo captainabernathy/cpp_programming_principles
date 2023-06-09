@@ -1,18 +1,22 @@
 #include <calculator_utils/calculator.hpp>
 
+// not defined when a Calculator supports symbolic constants
 #ifndef NO_CONSTANTS
 // for number, quit, print, prompt, result
 #include <calculator_utils/calculator_constants.hpp>
 #endif
 
+// not defined when a Calculator handles the computation loop internally
 #ifndef NO_CALCULATE
 #include <iostream> // for cout, cin, cerr
 #endif
 
+// not defined when a Calculator supports error recovery
 #ifndef NO_RECOVERY
 #include <exception> // for exception
 #endif
 
+// not defined when a Calculator supports declarations
 #ifndef NO_DECL
 #include <calculator_utils/variable.hpp> // for Variable
 #include <string> // for string
@@ -107,6 +111,7 @@ double Calculator::term()
                     t = ts.get();
                     break;
                 }
+// not defined with a Calculator supports the modulus operation
 #ifndef NO_MOD
             case '%':
                 {
@@ -165,6 +170,7 @@ double Calculator::primary()
                     error("')' expected"); // invalid expression
                 return d; // return the result of the expression
             }
+// not defined when a Calculator supports symbolic constants
 #ifndef NO_CONSTANTS
         case number:
             return t.value; // return token's value
@@ -173,10 +179,12 @@ double Calculator::primary()
         case '8':
             return t.value; // return token's value
 #endif
+// not defined when a Calculator supports declarations
 #ifndef NO_DECL
         case name:
             return get_value(t.name); // return value of variable with t's name
 #endif
+// not defined when a Calculator supports the unary + and -
 #ifndef NO_UNARY
         // unary -
         case '-':
@@ -192,12 +200,14 @@ double Calculator::primary()
     assert(0); // should never get here
 }
 
+// not defined when a Calculator handles the computation loop internally
 #ifndef NO_CALCULATE
 // performs the calculation loop
 void Calculator::calculate()
 {
     while (std::cin)
     {
+// not defined when a Calculator supports error recovery
 #ifndef NO_RECOVERY
         try
         {
@@ -215,11 +225,13 @@ void Calculator::calculate()
             // put t back into Token_stream ts's buffer and
             // indicate that buffer is full
             ts.putback(t);
+// not defined when a Calculator supports declarations
 #ifndef NO_DECL
             std::cout << result << statement() << '\n';
 #else
             std::cout << result << expression() << '\n';
 #endif
+// not defined when a Calculator supports error recovery
 #ifndef NO_RECOVERY
         }
         catch (std::exception& ex)
@@ -232,6 +244,7 @@ void Calculator::calculate()
 }
 #endif
 
+// not defined when a Calculator supports declarations
 #ifndef NO_DECL
 // returns the value of a Variable named var in var_table or calls error() if
 // var is not defined in var_table
@@ -268,7 +281,7 @@ bool Calculator::is_declared(std::string var)
     return false; // no Variable with the same name as var exists in var_table
 }
 
-// add a Variable named var with value val in var_table and returns val or
+// adds a Variable named var with value val in var_table and returns val or
 // calls error() if a variable named var already exists in var_table
 double Calculator::define_name(std::string var, double val)
 {
@@ -328,8 +341,9 @@ double Calculator::statement()
 }
 #endif
 
+// not defined when a Calculator supports Variables
 #ifndef NO_VARS
-// set the value of a Variable named var in var_table to val or calls error if
+// sets the value of a Variable named var in var_table to val or calls error if
 // var is not defined in var_table
 void Calculator::set_value(std::string var, double val)
 {
