@@ -1,37 +1,16 @@
 // program demonstrates how to use C++'s regex library to process complicated
 // patterns typical of what one would find in a table
+//
+// program also uses the function template from_string<>() that converts a
+// string into an object of a user specified type
 
 #include <iostream> // for cerr, cout
 #include <fstream> // for ifstream
 #include <regex> // for regex, smatch, regex_search
 #include <exception> // for exception
-#include <stdexcept> // for runtime_error
-#include <sstream> // for istringstream
-#include <typeinfo> // for badcast
 #include <string> // for string, getline()
+#include <io_utils/io_utils.hpp> // for from_string<>()
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
-
-// class for reporting string cast errors
-struct bad_from_string : std::bad_cast {
-
-    const char *what() const throw() {
-        return "bad cast from string";
-    }
-};
-
-// template function that attempts to read an object of the type specified from
-// the string passed to s.
-// NOTE: if s cannot be read as a type T, then the function throws a
-// bad_from_string() exception
-template<typename T>
-T from_string(std::string const& s)
-{
-    std::istringstream is {s}; // initialize input string stream with s
-    T t; // target type
-    if (!(is >> t)) // read t from stream
-        throw bad_from_string();
-    return t;
-}
 
 int main()
 {
