@@ -11,9 +11,9 @@
 #include <string> // for string, getline()
 #include <utility> // for pair
 #include <map> // for multimap
-#include "message.hpp" // for Message
-#include "message_utils.hpp" // for find_from_addr()
-#include "mail_file.hpp" // for Mail_file
+#include "message_utils.hpp" // for Message, Line_iter, find_from_addr(),
+                             // find_subject()
+#include "mail_file.hpp" // for Mail_file, Msg_iter
 
 int main()
 {
@@ -40,6 +40,7 @@ int main()
     }
 
     // iterate over multimap
+    // typedef multimap<string, const Message*>::const_iterator mmap_const_it;
     using mmap_const_it = multimap<string, const Message*>::const_iterator;
 
     for (mmap_const_it it = sender.begin(); it != sender.end(); ++it)

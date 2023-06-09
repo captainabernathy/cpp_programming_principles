@@ -5,6 +5,7 @@
 #include <vector> // for vector
 #include <string> // for string
 
+// typedef std::vector<Message>::const_iterator Msg_iter;
 using Msg_iter = std::vector<Message>::const_iterator;
 
 // Mail_file is a class that holds lines of text and messages, specifically...

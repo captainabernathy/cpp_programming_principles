@@ -4,6 +4,7 @@
 #include <vector> // for vector
 #include <string> // for string
 
+// typedef std::vector<std::string>::const_iterator Line_iter;
 using Line_iter = std::vector<std::string>::const_iterator;
 
 // define a Message as a pair of iterators into a vector<string> (line)
