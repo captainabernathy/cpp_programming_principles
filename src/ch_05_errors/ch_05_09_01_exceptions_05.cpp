@@ -65,4 +65,3 @@ int area(int length, int width)
 
     return a;
 }
-
