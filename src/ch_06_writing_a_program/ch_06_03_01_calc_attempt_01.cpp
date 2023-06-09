@@ -1,6 +1,7 @@
 // first attempt at writing a calculator program...
 //
-// program can only handle expressions of the form lval +/- rval.
+// program can only handle expressions of the form lhs +/- rhs...
+//
 // program does not handle multiplication and division, and cannot handle
 // complex expressions (ie: 1+2+3).
 

@@ -2,7 +2,7 @@
 // calculator's grammar
 
 #include <iostream> // for cout
-#include <calc/token.hpp> // for Token
+#include <calculator_utils/token.hpp> // for Token
 
 int main()
 {

@@ -3,15 +3,15 @@
 //
 // NOTE: This program and ch_06_09_token_stream_02 are the same
 
-// to make private Calculator attributes visible for testing
+// this directive makes the Calculator class's private attributes visible for
+// testing purposes
 #ifndef CALC_TEST
 #define CALC_TEST
 #endif
 
 #include <iostream> // for cin, cout, cerr
 #include <exception> // for exception
-#include <calc/token.hpp> // for Token
-#include <calc/calculator.hpp> // for Calculator
+#include <calculator_utils/calculator_utils.hpp> // for Token, Calculator
 
 /*
  * Grammar
@@ -75,4 +75,3 @@ int main()
 
     return 0;
 }
-

@@ -1,15 +1,16 @@
-// program tests implementation of a Token_stream class for processing Tokens
-// as input for a calculator program
+// program tests the implementation of a Token_stream class for processing
+// Tokens as input to a calculator program
 
-// to make private Token_stream attributes visible for testing
+// NOTE: this directive makes the Calculator class's private attributes visible
+// for testing purposes
 #ifndef TOKEN_STREAM_TEST
 #define TOKEN_STREAM_TEST
 #endif
 
 #include <iostream> // for cout, cerr
 #include <exception> // for exception
-#include <calc/token.hpp> // for Token
-#include <calc/token_stream.hpp> // for Token_stream
+#include <calculator_utils/token.hpp> // for Token
+#include <calculator_utils/token_stream.hpp> // for Token_stream
 
 /*
  * Grammar
@@ -50,7 +51,7 @@ int main()
             << "full: " << ts.full << '\n';
 
         // put Token <')', ascii_val> into Token_stream ts
-        ts.putback(Token {')'});
+        ts.putback({')'});
         
         // kind: ASCII for ), value: ASCII for ), full: true
         cout << "kind: " << ts.buffer.kind << " "
@@ -70,4 +71,3 @@ int main()
 
     return 0;
 }
-
