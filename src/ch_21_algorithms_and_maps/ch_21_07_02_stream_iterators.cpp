@@ -1,12 +1,12 @@
 // program demonstrates how to use stream iterators to copy from input streams
 // to output streams
 
-#include <algorithm> // for sort(), copy()
-#include <fstream> // for ifstream, ofstream
+#include <string> // for string
 #include <iostream> // for cin, cout
+#include <fstream> // for ifstream, ofstream
 #include <iterator> // for istream_iterator, ostream_iterator
-#include <string> // for string 
-#include <vector> // for vector 
+#include <vector> // for vector
+#include <algorithm> // for sort(), copy()
 
 // function demonstrates how to use ostream and istream iterators to do basic
 // I/O

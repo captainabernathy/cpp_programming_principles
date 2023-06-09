@@ -1,53 +1,18 @@
-// program implements a function template that copies elements from one
-// collection to another collection based on the results of a predicate
+// program tests the implementation of the copy_if<>() function template to
+// copy elements from one collection to another collection based on the
+// results of a predicate function
 //
-// program also implements a class template for a function object that can be
-// used as predicate with the function template 
+// program also tests the implementation the class template Larger_than<>,
+// which provides a function object that can be used as a predicate function
+//
+// Out copy_if<In, Out, Pred>(In first, In last, Out res, Pred p)
+//
+// Larger_than<T>(T val)
 
-#include <vector> // for vector 
+#include <vector> // for vector
 #include <iostream> // for cout
-
-// function template that copies the elements between the iterators first
-// and last in one collection (range [first,last)) to another collection
-// based on the predicated pred and starting from the position of the iterator
-// res
-// function returns an iterator to the last element copied into the second
-// collection
-template<typename In, typename Out, typename Pred>
-Out copy_if(In first, In last, Out res, Pred p)
-{
-    while (first != last)
-    {
-        if (p(*first)) // test predicate
-        {
-            *res = *first; // copy result
-            ++res; // advance to next position in output collection
-        }
-        ++first; // advance to next position in input collection
-    }
-
-    return res;
-}
-
-// class template for a function object that returns true when the object
-// passed to it is larger than the object used to instantiate it
-template<typename T>
-class Larger_than {
-    T v; // private data member
-
-public:
-    // constructor initializes val
-    Larger_than(T val)
-        : v {val}
-    {  }
-    
-    // overloaded function call operator intercepts calls to this object
-    // returns true if x is greater than this object's v
-    bool operator()(T x)
-    {
-        return x > v;
-    }
-};
+#include <algorithm_utils/copy_if.hpp> // for copy_if<>()
+#include "larger_than.hpp" // for Larger_than<>
 
 int main()
 {
@@ -60,4 +25,6 @@ int main()
 
     for (auto i = v2.begin(); i != it; i++)
         cout << *i << '\n';
+
+    return 0;
 }

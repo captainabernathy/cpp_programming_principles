@@ -1,23 +1,11 @@
-// program implements a function template that accumulates the sum of the
-// elements in a collection between two iterators and uses a specified value
-// as the starting point for the accumulation
+// program tests the implementation of the function template accumulate<>() to
+// accumulate the sum of the elements in a collection between two iterators
+// using a specified value as the starting point for the computation
+//
+// T accumulate<Iter, T>(Iter first, Iter last, T start)
 
 #include <iostream> // for cout
-
-// function template that accumulates and returns the sum of the elements in a
-// collection between the iterators first and last (range [first,last)) using
-// the value passed to start as the starting point for the accumulation
-template<typename Iter, typename T>
-T accumulate(Iter first, Iter last, T start)
-{
-    while (first != last)
-    {
-        start += *first; // accumulate results
-        ++first; // advance to next position in collection
-    }
-
-    return start;
-}
+#include <algorithm_utils/accumulate.hpp> // for accumulate<>()
 
 int main()
 {

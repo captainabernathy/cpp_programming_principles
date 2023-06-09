@@ -1,44 +1,42 @@
 // program creates a namespace and implements a function template to copy the
-// elements from one collection to another in it as well as a function template
-// to print the elements in a collection
+// elements from one collection to another in it, as well as a function
+// template to print the elements in a collection
 
 #include <iostream> // for cout, cerr
 #include <list> // for list
-#include <string> // for string
-#include <exception> // for exception
-#include <stdexcept> // for runtime_error
 #include <vector> // for vector
+#include <exception> // for exception
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 namespace our {
-    // function template that copies the elements between the iterators first
-    // and last in one collection (range [first,last)) to another collection
-    // starting from the position of the iterator res and returns an iterator
-    // to the last element copied into the second collection
-    template<typename In, typename Out>
-    Out copy(In first, In last, Out res)
+// function template that copies the elements between the iterators first
+// and last in one collection (range [first,last)) to another collection
+// starting from the position of the iterator res and returns an iterator
+// to the last element copied into the second collection
+template<typename In, typename Out>
+Out copy(In first, In last, Out res)
+{
+    while (first != last)
     {
-        while (first != last)
-        {
-            *res = *first; // copy element
-            ++res; // advance to next position in output collection
-            ++first; // advance to next position in input collection
-        }
-
-        return res;
+        *res = *first; // copy element
+        ++res; // advance to next position in output collection
+        ++first; // advance to next position in input collection
     }
 
-    // function template that prints the elements in a collection between the
-    // iterators start and stop (range [start,stop))
-    template<typename Iter>
-    void print(Iter start, Iter stop)
+    return res;
+}
+
+// function template that prints the elements in a collection between the
+// iterators start and stop (range [start,stop))
+template<typename Iter>
+void print(Iter start, Iter stop)
+{
+    while (start != stop)
     {
-        while (start != stop)
-        {
-            std::cout << *start << '\n';
-            start++; // advance to next position in collection
-        }
+        std::cout << *start << '\n';
+        start++; // advance to next position in collection
     }
+}
 }
 
 // function that tests the function template our::copy() by copying the

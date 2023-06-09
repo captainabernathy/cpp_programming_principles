@@ -1,53 +1,32 @@
-// program implements a function template that computes the inner product of
-// two collections using a specified value as the starting point of the
-// computation, one specified binary operation to perfom the pairwise operation
-// between the two collections, and another to accumulate the results
+// program tests the implementation of the function template inner_product<>()
+// to compute the inner product of two collections using a specified value as
+// the starting point of the computation
 //
-// program implements a function to extract the product from two
-// <string,double> pairs, and uses it with the inner product function template
-// to compute the inner product of two map objects that contain the same keys
+// the computation is performed using two binary operations, such that the
+// first operation is used to accumulate the results of successively applying
+// the second operation to pairs of elements from each collection
+//
+// program also tests the implementation of the weighted_value() function,
+// which extracts the product from a pair of <string,double> pairs
+//
+// the weighted_value() function is subsequently used in conjunction with the
+// inner_product<>() function template to compute the inner product between
+// two map objects that contain the same keys
+//
+// T inner_product<Iter1, Iter2, T, BinOp1, BinOp2>(Iter1 first1, Iter1 last1,
+//                                                  Iter2 first2, T start,
+//                                                  BinOp1 op1, BinOp2 op2)
+//
+// double weighted_value(pair<string, double> const& a,
+//                       pair<string, double> const& b)
 
-#include <iostream> // I/O library header
 #include <map> // for map
 #include <string> // for string
-#include <utility> // for pair, make_pair
+#include <utility> // for make_pair()
+#include <iostream> // for cout
 #include <functional> // for plus<>
-
-// function template that returns the inner product of two collections using
-// start as the starting point for accumulating the result
-// the first collection consists of the range of elements between the iterators
-// first1 and last1 (range [first1,last1)), and the second
-// collection begins at the iterator first2
-// the binary operation op2 is successively applied to corresponding elements
-// of the first and second collections, and the binary operation op1 is used
-// to accumulate the results from op2
-template<typename Iter1, typename Iter2, typename T, typename BinOp1,
-         typename BinOp2>
-T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start, BinOp1 op1,
-                BinOp2 op2)
-{
-    while (first1 != last1)
-    {
-        // output of op2 becomes the second operand of op1
-        start = op1(start, op2(*first1, *first2));
-
-        // advance to next position in both collections
-        ++first1;
-        ++first2;
-    }
-
-    return start;
-}
-
-// NOTE: a pair object collects two values that may be of different types
-// and can be accessed via its public first and second members
-//
-// function returns the the product of the second members of a and b
-double weighted_value(std::pair<std::string, double> const& a,
-                      std::pair<std::string, double> const& b)
-{
-    return a.second * b.second;
-}
+#include <algorithm_utils/inner_product.hpp> // for inner_product<>()
+#include "weighted_value.hpp" // for weighted_value()
 
 int main()
 {
@@ -109,8 +88,9 @@ int main()
     }
     cout << '\n';
 
-    // compute inner product from dow prices and weight using the plus function
-    // for accumulation and the weighted_value for multiplication
+    // compute inner product from dow prices and weight using the plus<>
+    // function object for accumulation and the weighted_value function
+    // for multiplication
     double dji_index = inner_product(dow_price.begin(), dow_price.end(),
             dow_weight.begin(), 0.0, plus<double>(), weighted_value);
 

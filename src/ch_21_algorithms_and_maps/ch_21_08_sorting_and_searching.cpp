@@ -1,45 +1,22 @@
-// program implements a function object for performing case-insensitive
-// comparisons between strings
+// program tests the implementation of the No_case class, which provides a
+// a function object that can be used to perform case-insensitive string
+// comparisons
 //
-// additionally program implements a class for representing fruits and provides a
-// function object for performing comparisons between fruits
+// additionally program implements a class for representing Fruits and provides a
+// function object for performing comparisons between Fruits
 //
-// program also demonstrates the use of the standard library equal_range()
+// program also demonstrates the use of the standard library's equal_range()
 // function, which returns a pair of iterators to the bounds of where a
 // specified element is found in a collection
+//
+// bool No_case::operator()(string const& x, string const& y) const
 
-#include <algorithm> // algorithm library header
-#include <iostream> // I/O library header
 #include <string> // for string
 #include <vector> // for vector
-#include <utility> // provides pair class
-
-// class for a function object that performs a case-insensitive
-// comparison between two strings
-struct No_case {
-    bool operator()(std::string const& x, std::string const& y) const
-    {
-        // loop over first string
-        for (size_t i = 0; i < x.length(); i++)
-        {
-            if (i == y.length())
-                return false; // y < x... (fewer characters in y)
-
-            char xx = tolower(x[i]);
-            char yy = tolower(y[i]);
-            if (xx < yy)
-                return true; // x < y
-            if (yy < xx)
-                return false; // y < x
-
-        }
-
-        if (x.length() == y.length())
-            return false; // x == y
-
-        return true; // x < y (fewer characters in x)
-    }
-};
+#include <algorithm> // for sort(), equal_range()
+#include <iostream> // for cout
+#include <utility> // for pair
+#include <string_utils/string_utils.hpp> // for No_case
 
 // class that represents a fruit by a name
 struct Fruit {

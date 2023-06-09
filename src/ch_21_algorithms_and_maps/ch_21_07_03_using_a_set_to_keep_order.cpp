@@ -2,10 +2,10 @@
 // collect the unique words from an input file and copy them to an output
 // file
 
-#include <fstream> // for ifstream, ofstream
-#include <iostream> // for cin, cout
-#include <iterator> // for istream_iterator, ostream_iterator
 #include <string> // for string
+#include <iostream> // for cin, cout
+#include <fstream> // for ifstream, ofstream
+#include <iterator> // for istream_iterator, ostream_iterator
 #include <set> // for set
 #include <algorithm> // for copy()
 

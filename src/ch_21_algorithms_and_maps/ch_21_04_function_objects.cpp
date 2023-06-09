@@ -1,43 +1,20 @@
-// program implements and tests a function template that returns the first
-// element in a collection between two iterators that satisfies a predicate
+// program tests the implementation of the function template find_if<>() to
+// find an element between a pair of iterators into a collection that satisfies
+// a predicate function
 //
-// program also implements a class template for a function object that can be
-// used a predicate with a function template
+// program also tests the implementation the class template Larger_than<>,
+// which provides a function object that can be used as a predicate function
+//
+// Iter find_if<Iter, Pred>(Iter first, Iter last, Pred pred)
+//
+// Larger_than<T>(T val)
 
-#include <iostream> // for cout
 #include <list> // for list
-#include <vector> // for vector
+#include <iostream> // for cout
+#include <algorithm_utils/find_if.hpp> // for find_if<>()
+#include "larger_than.hpp" // for Larger_than<>
 
-// function template that returns the first element in a collection between
-// the iterators first and last (range [first,last)) that satisfies the
-// predicate function pred and returns an iterator to it...
-// if no element satisfies the predicate function the iterator returned will be
-// equal to last
-template<typename Iter, typename Pred>
-Iter find_if(Iter first, Iter last, Pred pred)
-{
-    while (!(first == last || pred(*first)))
-        ++first; // advance to next position in collection
-    return first;
-}
-
-// class template that provides a function object that returns true when the
-// object passed to it is larger than the object used to instantiate it
-template<typename T>
-class Larger_than {
-    T v;
-public:
-    Larger_than(T val)
-        : v {val} {  }
-    
-    // NOTE: to create a function object, overload the function call operator
-    bool operator()(T x)
-    {
-        return x > v;
-    }
-};
-
-// function that tests the find_if function template and the Larger_than
+// function that tests the find_if<>() function template and the Larger_than<>
 // function object template
 void f(std::list<double>&, double);
 
@@ -56,6 +33,8 @@ int main()
     return 0;
 }
 
+// function that tests the find_if<>() function template and the Larger_than<>
+// function object template
 void f(std::list<double>& v, double d)
 {
     std::list<double>::iterator p = find_if(v.begin(), v.end(),

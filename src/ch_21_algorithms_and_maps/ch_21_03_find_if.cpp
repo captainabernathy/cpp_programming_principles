@@ -1,23 +1,15 @@
-// program implements and tests a function template that returns the first
-// element in a collection between two iterators that satisfies a predicate
-// function
+// program tests the implementation of the function template find_if<>() to
+// find an element between a pair of iterators into a collection that satisfies
+// a predicate function
+//
+// Iter find_if<Iter, Pred>(Iter first, Iter last, Pred pred)
 
+#include <vector>  // for vector
 #include <list> // for list
 #include <iostream> // for cout
-#include <vector>  // for vector
+#include <algorithm_utils/find_if.hpp> // for find_if<>()
 
-// function template that returns the first element in a collection between
-// the iterators first and last (range [first,last)) that satisfies the
-// predicate function pred and returns an iterator to it
-// if no element satisfies the predicate function the iterator returned will be
-// equal to last
-template<typename Iter, typename Pred>
-Iter find_if(Iter first, Iter last, Pred pred)
-{
-    while (!(first == last || pred(*first)))
-        ++first; // advance to next position in collection
-    return first;
-}
+double v; // global double
 
 // returns true if x is an odd number, false if x is even
 inline bool odd(int x)
@@ -31,6 +23,12 @@ inline bool larger_than_42(double x)
     return x > 42.0;
 }
 
+// returns true if x is greater than the global variable v, false if x is not
+inline bool larger_than_v(double x)
+{
+    return x > v;
+}
+
 // function that tests the find_if() function on a vector of integers to find
 // the first odd number in the vector
 void f(std::vector<int>&);
@@ -38,14 +36,6 @@ void f(std::vector<int>&);
 // function that tests the find_if() function on a list of doubles to find
 // the first element in the list greater than 42
 void f(std::list<double>&);
-
-double v; // global double
-
-// returns true if x is greater than the global variable v, false if x is not
-inline bool larger_than_v(double x)
-{
-    return x > v;
-}
 
 // function that tests the find_if() function on a list of doubles to find
 // the first double greater than x
@@ -73,6 +63,8 @@ int main()
     return 0;
 }
 
+// function that tests the find_if() function on a vector of integers to find
+// the first odd number in the vector
 void f(std::vector<int>& v)
 {
     std::vector<int>::iterator p = find_if(v.begin(), v.end(), odd);
@@ -82,6 +74,8 @@ void f(std::vector<int>& v)
         std::cout << "Did not find an odd number\n";
 }
 
+// function that tests the find_if() function on a list of doubles to find
+// the first element in the list greater than 42
 void f(std::list<double>& v)
 {
     std::list<double>::iterator p = find_if(v.begin(), v.end(), larger_than_42);
@@ -91,6 +85,8 @@ void f(std::list<double>& v)
         std::cout << "Did not find a number larger than 42\n";
 }
 
+// function that tests the find_if() function on a list of doubles to find
+// the first double greater than x
 void f(std::list<double>& v, double x)
 {
     ::v = 3.1; // set global v to 31

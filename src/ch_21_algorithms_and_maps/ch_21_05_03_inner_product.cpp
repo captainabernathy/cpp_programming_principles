@@ -1,30 +1,14 @@
-// program implements a function template that computes the inner product of
-// two collections using a specified value as the starting point of the
-// computation
+// program tests the implementation of the function template inner_product<>()
+// to compute the inner product of two collections using a specified value as
+// the starting point of the computation
+//
+// T inner_product<It1, Iter2, T>(Iter1 first1, Iter1 last1, Iter2 first2,
+//                                T start)
 
+#include <vector> // for vector
 #include <iostream> // for cout
-#include <list> // for list 
-#include <vector> // for vector 
-
-// function template that returns the inner product of two collections using 
-// start as the starting point for accumulating the result
-// the first collection consists of the range of elements between the iterators
-// first1 and last1 (range [first1,last1)), and the second collection begins
-// at the iterator first2
-template<typename Iter1, typename Iter2, typename T>
-T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start)
-{
-    while (first1 != last1)
-    {
-        start += (*first1 * *first2); // accumulate results
-
-        // advance to next position in both collections
-        ++first1;
-        ++first2;
-    }
-
-    return start;
-}
+#include <list> // for list
+#include <algorithm_utils/inner_product.hpp> // for inner_product<>()
 
 int main()
 {

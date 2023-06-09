@@ -1,38 +1,20 @@
-// program implements a function template that computes the inner product of
-// two collections using a specified value as the starting point of the
-// computation, one specifies binary operation to perfom the pairwise operation
-// between the two collections, and another to accumulate the results
+// program tests the implementation of the function template inner_product<>()
+// to compute the inner product of two collections using a specified value as
+// the starting point of the computation
+//
+// the computation is performed using two binary operations, such that the
+// first operation is used to accumulate the results of successively applying
+// the second operation to pairs of elements from each collection
+//
+// T inner_product<Iter1, Iter2, T, BinOp1, BinOp2>(Iter1 first1, Iter1 last1,
+//                                                  Iter2 first2, T start,
+//                                                  BinOp1 op1, BinOp2 op2)
 
+#include <vector> // for vector
 #include <iostream>  // cout
-#include <vector> // for vector 
-#include <list> // for list 
-#include <functional> // for plus<>, multiplies<>
-
-// function template that returns the inner product of two collections using
-// start as the starting point for accumulating the result
-// the first collection consists of the range of elements between the iterators
-// first1 and last1 (range [first1,last1)), and the second
-// collection begins at the iterator first2
-// the binary operation op2 is successively applied to corresponding elements
-// of the first and second collections, and the binary operation op1 is used
-// to accumulate the results from op2
-template<typename Iter1, typename Iter2, typename T, typename BinOp1,
-         typename BinOp2>
-T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start, BinOp1 op1,
-                BinOp2 op2)
-{
-    while (first1 != last1)
-    {
-        // output of op2 becomes the second operand of op1
-        start = op1(start, op2(*first1, *first2));
-
-        // advance to next position in both collections
-        ++first1;
-        ++first2;
-    }
-
-    return start;
-}
+#include <functional> // for plus<>(), multiplies<>()
+#include <list> // for list
+#include <algorithm_utils/inner_product.hpp> // for inner_product<>()
 
 int main()
 {
