@@ -1,6 +1,7 @@
 // program test the implementation of the Calculator class that now uses
 // symbolic constants instead of magic numbers
 
+// to make private Calculator attributes visible for testing
 #ifndef CALC_TEST
 #define CALC_TEST
 #endif

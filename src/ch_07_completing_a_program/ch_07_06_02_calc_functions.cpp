@@ -1,5 +1,5 @@
 // program test the implementation of the Calculator class that now includes
-// a calculate() function to control the computation loop
+// a calculate() method to control the computation loop
 
 #include <iostream> // for cerr
 #include <stdexcept> // for runtime_error
