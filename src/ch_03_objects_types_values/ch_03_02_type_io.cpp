@@ -18,7 +18,7 @@ int main()
     cout << steps << '\n'   // 39
         << time << '\n'     // 3.5
         << dp << '\n'       // .
-        << name << '\n'     // Aaron
+        << name << '\n'     // Bob
         << tap << '\n';     // 1
 
     return 0;
