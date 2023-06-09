@@ -3,7 +3,7 @@
 
 #include <iostream> // for cerr
 #include <stdexcept> // for runtime_error
-#include <calc/calculator.hpp> // for Calculator
+#include <calculator_utils/calculator_utils.hpp> // for Token, Calculator
 #include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open()
 
 /*
@@ -61,7 +61,6 @@ int main()
         Calculator c;
         c.calculate();
         keep_window_open();
-        return 0;
     }
     catch (runtime_error& ex)
     {
@@ -75,5 +74,6 @@ int main()
         keep_window_open("~~");
         return 2;
     }
-}
 
+    return 0;
+}

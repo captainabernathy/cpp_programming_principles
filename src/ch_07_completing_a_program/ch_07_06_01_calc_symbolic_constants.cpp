@@ -7,9 +7,7 @@
 
 #include <iostream> // for cin, cout, cerr
 #include <exception> // for exception
-#include <calc/token.hpp> // for Token
-#include <calc/calculator.hpp> // for Calculator
-#include <calc/calc_constants.hpp> // for prompt, print, quit, result
+#include <calculator_utils/calculator_utils.hpp> // for Token, Calculator
 #include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open()
 
 /*
@@ -91,4 +89,3 @@ int main()
     
     return 0;
 }
-

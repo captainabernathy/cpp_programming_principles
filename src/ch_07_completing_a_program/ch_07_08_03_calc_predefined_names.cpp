@@ -3,7 +3,7 @@
 
 #include <iostream> // for cin, cout, cerr
 #include <exception> // for exception
-#include <calc/calculator.hpp> // for Calculator
+#include <calculator_utils/calculator_utils.hpp> // for Token, Calculator
 #include <cpp_facilities/std_lib_facilities.hpp> // for keep_window_open()
 
 /*
@@ -62,7 +62,6 @@ int main()
         c.define_name("e", 2.7182818284);
         c.calculate();
         keep_window_open();
-        return 0;
     }
     catch (exception& ex)
     {
@@ -76,5 +75,6 @@ int main()
         keep_window_open("~~");
         return 2;
     }
+    
+    return 0;
 }
-
