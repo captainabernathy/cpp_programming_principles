@@ -1,5 +1,6 @@
 ## Array Utilities
 
 ### Interfaces
-* **array.hpp**
 * **array_utils.hpp**
+* **array.hpp**
+* **array_fill.hpp**
