@@ -8,6 +8,8 @@
 // this vector's size and capacity to the size of and capacity of rhs
 // subsequently, the size and capacity of rhs will be 0, and its elements
 // will be NULL
+
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
 template<typename T, typename A>
 vector<T, A>& vector<T, A>::operator=(vector&& rhs)
@@ -19,6 +21,7 @@ vector<T>& vector<T>::operator=(vector&& rhs)
     if (this == &rhs)  // short circuit when rhs already refers to this vector
         return *this;
 
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
     // invalidate all of this vector's elements
     for (size_type i = 0; i < sz; i++)

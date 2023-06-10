@@ -4,10 +4,12 @@
 #include <algorithm> // for copy(), fill()
 #include <initializer_list> // for initializer_list<>
 
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
 #include <memory> // for allocator
 #endif
 
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
 template<typename T, typename A = std::allocator<T>>
 #else
@@ -42,12 +44,14 @@ public:
     explicit vector(size_type n)
         : sz {n},
           cap {n},
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
           elems {alloc.allocate(n)}
 #else
           elems {new T[sz]}
 #endif
     {
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
         for (size_type i = 0; i < sz; i++)
             alloc.construct(&elems[i], T());
@@ -64,6 +68,7 @@ public:
     vector(std::initializer_list<T> lst)
         : sz {lst.size()},
           cap {sz},
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
           elems {alloc.allocate(sz)}
 #else
@@ -79,12 +84,14 @@ public:
     vector(vector const& v)
         : sz {v.sz},
           cap {sz},
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
           elems {alloc.allocate(sz)}
 #else
           elems {new T[sz]}
 #endif
     {
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
         for (size_type i = 0; i < sz; i++)
             alloc.construct(&elems[i], v.elems[i]);
@@ -112,6 +119,7 @@ public:
     // releases the resources occupied by a vector
     ~vector()
     {
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
         // invalidate this vector's elements
         for (size_type i = 0; i < sz; i++)
@@ -182,6 +190,7 @@ public:
     // inserts t at the end of this vector and updates this vector's size
     void push_back(T const& t);
 
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
     // returns an iterator to the first element in this vector
     iterator begin()
@@ -224,6 +233,7 @@ public:
 #endif
 
 private:
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
     A alloc;
 #endif

@@ -3,6 +3,7 @@
 
 #include <vector_utils/vector_class.hpp>
 
+// not defined when vector<T,A> needed
 #ifdef VECTOR_T
 #include <algorithm> // for copy()
 #endif
@@ -14,6 +15,7 @@
 // in the case that the capacity of this vector exceeds the capacity of rhs,
 // only the size of this vector is updated while its capacity remains
 // unchanged
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
 template<typename T, typename A>
 vector<T, A>& vector<T, A>::operator=(vector const& rhs)
@@ -28,6 +30,7 @@ vector<T>& vector<T>::operator=(vector const& rhs)
     // when there's no need to allocate more space in this vector
     if (rhs.cap <= cap)
     {
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
         // copy up to rhs.sz elements from rhs into this vector at the same
         // corresponding position
@@ -48,6 +51,7 @@ vector<T>& vector<T>::operator=(vector const& rhs)
 #endif
     }
 
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
     // allocate space for rhs.sz elements
     T *t = alloc.allocate(rhs.sz);

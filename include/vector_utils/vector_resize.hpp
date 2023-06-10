@@ -3,6 +3,7 @@
 
 #include <vector_utils/vector_class.hpp>
 
+// not defined when vector<T,A> needed
 #ifdef VECTOR_T
 #include <algorithm> // for fill()
 #endif
@@ -12,6 +13,8 @@
 // new elements are added to the end of this vector
 // when new_size is less than this vector's current size the existing elements
 // in this vector that exceed new_size are invalidated
+
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
 template<typename T, typename A>
 void vector<T, A>::resize(size_type new_size, T val)
@@ -22,6 +25,7 @@ void vector<T>::resize(size_type new_size, T val)
 {
     reserve(new_size); // make space for new elemens
 
+// not defined when vector<T,A> needed
 #ifndef VECTOR_T
     // loop runs when there's space to fill at the end of this vector
     for (size_type i = sz; i < new_size; i++)
