@@ -5,9 +5,9 @@
 // <typename T, size_t N>
 // array (template class)
 //      T elems[N]
-//      T const* begin() const
-//      T* begin()
-//      T* end()
+//      const_iterator begin() const
+//      iterator begin()
+//      iterator end()
 //      size_t size() const
 //      T& operator[](size_t n)
 //      T const& operator[](size_t n) const
