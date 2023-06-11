@@ -1,5 +1,11 @@
 // first attempt at testing the Token class to represent the elements of a
 // calculator's grammar
+//
+// Token
+//      Token(char ch)
+//      Token(char ch, double val)
+//      char kind
+//      double value
 
 #include <iostream> // for cout
 #include <calculator_utils/token.hpp> // for Token

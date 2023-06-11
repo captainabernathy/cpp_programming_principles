@@ -1,10 +1,20 @@
 // program tests the implementation of the Calculator class, which encapsulates
 // a Token_stream object to process the Tokens it receives
 //
+// Calculator
+//      Calculator()
+//      Token get()             // typically private
+//      void putback(Token t)   // typically private
+//      double expression()     // typically private
+//
+// Token
+//      char kind
+//      double value
+//
 // NOTE: This program and ch_06_09_token_stream_02 are the same
 
-// this directive makes the Calculator class's private attributes visible for
-// testing purposes
+// NOTE: this directive makes the Calculator class's private attributes visible
+// for testing purposes and to syntax checkers
 #ifndef CALC_TEST
 #define CALC_TEST
 #endif
@@ -45,7 +55,7 @@ int main()
         using std::cout;
 
         Calculator c;
-        double val = 0;
+        double val = 0.;
 
         while (cin)
         {

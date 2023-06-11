@@ -1,6 +1,16 @@
 // program tests the implementation of the Calculator class, which encapsulates
 // a Token_stream object to process the Tokens it receives
 //
+// Calculator
+//      Calculator()
+//      Token get()             // typically private
+//      void putback(Token t)   // typically private
+//      double expression()     // typically private
+//
+// Token
+//      char kind
+//      double value
+//
 // NOTE: This program and ch_06_07_token_stream_01 are the same
 
 // NOTE: this directive makes the Calculator class's private attributes visible

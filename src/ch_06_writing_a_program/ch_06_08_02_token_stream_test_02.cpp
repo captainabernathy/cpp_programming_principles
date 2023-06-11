@@ -1,8 +1,15 @@
 // program tests the implementation of a Token_stream class for processing
 // Tokens as input to a calculator program
+//
+// Token_stream
+//      Token_stream()
+//      Token get()
+//      void putback(Token t)
+//      bool full       // typically private
+//      Token buffer    // typically private
 
 // NOTE: this directive makes the Calculator class's private attributes visible
-// for testing purposes
+// for testing purposes and to syntax checkers
 #ifndef TOKEN_STREAM_TEST
 #define TOKEN_STREAM_TEST
 #endif
