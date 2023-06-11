@@ -1,18 +1,15 @@
 // program prompts user for an integer between 1 and 10 (inclusive), reads input
 // from stdin, and writes valid input to stdout.
 //
-// program implements rudimentary input validation and also implements the
-// function skip_to_int() which enables the input stream to recover upon the
+// program implements rudimentary input validation and also tests the
+// function skip_to_int(), which enables the input stream to recover upon the
 // detection of non-integer input
+//
+// void skip_to_int()
 
 #include <iostream> // for cin, cout, cerr
-#include <cctype> // for isdigit()
-#include <string> // string
 #include <exception> // for exception
-#include <cpp_facilities/std_lib_facilities.hpp> // for error()
-
-// utility function for recovering after seeing a bad/unexpected character
-void skip_to_int();
+#include "ch_10_utils.hpp" // for skip_to_int()
 
 int main()
 {
@@ -47,7 +44,6 @@ int main()
         }
 
         cout << n << '\n';
-        return 0;
     }
     catch (exception& ex)
     {
@@ -59,25 +55,6 @@ int main()
         cerr << "unknown exception\n";
         return 2;
     }
-}
 
-void skip_to_int()
-{
-    if (std::cin.fail()) // if we found something that was not an integer
-    {
-        std::cin.clear(); // clear stream state so that we can look at it
-        char ch;
-
-        while (std::cin >> ch) // read input
-        {
-            if (isdigit(ch) || ch == '-')
-            {
-                // put digit back in input stream so that it can be read again
-                std::cin.unget();
-                return;
-            }
-        }
-    }
-
-    error("no input");
+    return 0;
 }

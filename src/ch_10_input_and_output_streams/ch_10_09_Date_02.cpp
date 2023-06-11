@@ -1,57 +1,21 @@
-// program implements a class for representing dates as well as overloaded
-// input and output operators for reading and writing dates to and from
-// input and output streams
+// program tests the implementation of overloaded input and output operators
+// for Dates
+//
+// Date (class)
+//      Month (enum)
+//      Date(int y, Month m, int d)
+//
+// ostream& operator<<(ostream& os, Date const& d)
+// istream& operator>>(istream& is, Date& d)
 
-#include <istream> // for istream
-#include <ostream> // for ostream
 #include <iostream> // for cin, cout
 
-class Date {
-public:
-    enum Month {
-        jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-    };
+// make expanded Date features hidden from syntax checkers
+#ifndef NO_CHRONO_NS
+#define NO_CHRONO_NS
+#endif
 
-    // default constructor
-    Date() {  }
-    
-    // constructor... initializes a Date's private data members from input
-    Date(int yy, Month mm, int dd)
-        : y {yy}, m {mm}, d {dd} {  }
-
-    // return a Date's day
-    Month month() const
-    {
-        return m;
-    }
-
-    // return a Date's month
-    int day() const
-    {
-        return d;
-    }
-
-    // return a Date's year
-    int year() const
-    {
-        return y;
-    }
-
-private:
-    // private attributes
-    int y;
-    Month m;
-    int d;
-};
-
-// overloaded input operator for Dates
-// reads Date dd into input stream is
-// NOTE: Date dd should be formatted as "(year,month,day)"
-std::istream& operator>>(std::istream& is, Date& dd);
-
-// overloaded output operator for Dates
-// writes and formats Date d to output steream os
-std::ostream& operator<<(std::ostream& os, const Date& d);
+#include <chrono_utils/date_utils.hpp> // for Date
 
 int main()
 {
@@ -60,7 +24,7 @@ int main()
   
     // read a date from stdin and write it to stdout
     Date d;
-    cout << "Enter date: ";
+    cout << "Enter date (year,month,day): ";
     cin >> d;
 
     cout << '\n';
@@ -68,38 +32,4 @@ int main()
     cout << "d is " << d << '\n';
 
     return 0;
-}
-
-std::istream& operator>>(std::istream& is, Date& dd)
-{
-    int y;
-    int m;
-    int d;
-    char ch1;
-    char ch2;
-    char ch3;
-    char ch4;
-
-    // read date as (year,month,day)
-    is >> ch1 >> y >> ch2 >> m >> ch3 >> d >> ch4;
-
-    // return input stream if it is not good
-    if (!is)
-        return is;
-
-    // test date formatting
-    if (ch1 != '(' || ch2 != ',' || ch3 != ',' || ch4 != ')')
-    {
-        // set stream error state to failed... format error
-        is.clear(std::ios_base::failbit);
-        return is;
-    }
-
-    dd = Date {y, Date::Month(m), d}; // update dd
-    return is;
-}
-
-std::ostream& operator<<(std::ostream& os, const Date& d)
-{
-    return os << '(' << d.year() << "," << d.month() << "," << d.day() << ")";
 }

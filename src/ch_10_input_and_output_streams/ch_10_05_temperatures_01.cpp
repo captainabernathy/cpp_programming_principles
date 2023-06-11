@@ -1,15 +1,15 @@
 // program defines a class for representing hourly temperature readings, and
-// then reads temperature readings from an input file and writes them to an
-// output file
+// then reads temperature readings from the file temps_infile.txt and writes
+// them to an output file
 
 #include <iostream> // for cin, cout, cerr
-#include <fstream> // for ifstream, ofstream
 #include <string> // for string
+#include <fstream> // for ifstream, ofstream
 #include <vector> // for vector
 #include <exception> // for exception
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
-// structure representing a temperature reading
+// class representing a temperature reading
 struct Reading {
     int hour;
     double temperature;
@@ -31,8 +31,7 @@ int main()
         using std::ofstream;
         using std::vector;
 
-        cout << "Please enter input file name: ";
-
+        cout << "Please enter input file name: "; // temps_infile.txt
         string name;
         cin >> name; // read file name
 
@@ -43,7 +42,7 @@ int main()
         if (!ist)
             error("can't open input file ", name);
 
-        cout << "Please enter name of output file: ";
+        cout << "Please enter name of output file: "; // temps_outfile.txt
         cin >> name;
 
         // create an output file stream object to write to the file
@@ -82,4 +81,6 @@ int main()
         cerr << "unknown exception\n";
         return 2;
     }
+
+    return 0;
 }

@@ -4,9 +4,8 @@
 #include <ios> // for ios_base
 #include <istream> // for istream
 #include <iostream> // for cin, cout, cerr
-#include <string> // for string
-#include <exception> // for exception
 #include <vector> // for vector
+#include <exception> // for exception
 
 // reads integers from input stream ist into integer vector v until reaching
 // eof() or terminator

@@ -20,4 +20,6 @@ int main()
             << "Please try again: ";
 
     cout << n << '\n';
+
+    return 0;
 }

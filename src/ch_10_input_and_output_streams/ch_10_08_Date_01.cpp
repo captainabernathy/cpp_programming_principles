@@ -1,44 +1,19 @@
-// program implements a class for representing dates as well as an overloaded
-// output operator for writing dates to an output stream
+// program tests the implementation of an overloaded output operator for Dates
+//
+// Date (class)
+//      Month (enum)
+//      Date(int y, Month m, int d)
+//
+// ostream& operator<<(ostream& os, Date const& d)
 
-#include <iostream> // for ostream, cout
+#include <iostream> // for cout
 
-// user-defined Date type
-class Date {
-public:
-    enum Month {
-        jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-    };
+// make expanded Date features hidden from syntax checkers
+#ifndef NO_CHRONO_NS
+#define NO_CHRONO_NS
+#endif
 
-    // default constructor
-    Date() {  }
-
-    // constructor... initializes a Date's private data members from input
-    Date(int yy, Month mm, int dd)
-        : y {yy}, m {mm}, d {dd} {  }
-
-    // return a Date's month
-    Month month() const { return m; }
-
-    // return a Date's day
-    int day() const { return d; }
-
-    // return a Date's year
-    int year() const { return y; }
-
-private:
-    // private attributes
-    int y;
-    Month m;
-    int d;
-};
-
-// overloaded output operator for Dates
-// writes and formats Date d to output steream os
-std::ostream& operator<<(std::ostream& os, const Date& d)
-{
-    return os << "(" << d.year() << "," << d.month() << "," << d.day() << ")";
-}
+#include <chrono_utils/date_utils.hpp> // for Date
 
 int main()
 {

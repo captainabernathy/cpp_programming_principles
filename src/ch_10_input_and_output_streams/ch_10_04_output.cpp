@@ -1,43 +1,25 @@
-// program implements a Point class with overloaded input and output
-// operators... then writes a vector of points to an output file
+// program tests the implementation of the Point class's overloaded output
+// operator by writing a vector of Points to a file
+//
+// Point (class)
+//      Point(int xi = 0, yi = 0)
+//
+// istream& operator>>(istream& ist, Point& p)
+// ostream& operator<<(ostream& ost, Point const& p)
 
-#include <istream> // for istream
-#include <ostream> // for ostream
 #include <iostream> // for cin, cout, cerr
-#include <fstream> // for ofstream
 #include <string> // for string
+#include <fstream> // for ofstream
 #include <vector> // for vector
 #include <exception> // for exception
-#include <stdexcept> // runtime_error
-#include <cpp_facilities/std_lib_facilities.hpp> // error()
 
-// user-define Point type
-struct Point {
-    int x; // x coordinate
-    int y; // y coordinate
+// make Point I/O methods visible to syntax checkers
+#ifndef POINT_IO
+#define POINT_IO
+#endif
 
-    // overloaded input operator for a Point
-    // function reads a formated Point "(x,y)" into an input stream
-    friend std::istream& operator>>(std::istream& ist, Point& p)
-    {
-        char a; // '('
-        char b; // ','
-        char c; // ')'
-
-        if ((ist >> a >> p.x >> b >> p.y >> c)
-            && !(a == '(' && b == ',' && c == ')'))
-            throw std::runtime_error("Invalid format");
-
-        return ist;
-    }
-
-    // overloaded output operator for a Point
-    // function formats and writes a Point "(x,y)" to an output stream
-    friend std::ostream& operator<<(std::ostream& ost, const Point& p)
-    {
-        return ost << '(' << p.x << ',' << p.y << ')';
-    }
-};
+#include <GUI/Point.hpp> // for Point
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 int main()
 {
@@ -52,8 +34,7 @@ int main()
         using std::ofstream;
         using std::vector;
 
-        cout << "Please enter name of output file: ";
-
+        cout << "Please enter name of output file: "; // points_outfile.txt
         string name;
         cin >> name; // file to write to
 
@@ -67,8 +48,9 @@ int main()
 
         for (int i = 0; i < 10; i++)
         {
-            Point p {i, i * i}; // create a point
-            points.push_back(p); // write it to vector
+            // Point p {i, i * i}; // create a point
+            // points.push_back(p); // write it to vector
+            points.push_back({i, i * i}); // write Point to vector
         }
 
         // write each point in the points vector to the file

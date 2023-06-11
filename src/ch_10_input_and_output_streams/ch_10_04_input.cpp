@@ -1,43 +1,26 @@
-// program implements a Point class with overloaded input and output
-// operators... then reads points from a file and writes them to stdout
+// program tests the implementation of the Point class's overloaded input and
+// output operators by reading Points from from the file points_infile.txt and
+// writing them to stdout
+//
+// Point (class)
+//      Point(int xi = 0, yi = 0)
+//
+// istream& operator>>(istream& ist, Point& p)
+// ostream& operator<<(ostream& ost, Point const& p)
 
-#include <istream> // for istream
-#include <ostream> // for ostream
 #include <iostream> // for cin, cout, cerr
-#include <fstream> // for ifstream
 #include <string> // for string
-#include <exception> // for exception
-#include <stdexcept> // for runtime_error
+#include <fstream> // for ifstream
 #include <vector> // for vector
+#include <exception> // for exception
+
+// make Point I/O methods visible to syntax checkers
+#ifndef POINT_IO
+#define POINT_IO
+#endif
+
+#include <GUI/Point.hpp> // for Point
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
-
-// user-define Point type
-struct Point {
-    int x; // x coordinate
-    int y; // y coordinate
-
-    // overloaded input operator for a Point
-    // function reads a formated Point "(x,y)" into an input stream
-    friend std::istream& operator>>(std::istream& ist, Point& p)
-    {
-        char a; // '('
-        char b; // ','
-        char c; // ')'
-
-        if ((ist >> a >> p.x >> b >> p.y >> c)
-            && !(a == '(' && b == ',' && c == ')'))
-            throw std::runtime_error("Invalid format");
-
-        return ist;
-    }
-
-    // overloaded output operator for a Point
-    // function formats and writes a Point "(x,y)" to an output stream
-    friend std::ostream& operator<<(std::ostream& ost, const Point& p)
-    {
-        return ost << '(' << p.x << ',' << p.y << ')';
-    }
-};
 
 int main()
 {
@@ -52,7 +35,7 @@ int main()
         using std::ifstream;
         using std::vector;
 
-        cout << "Please enter input file name: ";
+        cout << "Please enter input file name: "; // points_infile.txt
         string name;
         cin >> name; // read file name
 
