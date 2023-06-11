@@ -8,18 +8,19 @@
 class vector {
     // private members
     size_t sz; // size
-    double *elem; // pointer to the elements
+    double *elems; // pointer to the elements
 
 public:
     // constructor
     // creates a new vector of s elements
     explicit vector(size_t s)
-        : sz {s}, elem {new double[s]} {  }
+        : sz {s},
+          elems {new double[s]} {  }
 
     // destructor
     ~vector()
     {
-        delete[] elem; // release dynamically allocated resources
+        delete[] elems; // release dynamically allocated resources
     }
 
     // returns the number elements in this vector
@@ -32,14 +33,14 @@ public:
     // returns the nth element in this vector
     double get(size_t n) const
     {
-        return elem[n];
+        return elems[n];
     }
 
     // access: write
     // sets the nth element in this vector to v
     void set(size_t n, double v)
     {
-        elem[n] = v;
+        elems[n] = v;
     }
 };
 

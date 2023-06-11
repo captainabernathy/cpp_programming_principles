@@ -3,8 +3,6 @@
 
 #include <iostream> // for cout, cerr
 #include <exception> // for exception
-#include <stdexcept> // for runtime_error
-#include <string> // for string
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // computes a new value and returns it
@@ -68,16 +66,21 @@ int main()
     return 0;
 }
 
+// computes a new value and returns it
 int incr_v(int x)
 {
     return x + 1;
 }
 
+// receives a pointer
+// function dereferences the pointer it receives and increments its value
 void incr_p(int *p)
 {
     ++*p; // dereference and increment value being pointed to
 }
 
+// function dereferneces the value p points to and increments it... or calls
+// error() if p is NULL
 void incr_p(char *p)
 {
     if (p == nullptr)
@@ -85,6 +88,8 @@ void incr_p(char *p)
     ++*p; // dereference and increment value being pointed to
 }
 
+// receives a reference
+// funciton increments the value of the reference it receives
 void incr_r(int& r)
 {
     ++r; // increment referenced value
