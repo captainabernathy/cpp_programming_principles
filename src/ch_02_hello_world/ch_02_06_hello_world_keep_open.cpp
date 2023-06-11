@@ -8,9 +8,9 @@ int main()
 {
     using std::cout;
 
-    cout << "Hello, World!\n"; // write "Hello, World!" to stdout
+    cout << "Hello, World!\n"; // writes "Hello, World!" to stdout
     cout << "Press any key to exit...\n";
-    keep_window_open(); // wait for user to enter a character
+    keep_window_open(); // waits for user to enter a character
 
     return 0;
 }
