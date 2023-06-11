@@ -1,18 +1,17 @@
-// program implements a function that receives pointers to the first and last
-// characters of a C-string and recursively determines whether or not it is a
-// palindrome
+// program tests an overloaded implementation of the is_palindrome() function,
+// which receives pointers to the first and last characters of a c-string and
+// (recursively) determines whether or not it is a palindrome
+//
+// program also tests the implementation of the read_word() function, which
+// reads characters from an input stream into a buffer as a c-string
+//
+// bool is_palindrome(const char *first, const char *last)
+// istream& read_word(istream& is, char *buffer, int max)
 
-#include <istream> // for istream
 #include <iostream> // for cout, cin
 #include <cstring> // for strlen()
-
-// given a pointer to the first and last characters in a string, function
-// returns whether or not the string is a palindrome
-bool is_palindrome(const char *first, const char *last);
-
-// function reads at most max-1 characters from is into buffer, which will be
-// null-terminated
-std::istream& read_word(std::istream& is, char *buffer, int max);
+#include <string_utils/string_utils.hpp> // for is_palindrome()
+#include <io_utils/io_utils.hpp> // for read_word()
 
 int main()
 {
@@ -32,29 +31,4 @@ int main()
     }
 
     return 0;
-}
-
-std::istream& read_word(std::istream& is, char *buffer, int max)
-{
-    is.width(max); // read at most max-1 characters in the next input operation
-    is >> buffer; // read whitespace-terminated word, and add \0 after the last
-                  // character read into the buffer
-    return is;
-}
-
-bool is_palindrome(const char *first, const char *last)
-{
-    // recursively increment pointer address from first and decrement it from
-    // last... string must be a mirror image of itself to be a palindrome
-    return (first < last) ?
-            (*first != *last) ? false : is_palindrome(++first, --last) : true;
-
-    // if (first < last)
-    // {
-    //     if (*first != *last)
-    //         return false;
-    //     return is_palindrome(++first, --last);
-    // }
-
-    // return true;
 }

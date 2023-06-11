@@ -1,59 +1,21 @@
-// program implements an ad-hoc class for a vector of doubles and demonstrates
-// how to implement a constructor that takes an initializer list
+// program tests the implementation of a vector class that stores elements of
+// type double, which now supports an initializer list constructor
+//
+// vector (class)
+//      explicit vector(size_t s)
+//      vector(initializer_list<double> lst)
+//      ~vector()
+//
+// void print_vector(vector const&, string const&)
 
 #include <iostream> // for cout
-#include <algorithm> // for copy()
-#include <initializer_list> // for initializer_list<>
-#include <string> // for string
 
-// ad-hoc class for a vector of doubles
-class vector {
-    // private attributes
-    size_t sz; // number of elements in a vector
-    double *elem; // pointer to elements in a vector
+// make vector::get() and vector::set() methods visible to syntax checkers
+#ifndef GET_AND_SET
+#define GET_AND_SET
+#endif
 
-public:
-    // public member functions
-    // explicit constructor
-    // allocates memory for a vector of s doubles and sets each element in s to
-    // 0.0
-    explicit vector(size_t s)
-        : sz {s}, elem {new double[sz]}
-    {
-        for (size_t i = 0; i < sz; i++)
-            elem[i] = 0.0;
-    }
-
-    // constructor that takes an initializer list
-    // it creates a vector with a size equal to the number of elements in the
-    // initializer list and copies the values of the elements in the
-    // initializer list to its elements
-    vector(std::initializer_list<double> lst)
-        : sz {lst.size()}, elem {new double[sz]}
-    {
-        std::copy(lst.begin(), lst.end(), elem);
-    }
-
-    // destructor deallocates dynamically allocated memory
-    ~vector() { delete[] elem; }
-
-    // returns the size of this vector
-    size_t size() const { return sz; }
-
-    // provides read access to this vector by returning the value
-    // of the element at index n
-    // NOTE: function does not provide any range checking
-    double get(size_t n) const { return elem[n]; }
-
-    // provides write access to this vector by assigning double v to the
-    // element at index n
-    // NOTE: function does not provide any range checking
-    void set(size_t n, double v) { elem[n] = v; }
-};
-
-// outputs the contents of the vector it receives and prepends each
-// with the string it receives
-void print_vector(vector const&, std::string const&);
+#include "vector_dbl_utils.hpp" // for vector, print_vector()
 
 int main()
 {
@@ -78,11 +40,4 @@ int main()
     print_vector(v3, "v3");
 
     return 0;
-}
-
-void print_vector(vector const& v, std::string const& s)
-{
-    // loop over each vector and output each element prepended by s
-    for (size_t i = 0; i < v.size(); i++)
-        std::cout << s << ": " << v.get(i) << '\n';
 }

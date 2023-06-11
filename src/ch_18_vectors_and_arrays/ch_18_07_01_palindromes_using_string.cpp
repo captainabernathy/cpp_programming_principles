@@ -1,11 +1,11 @@
-// program implements a function that determines whether or not a string is a
-// palindrome
+// program tests the implementation of the is_palindrome() function, which
+// determines whether or not a string is a palindrome
+//
+// bool is_palindrome(string const&)
 
-#include <iostream> // for cin, cout
 #include <string> // for string
-
-// given a string, function returns whether or not it is a palindrome
-bool is_palindrome(std::string const&);
+#include <iostream> // for cin, cout
+#include <string_utils/string_utils.hpp> // for is_palindrome()
 
 int main()
 {
@@ -26,22 +26,4 @@ int main()
     }
 
     return 0;
-}
-
-bool is_palindrome(std::string const& s)
-{
-    size_t first = 0;
-    size_t last = s.length() - 1;
-
-    // cout up from first and down from last...
-    // string must be a mirror image of itself to be a palindrome
-    while (first < last)
-    {
-        if (s[first] != s[last])
-            return false;
-        first++;
-        last--;
-    }
-
-    return true;
 }

@@ -1,42 +1,23 @@
-// program implements an ad-hoc class for a vector of doubles and demonstrates
-// how to implement an explicit constructor
+// program tests the implementation of a vector class that stores elements of
+// type double
+//
+// vector (class)
+//      explicit vector(size_t s)
+//      ~vector()
+//      double get(size_t n) const
+//      void set(size_t n, double v)
 
 #include <iostream> // for cout
 
-// ad-hoc class meant to represent a starting point for building up a
-// user-defined vector type
-class vector {
-    // private attributes
-    size_t sz; // number of elements in a vector
-    double *elem; // pointer to elements in a vector
+// make vector::get() and vector::set() methods visible to syntax checkers
+#ifndef GET_AND_SET
+#define GET_AND_SET
+#endif
 
-public:
-    // public member functions
-    // explicit constructor
-    // allocates memory for a vector of s doubles
-    explicit vector(size_t s)
-        : sz {s}, elem {new double[s]} {  }
-
-    // destructor deallocates dynamically allocated memory
-    ~vector() { delete[] elem; }
-
-    // returns the size of this vector
-    size_t size() const { return sz; }
-
-    // provides read access to this vector by returning the value
-    // of the element at index n
-    // NOTE: function does not provide any range checking
-    double get(size_t n) const { return elem[n]; }
-
-    // provides write access to this vector by assigning double v to the
-    // element at index n
-    // NOTE: function does not provide any range checking
-    void set(size_t n, double v) { elem[n] = v; }
-};
+#include "vector_dbl.hpp" // for vector
 
 // a tester function for the the user-defined vector type...
-// n has no significance at this point
-void f(size_t n);
+void f();
 
 int main()
 {
@@ -66,7 +47,7 @@ int main()
 // SO the destruction of one's elements results in the destruction of the
 // other's, which results in an attempt by the second object's destructor to
 // free already freed memory
-void f(size_t n)
+void f()
 {
     vector v(3); // vector of 3 elements
     v.set(2, 2.2); // set last element of v to 2.2

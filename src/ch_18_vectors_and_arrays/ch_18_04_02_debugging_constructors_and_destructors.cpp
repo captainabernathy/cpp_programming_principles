@@ -5,8 +5,8 @@
 // whenever any of these methods is called within the program, an output
 // message associated with each is printed to the screen
 
-#include <iostream> // for cout
 #include <string> // for string
+#include <iostream> // for cout
 #include <vector> // for vector
 
 // simple test class
@@ -28,10 +28,10 @@ struct X {
     }
 
     // single argument constructor
-    X(int v)
+    explicit X(int v)
     {
         val = v;
-        out("constructor X(int)");
+        out("explicit constructor X(int)");
     }
 
     // copy constructor

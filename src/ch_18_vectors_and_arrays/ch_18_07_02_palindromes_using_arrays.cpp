@@ -1,18 +1,16 @@
-// program implements a function that receives a C-string as an array of
+// program tests an overloaded implementation of the is_palindrome() function,
+// which determines whether or not a c-string is a palindrome
+//
+// program also tests the implementation of the read_word() function, which
+// reads characters from an input stream into a buffer as a c-string
+//
+// bool is_palindrome(const char s[], int n)
+// istream& read_word(istream& is, char *buffer, int max)
 
-// characters and determines whether or not it is a palindrome
-
-#include <istream> // for istream
 #include <iostream> // for cin, cout
 #include <cstring> // for strlen()
-
-// given a c-string and its length, function returns whether or not it is a
-// palindrome
-bool is_palindrome(const char s[], int n);
-
-// function reads at most max-1 characters from is into buffer, which will be
-// null-terminated
-std::istream& read_word(std::istream& is, char *buffer, int max);
+#include <string_utils/string_utils.hpp> // for is_palindrome()
+#include <io_utils/io_utils.hpp> // for read_word()
 
 int main()
 {
@@ -32,30 +30,4 @@ int main()
     }
 
     return 0;
-}
-
-std::istream& read_word(std::istream& is, char *buffer, int max)
-{
-    is.width(max); // read at most max-1 characters in the next input operation
-    is >> buffer; // read whitespace-terminated word, and add \0 after the last
-                  // character read into the buffer
-    return is;
-}
-
-bool is_palindrome(const char s[], int n)
-{
-    int first = 0;
-    int last = n - 1;
-
-    // cout up from first and down from last...
-    // string must be a mirror image of itself to be a palindrome
-    while (first < last)
-    {
-        if (s[first] != s[last])
-            return false;
-        first++;
-        last--;
-    }
-
-    return true;
 }

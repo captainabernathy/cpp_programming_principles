@@ -1,9 +1,10 @@
-// program demonstrates various techniques for initializing an array
+// program demonstrates various techniques for initializing an array, as well
+// as the implementation of the strlen() function for c-strings
 
 #include <iostream> // for cout
 
 // simple string length function that returns the number of characters in the
-// C string it receives
+// c-string it receives
 size_t strlen(const char *p);
 
 int main()
