@@ -1,26 +1,20 @@
-// program demonstrates how to use input and output stream object to read from
+// program demonstrates how to use input and output stream objects to read from
 // and write to binary files
-// program also implements a function template to get the address of the
-// the first byte of an object's representation
+//
+// program also tests the function template as_bytes<>() to get the address of
+// the the first byte of an object's representation
+//
+// template<typename T>
+// char *as_bytes(T& i)
 
 #include <ios> // for ios_base
 #include <iostream> // for cin, cout, cerr
-#include <fstream> // for ifstream, ofstream
 #include <string> // for string
+#include <fstream> // for ifstream, ofstream
 #include <vector> // for vector
 #include <exception> // for exception
+#include <mem_utils/mem_utils.hpp> // for as_bytes<>()
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
-
-// function template that gets the address of the first byte of an object's
-// representation
-template<typename T>
-char *as_bytes(T& i) // treat T as a sequence of bytes
-{
-    // get the address of the first byte of memory used to store object
-    void *addr = &i;
-
-    return static_cast<char *>(addr); // treat that memory as bytes
-}
 
 int main()
 {
@@ -38,7 +32,7 @@ int main()
         using std::vector;
 
         // open istream for binary input from a file
-        cout << "Please enter input file name: ";
+        cout << "Please enter input file name: "; // infile.bin
         string name;
         cin >> name;
 
@@ -69,8 +63,6 @@ int main()
         // write to binary file
         for (size_t i = 0; i < v.size(); i++)
             ofs.write(as_bytes(v[i]), sizeof(int)); // write bytes to file
-
-        return 0;
     }
     catch (exception& ex)
     {
@@ -82,4 +74,6 @@ int main()
         cerr << "Oops: unknown exception!\n";
         return 2;
     }
+
+    return 0;
 }

@@ -1,15 +1,17 @@
 // program demonstrates to use string streams to read from and write to input
 // and output streams
+//
+// program also tests the function str_to_double(), which converts an input
+// string to double and returns the result
+//
+// double str_to_double(string s)
 
+#include <sstream> // for ostringstream
 #include <iostream> // for cout, cerr
-#include <string> // for string
-#include <exception> // for exception
 #include <fstream> // for ofstream
-#include <sstream> // for ostringstream, istringstream
+#include <exception> // for exception
+#include <io_utils/io_utils.hpp> // for str_to_double()
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
-
-// function that converts the characters in s to a double and returns it
-double str_to_double(std::string s);
 
 // testing function for str_to_double()
 void test();
@@ -50,20 +52,11 @@ int main()
         cerr << "error: unknown\n";
         return 2;
     }
+
+    return 0;
 }
 
-double str_to_double(std::string s)
-{
-    std::istringstream is {s}; // create a string stream to read from s
-    double d;
-    is >> d; // read contents of s into d
-
-    if (!is) // stream in bad state
-        error("double format error: ", s);
-
-    return d;
-}
-
+// testing function for str_to_double()
 void test()
 {
     try
