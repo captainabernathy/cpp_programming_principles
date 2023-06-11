@@ -14,7 +14,7 @@
 // NOTE: This program and ch_06_07_token_stream_01 are the same
 
 // NOTE: this directive makes the Calculator class's private attributes visible
-// for testing purposes
+// for testing purposes and to syntax checkers
 #ifndef CALC_TEST
 #define CALC_TEST
 #endif
