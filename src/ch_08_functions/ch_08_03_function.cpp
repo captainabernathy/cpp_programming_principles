@@ -5,7 +5,10 @@
 int f(int); // function delcaration
 
 // inline function definition
-inline int g(int i) { return f(i); }
+inline int g(int i)
+{
+    return f(i);
+}
 
 int main()
 {
