@@ -1,12 +1,12 @@
 // program improves Calculator error handling
 //
-// Calculator
+// Calculator (class)
 //      Calculator()
 //      Token get()             // typically private
 //      void putback(Token t)   // typically private
 //      double expression()     // typically private
 //
-// Token
+// Token (class)
 //      char kind
 //      double value
 

@@ -1,7 +1,7 @@
 // first attempt at testing the Token class to represent the elements of a
 // calculator's grammar
 //
-// Token
+// Token (class)
 //      Token(char ch)
 //      Token(char ch, double val)
 //      char kind

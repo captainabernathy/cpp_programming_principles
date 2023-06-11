@@ -1,7 +1,7 @@
 // program test the implementation of the Calculator class that now includes
 // support for loading predefined variables into the Calculator
 //
-// Calculator
+// Calculator (class)
 //      Calculator()
 //      void calculate()
 //      double define_name(string var, double val)

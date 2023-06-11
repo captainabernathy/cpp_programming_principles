@@ -1,66 +1,33 @@
-// program implements a Date class that contains a nested class that is used
-// for throwing upon the detection of an invalid Date
+// program tests the implementation of the Date class, which now includes a
+// nested Invalid class that is thrown when an attempt is made to construct an
+// invalid Date
 //
-// program also demonstrates how to overload the output operator
+// program also tests the implementation of an overloaded output operator for
+// Dates
+//
+// Date (class)
+//      Date(int y, int m, int d)
+//      Invalid (class)
+//
+// ostream& operator<<(ostream& os, Date const& d)
+
 
 #include <iostream> // for cout, cerr, ostream
 #include <exception> // for exception
 
-// user-defined date type
-class Date {
-public:
-    // nested class
-    class Invalid {  }; // to be used as an exception
-   
-    // public member functions
-    // constructor declaration
-    Date(int y, int m, int d);
-    
-    int month() { return m; }
-    int day() { return d; }
-    int year() { return y; }
-    
-    void add_day(int n) { /* not implemented */ }
+// make expanded Date features hidden from syntax checkers
+#if !defined NO_CHRONO_NS \
+    && !defined NO_MONTH \
+    && !defined NO_MONTH_CONS \
+    && !defined NO_IS_DATE_FN
+#define NO_CHRONO_NS
+#define NO_MONTH
+#define NO_MONTH_CONS
+#define NO_IS_DATE_FN
+#endif
 
-private:
-    // private attributes
-    int y;
-    int m;
-    int d;
-
-    // private member functions
-    bool check();
-};
-
-// constructor definition... uses input to initialize a Date's private
-// attributes and validates the result
-Date::Date(int yy, int mm, int dd)
-    : y {yy}, m {mm}, d {dd}
-{
-    if (!check()) // throw exception if date invalid
-        throw Invalid();
-}
-
-// definition of private member function... returns true if month is between
-// 1 and 12 inclusive, or false otherwise
-bool Date::check()
-{
-    if (1 > m || 12 < m)
-        return false;
-    return true;
-}
-
-// overloaded definition of an output operator for Date objects (y, m, d)
-std::ostream& operator<<(std::ostream& os, Date& d)
-{
-    return os << '(' << d.year() << ',' << d.month() << ',' << d.day() << ')';
-}
-
-// function outputs error message passed to msg
-void error(const char *msg)
-{
-    std::cerr << msg << std::endl;
-}
+#include <chrono_utils/date_utils.hpp> // for Date
+#include <cpp_facilities/std_lib_facilities.hpp> // for error()
 
 // testing function that builds and prints a Date object
 void f(int x, int y)
@@ -87,9 +54,8 @@ int main()
         f(1, 29);
         f(12, 29);
         f(15, 29); // error
-        return 0;
     }
-    catch (Date::Invalid& )
+    catch (Date::Invalid&)
     {
         error("invalid date");
         return 1;

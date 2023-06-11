@@ -1,7 +1,7 @@
 // program test the implementation of the Calculator class that now includes
 // a calculate() method to control the computation loop
 //
-// Calculator
+// Calculator (class)
 //      Calculator()
 //      void calculate()
 

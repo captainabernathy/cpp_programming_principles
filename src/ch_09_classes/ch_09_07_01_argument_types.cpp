@@ -1,54 +1,27 @@
-// program implements a class whose constructor that validates its input
+// program tests the implementation of the Date class, which now encapsulates
+// a Month enum and provides a constructor that supports the Year class
+//
+// Date (class)
+//      Month (enum)
+//      Date(Year y, Month m, int d)
+//
+// Year (class)
+//      Year(int y)
+//      class Invalid
 
 #include <iostream> // for cerr
+#include <chrono_utils/year.hpp> // for Year
 
-// user-defined Year type
-class Year {
-    // private class members
-    static const int min = 1800;
-    static const int max = 2200;
+// make expanded Date features hidden from syntax checkers
+#if !defined NO_CHRONO_NS \
+    && !defined HAS_YEAR \
+    && !defined NO_YEAR_METH
+#define NO_CHRONO_NS
+#define HAS_YEAR
+#define NO_YEAR_METH
+#endif
 
-public:
-    // public attributes
-    // embedded class for throwing
-    class Invalid {};
-
-    // public member functions
-    // constructor
-    Year(int x)
-        : y {x}
-    {
-        if (x < min || max < x) // input must fall within range of min and max
-            throw Invalid();
-    }
-
-    // get value of year
-    int year() { return y; }
-
-private:
-    // private attributes
-    int y;
-};
-
-// user defined date type
-class Date {
-public:
-    // public attributes
-    enum Month {
-        jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-    };
-
-    // public member functions
-    // constructor... initializes private data members from input
-    Date(Year yy, Month mm, int dd)
-        : y {yy}, m {mm}, d {dd} {  }
-
-private:
-    // private attributes
-    Year y;
-    Month m;
-    int d;
-};
+#include <chrono_utils/date_utils.hpp> // for Date
 
 int main()
 {

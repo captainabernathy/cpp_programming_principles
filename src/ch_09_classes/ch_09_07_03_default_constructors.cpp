@@ -1,69 +1,25 @@
-// program demonstrates how to implement a default/no-argument constructor for
-// a class
+// program tests the implementation of the Date class, which now includes a
+// default/no-argument constructor
+//
+// Date (class)
+//      Month (enum)
+//      Date()
+//      Date(int y, Month m, int d)
+//      Month month() const
+//      int day() const
+//      int year() const
+//
+// Date const& default_date()
 
 #include <iostream> // for cout
 #include <vector> // for vector
 
-// user-defined Date type
-class Date {
-public:
-    enum Month {
-        jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-    };
+// make expanded Date features hidden from syntax checkers
+#ifndef NO_CHRONO_NS
+#define NO_CHRONO_NS
+#endif
 
-    // public member functions
-    // default constructor
-    Date();
-
-    // constructor... initializes a Date's private data members from input
-    Date(int yy, Month mm, int dd);
-   
-    // get a Date's month
-    Month month() const
-    {
-        return m;
-    }
-
-    // get a Date's day
-    int day() const
-    {
-        return d;
-    }
-
-    // get a Date's year
-    int year() const
-    {
-        return y;
-    }
-
-private:
-    // private attributes
-    int y;
-    Month m;
-    int d;
-};
-
-// NOTE: returning a constant reference yields and r-value... an expression
-// that can appear on the right side of assignment only... and cannot have a
-// value assigned to it
-// so... Date d = default_date() is ok, but
-// Date d = default_date() = default_date() is not
-const Date& default_date()
-{
-    // NOTE: a static variable is defined only once
-    static const Date dd(2001, Date::jan, 1);
-    return dd;
-}
-
-// default constructor definition
-Date::Date()
-    : y {default_date().year()},
-      m {default_date().month()},
-      d {default_date().day()} {  }
-
-// constructor that initializes a date from its input
-Date::Date(int yy, Month mm, int dd)
-    : y {yy}, m {mm}, d {dd} {  }
+#include <chrono_utils/date_utils.hpp> // for Date
 
 int main()
 {

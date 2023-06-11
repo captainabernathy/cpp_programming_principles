@@ -1,29 +1,20 @@
-// program illustrates the implementation of a class with a friend method that
-// is able to access private members
+// program tests the implementation of the Date class, which now includes
+// an output operator that is a friend of class since it accesses a Date's
+// private attributes
+//
+// Date (class)
+//      Month (enum)
+//      Date(int y, Month m, int d)
+//      friend ostream& operator<<(ostream& os, Date const& d)
 
 #include <iostream> // for cout, ostream
 
-// user-defined Date type
-class Date {
-public:
-    enum Month {
-        jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-    };
+// make expanded Date features hidden from syntax checkers
+#ifndef NO_CHRONO_NS
+#define NO_CHRONO_NS
+#endif
 
-    // public member functions
-    // constructor... initializes a Date's private data members from input
-    Date(int yy, Month mm, int dd)
-        : y {yy}, m {mm}, d {dd} {  }
-
-    // friend declaration grants operator<< access to private members
-    friend std::ostream& operator<<(std::ostream& os, const Date& d);
-
-private:
-    // private attributes
-    int y;
-    Month m;
-    int d;
-};
+#include <chrono_utils/date_utils.hpp> // for Date
 
 int main()
 {
@@ -51,11 +42,3 @@ int main()
 
     return 0;
 }
-
-// overloaded output operator for Date... can access private attributes since
-// declared as friend
-std::ostream& operator<<(std::ostream& os, const Date& d)
-{
-    return os << '(' << d.y << ',' << d.m << ',' << d.d << ')';
-}
-

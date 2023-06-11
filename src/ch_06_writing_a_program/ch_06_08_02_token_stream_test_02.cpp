@@ -1,7 +1,7 @@
 // program tests the implementation of a Token_stream class for processing
 // Tokens as input to a calculator program
 //
-// Token_stream
+// Token_stream (class)
 //      Token_stream()
 //      Token get()
 //      void putback(Token t)

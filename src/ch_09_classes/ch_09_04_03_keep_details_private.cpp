@@ -1,32 +1,26 @@
-// program demonstrates implementation of a constructor that is used to
-// initialize an object's private attributes
+// program tests the implementation of the Date class, which represents a date
+// as a year, month, and day
+//
+// Date (class)
+//      Date(int y, int m, int d)
+//      int month() const
+//      int year() const
+//      int day() const
 
 #include <iostream> // for cout
 
-// user-defined date type
-class Date {
-    // private attributes
-    int y;
-    int m;
-    int d;
+// make expanded Date features hidden from syntax checkers
+#if !defined NO_CHRONO_NS \
+    && !defined NO_MONTH \
+    && !defined NO_MONTH_CONS \
+    && !defined NO_IS_DATE_FN
+#define NO_CHRONO_NS
+#define NO_MONTH
+#define NO_MONTH_CONS
+#define NO_IS_DATE_FN
+#endif
 
-public:
-    // public member functions
-    // constructor declaration
-    Date(int y, int m, int d);
-    
-    // function declaration
-    void add_day(int n);
-
-    int month() { return m; }
-    int day() { return d; }
-    int year() { return y; }
-};
-
-// constructor definition... uses input to initialize a Date's private
-// attributes
-Date::Date(int y, int m, int d)
-    : y {y}, m {m}, d {d} {  }
+#include <chrono_utils/date_utils.hpp> // for Date
 
 int main()
 {

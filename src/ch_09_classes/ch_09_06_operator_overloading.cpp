@@ -1,30 +1,13 @@
-// program demonstrates how to overload various operators
+// program demonstrates how to overload various operators and tests the
+// implementations of an overloaded pre-increment operator and output operator
+// for the Month enum
+//
+// Month (enum)
+// Month operator++(Month& m)
+// ostream& operator<<(ostream& os, Month m)
 
 #include <iostream> // for cout, ostream
-
-// enum defining symbolic constants for months
-enum Month {
-    jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dcm
-};
-
-// prefix increment operator overload for Month
-Month operator++(Month& m)
-{
-    m = (m == dcm) ? jan : Month(m + 1);
-    return m;
-}
-
-// overloaded output operator for Month
-std::ostream& operator<<(std::ostream& os, Month m)
-{
-    // lookup month lookup table
-    static const char *month_tbl[12] = { "January", "February", "March",
-        "April", "May", "June", "July", "August", "September", "October",
-        "November", "December"
-    };
-
-    return os << month_tbl[m - 1];
-}
+#include <chrono_utils/month_utils.hpp> // for Month
 
 // empty user defined type
 class Vector {};
@@ -50,5 +33,6 @@ int main()
     cout << ++m << '\n'; // December
     ++m;
     cout << m << '\n'; // wraps to... January
+
     return 0;
 }

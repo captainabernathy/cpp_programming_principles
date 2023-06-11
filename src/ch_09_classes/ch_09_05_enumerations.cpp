@@ -1,27 +1,16 @@
-// program demonstrates the use of enums to define symbolic constants
+// program tests a Month enum that provides symbolic constants that correspond
+// to each month (Month::jan => 1, ..., Month::dec=>12)
+//
+// program also tests the function int_to_month() that returns the enum
+// member for the Month that corresponds to a given int
+//
+// Month (enum)
+// Month int_to_month(int x)
 
 #include <iostream> // for cout, cerr
 #include <exception> // for exception
+#include <chrono_utils/month_utils.hpp> // for Month, int_to_month()
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
-
-// enum defining symbolic constants for months
-enum Month {
-    jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dcm
-};
-
-// enum defining symbolic constants for days
-enum Day {
-    monday = 1, tuesday, wednesday, thursday, friday, saturday, sunday
-};
-
-// returns a Month that corresponds to the int received or calls error
-// otherwise...
-Month int_to_month(int x)
-{
-    if (jan > x || dcm < x)
-        error("bad month");
-    return Month(x);
-}
 
 // function tests int_to_month() function and outputs the result to stdout
 void f(int m)

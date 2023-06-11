@@ -1,35 +1,19 @@
-// program demonstrates how to implement a class with constant member functions
+// program tests the implementation of the Date class, which now includes
+// constant member functions
+//
+// Date (class)
+//      Month (enum)
+//      Date(int y, Month m, int d)
+//      int day() const
 
 #include <iostream> // for cout
 
-// user-defined Date type
-class Date {
-public:
-    enum Month {
-        jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-    };
-    
-    // constructor... initializes a Date's private data members from input
-    Date(int yy, Month mm, int dd)
-        : y {yy}, m {mm}, d {dd} {  }
+// make expanded Date features hidden from syntax checkers
+#ifndef NO_CHRONO_NS
+#define NO_CHRONO_NS
+#endif
 
-    // NOTE: const member functions do not modify the object
-    int day() const;
-    Month month() const;
-    int year() const;
-
-private:
-    // private attributes
-    int y;
-    Month m;
-    int d;
-};
-
-// returns a Date's day
-int Date::day() const
-{
-    return d;
-}
+#include <chrono_utils/date_utils.hpp> // for Date
 
 int main()
 {

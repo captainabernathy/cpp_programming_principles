@@ -1,7 +1,7 @@
 // program test the implementation of the Calculator class that now includes
 // the ability to recover from invalid input
 //
-// Calculator
+// Calculator (class)
 //      Calculator()
 //      void calculate()
 

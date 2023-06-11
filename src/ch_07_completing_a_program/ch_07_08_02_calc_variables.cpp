@@ -1,7 +1,7 @@
 // program test the implementation of the Calculator class that now includes
 // expanded support for variable declarations and expressions
 //
-// Calculator
+// Calculator (class)
 //      Calculator()
 //      void calculate()
 

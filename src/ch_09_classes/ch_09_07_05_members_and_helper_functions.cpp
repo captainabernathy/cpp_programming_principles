@@ -1,50 +1,30 @@
-// program demonstrates the implementation of helper functions that are used
-// for working with object created from a class
+// program tests the implementation of helper functions that can be used for
+// working with object created from the Date class
+//
+// program also implements a local namespace (Chrono) which includes its own
+// Date class and helper functions
+//
+// Date (class)
+//      Month (enum)
+//      Date(int y, Month m, int d)
+//      Month month()
+//      int day()
+//      int year() const
+//
+// bool operator!=(Date const& a, Date const& b)
+// Date next_sunday(Date const& d)
+// Date next_weekday(Date const& d)
 
 #include <ios> // for boolalpha
 #include <iostream> // for cout
 
-// user-defined Date type
-class Date {
-public:
-    enum Month {
-        jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-    };
+// make expanded Date features hidden from syntax checkers
+#ifndef NO_CHRONO_NS
+#define NO_CHRONO_NS
+#endif
 
-    // constructor... initializes a Date's private data members from input
-    Date(int yy, Month mm, int dd)
-        : y {yy}, m {mm}, d {dd} {  }
-
-    // return a Date's day
-    int day() const { return d; }
-
-    // return a Date's month
-    Month month() const { return m; }
-
-    // return a Date's year
-    int year() const { return y; }
-
-private:
-    // private attributes
-    int y;
-    Month m;
-    int d;
-};
-
-// example helper function
-inline Date next_sunday(const Date& d) { return d; }
-
-inline Date next_weekday(const Date& d) { return d; }
-
-inline bool leapyear(int d, int m, int y) { return false; }
-
-// overloaded equality operator for Dates
-inline bool operator==(const Date& a, const Date& b)
-{
-    return a.year() == b.year() && a.month() == b.month() && a.day() == b.day();
-}
-
-inline bool operator!=(const Date& a, const Date& b) { return !(a == b); }
+#include <chrono_utils/date_utils.hpp> // for Date, next_sunday(),
+                                       // next_weekday()
 
 // namespace tht redefines Date and helper functions
 namespace Chrono {
@@ -72,6 +52,13 @@ int main()
 
     // test Date's inequality operator
     cout << (next_sunday(d) != next_weekday(d)) << '\n';
+
+    // test Chrono namespace Date and functions
+    Chrono::Date cd1;
+    Chrono::Date cd2;
+    cout << Chrono::leapyear(5, 6, 7) << '\n';
+    using Chrono::operator==;
+    cout << (cd1 == cd2) << '\n';
 
     return 0;
 }

@@ -1,7 +1,7 @@
 // program test the implementation of the Calculator class that now includes
 // the ability to declare variables
 //
-// Calculator
+// Calculator (class)
 //      Calculator()
 //      void calculate()
 
