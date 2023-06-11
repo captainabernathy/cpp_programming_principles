@@ -1,5 +1,5 @@
 // program tests the implementation of a vector class that stores elements of
-// type double, which now supports  a move constructor and a move assignment
+// type double, which now supports a move constructor and a move assignment
 // operator
 //
 // vector (class)
