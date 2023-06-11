@@ -1,7 +1,18 @@
 // program test the implementation of the Calculator class that now includes
 // support for the modulus operator
+//
+// Calculator
+//      Calculator()
+//      Token get()             // typically private
+//      void putback(Token t)   // typically private
+//      double expression()     // typically private
+//
+// Token
+//      char kind
+//      double value
 
-// to make private Calculator attributes visible for testing
+// NOTE: this directive makes the Calculator class's private attributes visible
+// for testing purposes and to syntax checkers
 #ifndef CALC_TEST
 #define CALC_TEST
 #endif

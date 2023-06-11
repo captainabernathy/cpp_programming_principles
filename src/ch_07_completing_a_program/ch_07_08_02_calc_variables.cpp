@@ -1,5 +1,9 @@
 // program test the implementation of the Calculator class that now includes
 // expanded support for variable declarations and expressions
+//
+// Calculator
+//      Calculator()
+//      void calculate()
 
 #include <iostream> // for cerr
 #include <stdexcept> // for runtime_error

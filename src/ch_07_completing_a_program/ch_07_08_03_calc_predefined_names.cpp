@@ -1,5 +1,10 @@
 // program test the implementation of the Calculator class that now includes
 // support for loading predefined variables into the Calculator
+//
+// Calculator
+//      Calculator()
+//      void calculate()
+//      double define_name(string var, double val)
 
 #include <iostream> // for cin, cout, cerr
 #include <exception> // for exception
