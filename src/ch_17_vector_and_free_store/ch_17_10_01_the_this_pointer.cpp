@@ -5,10 +5,10 @@
 // link (class)
 //      string value
 //      link(string const& v, link *p = nullptr, link *n = nullptr)
-//      link* insert(link *n)
-//      link* find(string const& s)
-//      link* get_next() const
-//      link* erase()
+//      link *insert(link *n)
+//      link *find(string const& s)
+//      link *get_next() const
+//      link *erase()
 //
 // void print_all(link *p)
 //

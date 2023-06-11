@@ -2,7 +2,7 @@
 
 // moves link p, n positions in list... +n moves forward, -n moves backwards...
 // and returns a pointer to link p
-link* advance(link *p, int n)
+link *advance(link *p, int n)
 {
     if (p == nullptr)
         return nullptr;

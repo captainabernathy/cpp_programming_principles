@@ -6,10 +6,10 @@
 //      string value
 //      link(string const& s, link *p = nullptr, link *n = nullptr)
 //
-// link* insert(link *p, link *n)
-// link* add(link *p, link *n)
-// link* erase(link *p)
-// link* find(link *p, string const& s)
+// link *insert(link *p, link *n)
+// link *add(link *p, link *n)
+// link *erase(link *p)
+// link *find(link *p, string const& s)
 // void print_all(link *p)
 //
 // NOTE: implementation does NOT deallocate dynamically allocated resources
