@@ -4,6 +4,7 @@
 // provides:
 // template<typename T, typename A = std::allocator<T>>
 // vector (template class)
+//      vector()
 //      vector(size_t n)
 //      vector(initializer_list<T> lst)
 //      vector(vector const& v)
@@ -28,6 +29,7 @@
 // OR
 // template<typename T>
 // vector (template class)
+//      vector()
 //      vector(size_t n)
 //      vector(initializer_list<T> lst)
 //      vector(vector const& v)

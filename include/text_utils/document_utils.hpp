@@ -1,7 +1,7 @@
 #ifndef DOCUMENT_UTILS_HPP
 #define DOCUMENT_UTILS_HPP
 
-// provides
+// provides:
 // Document (class)
 //      list<Line> lines
 //      Document()

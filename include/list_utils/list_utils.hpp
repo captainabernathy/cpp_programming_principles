@@ -2,11 +2,9 @@
 #define LIST_HPP
 
 // provides:
-
-// provides
 // template<typename T>
 // list (template class)
-//      class iterator
+//      iterator (class)
 //      list()
 //      iterator begin()
 //      iterator end()
@@ -33,7 +31,7 @@
 //      string value
 //      link *prev
 //      link *next
-//      link(std::string const& s, link *p = nullptr, link *n = nullptr)
+//      link(string const& s, link *p = nullptr, link *n = nullptr)
 #include <list_utils/list_class.hpp>
 
 // provides:
