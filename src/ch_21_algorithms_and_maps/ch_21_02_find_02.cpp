@@ -1,9 +1,10 @@
 // program tests the implementation of the function template find<>() to find
 // an element between a pair of iterators into a collection
 //
-// Iter find<Iter, T>(Iter first, Iter last, T const& val)
+// template<typename Iter, typename T>
+// Iter find(Iter first, Iter last, T const& val)
 
-#include <vector>  // for vector
+#include <vector> // for vector
 #include <iostream> // for cout
 #include <algorithm_utils/find.hpp> // for find<>()
 

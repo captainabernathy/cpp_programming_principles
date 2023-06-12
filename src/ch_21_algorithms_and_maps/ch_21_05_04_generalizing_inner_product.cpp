@@ -6,9 +6,10 @@
 // first operation is used to accumulate the results of successively applying
 // the second operation to pairs of elements from each collection
 //
-// T inner_product<Iter1, Iter2, T, BinOp1, BinOp2>(Iter1 first1, Iter1 last1,
-//                                                  Iter2 first2, T start,
-//                                                  BinOp1 op1, BinOp2 op2)
+// template<typename Iter1, typename Iter2, typename T, typename BinOp1,
+//          typename BinOp2>
+// T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start,
+//                 BinOp1 op1, BinOp2 op2)
 
 #include <vector> // for vector
 #include <iostream>  // cout
@@ -24,11 +25,16 @@ int main()
     using std::multiplies;
     using std::cout;
 
-    vector<int> v1 = {1, 2, 3, 4};
+    // initialize two vectors
+    vector<int> v1 {1, 2, 3, 4};
     vector<int> v2(v1);
+
+    // take the inner product of two vectors using the binary operations
+    // plus<> and multiplies<>
     cout << inner_product(v1.begin(), v1.end(), v2.begin(), 0, plus<int>(),
                           multiplies<int>()) << '\n';
 
+    // build up a vector and a list of type double
     vector<double> dow_price;
     dow_price.push_back(81.86);
     dow_price.push_back(34.69);
@@ -39,6 +45,8 @@ int main()
     dow_weight.push_back(2.4808);
     dow_weight.push_back(3.8940);
 
+    // take the inner product of a vector and a list of doubles using the
+    // binary operations plus<>() and multiplies<>()
     double dji_index = inner_product(
             dow_price.begin(), dow_price.end(), dow_weight.begin(), 0.0,
             plus<double>(), multiplies<double>());

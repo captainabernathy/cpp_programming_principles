@@ -8,6 +8,17 @@
 //
 // program also uses a Text_iterator to search for a character in a Document
 // with find()
+//
+// Line (alais for vector<char>)
+//
+// Document (class)
+//      list<Line> lines
+//      Document()
+//      Text_iterator begin()
+//      Text_iterator end()
+//
+// Text_iterator (class)
+//      Text_iterator(list<Line>::iterator li_iter, Line::iterator pos_iter)
 
 #include <vector> // for vector
 #include <string> // for string

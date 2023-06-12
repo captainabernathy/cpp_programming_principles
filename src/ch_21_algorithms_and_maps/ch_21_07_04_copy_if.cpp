@@ -5,9 +5,13 @@
 // program also tests the implementation the class template Larger_than<>,
 // which provides a function object that can be used as a predicate function
 //
-// Out copy_if<In, Out, Pred>(In first, In last, Out res, Pred p)
+// template<typename In, typename Out, typename Pred>
+// Out copy_if(In first, In last, Out res, Pred p)
 //
-// Larger_than<T>(T val)
+// template<typename T>
+// Larger_than (template class)
+//      Larger_than(T val)
+//      bool operator()(T x)
 
 #include <vector> // for vector
 #include <iostream> // for cout

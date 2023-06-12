@@ -13,9 +13,10 @@
 // inner_product<>() function template to compute the inner product between
 // two map objects that contain the same keys
 //
-// T inner_product<Iter1, Iter2, T, BinOp1, BinOp2>(Iter1 first1, Iter1 last1,
-//                                                  Iter2 first2, T start,
-//                                                  BinOp1 op1, BinOp2 op2)
+// template<typename Iter1, typename Iter2, typename T, typename BinOp1,
+//          typename BinOp2>
+// T inner_product(Iter1 first1, Iter1 last1, Iter2 first2, T start,
+//                 BinOp1 op1, BinOp2 op2)
 //
 // double weighted_value(pair<string, double> const& a,
 //                       pair<string, double> const& b)
@@ -89,7 +90,7 @@ int main()
     cout << '\n';
 
     // compute inner product from dow prices and weight using the plus<>
-    // function object for accumulation and the weighted_value function
+    // function object for accumulation and the weighted_value() function
     // for multiplication
     double dji_index = inner_product(dow_price.begin(), dow_price.end(),
             dow_weight.begin(), 0.0, plus<double>(), weighted_value);

@@ -2,7 +2,8 @@
 // find an element between a pair of iterators into a collection that satisfies
 // a predicate function
 //
-// Iter find_if<Iter, Pred>(Iter first, Iter last, Pred pred)
+// template<typename Iter, typename Pred>
+// Iter find_if(Iter first, Iter last, Pred pred)
 
 #include <vector>  // for vector
 #include <list> // for list

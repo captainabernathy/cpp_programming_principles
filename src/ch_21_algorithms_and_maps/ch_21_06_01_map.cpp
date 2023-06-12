@@ -15,7 +15,7 @@ int main()
 
     // NOTE: a map is an ordered sequence of key-value pairs in which you can
     // look up a value based on a key
-    map<string, int> words;  // keep (word, frequency) pairs
+    map<string, int> words; // keep (word, frequency) pairs
 
     string s;
     cout << "Enter lines of text or press CTRL-D to exit.\n";

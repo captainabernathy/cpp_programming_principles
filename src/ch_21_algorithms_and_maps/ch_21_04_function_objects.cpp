@@ -5,9 +5,13 @@
 // program also tests the implementation the class template Larger_than<>,
 // which provides a function object that can be used as a predicate function
 //
-// Iter find_if<Iter, Pred>(Iter first, Iter last, Pred pred)
+// template<typename Iter, typename Pred>
+// Iter find_if(Iter first, Iter last, Pred pred)
 //
-// Larger_than<T>(T val)
+// template<typename T>
+// Larger_than (template class)
+//      Larger_than(T val)
+//      bool operator()(T x)
 
 #include <list> // for list
 #include <iostream> // for cout

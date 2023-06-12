@@ -9,7 +9,8 @@
 // function, which returns a pair of iterators to the bounds of where a
 // specified element is found in a collection
 //
-// bool No_case::operator()(string const& x, string const& y) const
+// No_case (class)
+//      bool operator()(string const& x, string const& y) const
 
 #include <string> // for string
 #include <vector> // for vector
@@ -88,8 +89,8 @@ int main()
         cout << it << '\n';
     cout << '\n';
 
-    using FI = vector<Fruit>::iterator;
     // typedef vector<Fruit>::iterator FI;
+    using FI = vector<Fruit>::iterator;
 
     // NOTE: the equal_range() function returns a pair of iterators to the
     // lower and upper bound positions (range [lower,upper) in a collection

@@ -2,7 +2,8 @@
 // accumulate the sum of the elements in a collection between two iterators
 // using a specified value as the starting point for the computation
 //
-// T accumulate<Iter, T>(Iter first, Iter last, T start)
+// template<typename Iter, typename T>
+// T accumulate(Iter first, Iter last, T start)
 
 #include <iostream> // for cout
 #include <algorithm_utils/accumulate.hpp> // for accumulate<>()
