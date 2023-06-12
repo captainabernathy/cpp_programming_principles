@@ -6,4 +6,3 @@
 * **Window.hpp**
 * **GUI.hpp**
 * **Simple_window.hpp**
-

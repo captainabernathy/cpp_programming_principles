@@ -862,4 +862,5 @@ struct Bad_image : Fl_Image {
 };
 
 }
+
 #endif

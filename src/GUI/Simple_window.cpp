@@ -25,4 +25,3 @@ bool Simple_window::wait_for_button()
 #endif
     return button_pushed;
 }
-

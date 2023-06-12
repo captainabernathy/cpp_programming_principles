@@ -225,4 +225,5 @@ struct Menu : Widget {
 };
 
 }
+
 #endif

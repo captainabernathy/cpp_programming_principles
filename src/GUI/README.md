@@ -1,8 +1,7 @@
-## Graphics Library - Implementation Files
+## Graphics Library - Implementation
 
-### Files
+### Implementation Files
 * **Graphics.cpp**
 * **Window.cpp**
 * **GUI.cpp**
 * **Simple_window.cpp**
-
