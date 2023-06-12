@@ -1,79 +1,19 @@
-// program extends the standard library template for a vector of any type to
-// include range checking
+// program tests the implementation of a class template for a vector that
+// extends the standard library's vector template to include range checking
+//
+// template<typename T>
+// vector (template class)
+//      T& operator[](size_type i)
+//      T const& operator[](size_type i) const
+//
+// template<typename T>
+// void print(T const& t, string const& s)
 
 #include <iostream> // for cout, cerr
-#include <string> // for string
-#include <stdexcept> // for out_of_range, exception
-#include <vector> // for vector
-#include <sstream> // for ostringstream
+#include <exception> // exception
 #include <utility> // for move()
-
-// template for a function that converts an object of type T to a string and
-// returns it
-template<class T>
-std::string to_string(T const& t)
-{
-    std::ostringstream os;
-    os << t;
-    return os.str();
-}
-
-// not necessary
-// class used to report range access errors
-// struct out_of_range {
-//     out_of_range(const std::string& err_msg) {  }
-// };
-
-
-// not necessary
-// enhanced vector range error reporting
-// struct Range_error : std::out_of_range {
-//     size_t index;
-//     Range_error(size_t i)
-//         : out_of_range{"Range error at index " + to_string(i)}, index{i}
-//     {  }
-// };
-
-// template that extends the standard library template for a vector of
-// type T to include range checking
-template<typename T>
-struct Vector : std::vector<T> {
-    using size_type = typename std::vector<T>::size_type;
-    using std::vector<T>::vector;
-
-    // member access operator
-    // provides read and write access to a vector by returning a reference to
-    // the element at index n
-    // throws an out_of_range() exception if n is an invalid index
-    T& operator[](size_type i)
-    {
-        if (i < 0 || this->size() <= i)
-            // throw Range_error{(size_t)i};
-            throw std::out_of_range("Range error at index " + to_string(i));
-        return std::vector<T>::operator[](i);
-    }
-
-    T const& operator[](size_type i) const
-    {
-        if (i < 0 || this->size() <= i)
-            // throw Range_error{(size_t)i};
-            throw std::out_of_range("Range error at index " + to_string(i));
-        return std::vector<T>::operator[](i);
-    }
-};
-
-// template for a function that prints an index-able collection of type T
-// prepended by string s... works for any index-able collection that has a size
-// function
-template<typename T>
-void print(T const& t, std::string const& s)
-{
-    for (size_t i = 0; i < t.size(); i++)
-        std::cout << s << "[" << i << "]: " << t[i] << '\n';
-}
-
-// hack to get range-checked vector
-#define vector Vector
+#include <vector_utils/vector_checked.hpp> // for (ranged-checked) vector
+#include "collection_utils.hpp" // for print<>()
 
 int main()
 {

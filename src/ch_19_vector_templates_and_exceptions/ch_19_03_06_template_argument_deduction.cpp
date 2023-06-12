@@ -1,75 +1,31 @@
-// program implements a template for a class that can be used to create
-// N element arrays of any type
+// program tests the implementation of a class template for an array that can
+// store N elements of any type
 //
-// program also implements a funtion template to print the elements of any
-// index-able collection that has a size() function, as well as an overloaded
-// implementation that prints the first n elements of any index-able collection
-// that provides a size() function
+// program also tests the implementation of the function template print<>()
+// that can print the elements of any index-able collection that has a size()
+// function, as well as an overloaded version of print<>() than can print
+// the first n elements of any index-able collection that provides a size()
+// function
+//
+// <typename T, size_t N>
+// array (template class)
+//      size_t size() const
+//      T* data()
+//      T const* data() const
+//
+// <typename T, size_t N>
+// void fill(array<T,N>& arr, T const& val)
+//
+// template<typename T>
+// void print(T const& t, string const& s)
+//
+// template<typename T>
+// void print(T const& t, size_t n, string const& s)
 
 #include <iostream> // for cout
 #include <vector> // for vector
-#include <string> // for string
-
-// template for an N element array of type T
-template<typename T, size_t N>
-struct array {
-    T elem[N]; // N element array of type T
-
-    // rely on default constructors, destructor, and assignment
-
-    // member access operator
-    // provides read and write access to an array  by returning a reference to
-    // the element at index n
-    // NOTE: function does not provide any range checking
-    T& operator[](size_t n) { return elem[n]; }
-
-    // member access operator for constant arrays
-    // provides read access to an array by returning a constant reference to the
-    // element at index n
-    // NOTE: function does not provide any range checking
-    T const& operator[](size_t n) const { return elem[n]; }
-
-    // conversion to T*
-    // returns a pointer to an array's elements
-    // provides read/write access to an array's elements
-    T* data() { return elem; }
-
-    // returns a const pointer to an array's elements
-    // provides read access to an array's elements
-    const T* data() const { return elem; }
-
-    // returns the number of elements in an array
-    size_t size() const { return N; }
-};
-
-// template for a function that fills an N element array of type T (array<T,N>)
-// with the value of type T provied to val
-template<typename T, size_t n>
-void fill(array<T, n>& arr, T const& val)
-{
-    for (size_t i = 0; i < n; i++)
-        arr[i] = val;
-}
-
-// template for a function that prints an index-able collection of type T
-// prepended by string s... works for any index-able collection that has a size
-// function
-template<typename T>
-void print(T const& t, std::string const& s)
-{
-    for (size_t i = 0; i < t.size(); i++)
-        std::cout << s << "[" << i << "]: " << t[i] << '\n';
-}
-
-// template for a function that prints the first n elements of an index-able
-// collection of type T prepended by string s
-// NOTE: function does not provide any range checking
-template<typename T>
-void print(T const& t, size_t n, std::string const& s)
-{
-    for (size_t i = 0; i < n; i++)
-        std::cout << s << "[" << i << "]: " << t[i] << '\n';
-}
+#include <array_utils/array_utils.hpp> // for array, fill<>()
+#include "collection_utils.hpp" // for print<>()
 
 int main()
 {

@@ -1,9 +1,9 @@
 // program performs various operations on a vector to illustrate the
 // relationship between size and capacity
 
-#include <iostream> // for cout
 #include <vector> // for vector()
 #include <string> // for string
+#include <iostream> // for cout
 
 // function outputs vector v's size and capacity, prepended by string s
 void print_info(std::vector<double> const& v, std::string const& s);
@@ -44,6 +44,7 @@ int main()
     return 0;
 }
 
+// function outputs vector v's size and capacity, prepended by string s
 void print_info(std::vector<double> const& v, std::string const& s)
 {
     std::cout << s << ".size(): " << v.size() << '\n';
