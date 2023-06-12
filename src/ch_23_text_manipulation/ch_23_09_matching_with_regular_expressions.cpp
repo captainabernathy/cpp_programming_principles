@@ -3,6 +3,9 @@
 //
 // program also uses the function template from_string<>() that converts a
 // string into an object of a user specified type
+//
+// template<typename T>
+// T from_string(string s)
 
 #include <iostream> // for cerr, cout
 #include <fstream> // for ifstream

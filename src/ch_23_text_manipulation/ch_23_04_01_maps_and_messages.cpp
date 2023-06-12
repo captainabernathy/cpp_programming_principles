@@ -6,6 +6,21 @@
 //
 // program then demonstrates how to use a multimap to process the contents
 // of a Mail_file
+//
+// Line_iter (alias for vector<string>::const_iterator)
+//
+// Message (class)
+//      Message(Line_iter first_line, Line_iter last_line)
+//
+// bool find_from_addr(const Message *m, string& s)
+// string find_subject(Message const& m)
+//
+// Msg_iter (alias for vector<Message>::const_iterator)
+//
+// Mail_file (class)
+//      explicit Mail_file(string const& file)
+//      Msg_iter begin() const
+//      Msg_iter end() const
 
 #include <iostream> // for cout
 #include <string> // for string, getline()

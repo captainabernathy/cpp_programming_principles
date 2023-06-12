@@ -6,11 +6,20 @@
 //
 // program also tests the function template lexical_cast<>() that  converts an
 // object of a user specified source type to a user specified destination type
+//
+// template<typename T>
+// string to_string(T t)
+//
+// template<typename T>
+// T from_string(string s)
+//
+// template<typename Dest, typename Src>
+// Dest lexical_cast(Src source)
 
 #include <iostream> // for cout, cerr
 #include <string> // for string, basic_string
 #include <exception> // for exception
-#include <io_utils/io_utils.hpp> // for to_string<>(), from_string<>(), 
+#include <io_utils/io_utils.hpp> // for to_string<>(), from_string<>(),
                                  // lexical_cast<>()
 
 // not sure why book included this in the example...
