@@ -1,6 +1,13 @@
 #ifndef MESSAGE_UTILS_HPP
 #define MESSAGE_UTILS_HPP
 
+// provides:
+// Line_iter (alias for vector<string>::const_iterator)
+//
+// Message (class)
+//      Message(Line_iter first_line, Line_iter last_line)
+//      Line_iter begin() const
+//      Line_iter end() const
 #include "message.hpp" // for Message
 #include <string> // for string
 
