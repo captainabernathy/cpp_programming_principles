@@ -1,7 +1,7 @@
 ## Date Utilities - Implementation
 
 ### Implementation Files
-* **date_impl.cpp**
-* **date_io.cpp**
-* **day_utils.cpp**
-* **month_utils.cpp**
+* date\_impl.cpp
+* date\_io.cpp
+* day\_utils.cpp
+* month\_utils.cpp

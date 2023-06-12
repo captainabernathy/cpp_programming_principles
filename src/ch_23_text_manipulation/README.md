@@ -1,29 +1,29 @@
 ## Chapter 23 - Text Manipulation
 
 ### Program Files
-* **ch_23_02_strings.cpp**
-* **ch_23_04_01_maps_and_messages.cpp**
-* **ch_23_05_a_problem.cpp**
-* **ch_23_07_searching_with_regular_expressions.cpp**
-* **ch_23_09_matching_with_regular_expressions.cpp** 
+* ch\_23\_02\_strings.cpp
+* ch\_23\_04\_01\_maps\_and\_messages.cpp
+* ch\_23\_05\_a\_problem.cpp
+* ch\_23\_07\_searching\_with\_regular\_expressions.cpp
+* ch\_23\_09\_matching\_with\_regular\_expressions.cpp 
 
 ### Mail File Interface
-* **mail_file.hpp**
+* mail\_file.hpp
 
 ### Mail File Implementation Files
-* **mail_file.cpp**
+* mail\_file.cpp
 
 ### Message Interface
-* **message.hpp**
+* message.hpp
 
 ### Message Utilities Interface
-* **message_utils.hpp**
+* message\_utils.hpp
 
 ### Message Utilities Implementation Files
-* **message_utils.cpp**
+* message\_utils.cpp
 
 ### Resource Files
-* **chapter_23_05_infile.txt**
-* **example-mail-file.txt**
-* **file.txt**
-* **table.txt**
+* chapter\_23\_05\_infile.txt
+* example-mail-file.txt
+* file.txt
+* table.txt

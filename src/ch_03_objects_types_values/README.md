@@ -1,20 +1,20 @@
 ## Chapter 3 - Objects, Types, and Values
 
 ### Program Files
-* **ch_03_01_string_io.cpp**
-* **ch_03_02_type_io.cpp**
-* **ch_03_03_01_formatted_io.cpp**
-* **ch_03_03_02_formatted_io.cpp**
-* **ch_03_03_03_formatted_io.cpp**
-* **ch_03_04_00_string_concatenation.cpp**
-* **ch_03_04_01_string_comparison.cpp**
-* **ch_03_04_02_string_concatenation.cpp**
-* **ch_03_04_03_floating_point_io.cpp**
-* **ch_03_05_00_assignment_and_initialization.cpp**
-* **ch_03_05_01_detect_repeated_words.cpp**
-* **ch_03_06_01_find_repeated_words.cpp**
-* **ch_03_07_names.cpp**
-* **ch_03_08_types_and_objects.cpp**
-* **ch_03_09_01_safe_conversions.cpp**
-* **ch_03_09_02_01_unsafe_conversions.cpp**
-* **ch_03_09_02_02_unsafe_conversions.cpp** 
+* ch\_03\_01\_string\_io.cpp
+* ch\_03\_02\_type\_io.cpp
+* ch\_03\_03\_01\_formatted\_io.cpp
+* ch\_03\_03\_02\_formatted\_io.cpp
+* ch\_03\_03\_03\_formatted\_io.cpp
+* ch\_03\_04\_00\_string\_concatenation.cpp
+* ch\_03\_04\_01\_string\_comparison.cpp
+* ch\_03\_04\_02\_string\_concatenation.cpp
+* ch\_03\_04\_03\_floating\_point\_io.cpp
+* ch\_03\_05\_00\_assignment\_and\_initialization.cpp
+* ch\_03\_05\_01\_detect\_repeated\_words.cpp
+* ch\_03\_06\_01\_find\_repeated\_words.cpp
+* ch\_03\_07\_names.cpp
+* ch\_03\_08\_types\_and\_objects.cpp
+* ch\_03\_09\_01\_safe\_conversions.cpp
+* ch\_03\_09\_02\_01\_unsafe\_conversions.cpp
+* ch\_03\_09\_02\_02\_unsafe\_conversions.cpp 

@@ -1,12 +1,12 @@
 ## Chapter 8 - Technicalities: Functions, etc.
 
 ### Program Files
-* **ch_08_03_function.cpp**
-* **ch_08_05_01_args_and_return_types.cpp**
-* **ch_08_05_03_pass_by_value.cpp**
-* **ch_08_05_05_pass_by_reference_02.cpp**
-* **ch_08_05_05_pass_by_reference_03.cpp**
-* **ch_08_06_01_order_of_evaluation.cpp**
-* **ch_08_07_01_namspaces_01.cpp**
-* **ch_08_07_02_namspaces_02.cpp**
-* **ch_08_08_namespace_overview.cpp** 
+* ch\_08\_03\_function.cpp
+* ch\_08\_05\_01\_args\_and\_return\_types.cpp
+* ch\_08\_05\_03\_pass\_by\_value.cpp
+* ch\_08\_05\_05\_pass\_by\_reference\_02.cpp
+* ch\_08\_05\_05\_pass\_by\_reference\_03.cpp
+* ch\_08\_06\_01\_order\_of\_evaluation.cpp
+* ch\_08\_07\_01\_namspaces\_01.cpp
+* ch\_08\_07\_02\_namspaces\_02.cpp
+* ch\_08\_08\_namespace\_overview.cpp 

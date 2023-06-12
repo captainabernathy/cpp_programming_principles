@@ -1,13 +1,13 @@
 ## Chapter 7 - Completing a Program
 
 ### Program Files
-* **ch_07_02_calc_promp_01.cpp**
-* **ch_07_03_calc_improved_error_handling_01.cpp**
-* **ch_07_04_calc_unary_operators_01.cpp**
-* **ch_07_05_calc_modulus_operator_01.cpp**
-* **ch_07_06_01_calc_symbolic_constants.cpp**
-* **ch_07_06_02_calc_functions.cpp**
-* **ch_07_07_calc_recovery.cpp**
-* **ch_07_08_01_calc_declarations.cpp**
-* **ch_07_08_02_calc_variables.cpp**
-* **ch_07_08_03_calc_predefined_names.cpp** 
+* ch\_07\_02\_calc\_promp\_01.cpp
+* ch\_07\_03\_calc\_improved\_error\_handling\_01.cpp
+* ch\_07\_04\_calc\_unary\_operators\_01.cpp
+* ch\_07\_05\_calc\_modulus\_operator\_01.cpp
+* ch\_07\_06\_01\_calc\_symbolic\_constants.cpp
+* ch\_07\_06\_02\_calc\_functions.cpp
+* ch\_07\_07\_calc\_recovery.cpp
+* ch\_07\_08\_01\_calc\_declarations.cpp
+* ch\_07\_08\_02\_calc\_variables.cpp
+* ch\_07\_08\_03\_calc\_predefined\_names.cpp 

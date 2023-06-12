@@ -1,31 +1,31 @@
 ## Chapter 13 - Graphics Classes
 
 ### Program Files
-* **ch_13_02_point_and_line.cpp**
-* **ch_13_03_01_lines_object.cpp**
-* **ch_13_03_02_grid.cpp**
-* **ch_13_04_color.cpp**
-* **ch_13_05_01_line_style_dot_grid.cpp**
-* **ch_13_05_02_line_style_dash_weighted.cpp**
-* **ch_13_05_03_two_lines_colored.cpp**
-* **ch_13_06_open_polyline.cpp** 
-* **ch_13_07_closed_polyline.cpp** 
-* **ch_13_08_01_improper_polygon.cpp** 
-* **ch_13_08_02_polygon.cpp**
-* **ch_13_09_01_rectangles_01.cpp**
-* **ch_13_09_02_rectangles_02.cpp**
-* **ch_13_09_03_rectangles_03.cpp**
-* **ch_13_09_04_rectangles_04.cpp**
-* **ch_13_10_01_unnamed_objects_01.cpp**
-* **ch_13_10_02_color_palette.cpp**
-* **ch_13_11_text.cpp**
-* **ch_13_12_circle.cpp**
-* **ch_13_13_ellipse.cpp**
-* **ch_13_14_marked_polyline.cpp**
-* **ch_13_15_marks.cpp**
-* **ch_13_16_mark.cpp**
-* **ch_13_17_images.cpp** 
+* ch\_13\_02\_point\_and\_line.cpp
+* ch\_13\_03\_01\_lines\_object.cpp
+* ch\_13\_03\_02\_grid.cpp
+* ch\_13\_04\_color.cpp
+* ch\_13\_05\_01\_line\_style\_dot\_grid.cpp
+* ch\_13\_05\_02\_line\_style\_dash\_weighted.cpp
+* ch\_13\_05\_03\_two\_lines\_colored.cpp
+* ch\_13\_06\_open\_polyline.cpp 
+* ch\_13\_07\_closed\_polyline.cpp 
+* ch\_13\_08\_01\_improper\_polygon.cpp 
+* ch\_13\_08\_02\_polygon.cpp
+* ch\_13\_09\_01\_rectangles\_01.cpp
+* ch\_13\_09\_02\_rectangles\_02.cpp
+* ch\_13\_09\_03\_rectangles\_03.cpp
+* ch\_13\_09\_04\_rectangles\_04.cpp
+* ch\_13\_10\_01\_unnamed\_objects\_01.cpp
+* ch\_13\_10\_02\_color\_palette.cpp
+* ch\_13\_11\_text.cpp
+* ch\_13\_12\_circle.cpp
+* ch\_13\_13\_ellipse.cpp
+* ch\_13\_14\_marked\_polyline.cpp
+* ch\_13\_15\_marks.cpp
+* ch\_13\_16\_mark.cpp
+* ch\_13\_17\_images.cpp 
 
 ### Resource Files
-* **rita.jpg**
-* **rita_path.gif**
+* rita.jpg
+* rita\_path.gif

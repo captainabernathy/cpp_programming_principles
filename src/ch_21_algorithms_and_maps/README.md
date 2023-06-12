@@ -1,27 +1,27 @@
 ## Chapter 21 - Algorithms and Maps
 
 ### Program Files
-* **ch_21_02_01_generic_find_uses.cpp**
-* **ch_21_02_find_01.cpp**
-* **ch_21_02_find_02.cpp**
-* **ch_21_03_find_if.cpp**
-* **ch_21_04_01_abstract_view_of_function_objects.cpp**
-* **ch_21_04_function_objects.cpp**
-* **ch_21_05_01_accumulate.cpp**
-* **ch_21_05_03_inner_product.cpp**
-* **ch_21_05_04_generalizing_inner_product.cpp**
-* **ch_21_06_01_map.cpp**
-* **ch_21_06_03_another_map_example.cpp**
-* **ch_21_06_04_unordered_map.cpp**
-* **ch_21_07_01_copying.cpp**
-* **ch_21_07_02_stream_iterators.cpp**
-* **ch_21_07_03_using_a_set_to_keep_order.cpp**
-* **ch_21_07_04_copy_if.cpp**
-* **ch_21_08_sorting_and_searching.cpp** 
+* ch\_21\_02\_01\_generic\_find\_uses.cpp
+* ch\_21\_02\_find\_01.cpp
+* ch\_21\_02\_find\_02.cpp
+* ch\_21\_03\_find\_if.cpp
+* ch\_21\_04\_01\_abstract\_view\_of\_function\_objects.cpp
+* ch\_21\_04\_function\_objects.cpp
+* ch\_21\_05\_01\_accumulate.cpp
+* ch\_21\_05\_03\_inner\_product.cpp
+* ch\_21\_05\_04\_generalizing\_inner\_product.cpp
+* ch\_21\_06\_01\_map.cpp
+* ch\_21\_06\_03\_another\_map\_example.cpp
+* ch\_21\_06\_04\_unordered\_map.cpp
+* ch\_21\_07\_01\_copying.cpp
+* ch\_21\_07\_02\_stream\_iterators.cpp
+* ch\_21\_07\_03\_using\_a\_set\_to\_keep\_order.cpp
+* ch\_21\_07\_04\_copy\_if.cpp
+* ch\_21\_08\_sorting\_and\_searching.cpp 
 
 ### Chapter 21 Interfaces
-* **larger_than.hpp**
-* **weighted_value.hpp**
+* larger\_than.hpp
+* weighted\_value.hpp
 
 ### Resource Files
-* **Juliet.txt**
+* Juliet.txt

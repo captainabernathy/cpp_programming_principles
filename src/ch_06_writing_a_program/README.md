@@ -1,10 +1,10 @@
 ## Chapter 6 - Writing a Program
 
 ### Program Files
-* **ch_06_03_01_calc_attempt_01.cpp**
-* **ch_06_03_01_calc_attempt_02.cpp**
-* **ch_06_03_03_token_01.cpp**
-* **ch_06_07_token_stream_01.cpp**
-* **ch_06_08_01_token_stream_test_01.cpp**
-* **ch_06_08_02_token_stream_test_02.cpp**
-* **ch_06_09_token_stream_02.cpp** 
+* ch\_06\_03\_01\_calc\_attempt\_01.cpp
+* ch\_06\_03\_01\_calc\_attempt\_02.cpp
+* ch\_06\_03\_03\_token\_01.cpp
+* ch\_06\_07\_token\_stream\_01.cpp
+* ch\_06\_08\_01\_token\_stream\_test\_01.cpp
+* ch\_06\_08\_02\_token\_stream\_test\_02.cpp
+* ch\_06\_09\_token\_stream\_02.cpp 

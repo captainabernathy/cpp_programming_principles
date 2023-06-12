@@ -1,14 +1,14 @@
 ## Chapter 15 - Graphing Functions and Data
 
 ### Program Files
-* **ch_15_02_01_function_graphing_plain.cpp**
-* **ch_15_02_02_function_graphing_labels.cpp**
-* **ch_15_02_03_function_graphing_notches.cpp**
-* **ch_15_02_04_function_graphing_colors.cpp**
-* **ch_15_03_02_01_function_graphing_more_examples.cpp**
-* **ch_15_03_02_02_function_graphing_log_exp_sin_cos.cpp**
-* **ch_15_05_approximation.cpp**
-* **ch_15_06_graphing_data.cpp** 
+* ch\_15\_02\_01\_function\_graphing\_plain.cpp
+* ch\_15\_02\_02\_function\_graphing\_labels.cpp
+* ch\_15\_02\_03\_function\_graphing\_notches.cpp
+* ch\_15\_02\_04\_function\_graphing\_colors.cpp
+* ch\_15\_03\_02\_01\_function\_graphing\_more\_examples.cpp
+* ch\_15\_03\_02\_02\_function\_graphing\_log\_exp\_sin\_cos.cpp
+* ch\_15\_05\_approximation.cpp
+* ch\_15\_06\_graphing\_data.cpp 
 
 ### Resource Files
-* **japanese-age-data.txt**
+* japanese-age-data.txt

@@ -1,5 +1,5 @@
 ## I/O Utilities - Implementation
 
 ### Implementation Files
-* **read_word.cpp**
-* **str_to_double.cpp**
+* read\_word.cpp
+* str\_to\_double.cpp

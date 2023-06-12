@@ -1,15 +1,15 @@
-## Project Include - Libraries and Utilities
+## Include Directory - Project Library Interfaces
 
 ### Directories
-* **algorithm_utils**
-* **array_utils**
-* **calculator_utils**
-* **chrono_utils**
-* **cpp_facilities**
-* **GUI**
-* **io_utils**
-* **list_utils**
-* **mem_utils**
-* **string_utils**
-* **text_utils**
-* **vector_utils**
+* algorithm\_utils
+* array\_utils
+* calculator\_utils
+* chrono\_utils
+* cpp\_facilities
+* GUI
+* io\_utils
+* list\_utils
+* mem\_utils
+* string\_utils
+* text\_utils
+* vector\_utils

@@ -1,8 +1,8 @@
 ## Text Utilities
 
 ### Interfaces
-* **text_utils.hpp**
-* **text_iterator.hpp**
-* **document.hpp**
-* **document_utils.hpp**
-* **line.hpp**
+* text\_utils.hpp
+* text\_iterator.hpp
+* document.hpp
+* document\_utils.hpp
+* line.hpp

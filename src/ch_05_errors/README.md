@@ -1,11 +1,11 @@
 ## Chapter 5 - Errors
 
 ### Program Files
-* **ch_05_03_03_improper_calls.cpp**
-* **ch_05_05_01_exceptions_01.cpp**
-* **ch_05_05_02_exceptions_02.cpp**
-* **ch_05_06_01_exceptions_03.cpp**
-* **ch_05_06_04_exceptions_04_narrow_cast_template.cpp**
-* **ch_05_07_logic_errors.cpp**
-* **ch_05_09_01_exceptions_05.cpp**
-* **ch_05_11_exceptions_06.cpp** 
+* ch\_05\_03\_03\_improper\_calls.cpp
+* ch\_05\_05\_01\_exceptions\_01.cpp
+* ch\_05\_05\_02\_exceptions\_02.cpp
+* ch\_05\_06\_01\_exceptions\_03.cpp
+* ch\_05\_06\_04\_exceptions\_04\_narrow\_cast\_template.cpp
+* ch\_05\_07\_logic\_errors.cpp
+* ch\_05\_09\_01\_exceptions\_05.cpp
+* ch\_05\_11\_exceptions\_06.cpp 

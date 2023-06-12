@@ -1,24 +1,24 @@
 ## Chapter 11 - Customizing Input and Output
 
 ### Program Files
-* **ch_11_02_01_integer_output.cpp**
-* **ch_11_02_02_integer_input.cpp**
-* **ch_11_02_03_floating_point_output.cpp**
-* **ch_11_02_04_floating_point_precision.cpp**
-* **ch_11_02_05_output_field_width.cpp**
-* **ch_11_02_05_output_field_width.cpp**
-* **ch_11_03_02_binary_files.cpp**
-* **ch_11_03_03_stream_positioning.cpp**
-* **ch_11_04_string_streams.cpp**
-* **ch_11_05_line_oriented_input.cpp**
-* **ch_11_07_using_nonstandard_separators.cpp** 
+* ch\_11\_02\_01\_integer\_output.cpp
+* ch\_11\_02\_02\_integer\_input.cpp
+* ch\_11\_02\_03\_floating\_point\_output.cpp
+* ch\_11\_02\_04\_floating\_point\_precision.cpp
+* ch\_11\_02\_05\_output\_field\_width.cpp
+* ch\_11\_02\_05\_output\_field\_width.cpp
+* ch\_11\_03\_02\_binary\_files.cpp
+* ch\_11\_03\_03\_stream\_positioning.cpp
+* ch\_11\_04\_string\_streams.cpp
+* ch\_11\_05\_line\_oriented\_input.cpp
+* ch\_11\_07\_using\_nonstandard\_separators.cpp 
 
 ### Punctuation Stream Interface
-* **punct_stream.hpp**
+* punct\_stream.hpp
 
 ### Punctuation Stream Implementation Files
-* **punct_stream.cpp**
+* punct\_stream.cpp
 
 ### Resource Files
-* **infile.bin**
-* **positioning.txt**
+* infile.bin
+* positioning.txt

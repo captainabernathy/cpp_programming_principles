@@ -1,20 +1,20 @@
 ## Chapter 20 - Containers and Iterators
 
 ### Program Files
-* **ch_20_01_01_working_with_data.cpp**
-* **ch_20_01_02_generalizing_code_01.cpp**
-* **ch_20_01_02_generalizing_code_02.cpp**
-* **ch_20_03_01_back_to_the_example.cpp**
-* **ch_20_04_02_list_iteration.cpp**
-* **ch_20_06_01_lines.cpp**
-* **ch_20_06_02_text_iteration.cpp**
-* **ch_20_07_01_insert_and_erase.cpp**
-* **ch_20_08_adapting_vector_to_stl.cpp**
-* **ch_20_09_adapting_arrays_to_stl.cpp** 
+* ch\_20\_01\_01\_working\_with\_data.cpp
+* ch\_20\_01\_02\_generalizing\_code\_01.cpp
+* ch\_20\_01\_02\_generalizing\_code\_02.cpp
+* ch\_20\_03\_01\_back\_to\_the\_example.cpp
+* ch\_20\_04\_02\_list\_iteration.cpp
+* ch\_20\_06\_01\_lines.cpp
+* ch\_20\_06\_02\_text\_iteration.cpp
+* ch\_20\_07\_01\_insert\_and\_erase.cpp
+* ch\_20\_08\_adapting\_vector\_to\_stl.cpp
+* ch\_20\_09\_adapting\_arrays\_to\_stl.cpp 
 
 ### Chapter 20 Interfaces
-* **jack_and_jill.hpp**
-* **high.hpp**
+* jack\_and\_jill.hpp
+* high.hpp
 
 ### Chapter 20 Implementation Files
-* **jack_and_jill.cpp**
+* jack\_and\_jill.cpp
