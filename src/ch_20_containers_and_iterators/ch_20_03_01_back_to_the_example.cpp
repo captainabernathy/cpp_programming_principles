@@ -1,41 +1,26 @@
-// program implements a function that fills a dynamically allocated array of
-// doubles and returns a pointer to it, as well as a function that fills a
-// dynamically allocated vector of doubles and returns a pointer to it.
+// program tests the implementation of the function get_from_jack(), which
+// fills a dynamically allocated array of doubles and returns a pointer to it,
+// as well as the function get_from_jill() which fills a dynamically allocated
+// vector of doubles and returns a pointer to it.
 //
-// additionally, program implements a template function that takes
+// program also tests the implementation of a function template that takes
 // pointers (iterators) to the first and last elements of an iterable
 // colletion and returns a pointer (iterator) to the largest element in the
 // collection
+//
+// double *get_from_jack(size_t *count);
+//
+// vector<double> *get_from_jill();
+//
+// template<typename T>
+// T high(T first, T last)
 
-#include <iostream> // for cout
 #include <vector>  // for vector
+#include <iostream> // for cout
+#include "jack_and_jill.hpp" // for get_from_jack(), get_from_jill()
+#include "high.hpp" // for high<>()
 
-// function template that returns an iterator to the element in a collection
-// between first and last... [first, last)... that has the highest value
-template<typename Iterator>
-Iterator high(Iterator first, Iterator last)
-{
-    // assume value of first iteraor is the highest in the range
-    Iterator high = first;
-    for (Iterator p = first; p != last; p++) // iterate over range
-        if (*high < *p) // update high if value at current high is less than
-            high = p;   // value at current iterator
-    return high; // return iterator to highest element in range
-}
-
-// jack fills a dynamically allocated array of doubles and returns it. the
-// number of elements contained in the array will be returned through the
-// pointer it receives
-// NOTE: function returns a dynamically allocated pointer to *count doubles, so
-// remember to delete it when done
-double *get_from_jack(size_t *count);
-
-// jill fills a vector and returns a pointer to it
-// NOTE: function returns a dynamically allocated pointer to a vector of
-// doubles, so remember to delete it when done
-std::vector<double>* get_from_jill();
-
-// tests get_from_jack(), get_from_jill(), and high()
+// tests get_from_jack(), get_from_jill(), and high<>()
 void fct();
 
 int main()
@@ -45,41 +30,7 @@ int main()
     return 0;
 }
 
-double *get_from_jack(size_t *count)
-{
-    if (!count) // return 0 if count is NULL
-        return 0;
-
-    const size_t n = 10;
-    double *arr = new double[n]; // allocate array of 10 doubles
-
-    if (arr) // fill array if allocation was successful
-    {
-        *count = n; // update count
-        for (size_t i = 0; i < n; i++) // fill array
-            arr[i] = i * 1.1;
-    }
-
-    return arr; // return array
-}
-
-std::vector<double> *get_from_jill()
-{
-    const size_t n = 10;
-
-    // allocate pointer to vector of 10 doubles
-    std::vector<double> *arr = new std::vector<double>(n);
-
-    if (arr) // fill vector if allocation was successful
-    {
-        for (size_t i = 0; i < n; i++) // fill vector
-            // (*arr)[i] = i;
-            arr->push_back(i * 1.2);
-    }
-
-    return arr; // return pointer to vector
-}
-
+// tests get_from_jack(), get_from_jill(), and high<>()
 void fct()
 {
     size_t jack_count = 0;

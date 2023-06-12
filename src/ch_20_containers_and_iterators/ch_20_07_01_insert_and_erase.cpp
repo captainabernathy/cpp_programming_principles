@@ -1,9 +1,9 @@
 // program demonstrates the difference between the insert() and erase() methods
 // of a list and a vector
 
+#include <vector>  // for vector
 #include <iostream> // for cout
 #include <list> // for list
-#include <vector>  // for vector
 
 int main()
 {

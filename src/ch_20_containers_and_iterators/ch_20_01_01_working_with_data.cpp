@@ -1,22 +1,15 @@
-// program implements a function that fills a dynamically allocated array of
-// doubles and returns a pointer to it, as well as a function that fills a
-// dynamically allocated vector of doubles and returns a pointer to it.
-// next the program determines the largest element in each
+// program tests the implementation of the function get_from_jack(), which
+// fills a dynamically allocated array of doubles and returns a pointer to it,
+// as well as the function get_from_jill() which fills a dynamically allocated
+// vector of doubles and returns a pointer to it.
+//
+// double *get_from_jack(size_t *count);
+//
+// vector<double> *get_from_jill();
 
-#include <iostream> // for cout
 #include <vector>  // for vector
-
-// jack fills a dynamically allocated array of doubles and returns it. the
-// number of elements contained in the array will be returned through the
-// pointer it receives
-// NOTE: function returns a dynamically allocated pointer to *count doubles, so
-// remember to delete it when done
-double *get_from_jack(size_t *count);
-
-// jill fills a vector and returns a pointer to it
-// NOTE: function returns a dynamically allocated pointer to a vector of
-// doubles, so remember to delete it when done
-std::vector<double> *get_from_jill();
+#include <iostream> // for cout
+#include "jack_and_jill.hpp" // for get_from_jack(), get_from_jill()
 
 // tests get_from_jack() and get_from_jill()
 void fct();
@@ -24,47 +17,11 @@ void fct();
 int main()
 {
     fct();
+
     return 0;
 }
 
-double *get_from_jack(size_t *count)
-{
-    if (!count)  // return 0 if count is NULL
-        return 0;
-
-    const size_t n = 10;
-    double *arr = new double[n];  // allocate array of 10 doubles
-
-    if (arr) // if allocation was successful, fill array
-    {
-        *count = n; // update the count
-
-        for (size_t i = 0; i < n; i++) // fill array
-            arr[i] = i * 1.1;
-    }
-
-    return arr; // return array
-}
-
-std::vector<double> *get_from_jill()
-{
-    const size_t n = 10;
-
-    // allocate pointer to a vector of 10 doubles
-    std::vector<double>* arr = new std::vector<double>(n);
-
-    if (arr)  // fill vector if allocation was successful
-    {
-        for (size_t i = 0; i < n; i++)  // fill vector
-        {
-            // (*arr)[i] = i * 1.2;
-            arr->push_back(i * 1.2);
-        }
-    }
-
-    return arr;  // return pointer to vector
-}
-
+// tests get_from_jack() and get_from_jill()
 void fct()
 {
     size_t jack_count = 0;
