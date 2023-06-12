@@ -205,6 +205,8 @@ int main()
         cerr << "unknown exception\n";
         return 2;
     }
+
+    return 0;
 }
 
 // overloaded input operator for a Distribution
