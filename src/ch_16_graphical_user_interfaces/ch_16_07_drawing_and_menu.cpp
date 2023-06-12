@@ -2,8 +2,8 @@
 // sequence of coordinate pairs and also allows the user to change the color
 // of the line
 //
-// program demonstrates how to use the graphics library to create a Window
-// specific to program features
+// program tests the implementation of the Lines_window class, which uses the
+// graphics library to create a Window type specific to program features
 
 #include <iostream> // for cerr
 #include <exception> // for exception
