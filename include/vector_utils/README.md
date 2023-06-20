@@ -1,7 +1,7 @@
 ## Vector Utilities
 
 ### Interfaces
-* vector.hpp
+* vector\_utils.hpp
 * vector\_class.hpp
 * vector\_copy\_assign.hpp
 * vector\_move\_assign.hpp

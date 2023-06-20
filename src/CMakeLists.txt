@@ -302,7 +302,8 @@ add_library(io_utils
             "io_utils/read_word.cpp")
 target_compile_definitions(io_utils PRIVATE -DERR_OUT)
 
-add_library(string_utils.no_recursion OBJECT
+add_library(string_utils.no_recursion
+            OBJECT
             "string_utils/is_prefix.cpp"
             "string_utils/no_case.cpp"
             "string_utils/is_palindrome.cpp")
@@ -312,6 +313,24 @@ add_library(string_utils
             "string_utils/is_prefix.cpp"
             "string_utils/no_case.cpp"
             "string_utils/is_palindrome.cpp")
+
+add_library(numeric_utils.classical
+            OBJECT
+            "numeric_utils/solve_linear_system.cpp"
+            "numeric_utils/classical_gaussian_elimination.cpp"
+            "numeric_utils/classical_elimination.cpp"
+            "numeric_utils/back_substitution.cpp")
+target_compile_definitions(numeric_utils.classical
+                           PRIVATE
+                           -DCLASSICAL_ELIMINATION
+                           -DERR_OUT)
+
+add_library(numeric_utils
+            "numeric_utils/solve_linear_system.cpp"
+            "numeric_utils/pivotal_elimination.cpp"
+            "numeric_utils/partial_pivot_elimination.cpp"
+            "numeric_utils/back_substitution.cpp")
+target_compile_definitions(numeric_utils PRIVATE -DERR_OUT)
 
 add_subdirectory("ch_02_hello_world")
 add_subdirectory("ch_03_objects_types_values")
@@ -334,3 +353,4 @@ add_subdirectory("ch_19_vector_templates_and_exceptions")
 add_subdirectory("ch_20_containers_and_iterators")
 add_subdirectory("ch_21_algorithms_and_maps")
 add_subdirectory("ch_23_text_manipulation")
+add_subdirectory("ch_24_numerics")

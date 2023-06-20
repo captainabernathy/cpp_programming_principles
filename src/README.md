@@ -22,6 +22,7 @@
 * ch\_20\_containers\_and\_iterators
 * ch\_21\_algorithms\_and\_maps
 * ch\_23\_text\_manipulation
+* ch\_24\_numerics
 
 ### Library Implementation Directories
 * calculator\_utils

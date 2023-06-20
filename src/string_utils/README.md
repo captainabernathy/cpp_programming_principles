@@ -1,4 +1,4 @@
-## String Utilities - Implementation
+## String Utilities Library - Implementation
 
 ### Implementation Files
 * is\_palindrome.cpp

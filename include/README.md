@@ -10,6 +10,7 @@
 * io\_utils
 * list\_utils
 * mem\_utils
+* numeric\_utils
 * string\_utils
 * text\_utils
 * vector\_utils
