@@ -88,7 +88,8 @@ target_compile_definitions(ch_18_03_02_copy_assignments
                            -DNO_MOVE
                            -DNO_ACCESS
                            -DNO_CONST)
-target_link_libraries(ch_18_03_02_copy_assignments vector_dbl.copy_assign)
+target_link_libraries(ch_18_03_02_copy_assignments
+                      PRIVATE vector_dbl.copy_assign)
 
 add_executable(ch_18_03_03_copy_terminology ch_18_03_03_copy_terminology.cpp)
 
@@ -106,6 +107,7 @@ target_compile_definitions(ch_18_05_00_access_to_vector_elements_v1
                            -DREAD_ONLY
                            -DNO_CONST)
 target_link_libraries(ch_18_05_00_access_to_vector_elements_v1
+                      PRIVATE
                       vector_dbl.access_read_only)
 
 add_executable(ch_18_05_00_access_to_vector_elements_v2
@@ -116,6 +118,7 @@ target_compile_definitions(ch_18_05_00_access_to_vector_elements_v2
                            -DREAD_WRITE_PTR
                            -DNO_CONST)
 target_link_libraries(ch_18_05_00_access_to_vector_elements_v2
+                      PRIVATE
                       vector_dbl.access_read_write_ptr)
 
 add_executable(ch_18_05_00_access_to_vector_elements_v3
@@ -125,6 +128,7 @@ target_compile_definitions(ch_18_05_00_access_to_vector_elements_v3
                            -DNO_MOVE
                            -DNO_CONST)
 target_link_libraries(ch_18_05_00_access_to_vector_elements_v3
+                      PRIVATE
                       vector_dbl.access_no_const)
 
 add_executable(ch_18_05_01_overloading_on_const
@@ -132,34 +136,37 @@ add_executable(ch_18_05_01_overloading_on_const
                ch_18_05_01_overloading_on_const.cpp)
 target_compile_definitions(ch_18_05_01_overloading_on_const PRIVATE -DNO_MOVE)
 target_link_libraries(ch_18_05_01_overloading_on_const
+                      PRIVATE
                       vector_dbl.access_read_write)
 
 add_executable(ch_18_05_02_move_semantics ch_18_05_02_move_semantics.cpp)
 target_compile_definitions(ch_18_05_02_move_semantics PRIVATE -DPRINT_DEBUG)
-target_link_libraries(ch_18_05_02_move_semantics vector_dbl.copy_move)
+target_link_libraries(ch_18_05_02_move_semantics PRIVATE vector_dbl.copy_move)
 
 add_executable(ch_18_06_03_array_initialization
                ch_18_06_03_array_initialization.cpp)
 
 add_executable(ch_18_07_01_palindromes_using_string
                ch_18_07_01_palindromes_using_string.cpp)
-target_link_libraries(ch_18_07_01_palindromes_using_string
-                      string_utils)
+target_link_libraries(ch_18_07_01_palindromes_using_string PRIVATE string_utils)
 
 add_executable(ch_18_07_02_palindromes_using_arrays
                ch_18_07_02_palindromes_using_arrays.cpp)
 target_link_libraries(ch_18_07_02_palindromes_using_arrays
+                      PRIVATE
                       string_utils
                       io_utils)
 
 add_executable(ch_18_07_03_palindromes_using_pointers
                ch_18_07_03_palindromes_using_pointers.cpp)
 target_link_libraries(ch_18_07_03_palindromes_using_pointers
+                      PRIVATE
                       string_utils.no_recursion
                       io_utils)
 
 add_executable(ch_18_07_04_palindromes_using_pointers_recursive
                ch_18_07_04_palindromes_using_pointers_recursive.cpp)
 target_link_libraries(ch_18_07_04_palindromes_using_pointers_recursive
+                      PRIVATE
                       string_utils
                       io_utils)

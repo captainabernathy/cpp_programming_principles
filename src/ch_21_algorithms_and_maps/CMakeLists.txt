@@ -37,7 +37,7 @@ add_executable(ch_21_07_04_copy_if ch_21_07_04_copy_if.cpp)
 
 add_executable(ch_21_08_sorting_and_searching
                ch_21_08_sorting_and_searching.cpp)
-target_link_libraries(ch_21_08_sorting_and_searching string_utils)
+target_link_libraries(ch_21_08_sorting_and_searching PRIVATE string_utils)
 
 add_custom_command(
     TARGET ch_21_07_02_stream_iterators POST_BUILD

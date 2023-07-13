@@ -22,15 +22,15 @@ add_executable(ch_10_07_00_read_int_02 ch_10_07_00_read_int_02.cpp)
 
 add_executable(ch_10_07_01_read_int_03 ch_10_07_01_read_int_03.cpp)
 target_compile_definitions(ch_10_07_01_read_int_03 PRIVATE -DERR_OUT)
-target_link_libraries(ch_10_07_01_read_int_03 ch_10_utils)
+target_link_libraries(ch_10_07_01_read_int_03 PRIVATE ch_10_utils)
 
 add_executable(ch_10_07_01_read_int_04 ch_10_07_01_read_int_04.cpp)
 target_compile_definitions(ch_10_07_01_read_int_04 PRIVATE -DERR_OUT)
-target_link_libraries(ch_10_07_01_read_int_04 ch_10_utils)
+target_link_libraries(ch_10_07_01_read_int_04 PRIVATE ch_10_utils)
 
 add_executable(ch_10_07_02_read_int_05 ch_10_07_02_read_int_05.cpp)
 target_compile_definitions(ch_10_07_02_read_int_05 PRIVATE -DERR_OUT)
-target_link_libraries(ch_10_07_02_read_int_05 ch_10_utils)
+target_link_libraries(ch_10_07_02_read_int_05 PRIVATE ch_10_utils)
 
 add_executable(ch_10_08_Date_01 ch_10_08_Date_01.cpp)
 target_compile_definitions(ch_10_08_Date_01
@@ -46,7 +46,7 @@ target_compile_definitions(ch_10_08_Date_01
                            -DNO_DATE_INPUT_OP
                            -DNO_DAY
                            -DNO_DAY_UTILS)
-target_link_libraries(ch_10_08_Date_01 date_output_only)
+target_link_libraries(ch_10_08_Date_01 PRIVATE date_output_only)
 
 add_executable(ch_10_09_Date_02 ch_10_09_Date_02.cpp)
 target_compile_definitions(ch_10_09_Date_02
@@ -61,7 +61,7 @@ target_compile_definitions(ch_10_09_Date_02
                            -DNO_DATE_INEQ_OP
                            -DNO_DAY
                            -DNO_DAY_UTILS)
-target_link_libraries(ch_10_09_Date_02 date_input_and_output)
+target_link_libraries(ch_10_09_Date_02 PRIVATE date_input_and_output)
 
 add_custom_command(
     TARGET ch_10_04_input POST_BUILD

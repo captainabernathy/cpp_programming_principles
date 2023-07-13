@@ -22,7 +22,9 @@ target_compile_definitions(ch_09_04_03_keep_details_private
                            -DNO_DATE_INPUT_OP
                            -DNO_DAY
                            -DNO_DAY_UTILS)
-target_link_libraries(ch_09_04_03_keep_details_private date_constructor_only)
+target_link_libraries(ch_09_04_03_keep_details_private
+                      PRIVATE
+                      date_constructor_only)
 
 add_executable(ch_09_04_06_reporting_errors ch_09_04_06_reporting_errors.cpp)
 target_compile_definitions(ch_09_04_06_reporting_errors
@@ -42,15 +44,15 @@ target_compile_definitions(ch_09_04_06_reporting_errors
                            -DNO_DAY
                            -DNO_DAY_UTILS
                            -DERR_OUT)
-target_link_libraries(ch_09_04_06_reporting_errors date_has_check)
+target_link_libraries(ch_09_04_06_reporting_errors PRIVATE date_has_check)
 
 add_executable(ch_09_05_enumerations ch_09_05_enumerations.cpp)
 target_compile_definitions(ch_09_05_enumerations PRIVATE -DERR_OUT)
-target_link_libraries(ch_09_05_enumerations month_utils)
+target_link_libraries(ch_09_05_enumerations PRIVATE month_utils)
 
 add_executable(ch_09_06_operator_overloading ch_09_06_operator_overloading.cpp)
 target_compile_definitions(ch_09_06_operator_overloading PRIVATE -DERR_OUT)
-target_link_libraries(ch_09_06_operator_overloading month_utils)
+target_link_libraries(ch_09_06_operator_overloading PRIVATE month_utils)
 
 add_executable(ch_09_07_01_argument_types ch_09_07_01_argument_types.cpp)
 target_compile_definitions(ch_09_07_01_argument_types
@@ -73,7 +75,7 @@ target_compile_definitions(ch_09_07_01_argument_types
                            -DNO_DATE_OUTPUT_OP
                            -DNO_DAY
                            -DNO_DAY_UTILS)
-target_link_libraries(ch_09_07_01_argument_types date_has_year)
+target_link_libraries(ch_09_07_01_argument_types PRIVATE date_has_year)
 
 add_executable(ch_09_07_02_copying ch_09_07_02_copying.cpp)
 target_compile_definitions(ch_09_07_02_copying
@@ -95,7 +97,7 @@ target_compile_definitions(ch_09_07_02_copying
                            -DNO_DATE_OUTPUT_OP
                            -DNO_DAY
                            -DNO_DAY_UTILS)
-target_link_libraries(ch_09_07_02_copying date_has_friend)
+target_link_libraries(ch_09_07_02_copying PRIVATE date_has_friend)
 
 add_executable(ch_09_07_03_default_constructors
                ch_09_07_03_default_constructors.cpp)
@@ -112,7 +114,7 @@ target_compile_definitions(ch_09_07_03_default_constructors
                            -DNO_DATE_OUTPUT_OP
                            -DNO_DAY
                            -DNO_DAY_UTILS)
-target_link_libraries(ch_09_07_03_default_constructors date_has_default)
+target_link_libraries(ch_09_07_03_default_constructors PRIVATE date_has_default)
 
 add_executable(ch_09_07_04_const_member_functions
                ch_09_07_04_const_member_functions.cpp)
@@ -131,7 +133,9 @@ target_compile_definitions(ch_09_07_04_const_member_functions
                            -DNO_DATE_OUTPUT_OP
                            -DNO_DAY
                            -DNO_DAY_UTILS)
-target_link_libraries(ch_09_07_04_const_member_functions date_has_accessors)
+target_link_libraries(ch_09_07_04_const_member_functions
+                      PRIVATE
+                      date_has_accessors)
 
 add_executable(ch_09_07_05_members_and_helper_functions
                ch_09_07_05_members_and_helper_functions.cpp)
@@ -148,7 +152,8 @@ target_compile_definitions(ch_09_07_05_members_and_helper_functions
                            -DNO_DAY
                            -DNO_DAY_OF_WEEK_FN)
 target_link_libraries(ch_09_07_05_members_and_helper_functions
+                      PRIVATE
                       date_has_helpers)
 
 add_executable(ch_09_08_date_class ch_09_08_date_class.cpp)
-target_link_libraries(ch_09_08_date_class date_chrono)
+target_link_libraries(ch_09_08_date_class PRIVATE date_chrono)

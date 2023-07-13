@@ -12,6 +12,7 @@ target_compile_definitions(ch_06_07_token_stream_01
                            -DCALC_TEST
                            -DNO_DECL)
 target_link_libraries(ch_06_07_token_stream_01
+                      PRIVATE
                       token_stream.no_mod
                       calculator.no_unary)
 
@@ -22,6 +23,7 @@ target_compile_definitions(ch_06_08_01_token_stream_test_01
                            -DNO_DECL
                            -DTOKEN_STREAM_TEST)
 target_link_libraries(ch_06_08_01_token_stream_test_01
+                      PRIVATE
                       token_stream.no_mod)
 
 add_executable(ch_06_08_02_token_stream_test_02
@@ -32,6 +34,7 @@ target_compile_definitions(ch_06_08_02_token_stream_test_02
                            -DNO_DECL
                            -DTOKEN_STREAM_TEST)
 target_link_libraries(ch_06_08_02_token_stream_test_02
+                      PRIVATE
                       token_stream.no_mod)
 
 add_executable(ch_06_09_token_stream_02 ch_06_09_token_stream_02.cpp)
@@ -40,5 +43,6 @@ target_compile_definitions(ch_06_09_token_stream_02
                            -DCALC_TEST
                            -DNO_DECL)
 target_link_libraries(ch_06_09_token_stream_02
+                      PRIVATE
                       token_stream.no_mod
                       calculator.no_unary)

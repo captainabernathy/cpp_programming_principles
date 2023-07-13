@@ -5,6 +5,7 @@ add_executable(ch_23_02_strings ch_23_02_strings.cpp)
 
 add_executable(ch_23_04_01_maps_and_messages ch_23_04_01_maps_and_messages.cpp)
 target_link_libraries(ch_23_04_01_maps_and_messages
+                      PRIVATE
                       string_utils
                       mail_file
                       message_utils)

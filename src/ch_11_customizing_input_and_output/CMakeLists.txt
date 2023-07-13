@@ -24,13 +24,15 @@ target_compile_definitions(ch_11_03_03_stream_positioning PRIVATE -DERR_OUT)
 
 add_executable(ch_11_04_string_streams ch_11_04_string_streams.cpp)
 target_compile_definitions(ch_11_04_string_streams PRIVATE -DERR_OUT)
-target_link_libraries(ch_11_04_string_streams io_utils)
+target_link_libraries(ch_11_04_string_streams PRIVATE io_utils)
 
 add_executable(ch_11_05_line_oriented_input ch_11_05_line_oriented_input.cpp)
 
 add_executable(ch_11_07_using_nonstandard_separators
                ch_11_07_using_nonstandard_separators.cpp)
-target_link_libraries(ch_11_07_using_nonstandard_separators punct_stream)
+target_link_libraries(ch_11_07_using_nonstandard_separators
+                      PRIVATE
+                      punct_stream)
 
 add_custom_command(
     TARGET ch_11_03_02_binary_files POST_BUILD

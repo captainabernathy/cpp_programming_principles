@@ -46,7 +46,10 @@ add_executable(ch_17_09_01_pointer_and_reference_parameters
 
 add_executable(ch_17_09_05_list_use ch_17_09_05_list_use.cpp)
 target_compile_definitions(link_str PRIVATE -DLINK_STR)
-target_link_libraries(ch_17_09_05_list_use link_str link_str_utils)
+target_link_libraries(ch_17_09_05_list_use
+                      PRIVATE
+                      link_str
+                      link_str_utils)
 
 add_executable(ch_17_10_01_the_this_pointer ch_17_10_01_the_this_pointer.cpp)
 target_compile_definitions(link_str_class
@@ -54,5 +57,6 @@ target_compile_definitions(link_str_class
                            -DLINK_STR
                            -DLINK_STR_CLASS)
 target_link_libraries(ch_17_10_01_the_this_pointer
+                      PRIVATE
                       link_str_class
                       link_str_utils)

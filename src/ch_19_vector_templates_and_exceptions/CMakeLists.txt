@@ -36,22 +36,26 @@ target_compile_definitions(ch_19_02_02_reserve_and_capacity
                            PRIVATE
                            -DNO_RESIZE
                            -DNO_PUSH_BACK)
-target_link_libraries(ch_19_02_02_reserve_and_capacity vector_dbl.reserve)
+target_link_libraries(ch_19_02_02_reserve_and_capacity
+                      PRIVATE
+                      vector_dbl.reserve)
 
 add_executable(ch_19_02_03_resize ch_19_02_03_resize.cpp)
 target_compile_definitions(ch_19_02_03_resize PRIVATE -DNO_PUSH_BACK)
-target_link_libraries(ch_19_02_03_resize vector_dbl.resize)
+target_link_libraries(ch_19_02_03_resize PRIVATE vector_dbl.resize)
 
 add_executable(ch_19_02_04_push_back ch_19_02_04_push_back.cpp)
-target_link_libraries(ch_19_02_04_push_back vector_dbl)
+target_link_libraries(ch_19_02_04_push_back PRIVATE vector_dbl)
 
 add_executable(ch_19_02_05_assignment ch_19_02_05_assignment.cpp)
 target_link_libraries(ch_19_02_05_assignment
+                      PRIVATE
                       vector_dbl
                       vector_dbl_utils)
 
 add_executable(ch_19_02_06_vector_so_far ch_19_02_06_vector_so_far.cpp)
 target_link_libraries(ch_19_02_06_vector_so_far
+                      PRIVATE
                       vector_dbl
                       vector_dbl_utils)
 

@@ -29,11 +29,12 @@ target_compile_definitions(ch_24_06_01_classical_gaussian_elimination
                            -DCLASSICAL_ELIMINATION
                            -DERR_OUT)
 target_link_libraries(ch_24_06_01_classical_gaussian_elimination
+                      PRIVATE
                       numeric_utils.classical)
 
 add_executable(ch_24_06_02_pivoting ch_24_06_02_pivoting.cpp)
 target_compile_definitions(ch_24_06_02_pivoting PRIVATE -DERR_OUT)
-target_link_libraries(ch_24_06_02_pivoting numeric_utils)
+target_link_libraries(ch_24_06_02_pivoting PRIVATE numeric_utils)
 
 add_executable(ch_24_06_03_testing ch_24_06_03_testing.cpp)
 target_compile_definitions(ch_24_06_03_testing
@@ -41,6 +42,7 @@ target_compile_definitions(ch_24_06_03_testing
                            -DCLASSICAL_ELIMINATION
                            -DERR_OUT)
 target_link_libraries(ch_24_06_03_testing
+                      PRIVATE
                       numeric_utils.classical
                       ch_24_utils)
 

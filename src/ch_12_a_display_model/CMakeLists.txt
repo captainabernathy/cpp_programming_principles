@@ -1,59 +1,128 @@
 add_executable(ch_12_03_first_example ch_12_03_first_example.cpp)
-target_link_libraries(ch_12_03_first_example bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_03_first_example
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_02_an_almost_blank_window
                ch_12_07_02_an_almost_blank_window.cpp)
 target_link_libraries(ch_12_07_02_an_almost_blank_window
-                      bookgui fltk fltk_images X11)
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_03_01_axis_simple ch_12_07_03_01_axis_simple.cpp)
-target_link_libraries(ch_12_07_03_01_axis_simple bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_03_01_axis_simple
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_03_02_axis_properties
                ch_12_07_03_02_axis_properties.cpp)
 target_link_libraries(ch_12_07_03_02_axis_properties
-                      bookgui fltk fltk_images X11)
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_04_graphing_a_function
                ch_12_07_04_graphing_a_function.cpp)
 target_link_libraries(ch_12_07_04_graphing_a_function
-                      bookgui fltk fltk_images X11)
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_05_polygons ch_12_07_05_polygons.cpp)
-target_link_libraries(ch_12_07_05_polygons bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_05_polygons
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_06_00_rectangles ch_12_07_06_00_rectangles.cpp)
-target_link_libraries(ch_12_07_06_00_rectangles bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_06_00_rectangles
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_06_01_poly_rect ch_12_07_06_01_poly_rect.cpp)
-target_link_libraries(ch_12_07_06_01_poly_rect bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_06_01_poly_rect
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_06_02_more_polyshapes
                ch_12_07_06_02_more_polyshapes.cpp)
 target_link_libraries(ch_12_07_06_02_more_polyshapes
-                      bookgui fltk fltk_images X11)
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_07_fill ch_12_07_07_fill.cpp)
-target_link_libraries(ch_12_07_07_fill bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_07_fill
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_08_01_text ch_12_07_08_01_text.cpp)
-target_link_libraries(ch_12_07_08_01_text bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_08_01_text
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_08_02_text_properties
                ch_12_07_08_02_text_properties.cpp)
 target_link_libraries(ch_12_07_08_02_text_properties
-                      bookgui fltk fltk_images X11)
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_09_01_images ch_12_07_09_01_images.cpp)
-target_link_libraries(ch_12_07_09_01_images bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_09_01_images
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_09_02_image_properties
                ch_12_07_09_02_image_properties.cpp)
 target_link_libraries(ch_12_07_09_02_image_properties
-                      bookgui fltk fltk_images X11)
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_executable(ch_12_07_10_more_features ch_12_07_10_more_features.cpp)
-target_link_libraries(ch_12_07_10_more_features bookgui fltk fltk_images X11)
+target_link_libraries(ch_12_07_10_more_features
+                      PRIVATE
+                      bookgui
+                      fltk
+                      fltk_images
+                      X11)
 
 add_custom_command(
     TARGET ch_12_07_09_01_images POST_BUILD
