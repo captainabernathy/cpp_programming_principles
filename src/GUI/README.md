@@ -1,4 +1,5 @@
-## Graphics Library - Implementation
+## Graphics Library
+### Implementation Directory
 
 ### Implementation Files
 * Graphics.cpp

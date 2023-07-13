@@ -1,4 +1,5 @@
-## Text Utilities - Implementation
+## Text Utilities
+### Implementation Directory
 
 ### Implementation Files
 * text\_utils.cpp

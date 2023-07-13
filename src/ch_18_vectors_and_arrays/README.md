@@ -1,4 +1,5 @@
 ## Chapter 18 - Vectors and Arrays
+### Source Code and Utilities Directory
 
 ### Program Files
 * ch\_18\_02\_00\_initialization.cpp
@@ -31,6 +32,25 @@
 
 ### Vector Utilities Implementation Files
 * vector\_dbl\_utils.cpp
+
+### Programs Generated
+* ch\_18\_02\_00\_initialization
+* ch\_18\_02\_01\_initializer\_list
+* ch\_18\_03\_01\_copy\_constructors
+* ch\_18\_03\_02\_copy\_assignments
+* ch\_18\_03\_03\_copy\_terminology
+* ch\_18\_04\_00\_essential\_operations
+* ch\_18\_04\_02\_debugging\_constructors\_and\_destructors
+* ch\_18\_05\_00\_access\_to\_vector\_elements\_v1
+* ch\_18\_05\_00\_access\_to\_vector\_elements\_v2
+* ch\_18\_05\_00\_access\_to\_vector\_elements\_v3
+* ch\_18\_05\_01\_overloading\_on\_const
+* ch\_18\_05\_02\_move\_semantics
+* ch\_18\_06\_03\_array\_initialization
+* ch\_18\_07\_01\_palindromes\_using\_string
+* ch\_18\_07\_02\_palindromes\_using\_arrays
+* ch\_18\_07\_03\_palindromes\_using\_pointers
+* ch\_18\_07\_04\_palindromes\_using\_pointers\_recursive
 
 NOTE: Throughout the interfaces and implementations of the Vector files
 listed above, I use conditional preprocessing directives to support building

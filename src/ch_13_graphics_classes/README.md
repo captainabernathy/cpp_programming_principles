@@ -1,4 +1,5 @@
 ## Chapter 13 - Graphics Classes
+### Source Code Directory
 
 ### Program Files
 * ch\_13\_02\_point\_and\_line.cpp
@@ -29,3 +30,29 @@
 ### Resource Files
 * rita.jpg
 * rita\_path.gif
+
+### Program Files
+* ch\_13\_02\_point\_and\_line
+* ch\_13\_03\_01\_lines\_object
+* ch\_13\_03\_02\_grid
+* ch\_13\_04\_color
+* ch\_13\_05\_01\_line\_style\_dot\_grid
+* ch\_13\_05\_02\_line\_style\_dash\_weighted
+* ch\_13\_05\_03\_two\_lines\_colored
+* ch\_13\_06\_open\_polyline
+* ch\_13\_07\_closed\_polyline
+* ch\_13\_08\_01\_improper\_polygon
+* ch\_13\_08\_02\_polygon
+* ch\_13\_09\_01\_rectangles\_01
+* ch\_13\_09\_02\_rectangles\_02
+* ch\_13\_09\_03\_rectangles\_03
+* ch\_13\_09\_04\_rectangles\_04
+* ch\_13\_10\_01\_unnamed\_objects\_01
+* ch\_13\_10\_02\_color\_palette
+* ch\_13\_11\_text
+* ch\_13\_12\_circle
+* ch\_13\_13\_ellipse
+* ch\_13\_14\_marked\_polyline
+* ch\_13\_15\_marks
+* ch\_13\_16\_mark
+* ch\_13\_17\_images

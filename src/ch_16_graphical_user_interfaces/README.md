@@ -1,4 +1,5 @@
 ## Chapter 16 - Graphical User Interfaces
+### Source Code and Utilities Directory
 
 ### Program Files
 * ch\_16\_05\_drawing\_example.cpp
@@ -9,6 +10,10 @@
 
 ### Lines Window Implementation Files
 * lines\_window.cpp 
+
+### Programs Generated
+* ch\_16\_05\_drawing\_example
+* ch\_16\_07\_drawing\_and\_menu
 
 NOTE: Throughout the interface and implementation of the Lines\_window class,
 I use conditional preprocessing directives to support building working examples

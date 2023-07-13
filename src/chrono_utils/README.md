@@ -1,4 +1,5 @@
-## Date Utilities - Implementation
+## Date Utilities
+### Implementation Directory
 
 ### Implementation Files
 * date\_impl.cpp

@@ -1,4 +1,5 @@
-## Calculator Library - Implementation
+## Calculator Library
+### Implementation Directory
 
 ### Implementation Files
 * calculator.cpp

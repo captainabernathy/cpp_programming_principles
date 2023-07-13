@@ -1,4 +1,5 @@
 ## Chapter 20 - Containers and Iterators
+### Source Code and Utilities Directory
 
 ### Program Files
 * ch\_20\_01\_01\_working\_with\_data.cpp
@@ -18,3 +19,15 @@
 
 ### Chapter 20 Implementation Files
 * jack\_and\_jill.cpp
+
+### Programs Generated
+* ch\_20\_01\_01\_working\_with\_data
+* ch\_20\_01\_02\_generalizing\_code\_01
+* ch\_20\_01\_02\_generalizing\_code\_02
+* ch\_20\_03\_01\_back\_to\_the\_example
+* ch\_20\_04\_02\_list\_iteration
+* ch\_20\_06\_01\_lines
+* ch\_20\_06\_02\_text\_iteration
+* ch\_20\_07\_01\_insert\_and\_erase
+* ch\_20\_08\_adapting\_vector\_to\_stl
+* ch\_20\_09\_adapting\_arrays\_to\_stl

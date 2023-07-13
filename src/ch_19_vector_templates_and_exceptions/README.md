@@ -1,4 +1,5 @@
 ## Chapter 19 - Vector, Templates, and Exception
+### Source Code and Utilities Directory
 
 ### Program Files
 * ch\_19\_01\_the\_problems.cpp
@@ -33,6 +34,21 @@
 
 ### Collection Utilities Interface
 * collection\_utils.hpp
+
+### Programs Generated
+* ch\_19\_01\_the\_problems
+* ch\_19\_02\_00\_changing\_size
+* ch\_19\_02\_01\_representation
+* ch\_19\_02\_02\_reserve\_and\_capacity
+* ch\_19\_02\_03\_resize
+* ch\_19\_02\_04\_push\_back
+* ch\_19\_02\_05\_assignment
+* ch\_19\_02\_06\_vector\_so\_far
+* ch\_19\_03\_01\_types\_as\_template\_parameters
+* ch\_19\_03\_05\_template\_parameters
+* ch\_19\_03\_06\_template\_argument\_deduction
+* ch\_19\_03\_07\_generalizing\_vector
+* ch\_19\_04\_02\_range\_checking\_and\_exceptions
 
 NOTE: Throughout the interfaces and implementations of the Vector files
 listed above, I use conditional preprocessing directives to support building

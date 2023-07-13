@@ -1,4 +1,5 @@
-## Numeric Utilities Library - Implementation
+## Numeric Utilities Library
+### Implementation Directory
 
 ### Implementation Files
 * solve\_linear\_system.cpp

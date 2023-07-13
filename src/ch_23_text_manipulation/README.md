@@ -1,4 +1,5 @@
 ## Chapter 23 - Text Manipulation
+### Source Code and Utilities Directory
 
 ### Program Files
 * ch\_23\_02\_strings.cpp
@@ -27,3 +28,10 @@
 * example-mail-file.txt
 * file.txt
 * table.txt
+
+### Programs Generated
+* ch\_23\_02\_strings
+* ch\_23\_04\_01\_maps\_and\_messages
+* ch\_23\_05\_a\_problem
+* ch\_23\_07\_searching\_with\_regular\_expressions
+* ch\_23\_09\_matching\_with\_regular\_expressions
