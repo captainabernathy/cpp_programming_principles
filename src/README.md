@@ -1,4 +1,5 @@
-## Source Directory - Project Sources
+## Source Directory
+### Project Source Code Directory
 
 ### Chapter Directories
 * ch\_02\_hello\_world
@@ -23,11 +24,14 @@
 * ch\_21\_algorithms\_and\_maps
 * ch\_23\_text\_manipulation
 * ch\_24\_numerics
+* ch\_25\_embedded\_systems\_programming
 
 ### Library Implementation Directories
 * calculator\_utils
 * chrono\_utils
+* encryption\_utils
 * GUI
 * io\_utils
+* numeric\_utils
 * string\_utils
 * text\_utils

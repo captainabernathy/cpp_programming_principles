@@ -1,4 +1,5 @@
-## Graphics Library - Interfaces to libbookgui.a
+## Graphics Library
+### Interface Directory
 
 ### Interfaces
 * Point.hpp

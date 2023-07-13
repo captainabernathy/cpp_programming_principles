@@ -3,6 +3,3 @@
 
 ### Program Files
 * ch\_14\_03\_03\_overriding.cpp 
-
-### Programs Generated
-* ch\_14\_03\_03\_overriding

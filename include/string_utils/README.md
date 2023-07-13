@@ -1,4 +1,5 @@
-## String Utilities - Interfaces to libstringutils.a
+## String Utilities
+### Interface Directory
 
 ### Interfaces
 * string\_utils.hpp

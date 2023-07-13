@@ -30,19 +30,6 @@
 ### Linked List Utilities Implementation Files
 * link\_str\_utils.cpp
 
-### Programs Generated
-* ch\_17\_03\_00\_memory\_addresses\_pointers
-* ch\_17\_03\_01\_sizeof\_operator
-* ch\_17\_04\_01\_free\_store\_allocation
-* ch\_17\_04\_02\_access\_through\_pointers
-* ch\_17\_04\_04\_initialization
-* ch\_17\_04\_06\_free\_store\_deallocation
-* ch\_17\_06\_access\_to\_elements
-* ch\_17\_09\_00\_pointers\_and\_references
-* ch\_17\_09\_01\_pointer\_and\_reference\_parameters
-* ch\_17\_09\_05\_list\_use
-* ch\_17\_10\_01\_the\_this\_pointer
-
 NOTE: Throughout the interfaces and implementations of the Linked List files
 listed above, I use conditional preprocessing directives to support building
 working examples of each version of the applications that use them as they are

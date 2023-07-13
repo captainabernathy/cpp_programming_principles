@@ -22,15 +22,3 @@
 ### Resource Files
 * infile.txt
 * temps\_infile.txt
-
-### Programs Generated
-* ch\_10\_04\_input
-* ch\_10\_04\_output
-* ch\_10\_05\_temperatures\_01
-* ch\_10\_06\_read\_int\_01
-* ch\_10\_07\_00\_read\_int\_02
-* ch\_10\_07\_01\_read\_int\_03
-* ch\_10\_07\_01\_read\_int\_04
-* ch\_10\_07\_02\_read\_int\_05
-* ch\_10\_08\_Date\_01
-* ch\_10\_09\_Date\_02

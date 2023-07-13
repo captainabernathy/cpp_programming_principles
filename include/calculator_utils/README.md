@@ -1,4 +1,5 @@
-## Calculator Library - Interfaces to libcalculator.a
+## Calculator Utilities
+### Interface Directory
 
 ### Interfaces
 * calculator\_utils.hpp

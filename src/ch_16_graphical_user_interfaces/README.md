@@ -11,10 +11,6 @@
 ### Lines Window Implementation Files
 * lines\_window.cpp 
 
-### Programs Generated
-* ch\_16\_05\_drawing\_example
-* ch\_16\_07\_drawing\_and\_menu
-
 NOTE: Throughout the interface and implementation of the Lines\_window class,
 I use conditional preprocessing directives to support building working examples
 of each version of the applications that use them as they are presented in the

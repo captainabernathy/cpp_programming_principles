@@ -1,4 +1,5 @@
-## Numeric Utilities - Interfaces to libnumeric_utils.a
+## Numeric Utilities
+### Interface Directory
 
 ### Interfaces
 * numeric\_utils.hpp
