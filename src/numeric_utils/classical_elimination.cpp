@@ -1,6 +1,6 @@
 #include <numeric_utils/linear_equations.hpp>
 #include <numeric_utils/linear_equations_errors.hpp> // for Elim_failure
-#include <io_utils/io_conversion.hpp> // for to_string()
+#include <io_utils/to_string.hpp> // for to_string()
 #include <numeric_utils/matrix_scale_and_add.hpp> // for scale_and_add<>()
 
 // performs the elimination step when computing the solution to Ax=b (for x)

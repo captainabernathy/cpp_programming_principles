@@ -9,13 +9,17 @@
 // provides:
 // template<typename T>
 // string to_string(T t)
-//
+#include <io_utils/to_string.hpp>
+
+// provides:
 // template<typename T>
 // T from_string(string s)
-//
+#include <io_utils/from_string.hpp>
+
+// provides
 // template<typename Dest, typename Src>
 // Dest lexical_cast(Src source)
-#include <io_utils/io_conversion.hpp>
+#include <io_utils/lexical_cast.hpp>
 
 // provides:
 // istream& read_word(istream& is, char * buffer, int max)

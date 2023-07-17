@@ -2,7 +2,7 @@
 #include <numeric_utils/linear_equations_types.hpp> // for Matrix, Vector
 #include <numeric_utils/matrix_dot_product.hpp> // for dot_product<>()
 #include <numeric_utils/linear_equations_errors.hpp> // for Back_subst_failure
-#include <io_utils/io_conversion.hpp> // for to_string()
+#include <io_utils/to_string.hpp> // for to_string()
 
 #ifndef CLASSICAL_ELIMINATION
 #include <cpp_facilities/std_lib_facilities.hpp> // for error()
