@@ -332,6 +332,10 @@ add_library(numeric_utils
             "numeric_utils/back_substitution.cpp")
 target_compile_definitions(numeric_utils PRIVATE -DERR_OUT)
 
+add_library(encryption_utils
+            "encryption_utils/tea_encrypt.cpp"
+            "encryption_utils/tea_decrypt.cpp")
+
 add_subdirectory("ch_02_hello_world")
 add_subdirectory("ch_03_objects_types_values")
 add_subdirectory("ch_04_computation")
@@ -354,3 +358,4 @@ add_subdirectory("ch_20_containers_and_iterators")
 add_subdirectory("ch_21_algorithms_and_maps")
 add_subdirectory("ch_23_text_manipulation")
 add_subdirectory("ch_24_numerics")
+add_subdirectory("ch_25_embedded_systems_programming")
