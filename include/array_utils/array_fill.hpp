@@ -1,7 +1,7 @@
 #ifndef ARRAY_FILL_HPP
 #define ARRAY_FILL_HPP
 
-#include <array_utils/array.hpp> // for array
+#include <array_utils/array.hpp> // for array<>
 #include <cstddef> // for size_t
 
 // template for a function that fills an N element array of type T (array<T,N>)
