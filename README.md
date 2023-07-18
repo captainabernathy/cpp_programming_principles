@@ -2,19 +2,10 @@ This repository contains the programming examples I made when working through
 the book ***Programming: Principles and Practice Using C++, 2nd Edition*** by
 Bjarne Stroustrup.
 
-It exists as part of my own, personal code preservation project and to serve
-as a general programming reference.
+This project is meant to serve as a general programming reference to anyone
+learning C++, teaching C++, and/or also working through the textbook.
 
-The extent to which the examples here differ from those in the book vary 
-throughout the project.
-
-In addition to refactoring many examples, I have reorganized the project's
-structure in its entirety and reimplemented its build system completely. I have
-also added various libraries, utilities, and interfaces to this project that
-are not present in the version provided by the book.
-
-Those seeking the original project and code examples as provided by the book,
-should visit:
+For more information about the textbook, visit:
 <https://www.stroustrup.com/>
 
 ### Build Instructions

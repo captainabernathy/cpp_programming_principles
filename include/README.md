@@ -2,8 +2,8 @@
 
 ### Directories
 * algorithm\_utils
-* array\_utils
 * array\_ref\_utils
+* array\_utils
 * calculator\_utils
 * chrono\_utils
 * cpp\_facilities
